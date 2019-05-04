@@ -43,22 +43,31 @@ team_info[['team_id','faab']] = team_info[['team_id','faab']].apply(pd.to_numeri
 #print(rosters.head())
 #print(team_info.head())
 
-######################################
+########################################
 
-### create Team Rosters by team_id ###
+### Confirm League Settings Function ###
 
-######################################
+########################################
 
-# This might need to be moved to after all calculations are copmleted or put into another file
-team_5_faab = team_info.loc[5,'faab']
+# This function will be used to confirm all settings
+# For the draft. This will be done at the execution of
+# Draft Prep Function to confirm settings.
 
+# should make one question to confirm all attributes
+# Question not working??
+def settings_confirm():
+    while True:
+        qr = input('Is the Draft Budget $300')
+        if qr == '' or not qr[0].lower() in ['y','n']:print('Please answer with yes or no!')
+        else:break
+    if qr[0].lower() == 'y': # go to next question
+        return
+    if qr[0].lower() == 'n':
+        print ("update draft_budget value")
+        return
 
-# merge dataframes
-full_roster = pd.merge(rosters, team_info, on='team_id')
-
-
-# at the end export each team to own file in teams Folder
-# create roster file by combining all team files
+# test function
+# settings_confirm()
 
 
 #################################
@@ -75,6 +84,18 @@ full_roster = pd.merge(rosters, team_info, on='team_id')
 # then apply same info to the keeper salary function
 # do this with out being applied to csv file until after it is committed??
 # add keeper selection ability - marked column
+
+
+################################
+
+#### FAAB Reduction Function ###
+
+################################
+
+
+# Function has not been updated
+# working on finalizing Add keeper costs function
+# same mechanics can be used on this function
 
 def Faab_Reduction():
     global faab
@@ -106,6 +127,14 @@ def Faab_Reduction():
         return faab, salaries
 
 
+# test function
+# Faab_Reduction()
+
+##############################
+
+#### Keeper Costs Function ###
+
+##############################
 
 
 def Add_Keeper_Salaries(id):
@@ -169,10 +198,7 @@ def Add_Keeper_Salaries(id):
 
 
 
-# this code will cycle through all teams
-# for id in team_info['team_id']:
-    #Add_Keeper_Salaries(id)
-
+# test function
 Add_Keeper_Salaries(5)
 
 
@@ -181,3 +207,98 @@ Add_Keeper_Salaries(5)
 #### Calculate Draft Salaries ###
 
 #################################
+
+def draft_budget():
+    return
+
+
+# test function
+# draft_budget()
+
+######################################
+
+### create Team Rosters by team_id ###
+
+######################################
+
+def update_rosters():
+
+# This might need to be moved to after all calculations are copmleted or put into another file
+    team_5_faab = team_info.loc[5,'faab']
+
+
+# merge dataframes
+    full_roster = pd.merge(rosters, team_info, on='team_id')
+
+# create each team
+    team_1 = full_roster[full_roster['team_id'] == 1]
+    team_2 = full_roster[full_roster['team_id'] == 2]
+    team_3 = full_roster[full_roster['team_id'] == 3]
+    team_4 = full_roster[full_roster['team_id'] == 4]
+    team_5 = full_roster[full_roster['team_id'] == 5]
+    team_6 = full_roster[full_roster['team_id'] == 6]
+    team_7 = full_roster[full_roster['team_id'] == 7]
+    team_8 = full_roster[full_roster['team_id'] == 8]
+    team_9 = full_roster[full_roster['team_id'] == 9]
+    team_10 = full_roster[full_roster['team_id'] == 10]
+    team_11 = full_roster[full_roster['team_id'] == 11]
+    team_12 = full_roster[full_roster['team_id'] == 12]
+    team_13 = full_roster[full_roster['team_id'] == 13]
+    team_14 = full_roster[full_roster['team_id'] == 14]
+
+# at the end export each team to own file in teams Folder
+# create roster file by combining all team files
+
+
+# test function
+# update_rosters()
+
+
+############################
+
+#### Draft Prep Function ###
+
+############################
+
+# This function will cycle through all required functions
+# In preperation for the Draft.
+
+def draft_prep():
+
+
+    # Step 1: Confirm League Settings
+    settings_confirm()
+
+    # Step 2: Faab Reduction
+
+    for id in team_info['team_id']:
+        Faab_Reduction(id)
+
+
+    # Step 3: Keeper Costs
+
+    for id in team_info['team_id']:
+        Add_Keeper_Salaries(id)
+
+    
+    # Step 4: Draft Budgets
+
+    draft_budget()
+
+    # Step 5: Update Team Files with Accurate Information
+
+    update_rosters()
+
+
+
+
+#################################
+
+#### Finalize Teams for Draft ###
+
+#################################
+
+# the following function will complete all draft prep work
+# this will be irreversible and must be take with extreme caution.
+
+# draft_prep()
