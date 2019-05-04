@@ -21,8 +21,10 @@ il_spots = 5
 faab_reduction = 1
 
 # import files
-rosters = pd.read_csv('/Users/Teacher/Desktop/PNation/Calculator Build/data/rosters.csv') 
-team_info = pd.read_csv('/Users/Teacher/Desktop/PNation/Calculator Build/data/team_info.csv') 
+rosters = pd.read_csv('data/rosters.csv') 
+team_info = pd.read_csv('data/team_info.csv') 
+
+team_info = team_info.set_index("team_id", drop = False)
 
 # convert columns to correct types
 rosters[['team_id','roster_id','salary']] = rosters[['team_id','roster_id','salary']].apply(pd.to_numeric)
@@ -37,6 +39,7 @@ team_info[['team_id','faab']] = team_info[['team_id','faab']].apply(pd.to_numeri
 
 ######################################
 
+team_5_faab = team_info.loc[5,'faab']
 
 
 # merge dataframes
@@ -119,24 +122,23 @@ def Add_Keeper_Salaries(faab, salaries):
 
     # Add a way to turn off faab reductions after keeper_costs are applied
 
-    while faab >= 0:
-        if faab == 0:
-            # When Faab is gone
-            print (faab)
-            print (salaries)
-            return faab, salaries
+    while faab > 0:
 
-        if faab > 0:
-            # salary Reduction
-            salaries = salaries - faab_reduction
-            faab = faab - 1
-        else:
-            print("Error, FAAB is Negative")
+        # salary Reduction
+        salaries = salaries - faab_reduction
+        faab = faab - 1
+
+
+    if faab == 0:
+        # When Faab is gone
+        print "Out of Faab"
+        print faab, salaries
+        return faab, salaries
 
     else:
         # Maintain Salaries
-        print (faab)
-        print (salaries)
+        print "Error: FAAB if Negative"
+        print faab, salaries
         return faab, salaries
 
 
@@ -144,12 +146,18 @@ def Add_Keeper_Salaries(faab, salaries):
 #Faab_Reduction()
 #print(faab, salaries)
 
-#Add_Keeper_Salaries()
-#print(faab, salaries)
+
+print team_5[['faab', 'salary']]
+
+#print Add_Keeper_Salaries(team_5['faab'], team_5['salary'])
+team_5.apply(lambda x: Add_Keeper_Salaries(team_5_faab, x['salary']), axis=1)
 
 
-team_5_test = team_5
-team_5_test['faab', 'salary'] = team_5['faab', 'salary'].apply(Add_Keeper_Salaries(team_5['faab', 'salary'])
+print team_5[['faab', 'salary']]
+
+
+#team_5_test = team_5
+#team_5_test['faab', 'salary'] = team_5['faab', 'salary'].apply(Add_Keeper_Salaries(team_5['faab', 'salary'])
 
 
 
@@ -158,5 +166,3 @@ team_5_test['faab', 'salary'] = team_5['faab', 'salary'].apply(Add_Keeper_Salari
 #### Calculate Draft Salaries ###
 
 #################################
-
-
