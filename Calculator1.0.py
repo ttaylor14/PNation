@@ -131,15 +131,15 @@ def Add_Keeper_Salaries(faab, salaries):
 
     if faab == 0:
         # When Faab is gone
-        print "Out of Faab"
-        print faab, salaries
+        print ( "Out of Faab" )
+        print ( faab, salaries )
         return faab, salaries
 
     else:
         # Maintain Salaries
-        print "Error: FAAB if Negative"
-        print faab, salaries
-        return faab, salaries
+        print ( "Error: FAAB if Negative" )
+        print ( faab, salaries )
+        return 
 
 
 
@@ -147,13 +147,13 @@ def Add_Keeper_Salaries(faab, salaries):
 #print(faab, salaries)
 
 
-print team_5[['faab', 'salary']]
+print ( team_5[['faab', 'salary']] )
 
 #print Add_Keeper_Salaries(team_5['faab'], team_5['salary'])
 team_5.apply(lambda x: Add_Keeper_Salaries(team_5_faab, x['salary']), axis=1)
 
 
-print team_5[['faab', 'salary']]
+print ( team_5[['faab', 'salary']] )
 
 
 #team_5_test = team_5
