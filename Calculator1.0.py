@@ -17,6 +17,8 @@ keeper_cost = 5
 draft_budget = 300
 roster_spots = 25
 il_spots = 5
+# faab reduction - how much player salaries are decreased per dollar of faab
+faab_reduction = 1
 
 # import files
 rosters = pd.read_csv('/Users/Teacher/Desktop/PNation/Calculator Build/data/rosters.csv') 
@@ -89,7 +91,7 @@ def Faab_Reduction():
         if faab > 0:
             if salaries > 1:
                 # salary Reduction
-                salaries = (salaries - 1)
+                salaries = (salaries - faab_reduction)
                 faab = (faab - 1)
             else:
                 faab = faab
@@ -115,6 +117,8 @@ def Add_Keeper_Salaries(faab, salaries):
 
     salaries = (salaries + keeper_cost)
 
+    # Add a way to turn off faab reductions after keeper_costs are applied
+
     while faab >= 0:
         if faab == 0:
             # When Faab is gone
@@ -124,7 +128,7 @@ def Add_Keeper_Salaries(faab, salaries):
 
         if faab > 0:
             # salary Reduction
-            salaries = salaries - 1
+            salaries = salaries - faab_reduction
             faab = faab - 1
         else:
             print("Error, FAAB is Negative")
