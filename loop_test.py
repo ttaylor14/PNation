@@ -1,7 +1,7 @@
 # Faab Reducer FUnction Test
 
 x = [5,4,6,7,4,5]
-faab = 40
+faab = 4
 print(len(x))
 
 def test():
@@ -9,21 +9,20 @@ def test():
     global x
     i = 0
 
-    while faab >= 0:
-        while sum(x) >= len(x):
-
-            while x[i] == 1:
+    while faab > 0:                    # If you have faab
+        while sum(x) > len(x):         # if the sum of all salaries is greater than the number of players
+                                            # Goal is to see if all $1
+            while x[i] == 1:            # when a salary = 1 skip
                 i = i + 1
 
             else:
-                x[i] = x[i] - 1
-                faab = faab -1
-                i = i + 1
+                x[i] = x[i] - 1         # reduce Salary
+                faab = faab -1          # reduce faab
+                i = i + 1               # next entry
                 print("my faab" + str(faab))
-                print("salary " + str(x[i]))
                 print(x)
-                if i >= ( len(x) - 1):
-                    i = 0
+                if i >= ( len(x) - 1):  # when we reach the last entry
+                    i = 0               # reset to 0
 
         else:
             print("Salaries are all $1")
