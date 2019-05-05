@@ -211,7 +211,7 @@ def Add_Keeper_Salaries(id):
             # Maintain Salaries
             print ( "Error: FAAB if Negative: $" + str(avail_faab) )
             print ( tempdf )
-            return 
+            return  
 
     if keeper_cost_reduction == "off":
         # this skips Faab Reduction after Keeper Costs
