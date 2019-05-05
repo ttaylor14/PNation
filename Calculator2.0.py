@@ -171,10 +171,10 @@ def Add_Keeper_Salaries(id):
         print(sum(temp_list))       # sum of all player salaries
         # sum needs to be checked to ensure team can afford players for draft
         print(temp_list[0])
-
+        i = 0                                    # sets a value to cycle through temp_list
 
         while avail_faab > 0:
-            i = 0                               # sets a value to cycle through temp_list
+                                          
             while ( sum(temp_list) > spots ):        #cuts off loop when player salaries all equal $1
 
             # salary Reduction
@@ -184,12 +184,12 @@ def Add_Keeper_Salaries(id):
                     print(temp_list)
                     print(avail_faab)
 
-                    if ( i >= spots or i < 0 ):              # if i equals or is greater than spots or less than 0
-                        i = 0 
-                        return i                           # reset i
+                    if ( i < (spots-1) and i >= 0 ):              # if i equals or is greater than spots or less than 0
+                        i = i + 1                          # reset i
 
                     else:                                # else iterate to next entry
-                        i = i + 1
+                        i = 0
+                    
 
                 elif temp_list[i] == 1:
                     i = i + 1
@@ -198,6 +198,7 @@ def Add_Keeper_Salaries(id):
                     print ("Error: Salary less than $1: $" + str(avail_faab) )
                 else:
                     print ("Error")
+            
             
                     
         if avail_faab == 0:
