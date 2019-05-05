@@ -126,7 +126,6 @@ def Faab_Reduction():
         print (salaries)
         return faab, salaries
 
-
 # test function
 # Faab_Reduction()
 
