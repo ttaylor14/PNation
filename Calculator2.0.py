@@ -97,37 +97,63 @@ def settings_confirm():
 # working on finalizing Add keeper costs function
 # same mechanics can be used on this function
 
-def Faab_Reduction():
-    global faab
-    global salaries
+def Faab_Reduction(id):
 
-    while faab >= 0:
-        if faab == 0:
-            # When Faab is gone
-            print (faab)
-            print (salaries)
-            return 
+    tempdf = []                                     # create a temp dataframe
 
-        if faab > 0:
-            if salaries > 1:
-                # salary Reduction
-                salaries = (salaries - faab_reduction)
-                faab = (faab - 1)
-            else:
-                faab = faab
-                salaries = salaries
+    avail_faab = team_info.loc[ id, 'faab' ]
+    print ( "You current have: $" + str(avail_faab) + " of FAAB Remaining" )
+    print ( "Current Roster: ")
 
-        else:
-            print("Error, FAAB is Negative")
+    tempdf = rosters.loc[ rosters['team_id'] == id]
+    print ( tempdf )
+
+    # get height of Dataframe ( must be less than or equal to roster_spots )
+    spots = len(tempdf.index)
+
+    temp_list = []
+    for (name, series) in tempdf.iterrows():        # iteration through each row of temp dataframe
+        sal = int( str( series.iat[4] ) )                    # salary column as an int
+        temp_list.append(sal)                       # creates temp list of player salaries
+    print(temp_list)
+    print(spots)
+    print(sum(temp_list))       # sum of all player salaries
+    # sum needs to be checked to ensure team can afford players for draft
+
+    i = 0                      
+
+    while avail_faab >= 1:
+
+        while temp_list[i] > 1 and i < (spots - 1):
+            # salary Reduction
+            temp_list[i] = (temp_list[i] - faab_reduction)
+            avail_faab = (avail_faab - 1)
+            i = i + 1
+            continue
+
+        while i > (spots - 1):
+            i = 0
+            continue
+
+        while temp_list[i] == 1 or i < 0:
+            print("Salary is $1 : $" + str(avail_faab) )
+            avail_faab = avail_faab
+            temp_list[i] = temp_list[i]
+            i = i + 1
+            continue
+
+        #else:
+            #Faab_Reduction(id)
+
+
 
     else:
         # Maintain Salaries
-        print (faab)
-        print (salaries)
-        return faab, salaries
+        print ("out of FAAb: $" + str(avail_faab) )
+        return 
 
 # test function
-# Faab_Reduction()
+Faab_Reduction(5)
 
 ##############################
 
@@ -177,26 +203,33 @@ def Add_Keeper_Salaries(id):
             while ( sum(temp_list) > spots ):        #cuts off loop when player salaries all equal $1
 
             # salary Reduction
-                if temp_list[i] > 1:
+                if temp_list[i] < 1:
+                    print ("Error: Salary less than $1: $" + str(avail_faab) )
+
+                elif temp_list[i] > 1:
                     temp_list[i] = temp_list[i] - faab_reduction
                     avail_faab = avail_faab - 1
                     print(temp_list)
                     print(avail_faab)
 
                     if ( i < (spots-1) and i >= 0 ):              # if i equals or is greater than spots or less than 0
-                        i = i + 1                          # reset i
+                        i = i + 1
+                        print (i)                          # reset i
 
                     else:                                # else iterate to next entry
                         i = 0
+                        print (i)  
                     
 
                 elif temp_list[i] == 1:
                     i = i + 1
-
-                elif row < 1:
-                    print ("Error: Salary less than $1: $" + str(avail_faab) )
+                    avail_faab = avail_faab
                 else:
-                    print ("Error")
+                    i = i + 1
+                    avail_faab = avail_faab
+
+
+
             
             
                     
@@ -223,7 +256,7 @@ def Add_Keeper_Salaries(id):
 
 
 # test function
-Add_Keeper_Salaries(5)
+# Add_Keeper_Salaries(5)
 
 
 
