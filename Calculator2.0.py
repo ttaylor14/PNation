@@ -143,13 +143,16 @@ def Add_Keeper_Salaries(id):
     global faab_reduction
     global keeper_cost_reduction
 
+    tempdf = []                                     # create a temp dataframe
+
     avail_faab = team_info.loc[ id, 'faab' ]
-    print ( avail_faab )
+    print ( "You current have: $" + str(avail_faab) + " of FAAB Remaining" )
+    print ( "Current Roster: ")
 
     tempdf = rosters.loc[ rosters['team_id'] == id]
     print ( tempdf )
 
-    tempdf['salary'] = tempdf['salary'] + keeper_cost
+    tempdf['salary'] = ( tempdf['salary'] + keeper_cost )       # Keeper Cost is applied to salaries
     print ( tempdf )
 
     # get height of Dataframe ( must be less than or equal to roster_spots )
@@ -159,33 +162,54 @@ def Add_Keeper_Salaries(id):
     # change Keeper_cost to 'off' in master attribute control 
     if keeper_cost_reduction == "on":
 
+        temp_list = []
+        for (name, series) in tempdf.iterrows():        # iteration through each row of temp dataframe
+            sal = int( str( series.iat[4] ) )                    # salary column as an int
+            temp_list.append(sal)                       # creates temp list of player salaries
+        print(temp_list)
+        print(spots)
+        print(sum(temp_list))       # sum of all player salaries
+        # sum needs to be checked to ensure team can afford players for draft
+        print(temp_list[0])
+
+
         while avail_faab > 0:
+            i = 0                               # sets a value to cycle through temp_list
+            while ( sum(temp_list) > spots ):        #cuts off loop when player salaries all equal $1
 
             # salary Reduction
-            for index, row in tempdf.iterrows():
-                if row['salary'] > 1:
-                    tempdf[index ,'salary'] = tempdf[index ,'salary'] - faab_reduction
+                if temp_list[i] > 1:
+                    temp_list[i] = temp_list[i] - faab_reduction
                     avail_faab = avail_faab - 1
-                elif row == 1:
-                    # salary has reach $1
-                    tempdf[row ,'salary']
+                    print(temp_list)
+                    print(avail_faab)
+
+                    if ( i >= spots or i < 0 ):              # if i equals or is greater than spots or less than 0
+                        i = 0 
+                        return i                           # reset i
+
+                    else:                                # else iterate to next entry
+                        i = i + 1
+
+                elif temp_list[i] == 1:
+                    i = i + 1
+
                 elif row < 1:
-                    print ("Error: Salary less than $1")
+                    print ("Error: Salary less than $1: $" + str(avail_faab) )
                 else:
                     print ("Error")
-
-
-
+            
+                    
         if avail_faab == 0:
             # When Faab is gone
-            print ( "Out of Faab" )
-            print ( avail_faab, tempdf )
+            print ( "Out of Faab: $" + str(avail_faab) )
+            print ( tempdf )
             return 
 
         else:
             # Maintain Salaries
-            print ( "Error: FAAB if Negative" )
-            print ( avail_faab, tempdf )
+            print ( "Error: FAAB if Negative: $" + str(avail_faab) )
+            print ( tempdf )
             return 
 
     if keeper_cost_reduction == "off":
@@ -200,6 +224,24 @@ def Add_Keeper_Salaries(id):
 
 # test function
 Add_Keeper_Salaries(5)
+
+
+
+
+'''
+print(rosters)
+
+d_list = []
+for (name, series) in rosters.iterrows():
+    d = str(series.iat[4])
+    d_list.append(d)
+    print('/nCol name: ' + str(name))
+    print('1st value: ' + str(series.iat[4]))
+
+
+
+print(d_list)
+'''
 
 
 #################################
@@ -247,8 +289,10 @@ def update_rosters():
     team_14 = full_roster[full_roster['team_id'] == 14]
 
 # at the end export each team to own file in teams Folder
-# create roster file by combining all team files
+    team_1.to_csv('team1_Draft.csv', encoding='utf-8')
 
+# create roster file by combining all team files
+# once all individual files are made recombing and save over old roster file...??
 
 # test function
 # update_rosters()
