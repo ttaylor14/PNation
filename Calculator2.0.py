@@ -1,4 +1,4 @@
-## PNation.py
+# PNation.py
 
 import pandas as pd
 
@@ -20,8 +20,7 @@ faab_reduction = 1      # how much salary reduction is applied per $1 of faab ap
 # turn keeper cost reduction on or off
 # if 'on' faab will reduce keeper costs
 keeper_cost_reduction = 'on'
-#keeper_cost_reduction = 'off'
-
+# keeper_cost_reduction = 'off'
 
 
 ####################
@@ -31,17 +30,17 @@ keeper_cost_reduction = 'on'
 ####################
 
 # import files
-rosters = pd.read_csv('data/rosters.csv') 
-team_info = pd.read_csv('data/team_info.csv') 
+rosters = pd.read_csv('data/rosters.csv')
+team_info = pd.read_csv('data/team_info.csv')
 
-team_info = team_info.set_index("team_id", drop = False)
+team_info = team_info.set_index("team_id", drop=False)
 
 # convert columns to correct types
-rosters[['team_id','roster_id','salary']] = rosters[['team_id','roster_id','salary']].apply(pd.to_numeric)
-team_info[['team_id','faab']] = team_info[['team_id','faab']].apply(pd.to_numeric)
+rosters[['team_id', 'roster_id', 'salary']] = rosters[['team_id', 'roster_id', 'salary']].apply(pd.to_numeric)
+team_info[['team_id', 'faab']] = team_info[['team_id', 'faab']].apply(pd.to_numeric)
 
-#print(rosters.head())
-#print(team_info.head())
+# print(rosters.head())
+# print(team_info.head())
 
 ########################################
 
@@ -55,15 +54,19 @@ team_info[['team_id','faab']] = team_info[['team_id','faab']].apply(pd.to_numeri
 
 # should make one question to confirm all attributes
 # Question not working??
+
+
 def settings_confirm():
     while True:
         qr = input('Is the Draft Budget $300')
-        if qr == '' or not qr[0].lower() in ['y','n']:print('Please answer with yes or no!')
-        else:break
-    if qr[0].lower() == 'y': # go to next question
+        if qr == '' or not qr[0].lower() in ['y', 'n']:
+            print('Please answer with yes or no!')
+        else:
+            break
+    if qr[0].lower() == 'y':  # go to next question
         return
     if qr[0].lower() == 'n':
-        print ("update draft_budget value")
+        print("update draft_budget value")
         return
 
 # test function
@@ -76,10 +79,10 @@ def settings_confirm():
 
 #################################
 
-## FAAB Reducation
+# FAAB Reducation
 # Reducing Player Salaries with remaining FAAB
 
-# next step is to run this code with the df 
+# next step is to run this code with the df
 # then create loop to run through for each team....
 # then apply same info to the keeper salary function
 # do this with out being applied to csv file until after it is committed??
@@ -101,56 +104,45 @@ def Faab_Reduction(id):
 
     tempdf = []                                     # create a temp dataframe
 
-    avail_faab = team_info.loc[ id, 'faab' ]
-    print ( "You current have: $" + str(avail_faab) + " of FAAB Remaining" )
-    print ( "Current Roster: ")
+    avail_faab = team_info.loc[id, 'faab']
+    print("You current have: $" + str(avail_faab) + " of FAAB Remaining")
+    print("Current Roster: ")
 
-    tempdf = rosters.loc[ rosters['team_id'] == id]
-    print ( tempdf )
-
-    # get height of Dataframe ( must be less than or equal to roster_spots )
-    spots = len(tempdf.index)
+    tempdf = rosters.loc[rosters['team_id'] == id]
+    print(tempdf)
 
     temp_list = []
     for (name, series) in tempdf.iterrows():        # iteration through each row of temp dataframe
-        sal = int( str( series.iat[4] ) )                    # salary column as an int
+        sal = int(str(series.iat[4]))                    # salary column as an int
         temp_list.append(sal)                       # creates temp list of player salaries
     print(temp_list)
-    print(spots)
     print(sum(temp_list))       # sum of all player salaries
     # sum needs to be checked to ensure team can afford players for draft
 
-    i = 0                      
+    i = 0
 
-    while avail_faab >= 1:
+    while avail_faab > 0:                    # If you have faab
+        while sum(temp_list) > len(temp_list):         # if the sum of all salaries is greater than the number of players
+                                            # Goal is to see if all $1
+            while temp_list[i] == 1:            # when a salary = 1 skip
+                i = i + 1
+                continue
 
-        while temp_list[i] > 1 and i < (spots - 1):
-            # salary Reduction
-            temp_list[i] = (temp_list[i] - faab_reduction)
-            avail_faab = (avail_faab - 1)
-            i = i + 1
-            continue
+            else:
+                if avail_faab > 0:
+                    temp_list[i] = temp_list[i] - 1         # reduce Salary
+                    avail_faab = avail_faab - 1          # reduce faab
+                    i = i + 1               # next entry
+                    print("my faab" + str(avail_faab))
+                    print(temp_list)
+                    if i >= (len(temp_list) - 1):  # when we reach the last entry
+                        i = 0             # reset to 0
+                break
 
-        while i > (spots - 1):
-            i = 0
-            continue
+        else:
+            print("Salaries are all $1")
+            break
 
-        while temp_list[i] == 1 or i < 0:
-            print("Salary is $1 : $" + str(avail_faab) )
-            avail_faab = avail_faab
-            temp_list[i] = temp_list[i]
-            i = i + 1
-            continue
-
-        #else:
-            #Faab_Reduction(id)
-
-
-
-    else:
-        # Maintain Salaries
-        print ("out of FAAb: $" + str(avail_faab) )
-        return 
 
 # test function
 Faab_Reduction(5)
@@ -170,111 +162,64 @@ def Add_Keeper_Salaries(id):
 
     tempdf = []                                     # create a temp dataframe
 
-    avail_faab = team_info.loc[ id, 'faab' ]
-    print ( "You current have: $" + str(avail_faab) + " of FAAB Remaining" )
-    print ( "Current Roster: ")
+    avail_faab = team_info.loc[id, 'faab']
+    print("You current have: $" + str(avail_faab) + " of FAAB Remaining")
+    print("Current Roster: ")
 
-    tempdf = rosters.loc[ rosters['team_id'] == id]
-    print ( tempdf )
+    tempdf = rosters.loc[rosters['team_id'] == id]
+    print(tempdf)
 
-    tempdf['salary'] = ( tempdf['salary'] + keeper_cost )       # Keeper Cost is applied to salaries
-    print ( tempdf )
-
-    # get height of Dataframe ( must be less than or equal to roster_spots )
-    spots = len(tempdf.index)
+    tempdf['salary'] = (tempdf['salary'] + keeper_cost)       # Keeper Cost is applied to salaries
+    print(tempdf)
 
     # Can turn off faab reductions after keeper_costs are applied
-    # change Keeper_cost to 'off' in master attribute control 
+    # change Keeper_cost to 'off' in master attribute control
     if keeper_cost_reduction == "on":
 
         temp_list = []
         for (name, series) in tempdf.iterrows():        # iteration through each row of temp dataframe
-            sal = int( str( series.iat[4] ) )                    # salary column as an int
+            sal = int(str(series.iat[4]))                    # salary column as an int
             temp_list.append(sal)                       # creates temp list of player salaries
         print(temp_list)
-        print(spots)
+
         print(sum(temp_list))       # sum of all player salaries
         # sum needs to be checked to ensure team can afford players for draft
-        print(temp_list[0])
+
         i = 0                                    # sets a value to cycle through temp_list
 
-        while avail_faab > 0:
-                                          
-            while ( sum(temp_list) > spots ):        #cuts off loop when player salaries all equal $1
-
-            # salary Reduction
-                if temp_list[i] < 1:
-                    print ("Error: Salary less than $1: $" + str(avail_faab) )
-
-                elif temp_list[i] > 1:
-                    temp_list[i] = temp_list[i] - faab_reduction
-                    avail_faab = avail_faab - 1
-                    print(temp_list)
-                    print(avail_faab)
-
-                    if ( i < (spots-1) and i >= 0 ):              # if i equals or is greater than spots or less than 0
-                        i = i + 1
-                        print (i)                          # reset i
-
-                    else:                                # else iterate to next entry
-                        i = 0
-                        print (i)  
-                    
-
-                elif temp_list[i] == 1:
+        while avail_faab > 0:                    # If you have faab
+            while sum(temp_list) > len(temp_list):         # if the sum of all salaries is greater than the number of players
+                                            # Goal is to see if all $1
+                while temp_list[i] == 1:            # when a salary = 1 skip
                     i = i + 1
-                    avail_faab = avail_faab
+                    continue
+
                 else:
-                    i = i + 1
-                    avail_faab = avail_faab
+                    if avail_faab > 0:
+                        temp_list[i] = temp_list[i] - 1         # reduce Salary
+                        avail_faab = avail_faab - 1          # reduce faab
+                        i = i + 1               # next entry
+                        print("my faab" + str(avail_faab))
+                        print(temp_list)
+                        if i >= (len(temp_list) - 1):  # when we reach the last entry
+                            i = 0             # reset to 0
+                    break
 
-
-
-            
-            
-                    
-        if avail_faab == 0:
-            # When Faab is gone
-            print ( "Out of Faab: $" + str(avail_faab) )
-            print ( tempdf )
-            return 
-
-        else:
-            # Maintain Salaries
-            print ( "Error: FAAB if Negative: $" + str(avail_faab) )
-            print ( tempdf )
-            return  
+            else:
+                print("Salaries are all $1")
+                break
 
     if keeper_cost_reduction == "off":
         # this skips Faab Reduction after Keeper Costs
         return
 
     else:
-        print ("Error: keeper_cost_reduction not turned 'on' or 'off' ")
+        print("Error: keeper_cost_reduction not turned 'on' or 'off' ")
         return
 
 
-
 # test function
-# Add_Keeper_Salaries(5)
-
-
-
-
-'''
-print(rosters)
-
-d_list = []
-for (name, series) in rosters.iterrows():
-    d = str(series.iat[4])
-    d_list.append(d)
-    print('/nCol name: ' + str(name))
-    print('1st value: ' + str(series.iat[4]))
-
-
-
-print(d_list)
-'''
+Add_Keeper_Salaries(5)
 
 
 #################################
@@ -298,8 +243,8 @@ def draft_budget():
 
 def update_rosters():
 
-# This might need to be moved to after all calculations are copmleted or put into another file
-    team_5_faab = team_info.loc[5,'faab']
+    # This might need to be moved to after all calculations are copmleted or put into another file
+    team_5_faab = team_info.loc[5, 'faab']
 
 
 # merge dataframes
@@ -342,7 +287,6 @@ def update_rosters():
 
 def draft_prep():
 
-
     # Step 1: Confirm League Settings
     settings_confirm()
 
@@ -351,13 +295,11 @@ def draft_prep():
     for id in team_info['team_id']:
         Faab_Reduction(id)
 
-
     # Step 3: Keeper Costs
 
     for id in team_info['team_id']:
         Add_Keeper_Salaries(id)
 
-    
     # Step 4: Draft Budgets
 
     draft_budget()
@@ -365,8 +307,6 @@ def draft_prep():
     # Step 5: Update Team Files with Accurate Information
 
     update_rosters()
-
-
 
 
 #################################
