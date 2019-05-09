@@ -19,6 +19,7 @@ faab_reduction = 1      # how much salary reduction is applied per $1 of faab ap
 
 # turn keeper cost reduction on or off
 # if 'on' faab will reduce keeper costs
+
 keeper_cost_reduction = 'on'
 # keeper_cost_reduction = 'off'
 
@@ -82,10 +83,15 @@ def settings_confirm():
 # FAAB Reducation
 # Reducing Player Salaries with remaining FAAB
 
-# next step is to run this code with the df
-# then create loop to run through for each team....
-# then apply same info to the keeper salary function
+# next step is to run this code with the df - check
+# then create loop to run through for each team.... - check
+# then apply same info to the keeper salary function - check
+# replace add salary function's salary reduction code with the actual salary reduction function
+# check fluidity that the calculations build on one another
+# send results to csv output files (overwrite)
 # do this with out being applied to csv file until after it is committed??
+# write seperate file to merge all team rosters into the single roster file?
+#   - or rewrite file imports to pull all individual team rosters within??
 # add keeper selection ability - marked column
 
 
