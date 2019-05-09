@@ -59,8 +59,9 @@ def Faab_Reduction(id):
         else:
             print("Salaries are all $1")
             break
+    # tempdf.salary = [temp_list[item] for item in tempdf.salary]
+    print(temp_list)
 
-    rosters.salary[id] = temp_list
 
 
 # test function
