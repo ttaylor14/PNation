@@ -4,9 +4,7 @@
 
 # Then clean up function to allow it to be reused in the add Keeper Sal function to reduce code length
 
-
-
-
+import pandas as pd
 
 # import files
 rosters = pd.read_csv('data/rosters.csv')
@@ -17,24 +15,6 @@ team_info = team_info.set_index("team_id", drop=False)
 # convert columns to correct types
 rosters[['team_id', 'roster_id', 'salary']] = rosters[['team_id', 'roster_id', 'salary']].apply(pd.to_numeric)
 team_info[['team_id', 'faab']] = team_info[['team_id', 'faab']].apply(pd.to_numeric)
-
-
-tempdf = []                                     # create a temp dataframe
-
-avail_faab = team_info.loc[id, 'faab']
-print("You current have: $" + str(avail_faab) + " of FAAB Remaining")
-print("Current Roster: ")
-
-tempdf = rosters.loc[rosters['team_id'] == id]
-print(tempdf)
-
-temp_list = []
-for (name, series) in tempdf.iterrows():        # iteration through each row of temp dataframe
-    sal = int(str(series.iat[4]))                    # salary column as an int
-    temp_list.append(sal)                       # creates temp list of player salaries
-print(temp_list)
-print(sum(temp_list))       # sum of all player salaries
-# sum needs to be checked to ensure team can afford players for draft
 
 
 def Faab_Reduction(id):
@@ -79,6 +59,8 @@ def Faab_Reduction(id):
         else:
             print("Salaries are all $1")
             break
+
+    rosters.salary[id] = temp_list
 
 
 # test function
