@@ -17,7 +17,7 @@ il_spots = 5            # Max number of Injured Reserves Spots
 # faab reduction - how much player salaries are decreased per dollar of faab
 faab_reduction = 1      # how much salary reduction is applied per $1 of faab applied
 
-### turn keeper cost reduction on or off
+# turn keeper cost reduction on or off
 # if 'on' faab will reduce keeper costs
 
 keeper_cost_reduction = 'on'
@@ -73,6 +73,23 @@ def settings_confirm():
 # test function
 # settings_confirm()
 
+######################################
+
+### Confirm Team Settings Function ###
+
+######################################
+
+# This function will be used to confirm Team Settings
+# THis will include lineup sizes, faab balances, etc...
+
+
+def team_settings():
+    return
+
+
+# test function
+# team_settings()
+
 
 #################################
 
@@ -86,8 +103,8 @@ def settings_confirm():
 # next step is to run this code with the df - check
 # then create loop to run through for each team.... - check
 # then apply same info to the keeper salary function - check
-# replace add salary function's salary reduction code with the actual salary reduction function
-# check fluidity that the calculations build on one another
+# replace add salary function's salary reduction code with the actual salary reduction function - check
+# check fluidity that the calculations build on one another and salaries are updated in the csv file
 # send results to csv output files (overwrite)
 # do this with out being applied to csv file until after it is committed??
 # write seperate file to merge all team rosters into the single roster file?
@@ -102,9 +119,7 @@ def settings_confirm():
 ################################
 
 
-# Function has not been updated
-# working on finalizing Add keeper costs function
-# same mechanics can be used on this function
+# remove temp_list element and update the actual tempdf object instead.
 
 def Faab_Reduction(id):
 
@@ -247,12 +262,15 @@ def draft_prep():
     # Step 1: Confirm League Settings
     settings_confirm()
 
-    # Step 2: Faab Reduction
+    # Step 2: Confirm Lineup Sizes
+    team_settings()
+
+    # Step 3: Faab Reduction
 
     for id in team_info['team_id']:
         Faab_Reduction(id)
 
-    # Step 3: Keeper Costs
+    # Step 4: Keeper Costs
 
     for id in team_info['team_id']:
         Add_Keeper_Salaries(id)
@@ -264,11 +282,11 @@ def draft_prep():
         else:
             return
 
-    # Step 4: Draft Budgets
+    # Step 5: Draft Budgets
 
     draft_budget()
 
-    # Step 5: Update Team Files with Accurate Information
+    # Step 6: Update Team Files with Accurate Information
 
     update_rosters()
 
