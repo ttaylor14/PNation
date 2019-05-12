@@ -119,7 +119,9 @@ def team_settings():
 ################################
 
 
-# remove temp_list element and update the actual tempdf object instead.
+# Remove temp_list element and update the actual tempdf object instead
+# This will eliminate the need for applying the temp_list values as replacements for salaries
+# Apply Tempdf to csv?
 
 def Faab_Reduction(id):
 
@@ -274,11 +276,16 @@ def draft_prep():
 
     for id in team_info['team_id']:
         Add_Keeper_Salaries(id)
+
         if keeper_cost_reduction == "on":
-            Faab_Reduction(id)
+
+            for id in team_info['team_id']:
+                Faab_Reduction(id)
+
         if keeper_cost_reduction == "off":
             # this skips Faab Reduction after Keeper Costs
             return
+
         else:
             return
 
