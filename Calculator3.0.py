@@ -30,6 +30,9 @@ keeper_cost_reduction = 'on'
 
 ####################
 
+## To create a temp file... maybe duplicate the rosters object or duplicate the rosters.csv file?
+# then all changes are done to the duplicate before everything is confirmed!
+
 # import files
 rosters = pd.read_csv('data/rosters.csv')
 team_info = pd.read_csv('data/team_info.csv')
@@ -110,6 +113,10 @@ def team_settings():
 # write seperate file to merge all team rosters into the single roster file?
 #   - or rewrite file imports to pull all individual team rosters within??
 # add keeper selection ability - marked column
+
+# Once everything is running smoothly, remove unnesscesary prints
+# and clean up out put and create a log file! - print records to a log file?
+# or two print outs to different log files?
 
 
 ################################
@@ -264,7 +271,7 @@ def draft_prep():
     # Step 1: Confirm League Settings
     settings_confirm()
 
-    # Step 2: Confirm Lineup Sizes
+    # Step 2: Confirm Team Settings
     team_settings()
 
     # Step 3: Faab Reduction
@@ -277,17 +284,19 @@ def draft_prep():
     for id in team_info['team_id']:
         Add_Keeper_Salaries(id)
 
-        if keeper_cost_reduction == "on":
+    ## Salary Reduction after Keeper Costs are applied
 
-            for id in team_info['team_id']:
-                Faab_Reduction(id)
+    if keeper_cost_reduction == "on":
 
-        if keeper_cost_reduction == "off":
-            # this skips Faab Reduction after Keeper Costs
-            return
+        for id in team_info['team_id']:
+            Faab_Reduction(id)
 
-        else:
-            return
+    if keeper_cost_reduction == "off":
+        # this skips Faab Reduction after Keeper Costs
+         return
+
+    else:
+        return
 
     # Step 5: Draft Budgets
 
