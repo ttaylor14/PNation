@@ -30,7 +30,7 @@ keeper_cost_reduction = 'on'
 
 ####################
 
-## To create a temp file... maybe duplicate the rosters object or duplicate the rosters.csv file?
+# To create a temp file... maybe duplicate the rosters object or duplicate the rosters.csv file?
 # then all changes are done to the duplicate before everything is confirmed!
 
 # import files
@@ -224,11 +224,7 @@ def draft_budget():
 
 def update_rosters():
 
-    # This might need to be moved to after all calculations are copmleted or put into another file
-    team_5_faab = team_info.loc[5, 'faab']
-
-
-# merge dataframes
+    # merge dataframes
     full_roster = pd.merge(rosters, team_info, on='team_id')
 
 # create each team
@@ -265,7 +261,7 @@ def update_rosters():
 
 
 # create roster file by combining all team files
-# once all individual files are made recombing and save over old roster file...??
+# once all individual files are made recombing and save over old roster file, in a seperate py file?
 
 # test function
 # update_rosters()
@@ -289,36 +285,32 @@ def draft_prep():
     team_settings()
 
     # Step 3: Faab Reduction
-
     for id in team_info['team_id']:
         Faab_Reduction(id)
 
     # Step 4: Keeper Costs
-
     for id in team_info['team_id']:
         Add_Keeper_Salaries(id)
 
-    ## Salary Reduction after Keeper Costs are applied
-
+    # Salary Reduction after Keeper Costs are applied
     if keeper_cost_reduction == "on":
-
         for id in team_info['team_id']:
             Faab_Reduction(id)
 
     if keeper_cost_reduction == "off":
         # this skips Faab Reduction after Keeper Costs
-         return
+        return
 
     else:
         return
 
     # Step 5: Draft Budgets
-
     draft_budget()
 
     # Step 6: Update Team Files with Accurate Information
-
     update_rosters()
+    # This will only update individual team files
+    # Not the Roster File
 
 
 #################################
