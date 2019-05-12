@@ -249,6 +249,20 @@ def update_rosters():
 
 # at the end export each team to own file in teams Folder
     team_1.to_csv('team1_Draft.csv', encoding='utf-8')
+    team_2.to_csv('team2_Draft.csv', encoding='utf-8')
+    team_3.to_csv('team3_Draft.csv', encoding='utf-8')
+    team_4.to_csv('team4_Draft.csv', encoding='utf-8')
+    team_5.to_csv('team5_Draft.csv', encoding='utf-8')
+    team_6.to_csv('team6_Draft.csv', encoding='utf-8')
+    team_7.to_csv('team7_Draft.csv', encoding='utf-8')
+    team_8.to_csv('team8_Draft.csv', encoding='utf-8')
+    team_9.to_csv('team9_Draft.csv', encoding='utf-8')
+    team_10.to_csv('team10_Draft.csv', encoding='utf-8')
+    team_11.to_csv('team11_Draft.csv', encoding='utf-8')
+    team_12.to_csv('team12_Draft.csv', encoding='utf-8')
+    team_13.to_csv('team13_Draft.csv', encoding='utf-8')
+    team_14.to_csv('team14_Draft.csv', encoding='utf-8')
+
 
 # create roster file by combining all team files
 # once all individual files are made recombing and save over old roster file...??
