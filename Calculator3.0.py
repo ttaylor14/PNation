@@ -150,7 +150,7 @@ def Faab_Reduction(id):
     # sum needs to be checked to ensure team can afford players for draft
 
     i = 0
-
+    print(tempdf.ix[i, 'salary'])
     while avail_faab > 0:                    # If you have faab
         while sum(temp_list) > len(temp_list):         # if the sum of all salaries is greater than the number of players
                                             # Goal is to see if all $1
