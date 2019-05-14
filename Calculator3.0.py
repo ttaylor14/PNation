@@ -150,22 +150,24 @@ def Faab_Reduction(id):
     # sum needs to be checked to ensure team can afford players for draft
 
     i = 0
-    print(tempdf[['salary']])
+
     while avail_faab > 0:                    # If you have faab
-        while sum(temp_list) > len(temp_list):         # if the sum of all salaries is greater than the number of players
+        while tempdf['salary'].sum() > len(tempdf.index):         # if the sum of all salaries is greater than the number of players
                                             # Goal is to see if all $1
-            while temp_list[i] == 1:            # when a salary = 1 skip
+            while int(tempdf.salary.iloc[[i]]) == 1:            # when a salary = 1 skip
                 i = i + 1
                 continue
 
             else:
                 if avail_faab > 0:
-                    temp_list[i] = temp_list[i] - 1         # reduce Salary
-                    avail_faab = avail_faab - 1          # reduce faab
+                    # temp_list[i] = temp_list[i] - 1         # reduce Salary
+                    avail_faab = avail_faab - 1                       # reduce faab
+                    new_sal = int(tempdf.salary.iloc[[i]]) - 1        # reduce salary of dataframe
+                    tempdf.salary.iloc[[i]] = new_sal                 # apply new Salary to temp datafram
                     i = i + 1               # next entry
                     print("my faab" + str(avail_faab))
-                    print(temp_list)
-                    if i >= (len(temp_list) - 1):  # when we reach the last entry
+                    print(tempdf)
+                    if i >= (len(tempdf.index)):  # when we reach the last entry
                         i = 0             # reset to 0
                 break
 
