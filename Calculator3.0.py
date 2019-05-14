@@ -141,12 +141,6 @@ def Faab_Reduction(id):
     tempdf = rosters.loc[rosters['team_id'] == id]
     print(tempdf)
 
-    temp_list = []
-    for (name, series) in tempdf.iterrows():        # iteration through each row of temp dataframe
-        sal = int(str(series.iat[4]))                    # salary column as an int
-        temp_list.append(sal)                       # creates temp list of player salaries
-    print(temp_list)
-    print(sum(temp_list))       # sum of all player salaries
     # sum needs to be checked to ensure team can afford players for draft
 
     i = 0
@@ -158,7 +152,7 @@ def Faab_Reduction(id):
                 i = i + 1
                 continue
 
-            else:
+            while int(tempdf.salary.iloc[[i]]) > 1:
                 if avail_faab > 0:
                     # temp_list[i] = temp_list[i] - 1         # reduce Salary
                     avail_faab = avail_faab - 1                       # reduce faab
