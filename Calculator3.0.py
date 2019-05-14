@@ -145,33 +145,41 @@ def Faab_Reduction(id):
 
     i = 0
 
-    while avail_faab > 0:                    # If you have faab
-        while tempdf['salary'].sum() > len(tempdf.index):         # if the sum of all salaries is greater than the number of players
-                                            # Goal is to see if all $1
-            while int(tempdf.salary.iloc[[i]]) == 1:            # when a salary = 1 skip
+    while avail_faab > 0:                                              # If you have faab
+        while tempdf['salary'].sum() > len(tempdf.index):              # if the sum of all salaries is greater than the number of players (all $1)
+
+            while int(tempdf.salary.iloc[[i]]) == 1:                   # when a salary = 1 skip
                 i = i + 1
+                if i >= (len(tempdf.index)):                           # when we reach the last entry
+                    i = 0
                 continue
 
             while int(tempdf.salary.iloc[[i]]) > 1:
                 if avail_faab > 0:
-                    # temp_list[i] = temp_list[i] - 1         # reduce Salary
                     avail_faab = avail_faab - 1                       # reduce faab
                     new_sal = int(tempdf.salary.iloc[[i]]) - 1        # reduce salary of dataframe
                     tempdf.salary.iloc[[i]] = new_sal                 # apply new Salary to temp datafram
-                    i = i + 1               # next entry
-                    print("my faab" + str(avail_faab))
-                    print(tempdf)
-                    if i >= (len(tempdf.index)):  # when we reach the last entry
-                        i = 0             # reset to 0
+                    i = i + 1                                         # next entry
+                    # print("my faab" + str(avail_faab))              # Print Available Faab
+                    # print(tempdf)                                   # Prints Temp Dataframe
+                    if i >= (len(tempdf.index)):                      # when we reach the last entry
+                        i = 0                                         # reset to 0
                 break
 
         else:
             print("Salaries are all $1")
+            print(tempdf)
             break
+
+    else:
+        print("Out of FAAb")
+        print(tempdf)
+
 
 
 # test function
 Faab_Reduction(5)
+
 
 ##############################
 
