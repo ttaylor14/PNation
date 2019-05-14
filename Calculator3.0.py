@@ -159,6 +159,7 @@ def Faab_Reduction(id):
                     avail_faab = avail_faab - 1                       # reduce faab
                     new_sal = int(tempdf.salary.iloc[[i]]) - 1        # reduce salary of dataframe
                     tempdf.salary.iloc[[i]] = new_sal                 # apply new Salary to temp datafram
+                    #tempdf.iloc[tempdf.iloc[i], "salay"] = int(tempdf.salary.iloc[[i]]) - 1
                     i = i + 1                                         # next entry
                     # print("my faab" + str(avail_faab))              # Print Available Faab
                     # print(tempdf)                                   # Prints Temp Dataframe
