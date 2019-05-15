@@ -27,6 +27,7 @@ keeper_cost_reduction = 'on'
 # Temporary Team Place Holder
 tempdf = []
 avail_faab = 0
+full_roster = []
 
 
 ####################
@@ -239,9 +240,14 @@ def draft_budget():
 
 def update_rosters():
 
-    # merge dataframes
-    full_roster = pd.merge(rosters, team_info, on='team_id')
+    # Build full Roster Page
 
+    # merge dataframes
+    full_roster = pd.full_roster.append(tempdf, ignore_index=True)
+    # full_roster = pd.merge(rosters, team_info, on='team_id')
+
+
+    # This should be a seperate function that takes the full_roster and divides it out one the for loop is complete.
 # create each team
     team_1 = full_roster[full_roster['team_id'] == 1]
     team_2 = full_roster[full_roster['team_id'] == 2]
