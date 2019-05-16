@@ -27,7 +27,9 @@ keeper_cost_reduction = 'on'
 # Temporary Team Place Holder
 tempdf = []
 avail_faab = 0
-full_roster = []
+full_roster = pd.read_csv('data/rosters.csv')
+full_roster = full_roster.empty
+print(full_roster)
 
 
 ####################
@@ -240,7 +242,6 @@ def tempdf_rosters():
 
     # merge dataframes
     full_roster = pd.full_roster.append(tempdf, ignore_index=True)
-
 
 
 def update_rosters():
