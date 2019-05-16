@@ -92,8 +92,13 @@ def settings_confirm():
 # THis will include lineup sizes, faab balances, etc...
 
 
-def team_settings():
-    return
+def team_settings(id):
+    global tempdf
+    global avail_faab
+
+    avail_faab = team_info.loc[id, 'faab']
+    tempdf = rosters.loc[rosters['team_id'] == id]
+    print(tempdf)
 
 
 # test function
@@ -140,12 +145,8 @@ def Faab_Reduction(id):
     global tempdf
     global avail_faab
 
-    avail_faab = team_info.loc[id, 'faab']
     print("You current have: $" + str(avail_faab) + " of FAAB Remaining")
     print("Current Roster: ")
-
-    tempdf = rosters.loc[rosters['team_id'] == id]
-    print(tempdf)
 
     # sum needs to be checked to ensure team can afford players for draft
 
@@ -183,7 +184,6 @@ def Faab_Reduction(id):
         print("Out of FAAb")
         print("Team ID: " + str(id))
         print(tempdf)
-        return tempdf, avail_faab
 
 
 # test function
@@ -204,18 +204,11 @@ def Add_Keeper_Salaries(id):
     global keeper_cost_reduction
     global tempdf
 
-    tempdf = []                                     # create a temp dataframe
-
-    avail_faab = team_info.loc[id, 'faab']
     print("You current have: $" + str(avail_faab) + " of FAAB Remaining")
     print("Current Roster: ")
 
-    tempdf = rosters.loc[rosters['team_id'] == id]
-    # print(tempdf)
-
     tempdf['salary'] = (tempdf['salary'] + keeper_cost)       # Keeper Cost is applied to salaries
     print("Team ID: " + str(id))
-    tempdf = tempdf
     print(tempdf)
 
 
@@ -238,17 +231,25 @@ def draft_budget():
 
 ######################################
 
-def update_rosters():
+def tempdf_rosters():
+
+    global full_roster
+    global tempdf
 
     # Build full Roster Page
 
     # merge dataframes
     full_roster = pd.full_roster.append(tempdf, ignore_index=True)
-    # full_roster = pd.merge(rosters, team_info, on='team_id')
 
+
+
+def update_rosters():
+
+    global full_roster
 
     # This should be a seperate function that takes the full_roster and divides it out one the for loop is complete.
-# create each team
+
+    # create each team
     team_1 = full_roster[full_roster['team_id'] == 1]
     team_2 = full_roster[full_roster['team_id'] == 2]
     team_3 = full_roster[full_roster['team_id'] == 3]
@@ -311,10 +312,13 @@ def draft_prep():
     # settings_confirm()
 
     # Step 2: Confirm Team Settings
-    # team_settings()
+    # team_settings(id)
 
     # Step 3: Faab Reduction
     for id in team_info['team_id']:
+
+        team_settings(id)
+
         Faab_Reduction(id)
 
         # Step 4: Keeper Costs
@@ -334,11 +338,14 @@ def draft_prep():
         # Step 5: Draft Budgets
         # draft_budget()
 
-        # Step 6: Update Team Files with Accurate Information
+        # Step 6: Add new df to full_roster
+        tempdf_rosters()
+
+        # Step 7: Update Team Files with Accurate Information
         # update_rosters()
 
-        # Step 7: Clean Global Variables for next team
-        clean_df()
+        # Step 8: Clean Global Variables for next team
+        # clean_df()
 
     # This will only update individual team files
     # Not the Roster File
@@ -353,21 +360,4 @@ def draft_prep():
 # the following function will complete all draft prep work
 # this will be irreversible and must be take with extreme caution.
 
-# draft_prep()
-
-
-Faab_Reduction(5)
-
-# Step 4: Keeper Costs
-Add_Keeper_Salaries(5)
-
-# Salary Reduction after Keeper Costs are applied
-if keeper_cost_reduction == "on":
-    Faab_Reduction(5)
-
-if keeper_cost_reduction == "off":
-            # this skips Faab Reduction after Keeper Costs
-    pass
-
-else:
-    pass
+draft_prep()
