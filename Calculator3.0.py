@@ -242,6 +242,8 @@ def tempdf_rosters():
 
     # merge dataframes
     full_roster.append(tempdf)
+    print("Final Team Rosters for the Draft:")
+    print(full_roster)
 
 
 def update_rosters():
@@ -362,4 +364,3 @@ def draft_prep():
 # this will be irreversible and must be take with extreme caution.
 
 draft_prep()
-print(full_roster)
