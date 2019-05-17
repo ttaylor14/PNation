@@ -58,20 +58,23 @@ def Rosters_To_Team_Files():
     team_14 = full_roster[full_roster['team_id'] == 14]
 
 # at the end export each team to own file in teams Folder
-    team_1.to_csv('teams/team1_Draft.csv', encoding='utf-8')
-    team_2.to_csv('teams/team2_Draft.csv', encoding='utf-8')
-    team_3.to_csv('teams/team3_Draft.csv', encoding='utf-8')
-    team_4.to_csv('teams/team4_Draft.csv', encoding='utf-8')
-    team_5.to_csv('teams/team5_Draft.csv', encoding='utf-8')
-    team_6.to_csv('teams/team6_Draft.csv', encoding='utf-8')
-    team_7.to_csv('teams/team7_Draft.csv', encoding='utf-8')
-    team_8.to_csv('teams/team8_Draft.csv', encoding='utf-8')
-    team_9.to_csv('teams/team9_Draft.csv', encoding='utf-8')
-    team_10.to_csv('teams/team10_Draft.csv', encoding='utf-8')
-    team_11.to_csv('teams/team11_Draft.csv', encoding='utf-8')
-    team_12.to_csv('teams/team12_Draft.csv', encoding='utf-8')
-    team_13.to_csv('teams/team13_Draft.csv', encoding='utf-8')
-    team_14.to_csv('teams/team14_Draft.csv', encoding='utf-8')
+
+    header = ["team_id", "roster_id", "player_Fname", "player_Lname", "salary", "player_id"]
+
+    team_1.to_csv('teams/team1_Draft.csv', encoding='utf-8', columns=header)
+    team_2.to_csv('teams/team2_Draft.csv', encoding='utf-8', columns=header)
+    team_3.to_csv('teams/team3_Draft.csv', encoding='utf-8', columns=header)
+    team_4.to_csv('teams/team4_Draft.csv', encoding='utf-8', columns=header)
+    team_5.to_csv('teams/team5_Draft.csv', encoding='utf-8', columns=header)
+    team_6.to_csv('teams/team6_Draft.csv', encoding='utf-8', columns=header)
+    team_7.to_csv('teams/team7_Draft.csv', encoding='utf-8', columns=header)
+    team_8.to_csv('teams/team8_Draft.csv', encoding='utf-8', columns=header)
+    team_9.to_csv('teams/team9_Draft.csv', encoding='utf-8', columns=header)
+    team_10.to_csv('teams/team10_Draft.csv', encoding='utf-8', columns=header)
+    team_11.to_csv('teams/team11_Draft.csv', encoding='utf-8', columns=header)
+    team_12.to_csv('teams/team12_Draft.csv', encoding='utf-8', columns=header)
+    team_13.to_csv('teams/team13_Draft.csv', encoding='utf-8', columns=header)
+    team_14.to_csv('teams/team14_Draft.csv', encoding='utf-8', columns=header)
 
     print("Success")
 
@@ -79,4 +82,4 @@ def Rosters_To_Team_Files():
 # combine_Teams_to_Roster()
 
 
-# Rosters_To_Team_Files()
+Rosters_To_Team_Files()
