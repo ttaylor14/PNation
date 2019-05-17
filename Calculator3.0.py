@@ -31,6 +31,11 @@ full_roster = pd.read_csv('data/rosters.csv')
 full_roster = full_roster.iloc[0:0]
 # print(full_roster)
 
+temp_faab = pd.read_csv('data/team_info.csv')
+temp_faab = temp_faab.iloc[0:0]
+# print(temp_faab)
+# Faab is col 4, team id is the index/col 0
+
 
 ####################
 
@@ -52,7 +57,7 @@ rosters[['team_id', 'roster_id', 'salary']] = rosters[['team_id', 'roster_id', '
 team_info[['team_id', 'faab']] = team_info[['team_id', 'faab']].apply(pd.to_numeric)
 
 # print(rosters.head())
-# print(team_info.head())
+p# rint(team_info.head())
 
 ########################################
 
@@ -245,6 +250,20 @@ def tempdf_rosters():
     full_roster = pd.concat([full_roster, tempdf])
     print("Final Team Rosters for the Draft:")
     print(full_roster)
+
+
+def tempdf_faab():
+
+    global temp_faab
+    global tempdf
+
+    # Build full Roster Page
+
+    # merge dataframes
+    # full_roster = full_roster.append(tempdf, ignore_index=True, sort=False)
+    temp_faab = pd.concat([temp_faab, tempdf])
+    print("Final Team faab for the Draft:")
+    print(temp_faab)
 
 
 def update_rosters():
