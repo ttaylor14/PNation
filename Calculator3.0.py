@@ -32,7 +32,6 @@ full_roster = full_roster.iloc[0:0]
 # print(full_roster)
 
 temp_faab = pd.read_csv('data/team_info.csv')
-temp_faab = temp_faab.iloc[0:0]
 # print(temp_faab)
 # Faab is col 4, team id is the index/col 0
 
@@ -57,7 +56,7 @@ rosters[['team_id', 'roster_id', 'salary']] = rosters[['team_id', 'roster_id', '
 team_info[['team_id', 'faab']] = team_info[['team_id', 'faab']].apply(pd.to_numeric)
 
 # print(rosters.head())
-p# rint(team_info.head())
+p  # rint(team_info.head())
 
 ########################################
 
@@ -264,6 +263,8 @@ def tempdf_faab():
     temp_faab = pd.concat([temp_faab, tempdf])
     print("Final Team faab for the Draft:")
     print(temp_faab)
+
+    # replace faab...
 
 
 def update_rosters():
