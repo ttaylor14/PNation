@@ -56,7 +56,7 @@ rosters[['team_id', 'roster_id', 'salary']] = rosters[['team_id', 'roster_id', '
 team_info[['team_id', 'faab']] = team_info[['team_id', 'faab']].apply(pd.to_numeric)
 
 # print(rosters.head())
-p  # rint(team_info.head())
+# print(team_info.head())
 
 ########################################
 
