@@ -29,6 +29,7 @@ def combine_Teams_to_Roster():
                              team_6, team_7, team_8, team_9, team_10, team_11, team_12, team_13, team_14])
 
     full_roster.to_csv('data/rosters.csv')
+    print("Success")
 
 
 def Rosters_To_Team_Files():
@@ -70,3 +71,11 @@ def Rosters_To_Team_Files():
     team_12.to_csv('teams/team12_Draft.csv', encoding='utf-8')
     team_13.to_csv('teams/team13_Draft.csv', encoding='utf-8')
     team_14.to_csv('teams/team14_Draft.csv', encoding='utf-8')
+
+    print("Success")
+
+
+combine_Teams_to_Roster()
+
+
+# Rosters_To_Team_Files()
