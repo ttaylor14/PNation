@@ -366,7 +366,7 @@ def draft_prep():
         tempdf_rosters()
 
         # Step 7: Update Team Files with Accurate Information
-        # update_rosters()
+        update_rosters()
 
         # Step 8: Clean Global Variables for next team
         # clean_df()
