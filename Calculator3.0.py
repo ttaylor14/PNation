@@ -241,7 +241,8 @@ def tempdf_rosters():
     # Build full Roster Page
 
     # merge dataframes
-    full_roster.append(tempdf)
+    # full_roster = full_roster.append(tempdf, ignore_index=True, sort=False)
+    full_roster = pd.concat([full_roster, tempdf])
     print("Final Team Rosters for the Draft:")
     print(full_roster)
 
