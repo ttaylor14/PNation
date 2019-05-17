@@ -28,8 +28,8 @@ keeper_cost_reduction = 'on'
 tempdf = []
 avail_faab = 0
 full_roster = pd.read_csv('data/rosters.csv')
-full_roster = full_roster.empty
-print(full_roster)
+full_roster = full_roster.iloc[0:0]
+# print(full_roster)
 
 
 ####################
@@ -241,7 +241,7 @@ def tempdf_rosters():
     # Build full Roster Page
 
     # merge dataframes
-    full_roster = pd.full_roster.append(tempdf, ignore_index=True)
+    full_roster.append(tempdf)
 
 
 def update_rosters():
@@ -362,3 +362,4 @@ def draft_prep():
 # this will be irreversible and must be take with extreme caution.
 
 draft_prep()
+print(full_roster)
