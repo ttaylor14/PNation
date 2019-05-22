@@ -30,9 +30,9 @@ def combine_Teams_to_Roster():
 
     full_roster = pd.concat([team_1, team_2, team_3, team_4, team_5,
                              team_6, team_7, team_8, team_9, team_10,
-                             team_11, team_12, team_13, team_14], ignore_index=True)
+                             team_11, team_12, team_13, team_14], ignore_index=True, axis=0)
 
-    full_roster.to_csv('data/rosters.csv')
+    full_roster.to_csv('data/rosters.csv', index=False)
     print("Success")
 
 
