@@ -27,7 +27,7 @@ def combine_Teams_to_Roster():
 
     full_roster = pd.concat([team_1, team_2, team_3, team_4, team_5,
                              team_6, team_7, team_8, team_9, team_10,
-                             team_11, team_12, team_13, team_14], ignore_index=True)
+                             team_11, team_12, team_13, team_14], index=False)
 
     full_roster.to_csv('data/rosters.csv')
     print("Success")
@@ -61,20 +61,20 @@ def Rosters_To_Team_Files():
 
     header = ["team_id", "roster_id", "player_Fname", "player_Lname", "salary", "player_id"]
 
-    team_1.to_csv('teams/team1_Draft.csv', encoding='utf-8', columns=header)
-    team_2.to_csv('teams/team2_Draft.csv', encoding='utf-8', columns=header)
-    team_3.to_csv('teams/team3_Draft.csv', encoding='utf-8', columns=header)
-    team_4.to_csv('teams/team4_Draft.csv', encoding='utf-8', columns=header)
-    team_5.to_csv('teams/team5_Draft.csv', encoding='utf-8', columns=header)
-    team_6.to_csv('teams/team6_Draft.csv', encoding='utf-8', columns=header)
-    team_7.to_csv('teams/team7_Draft.csv', encoding='utf-8', columns=header)
-    team_8.to_csv('teams/team8_Draft.csv', encoding='utf-8', columns=header)
-    team_9.to_csv('teams/team9_Draft.csv', encoding='utf-8', columns=header)
-    team_10.to_csv('teams/team10_Draft.csv', encoding='utf-8', columns=header)
-    team_11.to_csv('teams/team11_Draft.csv', encoding='utf-8', columns=header)
-    team_12.to_csv('teams/team12_Draft.csv', encoding='utf-8', columns=header)
-    team_13.to_csv('teams/team13_Draft.csv', encoding='utf-8', columns=header)
-    team_14.to_csv('teams/team14_Draft.csv', encoding='utf-8', columns=header)
+    team_1.to_csv('teams/team1_Draft.csv', encoding='utf-8', columns=header, index=False)
+    team_2.to_csv('teams/team2_Draft.csv', encoding='utf-8', columns=header, index=False)
+    team_3.to_csv('teams/team3_Draft.csv', encoding='utf-8', columns=header, index=False)
+    team_4.to_csv('teams/team4_Draft.csv', encoding='utf-8', columns=header, index=False)
+    team_5.to_csv('teams/team5_Draft.csv', encoding='utf-8', columns=header, index=False)
+    team_6.to_csv('teams/team6_Draft.csv', encoding='utf-8', columns=header, index=False)
+    team_7.to_csv('teams/team7_Draft.csv', encoding='utf-8', columns=header, index=False)
+    team_8.to_csv('teams/team8_Draft.csv', encoding='utf-8', columns=header, index=False)
+    team_9.to_csv('teams/team9_Draft.csv', encoding='utf-8', columns=header, index=False)
+    team_10.to_csv('teams/team10_Draft.csv', encoding='utf-8', columns=header, index=False)
+    team_11.to_csv('teams/team11_Draft.csv', encoding='utf-8', columns=header, index=False)
+    team_12.to_csv('teams/team12_Draft.csv', encoding='utf-8', columns=header, index=False)
+    team_13.to_csv('teams/team13_Draft.csv', encoding='utf-8', columns=header, index=False)
+    team_14.to_csv('teams/team14_Draft.csv', encoding='utf-8', columns=header, index=False)
 
     print("Success")
 
