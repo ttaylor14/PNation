@@ -9,6 +9,7 @@ import pandas as pd
 
 def combine_Teams_to_Roster():
 
+    full_roster = []
     # at the end export each team to own file in teams Folder
     team_1 = pd.read_csv('teams/team1_Draft.csv', encoding='utf-8')
     team_2 = pd.read_csv('teams/team2_Draft.csv', encoding='utf-8')
@@ -25,9 +26,11 @@ def combine_Teams_to_Roster():
     team_13 = pd.read_csv('teams/team13_Draft.csv', encoding='utf-8')
     team_14 = pd.read_csv('teams/team14_Draft.csv', encoding='utf-8')
 
+    header = ["team_id", "roster_id", "player_Fname", "player_Lname", "salary", "player_id"]
+
     full_roster = pd.concat([team_1, team_2, team_3, team_4, team_5,
                              team_6, team_7, team_8, team_9, team_10,
-                             team_11, team_12, team_13, team_14])
+                             team_11, team_12, team_13, team_14], ignore_index=True)
 
     full_roster.to_csv('data/rosters.csv')
     print("Success")
