@@ -82,7 +82,7 @@ def Rosters_To_Team_Files():
     print("Success")
 
 
-combine_Teams_to_Roster()
+# combine_Teams_to_Roster()
 
 
-# Rosters_To_Team_Files()
+Rosters_To_Team_Files()
