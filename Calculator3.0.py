@@ -52,7 +52,7 @@ team_info = pd.read_csv('data/team_info.csv')
 team_info = team_info.set_index("team_id", drop=False)
 
 # convert columns to correct types
-rosters[['team_id', 'roster_id', 'salary']] = rosters[['team_id', 'roster_id', 'salary']].apply(pd.to_numeric)
+rosters[['team_id', 'salary']] = rosters[['team_id', 'salary']].apply(pd.to_numeric)
 team_info[['team_id', 'faab']] = team_info[['team_id', 'faab']].apply(pd.to_numeric)
 
 # print(rosters.head())
