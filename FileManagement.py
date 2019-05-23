@@ -62,7 +62,7 @@ def Rosters_To_Team_Files():
 
 # at the end export each team to own file in teams Folder
 
-    header = ["team_id", "roster_id", "player_Fname", "player_Lname", "salary", "player_id"]
+    header = ["team_id", "player_Fname", "player_Lname", "salary", "player_id"]
 
     team_1.to_csv('teams/team1_Draft.csv', encoding='utf-8', columns=header, index=False)
     team_2.to_csv('teams/team2_Draft.csv', encoding='utf-8', columns=header, index=False)
