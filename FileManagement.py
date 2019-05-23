@@ -1,8 +1,13 @@
-# File Management
+# File Management Repository
 
 
 import pandas as pd
 
+#######################
+
+#### Pull to Roster ###
+
+#######################
 
 # Combine individual csv team files into the roster file
 
@@ -33,18 +38,27 @@ def combine_Teams_to_Roster():
                              team_11, team_12, team_13, team_14], ignore_index=True, axis=0)
 
     full_roster.to_csv('data/rosters.csv', index=False)
+
+    #Print Success when complete
     print("Success")
 
 
+
+
+############################
+
+#### Roster to Team Files###
+
+############################
+
 def Rosters_To_Team_Files():
 
-    # Temporary Team Place Holder
 
     full_roster = pd.read_csv('data/rosters.csv')
 
-    # This should be a seperate function that takes the full_roster and divides it out one the for loop is complete.
+    # This seperates full_roster into each team
 
-    # create each team
+    # create each team roster as an object
     team_1 = full_roster[full_roster['team_id'] == 1]
     team_2 = full_roster[full_roster['team_id'] == 2]
     team_3 = full_roster[full_roster['team_id'] == 3]
@@ -60,8 +74,7 @@ def Rosters_To_Team_Files():
     team_13 = full_roster[full_roster['team_id'] == 13]
     team_14 = full_roster[full_roster['team_id'] == 14]
 
-# at the end export each team to own file in teams Folder
-
+    # Export Each Roster into own CSV File
     header = ["team_id", "player_Fname", "player_Lname", "salary", "player_id"]
 
     team_1.to_csv('teams/team1_Draft.csv', encoding='utf-8', columns=header, index=False)
@@ -79,10 +92,12 @@ def Rosters_To_Team_Files():
     team_13.to_csv('teams/team13_Draft.csv', encoding='utf-8', columns=header, index=False)
     team_14.to_csv('teams/team14_Draft.csv', encoding='utf-8', columns=header, index=False)
 
+    #Print Success when complete
     print("Success")
 
 
+# Pull Team csv files to roster.csv
 # combine_Teams_to_Roster()
 
-
+# Push roster.csv rosters to individual files
 Rosters_To_Team_Files()
