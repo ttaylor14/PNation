@@ -39,10 +39,8 @@ def combine_Teams_to_Roster():
 
     full_roster.to_csv('data/rosters.csv', index=False)
 
-    #Print Success when complete
+    # Print Success when complete
     print("Success")
-
-
 
 
 ############################
@@ -52,7 +50,6 @@ def combine_Teams_to_Roster():
 ############################
 
 def Rosters_To_Team_Files():
-
 
     full_roster = pd.read_csv('data/rosters.csv')
 
@@ -92,12 +89,61 @@ def Rosters_To_Team_Files():
     team_13.to_csv('teams/team13_Draft.csv', encoding='utf-8', columns=header, index=False)
     team_14.to_csv('teams/team14_Draft.csv', encoding='utf-8', columns=header, index=False)
 
-    #Print Success when complete
+    # Print Success when complete
     print("Success")
+
+#######################################
+
+#### Add Lahman Tag to Toster Names ###
+
+########################################
+
+# Goal is to find lahman tag for each rostered player
+# if tag already exists skip
+# if not found leave blank
+
+
+def Roster_lahman_tag():
+    roster = pd.read_csv('data/rosters.csv')
+    lahman = pd.read_csv('data/baseballdatabank-2019.2/core/People.csv')
+
+    current_year = 2019             # current year
+    too_old = 50                    # oldest a player could be and play
+    max_birth_year = current_year - too_old
+
+    # Filters out all player who have died and limits search to players who are not too_old
+    lahman = lahman[lahman.birthYear >= max_birth_year]
+    lahman = lahman[lahman.deathYear.isnull()]
+
+    # lahman.describe()
+    '''
+    for player in roster.iterrows():
+
+        Fname = roster.player_Fname()     # Pulls Roater Players Frist Name
+        Lname = roster.player_Lname()     # Pulls Roater Players Last Name
+
+        print(Fname, Lname)
+    '''
+    # searches lahman database for matches
+    # match = filter(Fname == lahman.nameFirst & Lname == lahman.nameLast, lst)
+    # print(match)
+    for ind in roster.index:
+        Fname = roster['player_Fname'][ind]
+        Lname = roster['player_Lname'][ind]
+
+        print(Fname, Lname)
+
+        match = lahman["nameFirst"].str.find(Fname)
+
+        print(match)
 
 
 # Pull Team csv files to roster.csv
 # combine_Teams_to_Roster()
 
 # Push roster.csv rosters to individual files
-Rosters_To_Team_Files()
+# Rosters_To_Team_Files()
+
+
+# Pulls Lahman Tags (playerID) for rosters (and: retroID   bbrefID)
+Roster_lahman_tag()
