@@ -114,28 +114,24 @@ def Roster_lahman_tag():
     # Filters out all player who have died and limits search to players who are not too_old
     lahman = lahman[lahman.birthYear >= max_birth_year]
     lahman = lahman[lahman.deathYear.isnull()]
-
+    # roster.head()
     # lahman.describe()
-    '''
-    for player in roster.iterrows():
 
-        Fname = roster.player_Fname()     # Pulls Roater Players Frist Name
-        Lname = roster.player_Lname()     # Pulls Roater Players Last Name
-
-        print(Fname, Lname)
-    '''
     # searches lahman database for matches
-    # match = filter(Fname == lahman.nameFirst & Lname == lahman.nameLast, lst)
-    # print(match)
+
     for ind in roster.index:
         Fname = roster['player_Fname'][ind]
         Lname = roster['player_Lname'][ind]
 
-        print(Fname, Lname)
+        # match = lahman[(lahman.nameFirst == Fname) & (lahman.nameLast == Lname)]
+        # print(match.playerID, match.retroID, match.bbrefID)
 
-        match = lahman["nameFirst"].str.find(Fname)
+        Pid = lahman.loc[lahman['nameFirst'] == Fname & lahman['nameLast'] == Lname, ['playerID']]
 
-        print(match)
+        #roster.set_value(ind, 'player_id', match.playerID)
+        roster[ind]['player_id'] = Pid
+
+    print(roster)
 
 
 # Pull Team csv files to roster.csv
@@ -143,6 +139,7 @@ def Roster_lahman_tag():
 
 # Push roster.csv rosters to individual files
 # Rosters_To_Team_Files()
+
 
 
 # Pulls Lahman Tags (playerID) for rosters (and: retroID   bbrefID)
