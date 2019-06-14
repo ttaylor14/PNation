@@ -123,13 +123,12 @@ def Roster_lahman_tag():
         Fname = roster['player_Fname'][ind]
         Lname = roster['player_Lname'][ind]
 
-        # match = lahman[(lahman.nameFirst == Fname) & (lahman.nameLast == Lname)]
-        # print(match.playerID, match.retroID, match.bbrefID)
+        match = lahman[(lahman.nameFirst == Fname) & (lahman.nameLast == Lname)]
+        pID = match['playerID'].values
+        rID = match['retroID'].values
+        bbID = match['bbrefID'].values
 
-        Pid = lahman.loc[lahman['nameFirst'] == Fname & lahman['nameLast'] == Lname, ['playerID']]
-
-        #roster.set_value(ind, 'player_id', match.playerID)
-        roster[ind]['player_id'] = Pid
+        print(pID)
 
     print(roster)
 
