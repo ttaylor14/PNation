@@ -107,6 +107,8 @@ def Roster_lahman_tag():
     roster = pd.read_csv('data/rosters.csv')
     lahman = pd.read_csv('data/baseballdatabank-2019.2/core/People.csv')
 
+    print(roster.head())
+
     current_year = 2019             # current year
     too_old = 50                    # oldest a player could be and play
     max_birth_year = current_year - too_old
@@ -120,6 +122,7 @@ def Roster_lahman_tag():
     # searches lahman database for matches
 
     for ind in roster.index:
+
         Fname = roster['player_Fname'][ind]
         Lname = roster['player_Lname'][ind]
 
@@ -128,9 +131,9 @@ def Roster_lahman_tag():
         rID = match['retroID'].values
         bbID = match['bbrefID'].values
 
-        print(pID)
+        roster.set_value(ind, 'playerID', pID)
 
-    print(roster)
+    print(roster.head())
 
 
 # Pull Team csv files to roster.csv
