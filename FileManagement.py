@@ -134,7 +134,6 @@ def Roster_lahman_tag():
         Lname = roster['player_Lname'][ind]
 
         match = lahman[(lahman.nameFirst == Fname) & (lahman.nameLast == Lname)].head(1)
-
         # print(match)
 
         pID = match['playerID'].values
@@ -146,13 +145,14 @@ def Roster_lahman_tag():
         roster.at[ind, 'lahmanID'] == pID
         # roster.at[ind, 'retroID'] == rID
 
-        # roster.loc[ind]['lahmanID'] = pID
+        # roster.iloc[ind]['lahmanID'] = pID
         # roster.ix[ind]['retroID'] = rID
         # roster.ix[ind]['bbrefID'] = bbID
 
 
-    print(roster.head())
 
+    print(roster.head())
+    # pd.to_csv('data/rosters.csv')
 
 # Pull Team csv files to roster.csv
 # combine_Teams_to_Roster()
