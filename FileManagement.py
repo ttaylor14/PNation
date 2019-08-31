@@ -111,6 +111,9 @@ def Roster_lahman_tag():
     lahman = pd.read_csv('data/baseballdatabank-2019.2/core/People.csv')
 
     print(roster.head())
+    # print(lahman.head())
+
+####### replace the current_year with a global variable fromt he master file? or pull the date from the clock?
 
     current_year = 2019             # current year
     too_old = 50                    # oldest a player could be and play
@@ -119,8 +122,9 @@ def Roster_lahman_tag():
     # Filters out all player who have died and limits search to players who are not too_old
     lahman = lahman[lahman.birthYear >= max_birth_year]
     lahman = lahman[lahman.deathYear.isnull()]
-    # roster.head()
-    # lahman.describe()
+
+    # print(lahman.head())
+    # print(lahman.describe())
 
     # searches lahman database for matches
 
@@ -129,14 +133,23 @@ def Roster_lahman_tag():
         Fname = roster['player_Fname'][ind]
         Lname = roster['player_Lname'][ind]
 
-        match = lahman[(lahman.nameFirst == Fname) & (lahman.nameLast == Lname)]
+        match = lahman[(lahman.nameFirst == Fname) & (lahman.nameLast == Lname)].head(1)
+
+        # print(match)
 
         pID = match['playerID'].values
         rID = match['retroID'].values
         bbID = match['bbrefID'].values
 
-        roster.iat[ind, 'playerID'] = pID
-        #roster.set_value(ind, 'player_id', pID)
+        # print(pID, rID, bbID)
+
+        roster.at[ind, 'lahmanID'] == pID
+        # roster.at[ind, 'retroID'] == rID
+
+        # roster.loc[ind]['lahmanID'] = pID
+        # roster.ix[ind]['retroID'] = rID
+        # roster.ix[ind]['bbrefID'] = bbID
+
 
     print(roster.head())
 
@@ -150,4 +163,4 @@ def Roster_lahman_tag():
 
 
 # Pulls Lahman Tags (playerID) for rosters (and: retroID   bbrefID)
-# Roster_lahman_tag()
+Roster_lahman_tag()

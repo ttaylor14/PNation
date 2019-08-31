@@ -4,6 +4,9 @@
 
 # See: http://www.indjango.com/access-google-sheets-in-python-using-gspread/
 
+# Goal is to pull google sheet information and place them in the appropriate csv file.
+# Later a sperate file will be created to run this process backwards to replace the relevent information back onto the excell sheet1)
+
 
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
