@@ -110,8 +110,11 @@ def Roster_lahman_tag():
     roster = pd.read_csv('data/rosters.csv')
     lahman = pd.read_csv('data/baseballdatabank-2019.2/core/People.csv')
 
+
     print(roster.head())
     # print(lahman.head())
+
+    # add in if clause that only completes the add in if the column is blank... this allows user changes to fix mistakes
 
 ####### replace the current_year with a global variable fromt he master file? or pull the date from the clock?
 
@@ -133,34 +136,61 @@ def Roster_lahman_tag():
         Fname = roster['player_Fname'][ind]
         Lname = roster['player_Lname'][ind]
 
-        match = lahman[(lahman.nameFirst == Fname) & (lahman.nameLast == Lname)].head(1)
+        pCheck = roster['lahmanID'][ind]
+        rCheck = roster['retroID'][ind]
+        bbCheck = roster['bbrefID'][ind]
+
+        match = lahman[(lahman.nameFirst == Fname) & (lahman.nameLast == Lname)].tail(1)
         # print(match)
 
         pID = match['playerID'].values
         rID = match['retroID'].values
         bbID = match['bbrefID'].values
 
-        # print(pID, rID, bbID)
+        # print(pID)
+        # print(rID)
+        # print(bbID)
 
-        roster.at[ind, 'lahmanID'] == pID
-        # roster.at[ind, 'retroID'] == rID
+        # if statements to check if cell is already filled
+        # this allows for manual override if needed
 
-        # roster.iloc[ind]['lahmanID'] = pID
-        # roster.ix[ind]['retroID'] = rID
-        # roster.ix[ind]['bbrefID'] = bbID
+        if pd.isna(roster['lahmanID'][ind]):
+            roster["lahmanID"].iloc[ind]=pID
+        else:
+            pass
+
+        if pd.isna(roster['retroID'][ind]):
+            roster["retroID"].iloc[ind]=rID
+        else:
+            pass
+
+        if pd.isna(roster['bbrefID'][ind]):
+            roster["bbrefID"].iloc[ind]=bbID
+        else:
+            pass
+
+
+    #print(roster.head())
+    print(roster)
+
+    roster.to_csv('data/rosters.csv')
+
+    # Print Success when complete
+    print("Success")
 
 
 
-    print(roster.head())
-    # pd.to_csv('data/rosters.csv')
+
+
+
 
 # Pull Team csv files to roster.csv
 # combine_Teams_to_Roster()
 
 # Push roster.csv rosters to individual files
-# Rosters_To_Team_Files()
+Rosters_To_Team_Files()
 
 
 
 # Pulls Lahman Tags (playerID) for rosters (and: retroID   bbrefID)
-Roster_lahman_tag()
+# Roster_lahman_tag()
