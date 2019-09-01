@@ -1,7 +1,18 @@
 # File Management Repository
 
-# last Update : 8.27.19
+# last Update : 9.1.19
 
+#### combine_Teams_to_Roster()
+# Combine individual csv team files into the roster file
+# Complete
+
+#### Rosters_To_Team_Files()
+# This seperates full_roster into each team
+# Complete
+
+#### Roster_lahman_tag()
+# This applies lahman, retro, bbref tags to players
+# Complete (some players skipped?)
 
 
 import pandas as pd
@@ -75,7 +86,7 @@ def Rosters_To_Team_Files():
     team_14 = full_roster[full_roster['team_id'] == 14]
 
     # Export Each Roster into own CSV File
-    header = ["team_id", "player_Fname", "player_Lname", "salary", "player_id"]
+    header = ["team_id", "player_Fname", "player_Lname", "salary", "player_id", "lahmanID", "retroID", "bbrefID"]
 
     team_1.to_csv('teams/team1_Draft.csv', encoding='utf-8', columns=header, index=False)
     team_2.to_csv('teams/team2_Draft.csv', encoding='utf-8', columns=header, index=False)
@@ -188,7 +199,7 @@ def Roster_lahman_tag():
 # combine_Teams_to_Roster()
 
 # Push roster.csv rosters to individual files
-Rosters_To_Team_Files()
+# Rosters_To_Team_Files()
 
 
 
