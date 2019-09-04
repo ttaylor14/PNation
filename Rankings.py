@@ -113,6 +113,10 @@ points = ( ( R * data['R'] )
 
 data['Points'] = points
 
+BattingStats = data[['Season', 'Name', 'Team', 'Age', 'Points', 'G', 'PA', 'AB', 'AVG', 'H', '1B', '2B', '3B', 'HR', 'R', 'RBI', 'BB', 'IBB', 'SO', 'HBP', 'SB', 'CS', 'HBP', 'SO', 'Pitches']]
+BattingStats.sort_values("Points", inplace=True)
+print(BattingStats)
+
 ## Fielding
 
 FC = 0
@@ -133,6 +137,15 @@ BatE = -1
 DPT = 0
 # Double Plays Turned
 
+
+
+
+
+
+
+from pybaseball import pitching_stats
+
+pdata = pitching_stats(2019)
 
 ### Pitching
 
@@ -227,14 +240,45 @@ SVHD = 0
 # Saves Plus Holds
 
 
+ppoints = ( ( IP * pdata['IP'] )
++ ( ER * pdata['ER'] )
++ ( K * pdata['SO'] )
++ ( SO * pdata['ShO'] )
++ ( W * pdata['W'] )
++ ( L * pdata['L'] )
++ ( SV * pdata['SV'] )
++ ( BS * pdata['BS'] )
++ ( G * pdata['G'] )
++ ( GS * pdata['GS'] )
++ ( BS * pdata['BS'] )
++ ( H * pdata['H'] )
++ ( RA * pdata['R'] )
++ ( HR * pdata['HR'] )
++ ( BB * pdata['BB'] )
++ ( HB * pdata['HBP'] )
++ ( IBB * pdata['IBB'] )
++ ( B * pdata['BK'] )
+#+ ( PKO * pdata['PKO'] )
++ ( QS * pdata['BK'] )
++ ( CG * pdata['CG'] )
+#+ ( NH * pdata['NH'] )
+#+ ( PG * pdata['PG'] )
+#+ ( BF * pdata['BF'] )
++ ( PC * pdata['Pitches'] )
+#+ ( SOP * pdata['SOP'] )
+#+ ( HD * pdata['HD'] )
+)
 
+pdata['Points'] = ppoints
 
-
+PitchingStats = pdata[['Season', 'Name', 'Team', 'Age', 'Points', 'W', 'L', 'ERA', 'WAR', 'G', 'GS', 'CG', 'ShO', 'SV', 'BS', 'IP', 'H', 'R', 'HR', 'BB', 'IBB', 'HBP', 'BK', 'SO', 'Pitches']]
+PitchingStats.sort_values("Points", inplace=True)
+print(PitchingStats)
 
 # print(data.describe())
-# data.to_csv('battingstatstest.csv')
+# pdata.to_csv('pitchingstatstest.csv')
 
-print("success")
+# print("success")
 
 
 
@@ -255,4 +299,4 @@ print("success")
 # print(data)
 #data.to_csv('battingstatstestcast.csv')
 
-#print("success")
+print("success")
