@@ -114,8 +114,9 @@ points = ( ( R * data['R'] )
 data['Points'] = points
 
 BattingStats = data[['Season', 'Name', 'Team', 'Age', 'Points', 'G', 'PA', 'AB', 'AVG', 'H', '1B', '2B', '3B', 'HR', 'R', 'RBI', 'BB', 'IBB', 'SO', 'HBP', 'SB', 'CS', 'HBP', 'SO', 'Pitches']]
-BattingStats.sort_values("Points", inplace=True)
+#BattingStats.sort_values("Points", inplace=True)
 print(BattingStats)
+BattingStats.to_csv('bstats.csv')
 
 ## Fielding
 
@@ -149,7 +150,7 @@ pdata = pitching_stats(2019)
 
 ### Pitching
 
-IP = 1
+IP = 3
 # Innings Pitched
 # INNINGS PITCHED / OUTS RECORDED
 # Although Innings Pitched are typically displayed throughout the game, pitchers will accrue points for each out they record. The point value entered here applies to outs recorded. For example, if you choose a value of 2 points, a pitcher that pitches 1 inning will earn 6 points (2 points * 3 outs).
@@ -272,8 +273,9 @@ ppoints = ( ( IP * pdata['IP'] )
 pdata['Points'] = ppoints
 
 PitchingStats = pdata[['Season', 'Name', 'Team', 'Age', 'Points', 'W', 'L', 'ERA', 'WAR', 'G', 'GS', 'CG', 'ShO', 'SV', 'BS', 'IP', 'H', 'R', 'HR', 'BB', 'IBB', 'HBP', 'BK', 'SO', 'Pitches']]
-PitchingStats.sort_values("Points", inplace=True)
+# PitchingStats.sort_values("Points", inplace=True)
 print(PitchingStats)
+PitchingStats.to_csv('pstats.csv')
 
 # print(data.describe())
 # pdata.to_csv('pitchingstatstest.csv')
