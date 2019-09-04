@@ -287,8 +287,13 @@ def combinePoints():
     pstats = pd.read_csv('data/pstats.csv')
 
     #Combine CSV
-    Rankings = pd.merge(bstats, pstats, left_on=['Name', 'Points'], right_on=['Name', 'Points'], how='outer')
-    #Save the CSV
+    Rankings = pd.merge(bstats, pstats, left_on=['Name', 'Points', 'Season', 'Age', 'Team'], right_on=['Name', 'Points', 'Season', 'Age', 'Team'], how='outer')
+    Rankings = Rankings.sort_values('Points', ascending=False)
+    Rankings = Rankings.reset_index(drop=True)
+    Rank = Rankings.index
+    Rankings.insert(0, 'Rank', Rank)
+    Rankings.drop(labels=['Unnamed: 0_x', 'Unnamed: 0_y'], axis=1,inplace = True)
+
     Rankings.to_csv('data/Rankings.csv', sep=',', index=False, encoding='utf-8')
 
 
