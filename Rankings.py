@@ -3,11 +3,37 @@
 # last Update : 9.2.19
 
 
-def points():
+
+#### points(currentSeason)
+# Import data from pybaseball to create point totals for the currentSeason
+# Complete
+
+#### Rosters_To_Team_Files()
+# This seperates full_roster into each team
+# Complete
+
+#### Roster_lahman_tag()
+# This applies lahman, retro, bbref tags to players
+# Complete (some players skipped?)
+
+
+import pandas as pd
+
+#################################################
+
+#### Create Batting and Pitching Point totals ###
+
+#################################################
+
+# Creates files for batting and pitching point totals
+
+
+
+def points(currentSeason):
     from pybaseball import batting_stats
 
 
-    data = batting_stats(2019, qual=50)
+    data = batting_stats(currentSeason, qual=1)
 
 
 
@@ -116,7 +142,7 @@ def points():
 
     BattingStats = data[['Season', 'Name', 'Team', 'Age', 'Points', 'G', 'PA', 'AB', 'AVG', 'H', '1B', '2B', '3B', 'HR', 'R', 'RBI', 'BB', 'IBB', 'SO', 'HBP', 'SB', 'CS', 'HBP', 'SO', 'Pitches']]
     #BattingStats.sort_values("Points", inplace=True)
-    print(BattingStats)
+    # print(BattingStats)
     BattingStats.to_csv('data/bstats.csv')
 
     ## Fielding
@@ -147,7 +173,7 @@ def points():
 
     from pybaseball import pitching_stats
 
-    pdata = pitching_stats(2019)
+    pdata = pitching_stats(currentSeason)
 
     ### Pitching
 
@@ -275,27 +301,123 @@ def points():
 
     PitchingStats = pdata[['Season', 'Name', 'Team', 'Age', 'Points', 'W', 'L', 'ERA', 'WAR', 'G', 'GS', 'CG', 'ShO', 'SV', 'BS', 'IP', 'H', 'R', 'HR', 'BB', 'IBB', 'HBP', 'BK', 'SO', 'Pitches']]
     # PitchingStats.sort_values("Points", inplace=True)
-    print(PitchingStats)
+    # print(PitchingStats)
     PitchingStats.to_csv('data/pstats.csv')
 
 
+#####################################
+
+#### Combine Batting and Pitching ###
+
+#####################################
+
+# Combines Batting and Pitching csv files into one
+# ranks players by points and assigns a rank
 
 def combinePoints():
-    import pandas as pd
 
     bstats = pd.read_csv('data/bstats.csv')
     pstats = pd.read_csv('data/pstats.csv')
 
     #Combine CSV
-    Rankings = pd.merge(bstats, pstats, left_on=['Name', 'Points', 'Season', 'Age', 'Team'], right_on=['Name', 'Points', 'Season', 'Age', 'Team'], how='outer')
+    Rankings = pd.merge(bstats, pstats, left_on=['Name', 'Points', 'Season', 'Age', 'Team'], right_on=['Name', 'Points', 'Season', 'Age', 'Team'], how='outer', suffixes=('_bat', '_pit'))
     Rankings = Rankings.sort_values('Points', ascending=False)
     Rankings = Rankings.reset_index(drop=True)
     Rank = Rankings.index
     Rankings.insert(0, 'Rank', Rank)
-    Rankings.drop(labels=['Unnamed: 0_x', 'Unnamed: 0_y'], axis=1,inplace = True)
+    Rankings.drop(labels=['Unnamed: 0_bat', 'Unnamed: 0_pit'], axis=1,inplace = True)
 
     Rankings.to_csv('data/Rankings.csv', sep=',', index=False, encoding='utf-8')
 
 
+####################################
 
-combinePoints()
+#### Creating Marcel Projections ###
+
+####################################
+
+# runs points on current and past 2 season
+# merges all files into one document
+# ranks by projection for the upcoming year
+
+def marcelCalculations():
+
+    MarcelProjection = pd.read_csv('data/marcel/MarcelProjection.csv')
+
+
+
+
+
+def marcelRankings():
+
+    # Current or Season before Projection
+    currentYear = 2019
+    previousYear = (currentYear - 1)
+    TwoYear = (currentYear - 2)
+
+    points(currentYear)
+    combinePoints()
+    currentYear = pd.read_csv('data/Rankings.csv')
+    currentYear = currentYear.add_suffix('_Year1')
+    currentYear.to_csv('data/marcel/currentYear.csv', sep=',', index=False, encoding='utf-8')
+
+
+
+    # Previous Seasons stats
+
+    points(previousYear)
+    combinePoints()
+    previousYear = pd.read_csv('data/Rankings.csv')
+    previousYear = previousYear.add_suffix('_Year2')
+    previousYear.to_csv('data/marcel/previousYear.csv', sep=',', index=False, encoding='utf-8')
+
+
+    # Two Seasons ago stats
+
+    points(TwoYear)
+    combinePoints()
+    TwoYear = pd.read_csv('data/Rankings.csv')
+    TwoYear = TwoYear.add_suffix('_Year3')
+    TwoYear.to_csv('data/marcel/TwoYear.csv', sep=',', index=False, encoding='utf-8')
+
+    currentYear = pd.read_csv('data/marcel/currentYear.csv')
+    previousYear = pd.read_csv('data/marcel/previousYear.csv')
+    TwoYear = pd.read_csv('data/marcel/TwoYear.csv')
+
+
+    # Merge all tables into one based on player name
+    MarcelProjectionTable = pd.merge(currentYear, previousYear, left_on=['Name_Year1'], right_on=['Name_Year2'], how='outer')
+    MarcelProjectionTable = pd.merge(MarcelProjectionTable, TwoYear, left_on=['Name_Year1'], right_on=['Name_Year3'], how='outer')
+
+
+
+
+    # Final Marcel Output
+    MarcelProjectionTable.to_csv('data/marcel/MarcelProjection.csv', sep=',', index=False, encoding='utf-8')
+
+
+
+
+
+
+
+
+
+#####################
+
+#### Run Programs ###
+
+#####################
+
+
+# Creates files for batting and pitching
+#points(2019)
+
+
+# Combines batting an dpitching files together
+#combinePoints()
+
+# Run Marcel Projections
+marcelRankings()
+
+
