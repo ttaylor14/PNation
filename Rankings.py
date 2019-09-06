@@ -320,8 +320,11 @@ def combinePoints():
     pstats = pd.read_csv('data/pstats.csv')
 
     #Combine CSV
-    Rankings = pd.merge(bstats, pstats, left_on=['Name', 'Points', 'Season', 'Age', 'Team'], right_on=['Name', 'Points', 'Season', 'Age', 'Team'], how='outer', suffixes=('_bat', '_pit'))
-    Rankings = Rankings.sort_values('Points', ascending=False)
+    Rankings = pd.merge(bstats, pstats, left_on=['Name'], right_on=['Name'], how='outer', suffixes=('_bat', '_pit'))
+    Total_Points = (Rankings['Points_bat'] + Rankings['Points_pit'])
+    Rankings.insert(1, 'Total_Points', Total_Points)
+    Rankings.round(3)
+    Rankings = Rankings.sort_values('Total_Points', ascending=False)
     Rankings = Rankings.reset_index(drop=True)
     Rank = Rankings.index
     Rankings.insert(0, 'Rank', Rank)
@@ -411,13 +414,13 @@ def marcelRankings():
 
 
 # Creates files for batting and pitching
-#points(2019)
+# points(2019)
 
 
 # Combines batting an dpitching files together
-#combinePoints()
+combinePoints()
 
 # Run Marcel Projections
-marcelRankings()
+# marcelRankings()
 
 
