@@ -418,9 +418,9 @@ def marcelRankings():
 
 
 # Combines batting an dpitching files together
-combinePoints()
+# combinePoints()
 
 # Run Marcel Projections
-# marcelRankings()
+marcelRankings()
 
 
