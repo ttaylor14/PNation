@@ -321,17 +321,16 @@ def combinePoints():
 
     #Combine CSV
     Rankings = pd.merge(bstats, pstats, left_on=['Name'], right_on=['Name'], how='outer', suffixes=('_bat', '_pit'))
-    Total_Points = (Rankings['Points_bat'] + Rankings['Points_pit'])
+    Rankings.drop(labels=['Unnamed: 0_bat', 'Unnamed: 0_pit'], axis=1,inplace = True)
+    Rankings = Rankings.fillna(0)
+    Total_Points = Rankings['Points_bat'] + Rankings['Points_pit']
     Rankings.insert(1, 'Total_Points', Total_Points)
-    Rankings.round(3)
     Rankings = Rankings.sort_values('Total_Points', ascending=False)
     Rankings = Rankings.reset_index(drop=True)
     Rank = Rankings.index
     Rankings.insert(0, 'Rank', Rank)
-    Rankings.drop(labels=['Unnamed: 0_bat', 'Unnamed: 0_pit'], axis=1,inplace = True)
 
     Rankings.to_csv('data/Rankings.csv', sep=',', index=False, encoding='utf-8')
-
 
 ####################################
 
@@ -339,19 +338,19 @@ def combinePoints():
 
 ####################################
 
-# runs points on current and past 2 season
+# runs points on current and past 2 season (3 total)
 # merges all files into one document
 # ranks by projection for the upcoming year
 
 def marcelCalculations():
 
-    MarcelProjection = pd.read_csv('data/marcel/MarcelProjection.csv')
+    MarcelTable = pd.read_csv('data/marcel/MarcelTable.csv')
 
 
 
 
 
-def marcelRankings():
+def marcelCombinedFile():
 
     # Current or Season before Projection
     currentYear = 2019
@@ -396,7 +395,7 @@ def marcelRankings():
 
 
     # Final Marcel Output
-    MarcelProjectionTable.to_csv('data/marcel/MarcelProjection.csv', sep=',', index=False, encoding='utf-8')
+    MarcelProjectionTable.to_csv('data/marcel/MarcelTable.csv', sep=',', index=False, encoding='utf-8')
 
 
 
@@ -420,7 +419,10 @@ def marcelRankings():
 # Combines batting an dpitching files together
 # combinePoints()
 
+# Run Marcel Projections Table
+# marcelCombinedFile()
+
 # Run Marcel Projections
-marcelRankings()
+# marcelCalculations()
 
 
