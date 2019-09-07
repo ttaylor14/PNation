@@ -18,6 +18,7 @@
 
 
 import pandas as pd
+import numpy as np
 
 #################################################
 
@@ -143,7 +144,12 @@ def points(currentSeason):
     BattingStats = data[['Season', 'Name', 'Team', 'Age', 'Points', 'G', 'PA', 'AB', 'AVG', 'H', '1B', '2B', '3B', 'HR', 'R', 'RBI', 'BB', 'IBB', 'SO', 'HBP', 'SB', 'CS', 'HBP', 'SO', 'Pitches']]
     #BattingStats.sort_values("Points", inplace=True)
     # print(BattingStats)
+
+
     BattingStats.to_csv('data/bstats.csv')
+
+    ## Creating a Lg Total document for Marcel Projections
+    lgAVG()
 
     ## Fielding
 
@@ -395,57 +401,92 @@ def marcelCalculations():
     Pitches =
 
     PitchingStats = pdata[['Season', 'Name', 'Team', 'Age', 'Points', 'W', 'L', 'ERA', 'WAR', 'G', 'GS', 'CG', 'ShO', 'SV', 'BS', 'IP', 'H', 'R', 'HR', 'BB', 'IBB', 'HBP', 'BK', 'SO', 'Pitches']]
+
 """
 
-def LeagueAverage():
+def lgAVGBat():
+    # Import batting Stats
+    BattingStats = pd.read_csv('data/bstats.csv')
+    # find year of data
+    Year = BattingStats['Season'][1]
+    NumPlayers = len(BattingStats.index)
 
-    bstats = pd.read_csv('data/bstats.csv')
-    AVG = pd.read_csv('data/marcel/lgAVG.csv')
 
-    Year = bstats['Season'][1]
-    AVG['Year'][Year] = Year
-    AVG['PA'][Year] = bstats['PA'].sum()
-    AVG['R'][Year] = bstats['R'].sum()
-    AVG['1B'][Year] = bstats['1B'].sum()
-    AVG['2B'][Year] = bstats['2B'].sum()
-    AVG['3B'][Year] = bstats['3B'].sum()
-    AVG['HR'][Year] = bstats['HR'].sum()
-    AVG['RBI'][Year] = bstats['RBI'].sum()
-    AVG['BB'][Year] = bstats['BB'].sum()
-    AVG['SO'][Year] = bstats['SO'].sum()
-    AVG['SB'][Year] = bstats['SB'].sum()
-    AVG['AB'][Year] = bstats['AB'].sum()
-    AVG['H'][Year] = bstats['H'].sum()
-    AVG['IBB'][Year] = bstats['IBB'].sum()
-    AVG['HBP'][Year] = bstats['HBP'].sum()
-    AVG['CS'][Year] = bstats['CS'].sum()
-    """
+    # read lgAVG file
+    lgAVG = pd.read_csv('data/marcel/lgAVGBat.csv')
 
-    pstats = pd.read_csv('data/pstats.csv')
+    # locate correct year on file, remove previous entry, and add sum
+    lgAVG = lgAVG[lgAVG.Season != Year]
+    lgAVG.loc[Year] = BattingStats.sum()
 
-    AVG['IP'][Year] = pstats['IP'].sum()
-    AVG['ER'][Year] = pstats['IP'].sum()
-    AVG['SO'][Year] = pstats['IP'].sum()
-    AVG['ShO'][Year] = pstats['IP'].sum()
-    AVG['W'][Year] = pstats['IP'].sum()
-    AVG['L'][Year] = pstats['IP'].sum()
-    AVG['SV'][Year] = pstats['IP'].sum()
-    AVG['BS'][Year] = pstats['IP'].sum()
-    AVG['G'][Year] = pstats['IP'].sum()
-    AVG['GS'][Year] = pstats['IP'].sum()
-    AVG['BS'][Year] = pstats['IP'].sum()
-    AVG['H'][Year] = pstats['H'].sum()
-    AVG['R'][Year] = pstats['R'].sum()
-    AVG['HR'][Year] = pstats['HR'].sum()
-    AVG['BB'][Year] = pstats['BB'].sum()
-    AVG['HBP'][Year] = pstats['HBP'].sum()
-    AVG['IBB'][Year] = pstats['IBB'].sum()
-    AVG['BK'][Year] = pstats['BK'].sum()
-    AVG['CG'][Year] = pstats['CG'].sum()
-    AVG['Pitches'][Year] = pstats['Pitches'].sum()
-    """
-    print(AVG.head())
-    #AVG.to_csv('data/marcel/lgAVG.csv', sep=',', index=False, encoding='utf-8')
+    # delete unneeded Information columns
+    lgAVG['Name'] = 'X'
+    lgAVG['Team'] = 'X'
+
+    # Change Season Calue to the correct year rather than the Sum
+    lgAVG['Season'][Year] = Year
+    # add number of players
+    lgAVG['NumPlayers'][Year] = NumPlayers
+
+    # drop unneeded column
+    lgAVG.drop(labels=['Unnamed: 0'], axis=1,inplace = True)
+
+    # Sort by Season and reset Index
+    lgAVG = lgAVG.sort_values('Season', ascending=False)
+    lgAVG = lgAVG.reset_index(drop=True)
+
+    # Export Data to File
+    lgAVG.to_csv('data/marcel/lgAVGBat.csv')
+
+
+def lgAVGPit():
+    # Import batting Stats
+    PitchingStats = pd.read_csv('data/pstats.csv')
+    # find year of data
+    Year = PitchingStats['Season'][1]
+    NumPlayers = len(PitchingStats.index)
+
+    # read lgAVG file
+    lgAVG = pd.read_csv('data/marcel/lgAVGPit.csv')
+
+    # locate correct year on file, remove previous entry, and add sum
+    lgAVG = lgAVG[lgAVG.Season != Year]
+    lgAVG.loc[Year] = PitchingStats.sum()
+
+    # delete unneeded Information columns
+    lgAVG['Name'] = 'X'
+    lgAVG['Team'] = 'X'
+
+    # Change Season Calue to the correct year rather than the Sum
+    lgAVG['Season'][Year] = Year
+        # add number of players
+    lgAVG['NumPlayers'][Year] = NumPlayers
+
+    # drop unneeded column
+    lgAVG.drop(labels=['Unnamed: 0'], axis=1,inplace = True)
+
+    # Sort by Season and reset Index
+    lgAVG = lgAVG.sort_values('Season', ascending=False)
+    lgAVG = lgAVG.reset_index(drop=True)
+
+    # Export Data to FIle
+    lgAVG.to_csv('data/marcel/lgAVGPit.csv')
+
+
+def lgAVG():
+    # Run LGAVG for Batting and Pitching
+    lgAVGBat()
+    lgAVGPit()
+    # Retrieve Data and add Suffix
+    lgBat = pd.read_csv('data/marcel/lgAVGBat.csv')
+    lgBat = lgBat.add_suffix('_Bat')
+    lgPit = pd.read_csv('data/marcel/lgAVGPit.csv')
+    lgPit = lgPit.add_suffix('_Pit')
+    # Merge both files into one file
+    lgAVG = pd.merge(lgBat, lgPit, left_on=['Season_Bat'], right_on=['Season_Pit'], how='outer')
+    # Export Combine File for later use
+    lgAVG.to_csv('data/marcel/lgAVG.csv', sep=',', index=False, encoding='utf-8')
+
 
 
 def marcelCombinedFile():
@@ -456,6 +497,7 @@ def marcelCombinedFile():
     TwoYear = (currentYear - 2)
 
     points(currentYear)
+    lgAVG()
     combinePoints()
     currentYear = pd.read_csv('data/Rankings.csv')
     currentYear = currentYear.add_suffix('_Year1')
@@ -466,6 +508,7 @@ def marcelCombinedFile():
     # Previous Seasons stats
 
     points(previousYear)
+    lgAVG()
     combinePoints()
     previousYear = pd.read_csv('data/Rankings.csv')
     previousYear = previousYear.add_suffix('_Year2')
@@ -475,6 +518,7 @@ def marcelCombinedFile():
     # Two Seasons ago stats
 
     points(TwoYear)
+    lgAVG()
     combinePoints()
     TwoYear = pd.read_csv('data/Rankings.csv')
     TwoYear = TwoYear.add_suffix('_Year3')
@@ -513,6 +557,9 @@ def marcelCombinedFile():
 # Creates files for batting and pitching
 # points(2019)
 
+## Creating a Lg Total document for Marcel Projections
+# lgAVG()
+
 
 # Combines batting an dpitching files together
 # combinePoints()
@@ -523,4 +570,4 @@ def marcelCombinedFile():
 # Run Marcel Projections
 # marcelCalculations()
 
-LeagueAverage()
+# LeagueAverage()
