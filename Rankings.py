@@ -342,12 +342,110 @@ def combinePoints():
 # merges all files into one document
 # ranks by projection for the upcoming year
 
+"""
 def marcelCalculations():
 
     MarcelTable = pd.read_csv('data/marcel/MarcelTable.csv')
 
+    PA_Total = MarcelTable['PA_Year1'].sum()
+
+    ## Batting Required Stats
+
+    PA = (MarcelTable['PA_Year1']*.5) + (MarcelTable['PA_Year2']*.1) + (200)
+
+    R = (MarcelTable['PA_Year1']*.5) + (MarcelTable['PA_Year2']*.3) + (MarcelTable['PA_Year3']*.1)
+    1b =
+    2b =
+    3b =
+    HR =
+    RBI =
+    BB =
+    SO =
+    SB =
+    AB =
+    H =
+    IBB =
+    HBP =
+    CS =
+
+    BattingStats = data[['Season', 'Name', 'Team', 'Age', 'Points', 'G', 'PA', 'AB', 'AVG', 'H', '1B', '2B', '3B', 'HR', 'R', 'RBI', 'BB', 'IBB', 'SO', 'HBP', 'SB', 'CS', 'HBP', 'SO', 'Pitches']]
 
 
+    ## Pitching Required Stats
+
+    IP =
+    ER =
+    SO =
+    ShO =
+    W =
+    L =
+    SV =
+    BS =
+    G =
+    GS =
+    BS =
+    H =
+    R =
+    HR =
+    BB =
+    HBP =
+    IBB =
+    BK =
+    CG =
+    Pitches =
+
+    PitchingStats = pdata[['Season', 'Name', 'Team', 'Age', 'Points', 'W', 'L', 'ERA', 'WAR', 'G', 'GS', 'CG', 'ShO', 'SV', 'BS', 'IP', 'H', 'R', 'HR', 'BB', 'IBB', 'HBP', 'BK', 'SO', 'Pitches']]
+"""
+
+def LeagueAverage():
+
+    bstats = pd.read_csv('data/bstats.csv')
+    AVG = pd.read_csv('data/marcel/lgAVG.csv')
+
+    Year = bstats['Season'][1]
+    AVG['Year'][Year] = Year
+    AVG['PA'][Year] = bstats['PA'].sum()
+    AVG['R'][Year] = bstats['R'].sum()
+    AVG['1B'][Year] = bstats['1B'].sum()
+    AVG['2B'][Year] = bstats['2B'].sum()
+    AVG['3B'][Year] = bstats['3B'].sum()
+    AVG['HR'][Year] = bstats['HR'].sum()
+    AVG['RBI'][Year] = bstats['RBI'].sum()
+    AVG['BB'][Year] = bstats['BB'].sum()
+    AVG['SO'][Year] = bstats['SO'].sum()
+    AVG['SB'][Year] = bstats['SB'].sum()
+    AVG['AB'][Year] = bstats['AB'].sum()
+    AVG['H'][Year] = bstats['H'].sum()
+    AVG['IBB'][Year] = bstats['IBB'].sum()
+    AVG['HBP'][Year] = bstats['HBP'].sum()
+    AVG['CS'][Year] = bstats['CS'].sum()
+    """
+
+    pstats = pd.read_csv('data/pstats.csv')
+
+    AVG['IP'][Year] = pstats['IP'].sum()
+    AVG['ER'][Year] = pstats['IP'].sum()
+    AVG['SO'][Year] = pstats['IP'].sum()
+    AVG['ShO'][Year] = pstats['IP'].sum()
+    AVG['W'][Year] = pstats['IP'].sum()
+    AVG['L'][Year] = pstats['IP'].sum()
+    AVG['SV'][Year] = pstats['IP'].sum()
+    AVG['BS'][Year] = pstats['IP'].sum()
+    AVG['G'][Year] = pstats['IP'].sum()
+    AVG['GS'][Year] = pstats['IP'].sum()
+    AVG['BS'][Year] = pstats['IP'].sum()
+    AVG['H'][Year] = pstats['H'].sum()
+    AVG['R'][Year] = pstats['R'].sum()
+    AVG['HR'][Year] = pstats['HR'].sum()
+    AVG['BB'][Year] = pstats['BB'].sum()
+    AVG['HBP'][Year] = pstats['HBP'].sum()
+    AVG['IBB'][Year] = pstats['IBB'].sum()
+    AVG['BK'][Year] = pstats['BK'].sum()
+    AVG['CG'][Year] = pstats['CG'].sum()
+    AVG['Pitches'][Year] = pstats['Pitches'].sum()
+    """
+    print(AVG.head())
+    #AVG.to_csv('data/marcel/lgAVG.csv', sep=',', index=False, encoding='utf-8')
 
 
 def marcelCombinedFile():
@@ -425,4 +523,4 @@ def marcelCombinedFile():
 # Run Marcel Projections
 # marcelCalculations()
 
-
+LeagueAverage()
