@@ -365,18 +365,31 @@ def marcelCalculations(Mstat):
     MS_Year2 = (str(Mstat) + "_Year2")
     MS_Year3 = (str(Mstat) + "_Year3")
 
+    # Weighted total of individual players stat and Plate Apperances
     MStateTotal = (MS_Year1 * 5) + (MS_Year2 * 4) + (MS_Year3 * 3)
     PA = (MarcelTable['PA_Year1']*.5) + (MarcelTable['PA_Year2']*.1) + (200)
 
-
+    # Calculating the Weighted Mean of state per plate apperances for that individual player
     MS_Y1 = MarcelTable[MS_Year1][Year1]/MarcelTable['PA'][Year1] * MarcelTable['PA_Year1'] * 5
     MS_Y2 = MarcelTable[MS_Year2][Year2]/MarcelTable['PA'][Year2] * MarcelTable['PA_Year2'] * 4
     MS_Y3 = MarcelTable[MS_Year3][Year3]/MarcelTable['PA'][Year3] * MarcelTable['PA_Year3'] * 3
+
+    # Players total Weighted Plate Apperances
     Total_PAS = ( MarcelTable['PA_Year1'] * 5 ) + ( MarcelTable['PA_Year2'] * 4 ) + ( MarcelTable['PA_Year3'] * 3 )
+
+    # Adjusting ratio to match 1200 apperances
     MS_Ratio = ( (MS_Y1 + MS_Y2 + MS_Y3) * 1200 ) / Total_PAS
+
+    # taking league ratio out of 1200 and adding it to the actual players result to get that players ratio of stat per PA
     MS_Perct = ( MS_Ratio + MStateTotal ) / ( 1200 + Total_PAS )
+
+    # Take the player's ratio and multiply it by the expected number of plate apperances
     MS_Expected = MS_perct * PA
+
+    # Adjust for players age
     Age_Reg = ( ( 29 - MarcelTable['Age_Year1'] ) * 0.5 )
+
+    # Final Result
     Result = MS_Expected * ( 1 + Age_Reg )
 
     ## Batting Required Stats
