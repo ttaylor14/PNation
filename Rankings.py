@@ -349,17 +349,41 @@ def combinePoints():
 # ranks by projection for the upcoming year
 
 """
-def marcelCalculations():
+def marcelCalculations(Mstat):
 
+    #Import Files
     MarcelTable = pd.read_csv('data/marcel/MarcelTable.csv')
+    lgAVG = pd.read_csv('data/marcel/lgAVG.csv')
 
-    PA_Total = MarcelTable['PA_Year1'].sum()
+    # What Year are we using?
+    Year1 = MarcelTable['Season_Year1'][1]
+    Year2 = MarcelTable['Season_Year2'][1]
+    Year3 = MarcelTable['Season_Year3'][1]
+
+    # Label the Stat for each year of Data
+    MS_Year1 = (str(Mstat) + "_Year1")
+    MS_Year2 = (str(Mstat) + "_Year2")
+    MS_Year3 = (str(Mstat) + "_Year3")
+
+    MStateTotal = (MS_Year1 * 5) + (MS_Year2 * 4) + (MS_Year3 * 3)
+    PA = (MarcelTable['PA_Year1']*.5) + (MarcelTable['PA_Year2']*.1) + (200)
+
+
+    MS_Y1 = MarcelTable[MS_Year1][Year1]/MarcelTable['PA'][Year1] * MarcelTable['PA_Year1'] * 5
+    MS_Y2 = MarcelTable[MS_Year2][Year2]/MarcelTable['PA'][Year2] * MarcelTable['PA_Year2'] * 4
+    MS_Y3 = MarcelTable[MS_Year3][Year3]/MarcelTable['PA'][Year3] * MarcelTable['PA_Year3'] * 3
+    Total_PAS = ( MarcelTable['PA_Year1'] * 5 ) + ( MarcelTable['PA_Year2'] * 4 ) + ( MarcelTable['PA_Year3'] * 3 )
+    MS_Ratio = ( (MS_Y1 + MS_Y2 + MS_Y3) * 1200 ) / Total_PAS
+    MS_Perct = ( MS_Ratio + MStateTotal ) / ( 1200 + Total_PAS )
+    MS_Expected = MS_perct * PA
+    Age_Reg = ( ( 29 - MarcelTable['Age_Year1'] ) * 0.5 )
+    Result = MS_Expected * ( 1 + Age_Reg )
 
     ## Batting Required Stats
 
     PA = (MarcelTable['PA_Year1']*.5) + (MarcelTable['PA_Year2']*.1) + (200)
 
-    R = (MarcelTable['PA_Year1']*.5) + (MarcelTable['PA_Year2']*.3) + (MarcelTable['PA_Year3']*.1)
+    R = (MarcelTable['R_Year1']*.5) + (MarcelTable['R_Year2']*.4) + (MarcelTable['R_Year3']*.3)
     1b =
     2b =
     3b =
