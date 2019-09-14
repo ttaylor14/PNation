@@ -103,6 +103,30 @@ The Draft Calculator still needs refining. The following items are still desired
 This file is used to manage all the files especially during software development. However, some of its functions may be utilized
 in the future for various portions of the system such as updating team rosters.
 
-Future additons will include:
-Name change function
+This File may become out of date once the use of GSpread and accessing the teams Google Sheet file is complete
 
+Future additons will include:
+Team Name change function
+
+
+
+
+-- Understanding the GoogleSheet --
+
+This file is attempting to access the team's current Google Sheet file. This will pull off current team rosters, FAAB, and player salaries. 
+This information will be what is fed through the draft calculator and then reuploaded to the GoogleSheet. This will eliminate all human errors and create instantaneously team rosters than canbe used for projections and teram analysis.
+
+
+
+
+-- Understanding the Rankings File --
+
+The rankings File attempts to quantify a players production. This is done by creating an editable point system that can then be used to examine player's production throughout any year using pybaseball.
+
+
+The File is also attempting to create Marcel projections and use other resources to create player projections and rankings specific to the desired league settings. 
+
+It is hoped that various projection system data can be scraped in order to create an aggregate ranking of multiple sources.
+By creating a aggregate it should neautralize any one system to create  one that is hopefully more accurate.
+
+It is also desired to add the ability to look at stats for several upcoming years to create a proper dynaty ranking system.
