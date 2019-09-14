@@ -3,15 +3,44 @@
 	{
 		"selected_items":
 		[
+			[
+				"2B",
+				"2B"
+			],
+			[
+				"Two",
+				"TwoYear\tstatement"
+			],
+			[
+				"add_",
+				"add_suffix\tfunction"
+			],
+			[
+				"cur",
+				"currentYear"
+			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "/Users/ToddTaylor/Documents/GitHub/GoogleSheetTest.py",
+			"file": "GoogleSheetTest.py",
 			"settings":
 			{
-				"buffer_size": 681,
+				"buffer_size": 1765,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "# Projected Rankings System\n\n# last Update : 9.2.19\n\n\n\n#### points(currentSeason)\n# Import data from pybaseball to create point totals for the currentSeason\n# Complete\n\n#### Rosters_To_Team_Files()\n# This seperates full_roster into each team\n# Complete\n\n#### Roster_lahman_tag()\n# This applies lahman, retro, bbref tags to players\n# Complete (some players skipped?)\n\n\nimport pandas as pd\nimport numpy as np\n\n#################################################\n\n#### Create Batting and Pitching Point totals ###\n\n#################################################\n\n# Creates files for batting and pitching point totals\n\n\n\ndef points(currentSeason):\n    from pybaseball import batting_stats\n\n\n    data = batting_stats(currentSeason, qual=1)\n\n\n\n    # Procrastination Points\n\n    # ESPN Settings\n\n    ## Batting Scoring\n\n    R = 1\n    # Runs Scored\n\n    Single = 0\n    # Singles\n\n    Double = 0\n    # Doubles\n\n    Triple = 0\n    # Triples\n\n    HR = 2\n    # Home Runs\n\n    TB = 1\n    # Total Bases\n\n    RBI = 1\n    # Runs Batted In\n\n    BB = 1\n    # Walks\n\n    K = -1\n    # Strikeouts\n\n    SB = 1\n    # Stolen Bases\n\n\n    AB = 0\n    # At Bats\n\n    Hits = 0\n    # Hits\n\n    XBH = 0\n    # Extra Base Hits\n\n    GWRBI = 0\n    # Game Winning RBI\n\n    IBB = 1\n    # Intentional Walks\n\n    HBP = 0\n    # Hit by Pitch\n\n    SAC = 0\n    # Sacrifices\n\n    CS = -1\n    # Caught Stealing\n\n    SBN = 0\n    # Net Stolen Bases\n\n    GIDP = 0\n    # Ground into Double Plays\n\n    CYC = 20\n    # Hitting for the Cycle\n\n    GSHR = 4\n    # Grand Slam Home Runs\n\n    BTW = 0\n    # Batter Team Win\n\n    BTL = 0\n    # Batter Team Loss\n\n\n\n    points = ( ( R * data['R'] )\n    + ( Single * data['1B'] )\n    + ( Double * data['2B'] )\n    + ( Triple * data['3B'] )\n    + ( HR * data['HR'] )\n    + ( TB * ( data['1B'] + (2 * data['2B']) + (3 * data['3B']) + (4 * data['HR']) ) )\n    + ( RBI * data['RBI'] )\n    + ( BB * data['BB'] )\n    + ( K * data['SO'] )\n    + ( SB * data['SB'] )\n    + ( AB * data['AB'] )\n    + ( Hits * data['H'])\n    + ( XBH * ( data['2B'] + data['3B'] + data['HR']) )\n    + ( IBB * data['IBB'] )\n    + ( HBP * data['HBP'] )\n    + ( CS * data['CS'] ) )\n\n\n    # missing Sac and GWRBI and everything past CS\n\n    data['Points'] = points\n\n    BattingStats = data[['Season', 'Name', 'Team', 'Age', 'Points', 'G', 'PA', 'AB', 'AVG', 'H', '1B', '2B', '3B', 'HR', 'R', 'RBI', 'BB', 'IBB', 'SO', 'HBP', 'SB', 'CS', 'HBP', 'SO', 'Pitches']]\n    #BattingStats.sort_values(\"Points\", inplace=True)\n    # print(BattingStats)\n\n\n    BattingStats.to_csv('data/bstats.csv')\n\n    ## Creating a Lg Total document for Marcel Projections\n    lgAVG()\n\n    ## Fielding\n\n    FC = 0\n    # Fielding Chances\n\n    PO = 0\n    # Put Outs\n\n    AST = 0\n    # Assists\n\n    OFAST = 0\n    # Outfield Assists\n\n    BatE = -1\n    # Errors\n\n    DPT = 0\n    # Double Plays Turned\n\n\n\n\n\n\n\n    from pybaseball import pitching_stats\n\n    pdata = pitching_stats(currentSeason)\n\n    ### Pitching\n\n    IP = 3\n    # Innings Pitched\n    # INNINGS PITCHED / OUTS RECORDED\n    # Although Innings Pitched are typically displayed throughout the game, pitchers will accrue points for each out they record. The point value entered here applies to outs recorded. For example, if you choose a value of 2 points, a pitcher that pitches 1 inning will earn 6 points (2 points * 3 outs).\n\n    ER = -2\n    # Earned Runs\n\n    K = 1\n    # Strikeouts\n\n    SO = 5\n    # Shutouts\n\n    W = 5\n    # Wins\n\n    L = -5\n    # Losses\n\n    SV = 5\n    # Saves\n\n    BS = -5\n    # Blown Saves\n\n\n    G = 0\n    # Appearances\n\n    GS = 0\n    # Games Started\n\n    H = -1\n    # Hits Allowed\n\n    RA = 0\n    # Runs Allowed\n\n    HR = 0\n    # Home Runs Allowed\n\n    BB = -1\n    # Walks Issued\n\n    HB = -1\n    # Hit Batsmen\n\n    WP = -1\n    # Wild Pitches\n\n    B = -1\n    # Balks\n\n    PKO = 2\n    # Pick Offs\n\n    QS = 5\n    # Quality Starts\n\n    CG = 10\n    # Complete Games\n\n    NH = 15\n    # No Hitters\n\n    PG = 20\n    # Perfect Games\n\n    BF = 0\n    # Batters Faced\n\n    PC = 0\n    # Pitch Count\n\n    SOP = 0\n    # Save Opportunities\n\n    HD = 0\n    # Holds\n\n    PTW = 0\n    # Pitcher Team Win\n\n    PTL = 0\n    # Pitcher Team Loss\n\n    SVHD = 0\n    # Saves Plus Holds\n\n\n    ppoints = ( ( IP * pdata['IP'] )\n    + ( ER * pdata['ER'] )\n    + ( K * pdata['SO'] )\n    + ( SO * pdata['ShO'] )\n    + ( W * pdata['W'] )\n    + ( L * pdata['L'] )\n    + ( SV * pdata['SV'] )\n    + ( BS * pdata['BS'] )\n    + ( G * pdata['G'] )\n    + ( GS * pdata['GS'] )\n    + ( BS * pdata['BS'] )\n    + ( H * pdata['H'] )\n    + ( RA * pdata['R'] )\n    + ( HR * pdata['HR'] )\n    + ( BB * pdata['BB'] )\n    + ( HB * pdata['HBP'] )\n    + ( IBB * pdata['IBB'] )\n    + ( B * pdata['BK'] )\n    #+ ( PKO * pdata['PKO'] )\n    + ( QS * pdata['BK'] )\n    + ( CG * pdata['CG'] )\n    #+ ( NH * pdata['NH'] )\n    #+ ( PG * pdata['PG'] )\n    #+ ( BF * pdata['BF'] )\n    + ( PC * pdata['Pitches'] )\n    #+ ( SOP * pdata['SOP'] )\n    #+ ( HD * pdata['HD'] )\n    )\n\n    pdata['Points'] = ppoints\n\n    PitchingStats = pdata[['Season', 'Name', 'Team', 'Age', 'Points', 'W', 'L', 'ERA', 'WAR', 'G', 'GS', 'CG', 'ShO', 'SV', 'BS', 'IP', 'H', 'R', 'HR', 'BB', 'IBB', 'HBP', 'BK', 'SO', 'Pitches']]\n    # PitchingStats.sort_values(\"Points\", inplace=True)\n    # print(PitchingStats)\n    PitchingStats.to_csv('data/pstats.csv')\n\n\n#####################################\n\n#### Combine Batting and Pitching ###\n\n#####################################\n\n# Combines Batting and Pitching csv files into one\n# ranks players by points and assigns a rank\n\ndef combinePoints():\n\n    bstats = pd.read_csv('data/bstats.csv')\n    pstats = pd.read_csv('data/pstats.csv')\n\n    #Combine CSV\n    Rankings = pd.merge(bstats, pstats, left_on=['Name'], right_on=['Name'], how='outer', suffixes=('_bat', '_pit'))\n    Rankings.drop(labels=['Unnamed: 0_bat', 'Unnamed: 0_pit'], axis=1,inplace = True)\n    Rankings = Rankings.fillna(0)\n    Total_Points = Rankings['Points_bat'] + Rankings['Points_pit']\n    Rankings.insert(1, 'Total_Points', Total_Points)\n    Rankings = Rankings.sort_values('Total_Points', ascending=False)\n    Rankings = Rankings.reset_index(drop=True)\n    Rank = Rankings.index\n    Rankings.insert(0, 'Rank', Rank)\n\n    Rankings.to_csv('data/Rankings.csv', sep=',', index=False, encoding='utf-8')\n\n####################################\n\n#### Creating Marcel Projections ###\n\n####################################\n\n# runs points on current and past 2 season (3 total)\n# merges all files into one document\n# ranks by projection for the upcoming year\n\n\"\"\"\n\n# loop players and stats through function\n# have results sent to a file\n# have function then regear and run function again to create a 2, 3, 4? year outlook\n\ndef marcelCalculations(Mstat):\n\n    #Import Files\n    MarcelTable = pd.read_csv('data/marcel/MarcelTable.csv')\n    lgAVG = pd.read_csv('data/marcel/lgAVG.csv')\n\n    # What Year are we using?\n    Year1 = MarcelTable['Season_Year1'][1]\n    Year2 = MarcelTable['Season_Year2'][1]\n    Year3 = MarcelTable['Season_Year3'][1]\n\n    # Label the Stat for each year of Data\n    MS_Year1 = (str(Mstat) + \"_Year1\")\n    MS_Year2 = (str(Mstat) + \"_Year2\")\n    MS_Year3 = (str(Mstat) + \"_Year3\")\n\n    # Weighted total of individual players stat and Plate Apperances\n    MStateTotal = (MS_Year1 * 5) + (MS_Year2 * 4) + (MS_Year3 * 3)\n    PA = (MarcelTable['PA_Year1']*.5) + (MarcelTable['PA_Year2']*.1) + (200)\n\n    # Calculating the Weighted Mean of state per plate apperances for that individual player\n    MS_Y1 = MarcelTable[MS_Year1][Year1]/MarcelTable['PA'][Year1] * MarcelTable['PA_Year1'] * 5\n    MS_Y2 = MarcelTable[MS_Year2][Year2]/MarcelTable['PA'][Year2] * MarcelTable['PA_Year2'] * 4\n    MS_Y3 = MarcelTable[MS_Year3][Year3]/MarcelTable['PA'][Year3] * MarcelTable['PA_Year3'] * 3\n\n    # Players total Weighted Plate Apperances\n    Total_PAS = ( MarcelTable['PA_Year1'] * 5 ) + ( MarcelTable['PA_Year2'] * 4 ) + ( MarcelTable['PA_Year3'] * 3 )\n\n    # Adjusting ratio to match 1200 apperances\n    MS_Ratio = ( (MS_Y1 + MS_Y2 + MS_Y3) * 1200 ) / Total_PAS\n\n    # taking league ratio out of 1200 and adding it to the actual players result to get that players ratio of stat per PA\n    MS_Perct = ( MS_Ratio + MStateTotal ) / ( 1200 + Total_PAS )\n\n    # Take the player's ratio and multiply it by the expected number of plate apperances\n    MS_Expected = MS_perct * PA\n\n    # Adjust for players age\n    Age_Reg = ( ( 29 - MarcelTable['Age_Year1'] ) * 0.5 )\n\n    # Final Result\n    Result = MS_Expected * ( 1 + Age_Reg )\n\n    ## Batting Required Stats\n\n    PA = (MarcelTable['PA_Year1']*.5) + (MarcelTable['PA_Year2']*.1) + (200)\n\n    R = (MarcelTable['R_Year1']*.5) + (MarcelTable['R_Year2']*.4) + (MarcelTable['R_Year3']*.3)\n    1b =\n    2b =\n    3b =\n    HR =\n    RBI =\n    BB =\n    SO =\n    SB =\n    AB =\n    H =\n    IBB =\n    HBP =\n    CS =\n\n    BattingStats = data[['Season', 'Name', 'Team', 'Age', 'Points', 'G', 'PA', 'AB', 'AVG', 'H', '1B', '2B', '3B', 'HR', 'R', 'RBI', 'BB', 'IBB', 'SO', 'HBP', 'SB', 'CS', 'HBP', 'SO', 'Pitches']]\n\n\n    ## Pitching Required Stats\n\n    IP =\n    ER =\n    SO =\n    ShO =\n    W =\n    L =\n    SV =\n    BS =\n    G =\n    GS =\n    BS =\n    H =\n    R =\n    HR =\n    BB =\n    HBP =\n    IBB =\n    BK =\n    CG =\n    Pitches =\n\n    PitchingStats = pdata[['Season', 'Name', 'Team', 'Age', 'Points', 'W', 'L', 'ERA', 'WAR', 'G', 'GS', 'CG', 'ShO', 'SV', 'BS', 'IP', 'H', 'R', 'HR', 'BB', 'IBB', 'HBP', 'BK', 'SO', 'Pitches']]\n\n\"\"\"\n\ndef lgAVGBat():\n    # Import batting Stats\n    BattingStats = pd.read_csv('data/bstats.csv')\n    # find year of data\n    Year = BattingStats['Season'][1]\n    NumPlayers = len(BattingStats.index)\n\n\n    # read lgAVG file\n    lgAVG = pd.read_csv('data/marcel/lgAVGBat.csv')\n\n    # locate correct year on file, remove previous entry, and add sum\n    lgAVG = lgAVG[lgAVG.Season != Year]\n    lgAVG.loc[Year] = BattingStats.sum()\n\n    # delete unneeded Information columns\n    lgAVG['Name'] = 'X'\n    lgAVG['Team'] = 'X'\n\n    # Change Season Calue to the correct year rather than the Sum\n    lgAVG['Season'][Year] = Year\n    # add number of players\n    lgAVG['NumPlayers'][Year] = NumPlayers\n\n    # drop unneeded column\n    lgAVG.drop(labels=['Unnamed: 0'], axis=1,inplace = True)\n\n    # Sort by Season and reset Index\n    lgAVG = lgAVG.sort_values('Season', ascending=False)\n    lgAVG = lgAVG.reset_index(drop=True)\n\n    # Export Data to File\n    lgAVG.to_csv('data/marcel/lgAVGBat.csv')\n\n\ndef lgAVGPit():\n    # Import batting Stats\n    PitchingStats = pd.read_csv('data/pstats.csv')\n    # find year of data\n    Year = PitchingStats['Season'][1]\n    NumPlayers = len(PitchingStats.index)\n\n    # read lgAVG file\n    lgAVG = pd.read_csv('data/marcel/lgAVGPit.csv')\n\n    # locate correct year on file, remove previous entry, and add sum\n    lgAVG = lgAVG[lgAVG.Season != Year]\n    lgAVG.loc[Year] = PitchingStats.sum()\n\n    # delete unneeded Information columns\n    lgAVG['Name'] = 'X'\n    lgAVG['Team'] = 'X'\n\n    # Change Season Calue to the correct year rather than the Sum\n    lgAVG['Season'][Year] = Year\n        # add number of players\n    lgAVG['NumPlayers'][Year] = NumPlayers\n\n    # drop unneeded column\n    lgAVG.drop(labels=['Unnamed: 0'], axis=1,inplace = True)\n\n    # Sort by Season and reset Index\n    lgAVG = lgAVG.sort_values('Season', ascending=False)\n    lgAVG = lgAVG.reset_index(drop=True)\n\n    # Export Data to FIle\n    lgAVG.to_csv('data/marcel/lgAVGPit.csv')\n\n\ndef lgAVG():\n    # Run LGAVG for Batting and Pitching\n    lgAVGBat()\n    lgAVGPit()\n    # Retrieve Data and add Suffix\n    lgBat = pd.read_csv('data/marcel/lgAVGBat.csv')\n    lgBat = lgBat.add_suffix('_Bat')\n    lgPit = pd.read_csv('data/marcel/lgAVGPit.csv')\n    lgPit = lgPit.add_suffix('_Pit')\n    # Merge both files into one file\n    lgAVG = pd.merge(lgBat, lgPit, left_on=['Season_Bat'], right_on=['Season_Pit'], how='outer')\n    # Export Combine File for later use\n    lgAVG.to_csv('data/marcel/lgAVG.csv', sep=',', index=False, encoding='utf-8')\n\n\n\ndef marcelCombinedFile():\n\n    # Current or Season before Projection\n    currentYear = 2019\n    previousYear = (currentYear - 1)\n    TwoYear = (currentYear - 2)\n\n    points(currentYear)\n    lgAVG()\n    combinePoints()\n    currentYear = pd.read_csv('data/Rankings.csv')\n    currentYear = currentYear.add_suffix('_Year1')\n    currentYear.to_csv('data/marcel/currentYear.csv', sep=',', index=False, encoding='utf-8')\n\n\n\n    # Previous Seasons stats\n\n    points(previousYear)\n    lgAVG()\n    combinePoints()\n    previousYear = pd.read_csv('data/Rankings.csv')\n    previousYear = previousYear.add_suffix('_Year2')\n    previousYear.to_csv('data/marcel/previousYear.csv', sep=',', index=False, encoding='utf-8')\n\n\n    # Two Seasons ago stats\n\n    points(TwoYear)\n    lgAVG()\n    combinePoints()\n    TwoYear = pd.read_csv('data/Rankings.csv')\n    TwoYear = TwoYear.add_suffix('_Year3')\n    TwoYear.to_csv('data/marcel/TwoYear.csv', sep=',', index=False, encoding='utf-8')\n\n    currentYear = pd.read_csv('data/marcel/currentYear.csv')\n    previousYear = pd.read_csv('data/marcel/previousYear.csv')\n    TwoYear = pd.read_csv('data/marcel/TwoYear.csv')\n\n\n    # Merge all tables into one based on player name\n    MarcelProjectionTable = pd.merge(currentYear, previousYear, left_on=['Name_Year1'], right_on=['Name_Year2'], how='outer')\n    MarcelProjectionTable = pd.merge(MarcelProjectionTable, TwoYear, left_on=['Name_Year1'], right_on=['Name_Year3'], how='outer')\n\n\n\n\n    # Final Marcel Output\n    MarcelProjectionTable.to_csv('data/marcel/MarcelTable.csv', sep=',', index=False, encoding='utf-8')\n\n\n\n\n\n\n\n\n\n#####################\n\n#### Run Programs ###\n\n#####################\n\n\n# Creates files for batting and pitching\n# points(2019)\n\n## Creating a Lg Total document for Marcel Projections\n# lgAVG()\n\n\n# Combines batting an dpitching files together\n# combinePoints()\n\n# Run Marcel Projections Table\n# marcelCombinedFile()\n\n# Run Marcel Projections\n# marcelCalculations()\n\n# LeagueAverage()\n",
+			"file": "Rankings.py",
+			"file_size": 13761,
+			"file_write_time": 132124258615315314,
+			"settings":
+			{
+				"buffer_size": 13920,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -19,7 +48,8 @@
 			"file": "FileManagement.py",
 			"settings":
 			{
-				"buffer_size": 5711,
+				"buffer_size": 7066,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		},
@@ -27,15 +57,8 @@
 			"file": "DraftCalculator.py",
 			"settings":
 			{
-				"buffer_size": 11369,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "Calculator3.0.py",
-			"settings":
-			{
-				"buffer_size": 11369,
+				"buffer_size": 11394,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
 		}
@@ -96,6 +119,11 @@
 	},
 	"file_history":
 	[
+		"/Users/ToddTaylor/Documents/GitHub/PNation/pnation-6409ef8b6f8a.json",
+		"/Users/ToddTaylor/Documents/GitHub/PNation/GoogleSheet2.py",
+		"/Users/ToddTaylor/Documents/GitHub/PNation/Calculator3.0.py",
+		"/Users/ToddTaylor/Documents/GitHub/PNation/importtest.py",
+		"/Users/ToddTaylor/Desktop/test.py",
 		"/Users/ToddTaylor/Library/Application Support/Sublime Text 3/Packages/User/Python3.sublime-build",
 		"/Users/ToddTaylor/Documents/GitHub/PNation/test.py"
 	],
@@ -132,40 +160,55 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/Users/ToddTaylor/Documents/GitHub/GoogleSheetTest.py",
+					"file": "GoogleSheetTest.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 681,
+						"buffer_size": 1765,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								98,
-								98
+								469,
+								469
 							]
 						],
 						"settings":
 						{
 							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": 13,
+							"bracket_highlighter.clone": -1,
 							"bracket_highlighter.clone_locations":
 							{
 								"close":
 								{
+									"1":
+									[
+										1298,
+										1299
+									]
 								},
 								"icon":
 								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/single_quote.png",
+										"region.greenish"
+									]
 								},
 								"open":
 								{
+									"1":
+									[
+										1292,
+										1293
+									]
 								},
 								"unmatched":
 								{
@@ -173,46 +216,21 @@
 							},
 							"bracket_highlighter.clone_regions":
 							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
@@ -223,11 +241,36 @@
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content"
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
 							],
 							"bracket_highlighter.locations":
 							{
@@ -246,11 +289,16 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
@@ -261,31 +309,280 @@
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 1.0,
+						"translation.y": 1122.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Rankings.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 13920,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6655,
+								6655
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 6594.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "FileManagement.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7066,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5750,
+								5723
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
@@ -296,36 +593,136 @@
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
-								"bh_regex_content"
+								"bh_regex_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
 							],
-							"syntax": "Packages/Python/Python.sublime-syntax"
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2665.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "FileManagement.py",
+					"buffer": 3,
+					"file": "DraftCalculator.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5711,
+						"buffer_size": 11394,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								436,
-								436
+								6154,
+								6132
 							]
 						],
 						"settings":
@@ -354,11 +751,31 @@
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
@@ -369,36 +786,16 @@
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
@@ -411,8 +808,8 @@
 								{
 									"1":
 									[
-										435,
-										436
+										6153,
+										6154
 									]
 								},
 								"icon":
@@ -427,8 +824,8 @@
 								{
 									"1":
 									[
-										393,
-										394
+										6131,
+										6132
 									]
 								},
 								"unmatched":
@@ -437,36 +834,26 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
@@ -477,239 +864,41 @@
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content"
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
 							],
 							"syntax": "Packages/Python/Python.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3474.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "DraftCalculator.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11369,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.clone": -1,
-							"bracket_highlighter.clone_locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.clone_regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content"
-							],
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content"
-							],
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 1.0,
-						"translation.y": 943.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "Calculator3.0.py",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 11369,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]
@@ -748,7 +937,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 108.0
+		"height": 320.0
 	},
 	"output.find_results":
 	{
