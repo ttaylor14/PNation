@@ -338,108 +338,12 @@ def combinePoints():
 
     Rankings.to_csv('data/Rankings.csv', sep=',', index=False, encoding='utf-8')
 
-####################################
 
-#### Creating Marcel Projections ###
+########################################
 
-####################################
+#### Creating league Average by Year ###
 
-# runs points on current and past 2 season (3 total)
-# merges all files into one document
-# ranks by projection for the upcoming year
-
-"""
-def marcelCalculations(Mstat):
-
-    #Import Files
-    MarcelTable = pd.read_csv('data/marcel/MarcelTable.csv')
-    lgAVG = pd.read_csv('data/marcel/lgAVG.csv')
-
-    # What Year are we using?
-    Year1 = MarcelTable['Season_Year1'][1]
-    Year2 = MarcelTable['Season_Year2'][1]
-    Year3 = MarcelTable['Season_Year3'][1]
-
-    # Label the Stat for each year of Data
-    MS_Year1 = (str(Mstat) + "_Year1")
-    MS_Year2 = (str(Mstat) + "_Year2")
-    MS_Year3 = (str(Mstat) + "_Year3")
-
-    # Weighted total of individual players stat and Plate Apperances
-    MStateTotal = (MS_Year1 * 5) + (MS_Year2 * 4) + (MS_Year3 * 3)
-    PA = (MarcelTable['PA_Year1']*.5) + (MarcelTable['PA_Year2']*.1) + (200)
-
-    # Calculating the Weighted Mean of state per plate apperances for that individual player
-    MS_Y1 = MarcelTable[MS_Year1][Year1]/MarcelTable['PA'][Year1] * MarcelTable['PA_Year1'] * 5
-    MS_Y2 = MarcelTable[MS_Year2][Year2]/MarcelTable['PA'][Year2] * MarcelTable['PA_Year2'] * 4
-    MS_Y3 = MarcelTable[MS_Year3][Year3]/MarcelTable['PA'][Year3] * MarcelTable['PA_Year3'] * 3
-
-    # Players total Weighted Plate Apperances
-    Total_PAS = ( MarcelTable['PA_Year1'] * 5 ) + ( MarcelTable['PA_Year2'] * 4 ) + ( MarcelTable['PA_Year3'] * 3 )
-
-    # Adjusting ratio to match 1200 apperances
-    MS_Ratio = ( (MS_Y1 + MS_Y2 + MS_Y3) * 1200 ) / Total_PAS
-
-    # taking league ratio out of 1200 and adding it to the actual players result to get that players ratio of stat per PA
-    MS_Perct = ( MS_Ratio + MStateTotal ) / ( 1200 + Total_PAS )
-
-    # Take the player's ratio and multiply it by the expected number of plate apperances
-    MS_Expected = MS_perct * PA
-
-    # Adjust for players age
-    Age_Reg = ( ( 29 - MarcelTable['Age_Year1'] ) * 0.5 )
-
-    # Final Result
-    Result = MS_Expected * ( 1 + Age_Reg )
-
-    ## Batting Required Stats
-
-    PA = (MarcelTable['PA_Year1']*.5) + (MarcelTable['PA_Year2']*.1) + (200)
-
-    R = (MarcelTable['R_Year1']*.5) + (MarcelTable['R_Year2']*.4) + (MarcelTable['R_Year3']*.3)
-    1b =
-    2b =
-    3b =
-    HR =
-    RBI =
-    BB =
-    SO =
-    SB =
-    AB =
-    H =
-    IBB =
-    HBP =
-    CS =
-
-    BattingStats = data[['Season', 'Name', 'Team', 'Age', 'Points', 'G', 'PA', 'AB', 'AVG', 'H', '1B', '2B', '3B', 'HR', 'R', 'RBI', 'BB', 'IBB', 'SO', 'HBP', 'SB', 'CS', 'HBP', 'SO', 'Pitches']]
-
-
-    ## Pitching Required Stats
-
-    IP =
-    ER =
-    SO =
-    ShO =
-    W =
-    L =
-    SV =
-    BS =
-    G =
-    GS =
-    BS =
-    H =
-    R =
-    HR =
-    BB =
-    HBP =
-    IBB =
-    BK =
-    CG =
-    Pitches =
-
-    PitchingStats = pdata[['Season', 'Name', 'Team', 'Age', 'Points', 'W', 'L', 'ERA', 'WAR', 'G', 'GS', 'CG', 'ShO', 'SV', 'BS', 'IP', 'H', 'R', 'HR', 'BB', 'IBB', 'HBP', 'BK', 'SO', 'Pitches']]
-
-"""
+########################################
 
 def lgAVGBat():
     # Import batting Stats
@@ -516,14 +420,155 @@ def lgAVG():
     lgAVGPit()
     # Retrieve Data and add Suffix
     lgBat = pd.read_csv('data/marcel/lgAVGBat.csv')
-    lgBat = lgBat.add_suffix('_Bat')
+    lgBat = lgBat.add_suffix('_bat')
     lgPit = pd.read_csv('data/marcel/lgAVGPit.csv')
-    lgPit = lgPit.add_suffix('_Pit')
+    lgPit = lgPit.add_suffix('_pit')
     # Merge both files into one file
-    lgAVG = pd.merge(lgBat, lgPit, left_on=['Season_Bat'], right_on=['Season_Pit'], how='outer')
+    lgAVG = pd.merge(lgBat, lgPit, left_on=['Season_bat'], right_on=['Season_pit'], how='outer')
     # Export Combine File for later use
     lgAVG.to_csv('data/marcel/lgAVG.csv', sep=',', index=False, encoding='utf-8')
 
+
+
+
+
+####################################
+
+#### Creating Marcel Projections ###
+
+####################################
+
+# runs points on current and past 2 season (3 total)
+# merges all files into one document
+# ranks by projection for the upcoming year
+
+
+def marcelCalculations():
+
+    #Import Files
+    # last three years of player data
+    MarcelTable = pd.read_csv('data/marcel/MarcelTable.csv')
+
+    # League Averages by Year
+    lgAVG = pd.read_csv('data/marcel/lgAVG.csv')
+
+    BatStatNeeded = ['G_bat', 'PA', 'AB', 'AVG', 'H_bat', '1B', '2B', '3B', 'HR_bat', 'R_bat', 'RBI', 'BB_bat', 'IBB_bat', 'SO_bat', 'HBP_bat', 'SB', 'CS', 'Pitches_bat']
+
+    # need to add Name, Age, Etc...
+    #Create Empty set to use for export
+    Result = pd.DataFrame(index=MarcelTable.index, columns=BatStatNeeded )
+    Result = Result.fillna(0)
+    Result.to_csv('data/marcel/MarcelResult.csv')
+
+    # What Year are we using?
+    Year1 = MarcelTable['Season_bat_Year1'][1]
+    Year2 = MarcelTable['Season_bat_Year2'][1]
+    Year3 = MarcelTable['Season_bat_Year3'][1]
+    # print (Year1, Year2, Year3)
+
+    LG_Year1 = lgAVG[lgAVG['Season_bat']==Year1].index.values.astype(int)[0]
+    LG_Year2 = lgAVG[lgAVG['Season_bat']==Year2].index.values.astype(int)[0]
+    LG_Year3 = lgAVG[lgAVG['Season_bat']==Year3].index.values.astype(int)[0]
+    #print(LG_Year)
+
+
+    # Cycle through columns
+    for ind in MarcelTable.index:
+        for word in BatStatNeeded:
+            Mstat = word
+            # print (Mstat)
+
+            # Label the Stat for each year of Data
+            MS_Year1 = (str(Mstat) + "_Year1")
+            MS_Year2 = (str(Mstat) + "_Year2")
+            MS_Year3 = (str(Mstat) + "_Year3")
+            # print (MS_Year1, MS_Year2, MS_Year3)
+
+            # Weighted total of individual players stat and Plate Apperances
+            MStateTotal = (MarcelTable[MS_Year1][ind] * 5) + (MarcelTable[MS_Year2][ind] * 4) + (MarcelTable[MS_Year3][ind] * 3)
+            PA = (MarcelTable['PA_Year1'][ind]*.5) + (MarcelTable['PA_Year2'][ind]*.1) + (200)
+            # print ( MStateTotal, PA)
+
+            # Calculating the Weighted Mean of state per plate apperances for that individual player
+            MS_Y1 = lgAVG[Mstat][LG_Year1]/lgAVG['PA_bat'][LG_Year1] * MarcelTable['PA_Year1'][ind] * 5
+            MS_Y2 = lgAVG[Mstat][LG_Year2]/lgAVG['PA_bat'][LG_Year2] * MarcelTable['PA_Year2'][ind] * 4
+            MS_Y3 = lgAVG[Mstat][LG_Year3]/lgAVG['PA_bat'][LG_Year3] * MarcelTable['PA_Year3'][ind] * 3
+
+            # Players total Weighted Plate Apperances
+            Total_PAS = ( MarcelTable['PA_Year1'][ind] * 5 ) + ( MarcelTable['PA_Year2'][ind] * 4 ) + ( MarcelTable['PA_Year3'][ind] * 3 )
+
+            # Adjusting ratio to match 1200 apperances
+            MS_Ratio = ( (MS_Y1 + MS_Y2 + MS_Y3) * 1200 ) / Total_PAS
+
+            # taking league ratio out of 1200 and adding it to the actual players result to get that players ratio of stat per PA
+            MS_Perct = ( MS_Ratio + MStateTotal ) / ( 1200 + Total_PAS )
+
+            # Take the player's ratio and multiply it by the expected number of plate apperances
+            MS_Expected = ( MS_Perct * PA )
+
+            # Adjust for players age
+            Age_Reg = ( ( 29 - MarcelTable['Age_bat_Year1'] ) * 0.5 )
+
+            # Final Result
+            Marcel_Result = MS_Expected * ( 1 + Age_Reg )
+            print(Marcel_Result)
+            Result[word][ind] = Marcel_Result
+
+    print(Result)
+    #Result.to_csv('data/marcel/MarcelResult.csv')
+
+
+
+
+"""
+    ## Batting Required Stats
+
+    PA = (MarcelTable['PA_Year1']*.5) + (MarcelTable['PA_Year2']*.1) + (200)
+
+    R = (MarcelTable['R_Year1']*.5) + (MarcelTable['R_Year2']*.4) + (MarcelTable['R_Year3']*.3)
+    1b =
+    2b =
+    3b =
+    HR =
+    RBI =
+    BB =
+    SO =
+    SB =
+    AB =
+    H =
+    IBB =
+    HBP =
+    CS =
+
+    BattingStats = data[['Season', 'Name', 'Team', 'Age', 'Points', 'G', 'PA', 'AB', 'AVG', 'H', '1B', '2B', '3B', 'HR', 'R', 'RBI', 'BB', 'IBB', 'SO', 'HBP', 'SB', 'CS', 'HBP', 'SO', 'Pitches']]
+
+
+    ## Pitching Required Stats
+
+    IP =
+    ER =
+    SO =
+    ShO =
+    W =
+    L =
+    SV =
+    BS =
+    G =
+    GS =
+    BS =
+    H =
+    R =
+    HR =
+    BB =
+    HBP =
+    IBB =
+    BK =
+    CG =
+    Pitches =
+
+    PitchingStats = pdata[['Season', 'Name', 'Team', 'Age', 'Points', 'W', 'L', 'ERA', 'WAR', 'G', 'GS', 'CG', 'ShO', 'SV', 'BS', 'IP', 'H', 'R', 'HR', 'BB', 'IBB', 'HBP', 'BK', 'SO', 'Pitches']]
+
+"""
 
 
 def marcelCombinedFile():
@@ -605,6 +650,6 @@ def marcelCombinedFile():
 # marcelCombinedFile()
 
 # Run Marcel Projections
-# marcelCalculations()
+marcelCalculations()
 
 # LeagueAverage()
