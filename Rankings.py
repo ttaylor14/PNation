@@ -488,8 +488,8 @@ def marcelCombinedFile():
 
 
     # Merge all tables into one based on player name
-    MarcelProjectionTable = pd.merge(currentYear, previousYear, left_on=['Name_Year1'], right_on=['Name_Year2'], how='outer')
-    MarcelProjectionTable = pd.merge(MarcelProjectionTable, TwoYear, left_on=['Name_Year1'], right_on=['Name_Year3'], how='outer')
+    MarcelProjectionTable = pd.merge(currentYear, previousYear, left_on=['Name_bat_Year1'], right_on=['Name_bat_Year2'], how='outer')
+    MarcelProjectionTable = pd.merge(MarcelProjectionTable, TwoYear, left_on=['Name_bat_Year1'], right_on=['Name_bat_Year3'], how='outer')
 
 
 
