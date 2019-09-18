@@ -443,6 +443,59 @@ def lgAVG():
 # ranks by projection for the upcoming year
 
 
+def marcelCombinedFile():
+
+    # Current or Season before Projection
+    currentYear = 2019
+    previousYear = (currentYear - 1)
+    TwoYear = (currentYear - 2)
+
+    points(currentYear)
+    lgAVG()
+    combinePoints()
+    currentYear = pd.read_csv('data/Rankings.csv')
+    currentYear = currentYear.add_suffix('_Year1')
+    currentYear.to_csv('data/marcel/currentYear.csv', sep=',', index=False, encoding='utf-8')
+
+
+
+    # Previous Seasons stats
+
+    points(previousYear)
+    lgAVG()
+    combinePoints()
+    previousYear = pd.read_csv('data/Rankings.csv')
+    previousYear = previousYear.add_suffix('_Year2')
+    previousYear.to_csv('data/marcel/previousYear.csv', sep=',', index=False, encoding='utf-8')
+
+
+    # Two Seasons ago stats
+
+    points(TwoYear)
+    lgAVG()
+    combinePoints()
+    TwoYear = pd.read_csv('data/Rankings.csv')
+    TwoYear = TwoYear.add_suffix('_Year3')
+    TwoYear.to_csv('data/marcel/TwoYear.csv', sep=',', index=False, encoding='utf-8')
+
+    currentYear = pd.read_csv('data/marcel/currentYear.csv')
+    previousYear = pd.read_csv('data/marcel/previousYear.csv')
+    TwoYear = pd.read_csv('data/marcel/TwoYear.csv')
+
+
+    # Merge all tables into one based on player name
+    MarcelProjectionTable = pd.merge(currentYear, previousYear, left_on=['Name_Year1'], right_on=['Name_Year2'], how='outer')
+    MarcelProjectionTable = pd.merge(MarcelProjectionTable, TwoYear, left_on=['Name_Year1'], right_on=['Name_Year3'], how='outer')
+
+
+
+
+    # Final Marcel Output
+    MarcelProjectionTable.to_csv('data/marcel/MarcelTable.csv', sep=',', index=False, encoding='utf-8')
+
+
+
+
 def marcelCalculations():
 
     #Import Files
@@ -452,7 +505,7 @@ def marcelCalculations():
     # League Averages by Year
     lgAVG = pd.read_csv('data/marcel/lgAVG.csv')
 
-    BatStatNeeded = ['G_bat', 'PA', 'AB', 'AVG', 'H_bat', '1B', '2B', '3B', 'HR_bat', 'R_bat', 'RBI', 'BB_bat', 'IBB_bat', 'SO_bat', 'HBP_bat', 'SB', 'CS', 'Pitches_bat']
+    BatStatNeeded = ['G_bat', 'AB', 'AVG', 'H_bat', '1B', '2B', '3B', 'HR_bat', 'R_bat', 'RBI', 'BB_bat', 'IBB_bat', 'SO_bat', 'HBP_bat', 'SB', 'CS', 'Pitches_bat']
 
     # need to add Name, Age, Etc...
     #Create Empty set to use for export
@@ -464,58 +517,77 @@ def marcelCalculations():
     Year1 = MarcelTable['Season_bat_Year1'][1]
     Year2 = MarcelTable['Season_bat_Year2'][1]
     Year3 = MarcelTable['Season_bat_Year3'][1]
-    # print (Year1, Year2, Year3)
+    print("Year Data being Accessed: " + str(Year1) + " , " + str(Year2) + " , " + str(Year3) )
 
+    # finds the index number of each season
     LG_Year1 = lgAVG[lgAVG['Season_bat']==Year1].index.values.astype(int)[0]
     LG_Year2 = lgAVG[lgAVG['Season_bat']==Year2].index.values.astype(int)[0]
     LG_Year3 = lgAVG[lgAVG['Season_bat']==Year3].index.values.astype(int)[0]
-    #print(LG_Year)
-
+    print("lgAVG Index Number: " + str(LG_Year1) + " , " + str(LG_Year2) + " , " + str(LG_Year3) )
+    print(" ")
 
     # Cycle through columns
     for ind in MarcelTable.index:
         for word in BatStatNeeded:
             Mstat = word
-            # print (Mstat)
+            print ("State being Evaluated: " + str(Mstat) )
 
             # Label the Stat for each year of Data
             MS_Year1 = (str(Mstat) + "_Year1")
             MS_Year2 = (str(Mstat) + "_Year2")
             MS_Year3 = (str(Mstat) + "_Year3")
-            # print (MS_Year1, MS_Year2, MS_Year3)
+            print ("State Labels: " + str(MS_Year1) + " , " + str(MS_Year2) + " , " + str(MS_Year3) )
+            print(" ")
 
             # Weighted total of individual players stat and Plate Apperances
             MStateTotal = (MarcelTable[MS_Year1][ind] * 5) + (MarcelTable[MS_Year2][ind] * 4) + (MarcelTable[MS_Year3][ind] * 3)
             PA = (MarcelTable['PA_Year1'][ind]*.5) + (MarcelTable['PA_Year2'][ind]*.1) + (200)
-            # print ( MStateTotal, PA)
+            print("Player Weighted Stat: " + str(MStateTotal) + "  Player Weighted Plate Apperances: " + str(PA) )
+            print(" ")
 
             # Calculating the Weighted Mean of state per plate apperances for that individual player
             MS_Y1 = lgAVG[Mstat][LG_Year1]/lgAVG['PA_bat'][LG_Year1] * MarcelTable['PA_Year1'][ind] * 5
             MS_Y2 = lgAVG[Mstat][LG_Year2]/lgAVG['PA_bat'][LG_Year2] * MarcelTable['PA_Year2'][ind] * 4
             MS_Y3 = lgAVG[Mstat][LG_Year3]/lgAVG['PA_bat'][LG_Year3] * MarcelTable['PA_Year3'][ind] * 3
+            print("Player State Mean by year: " + str(MS_Y1) + " , " + str(MS_Y2) + " , " + str(MS_Y3) )
+            print(" ")
 
             # Players total Weighted Plate Apperances
             Total_PAS = ( MarcelTable['PA_Year1'][ind] * 5 ) + ( MarcelTable['PA_Year2'][ind] * 4 ) + ( MarcelTable['PA_Year3'][ind] * 3 )
+            print("Weighted PA: " + str(Total_PAS) )
+            print(" ")
 
             # Adjusting ratio to match 1200 apperances
             MS_Ratio = ( (MS_Y1 + MS_Y2 + MS_Y3) * 1200 ) / Total_PAS
+            print("Adjusted Ratio for 1200 PA: " + str(MS_Ratio) )
+            print(" ")
 
             # taking league ratio out of 1200 and adding it to the actual players result to get that players ratio of stat per PA
             MS_Perct = ( MS_Ratio + MStateTotal ) / ( 1200 + Total_PAS )
+            print("Adjusting with League Average: " + str(MS_Perct) )
+            print(" ")
 
             # Take the player's ratio and multiply it by the expected number of plate apperances
             MS_Expected = ( MS_Perct * PA )
+            print("Player Ratio for # of PA: " + str(MS_Expected) )
+            print(" ")
 
             # Adjust for players age
-            Age_Reg = ( ( 29 - MarcelTable['Age_bat_Year1'] ) * 0.5 )
+            Age_Reg = ( ( 29 - MarcelTable['Age_bat_Year1'][ind] ) * 0.5 )
+
+            print("Age Adjustment: " + str(Age_Reg) )
+            print(" ")
 
             # Final Result
             Marcel_Result = MS_Expected * ( 1 + Age_Reg )
-            print(Marcel_Result)
-            Result[word][ind] = Marcel_Result
+            print("Final Player Projection: " + str(Marcel_Result) )
+            print(" ")
+
+            Result.at[ind, word] = Marcel_Result
+            print(Result.head())
 
     print(Result)
-    #Result.to_csv('data/marcel/MarcelResult.csv')
+    Result.to_csv('data/marcel/MarcelResult.csv')
 
 
 
@@ -569,57 +641,6 @@ def marcelCalculations():
     PitchingStats = pdata[['Season', 'Name', 'Team', 'Age', 'Points', 'W', 'L', 'ERA', 'WAR', 'G', 'GS', 'CG', 'ShO', 'SV', 'BS', 'IP', 'H', 'R', 'HR', 'BB', 'IBB', 'HBP', 'BK', 'SO', 'Pitches']]
 
 """
-
-
-def marcelCombinedFile():
-
-    # Current or Season before Projection
-    currentYear = 2019
-    previousYear = (currentYear - 1)
-    TwoYear = (currentYear - 2)
-
-    points(currentYear)
-    lgAVG()
-    combinePoints()
-    currentYear = pd.read_csv('data/Rankings.csv')
-    currentYear = currentYear.add_suffix('_Year1')
-    currentYear.to_csv('data/marcel/currentYear.csv', sep=',', index=False, encoding='utf-8')
-
-
-
-    # Previous Seasons stats
-
-    points(previousYear)
-    lgAVG()
-    combinePoints()
-    previousYear = pd.read_csv('data/Rankings.csv')
-    previousYear = previousYear.add_suffix('_Year2')
-    previousYear.to_csv('data/marcel/previousYear.csv', sep=',', index=False, encoding='utf-8')
-
-
-    # Two Seasons ago stats
-
-    points(TwoYear)
-    lgAVG()
-    combinePoints()
-    TwoYear = pd.read_csv('data/Rankings.csv')
-    TwoYear = TwoYear.add_suffix('_Year3')
-    TwoYear.to_csv('data/marcel/TwoYear.csv', sep=',', index=False, encoding='utf-8')
-
-    currentYear = pd.read_csv('data/marcel/currentYear.csv')
-    previousYear = pd.read_csv('data/marcel/previousYear.csv')
-    TwoYear = pd.read_csv('data/marcel/TwoYear.csv')
-
-
-    # Merge all tables into one based on player name
-    MarcelProjectionTable = pd.merge(currentYear, previousYear, left_on=['Name_Year1'], right_on=['Name_Year2'], how='outer')
-    MarcelProjectionTable = pd.merge(MarcelProjectionTable, TwoYear, left_on=['Name_Year1'], right_on=['Name_Year3'], how='outer')
-
-
-
-
-    # Final Marcel Output
-    MarcelProjectionTable.to_csv('data/marcel/MarcelTable.csv', sep=',', index=False, encoding='utf-8')
 
 
 
