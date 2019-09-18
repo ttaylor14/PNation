@@ -141,15 +141,12 @@ def points(currentSeason):
 
     data['Points'] = points
 
-    BattingStats = data[['Season', 'Name', 'Team', 'Age', 'Points', 'G', 'PA', 'AB', 'AVG', 'H', '1B', '2B', '3B', 'HR', 'R', 'RBI', 'BB', 'IBB', 'SO', 'HBP', 'SB', 'CS', 'HBP', 'SO', 'Pitches']]
+    BattingStats = data[['Season', 'Name', 'Team', 'Age', 'Points', 'G', 'PA', 'AB', 'AVG', 'H', '1B', '2B', '3B', 'HR', 'R', 'RBI', 'BB', 'IBB', 'SO', 'HBP', 'SB', 'CS', 'Pitches']]
     #BattingStats.sort_values("Points", inplace=True)
     # print(BattingStats)
 
 
     BattingStats.to_csv('data/bstats.csv')
-
-    ## Creating a Lg Total document for Marcel Projections
-    lgAVG()
 
     ## Fielding
 
@@ -325,8 +322,11 @@ def combinePoints():
     bstats = pd.read_csv('data/bstats.csv')
     pstats = pd.read_csv('data/pstats.csv')
 
+    bstats = bstats.add_suffix('_bat')
+    pstats = pstats.add_suffix('_pit')
+
     #Combine CSV
-    Rankings = pd.merge(bstats, pstats, left_on=['Name'], right_on=['Name'], how='outer', suffixes=('_bat', '_pit'))
+    Rankings = pd.merge(bstats, pstats, left_on=['Name_bat'], right_on=['Name_pit'], how='outer', suffixes=('_bat', '_pit'))
     Rankings.drop(labels=['Unnamed: 0_bat', 'Unnamed: 0_pit'], axis=1,inplace = True)
     Rankings = Rankings.fillna(0)
     Total_Points = Rankings['Points_bat'] + Rankings['Points_pit']
@@ -425,6 +425,10 @@ def lgAVG():
     lgPit = lgPit.add_suffix('_pit')
     # Merge both files into one file
     lgAVG = pd.merge(lgBat, lgPit, left_on=['Season_bat'], right_on=['Season_pit'], how='outer')
+
+    lgAVG.drop(labels=['Unnamed: 0_bat'], axis=1,inplace = True)
+    lgAVG.drop(labels=['Unnamed: 0_pit'], axis=1,inplace = True)
+
     # Export Combine File for later use
     lgAVG.to_csv('data/marcel/lgAVG.csv', sep=',', index=False, encoding='utf-8')
 
@@ -498,6 +502,7 @@ def marcelCombinedFile():
 
 def marcelCalculations():
 
+
     #Import Files
     # last three years of player data
     MarcelTable = pd.read_csv('data/marcel/MarcelTable.csv')
@@ -505,7 +510,8 @@ def marcelCalculations():
     # League Averages by Year
     lgAVG = pd.read_csv('data/marcel/lgAVG.csv')
 
-    BatStatNeeded = ['G_bat', 'AB', 'AVG', 'H_bat', '1B', '2B', '3B', 'HR_bat', 'R_bat', 'RBI', 'BB_bat', 'IBB_bat', 'SO_bat', 'HBP_bat', 'SB', 'CS', 'Pitches_bat']
+    # Stats we need
+    BatStatNeeded = ['G', 'AB', 'AVG', 'H', '1B', '2B', '3B', 'HR', 'R', 'RBI', 'BB', 'IBB', 'SO', 'HBP', 'SB', 'CS', 'Pitches']
 
     # need to add Name, Age, Etc...
     #Create Empty set to use for export
@@ -592,64 +598,6 @@ def marcelCalculations():
 
 
 
-"""
-    ## Batting Required Stats
-
-    PA = (MarcelTable['PA_Year1']*.5) + (MarcelTable['PA_Year2']*.1) + (200)
-
-    R = (MarcelTable['R_Year1']*.5) + (MarcelTable['R_Year2']*.4) + (MarcelTable['R_Year3']*.3)
-    1b =
-    2b =
-    3b =
-    HR =
-    RBI =
-    BB =
-    SO =
-    SB =
-    AB =
-    H =
-    IBB =
-    HBP =
-    CS =
-
-    BattingStats = data[['Season', 'Name', 'Team', 'Age', 'Points', 'G', 'PA', 'AB', 'AVG', 'H', '1B', '2B', '3B', 'HR', 'R', 'RBI', 'BB', 'IBB', 'SO', 'HBP', 'SB', 'CS', 'HBP', 'SO', 'Pitches']]
-
-
-    ## Pitching Required Stats
-
-    IP =
-    ER =
-    SO =
-    ShO =
-    W =
-    L =
-    SV =
-    BS =
-    G =
-    GS =
-    BS =
-    H =
-    R =
-    HR =
-    BB =
-    HBP =
-    IBB =
-    BK =
-    CG =
-    Pitches =
-
-    PitchingStats = pdata[['Season', 'Name', 'Team', 'Age', 'Points', 'W', 'L', 'ERA', 'WAR', 'G', 'GS', 'CG', 'ShO', 'SV', 'BS', 'IP', 'H', 'R', 'HR', 'BB', 'IBB', 'HBP', 'BK', 'SO', 'Pitches']]
-
-"""
-
-
-
-
-
-
-
-
-
 #####################
 
 #### Run Programs ###
@@ -660,17 +608,15 @@ def marcelCalculations():
 # Creates files for batting and pitching
 # points(2019)
 
+# Combines batting an dpitching files together
+# combinePoints()
+
+# Run Marcel Projections Table to later create projections
+marcelCombinedFile()
+
 ## Creating a Lg Total document for Marcel Projections
 # lgAVG()
 
 
-# Combines batting an dpitching files together
-# combinePoints()
-
-# Run Marcel Projections Table
-# marcelCombinedFile()
-
 # Run Marcel Projections
-marcelCalculations()
-
-# LeagueAverage()
+#marcelCalculations()

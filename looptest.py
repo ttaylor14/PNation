@@ -21,4 +21,16 @@ def marcelCalculations():
     print(Year)
 
 
-marcelCalculations()
+#marcelCalculations()
+
+
+
+# Import pandas package
+import pandas as pd
+
+# making data frame
+data = pd.read_csv("data/marcel/MarcelTable.csv")
+
+# iterating the columns
+for col in data.columns:
+    print(col)
