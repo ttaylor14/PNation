@@ -24,7 +24,7 @@ def marcelCalculations():
 #marcelCalculations()
 
 
-
+"""
 # Import pandas package
 import pandas as pd
 
@@ -34,3 +34,19 @@ data = pd.read_csv("data/marcel/MarcelTable.csv")
 # iterating the columns
 for col in data.columns:
     print(col)
+"""
+
+
+currentYear = pd.read_csv('data/marcel/currentYear.csv')
+previousYear = pd.read_csv('data/marcel/previousYear.csv')
+TwoYear = pd.read_csv('data/marcel/TwoYear.csv')
+
+# Merge all tables into one based on player name
+MarcelProjectionTable = pd.merge(currentYear, previousYear, left_on=['Name_bat_Year1'], right_on=['Name_bat_Year2'], how='outer')
+#MarcelProjectionTable = pd.merge(MarcelProjectionTable, TwoYear, left_on=['Name_bat_Year1'], right_on=['Name_bat_Year3'], how='outer')
+
+print(MarcelProjectionTable['Name_bat_Year1'])
+
+# Final Marcel Output
+#MarcelProjectionTable.to_csv('data/marcel/MarcelTable.csv', sep=',', index=False, encoding='utf-8')
+

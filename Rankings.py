@@ -328,6 +328,7 @@ def combinePoints():
     #Combine CSV
     Rankings = pd.merge(bstats, pstats, left_on=['Name_bat'], right_on=['Name_pit'], how='outer', suffixes=('_bat', '_pit'))
     Rankings.drop(labels=['Unnamed: 0_bat', 'Unnamed: 0_pit'], axis=1,inplace = True)
+    Rankings.Name_bat.fillna(Rankings.Name_pit, inplace=True)
     Rankings = Rankings.fillna(0)
     Total_Points = Rankings['Points_bat'] + Rankings['Points_pit']
     Rankings.insert(1, 'Total_Points', Total_Points)
@@ -482,6 +483,8 @@ def marcelCombinedFile():
     TwoYear = TwoYear.add_suffix('_Year3')
     TwoYear.to_csv('data/marcel/TwoYear.csv', sep=',', index=False, encoding='utf-8')
 
+
+
     currentYear = pd.read_csv('data/marcel/currentYear.csv')
     previousYear = pd.read_csv('data/marcel/previousYear.csv')
     TwoYear = pd.read_csv('data/marcel/TwoYear.csv')
@@ -490,9 +493,6 @@ def marcelCombinedFile():
     # Merge all tables into one based on player name
     MarcelProjectionTable = pd.merge(currentYear, previousYear, left_on=['Name_bat_Year1'], right_on=['Name_bat_Year2'], how='outer')
     MarcelProjectionTable = pd.merge(MarcelProjectionTable, TwoYear, left_on=['Name_bat_Year1'], right_on=['Name_bat_Year3'], how='outer')
-
-
-
 
     # Final Marcel Output
     MarcelProjectionTable.to_csv('data/marcel/MarcelTable.csv', sep=',', index=False, encoding='utf-8')
