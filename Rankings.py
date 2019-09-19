@@ -680,6 +680,271 @@ def marcelCalculations_pit():
 
 
 
+def MarcelPoints():
+
+    data = pd.read_csv('data/marcel/MarcelResultBat.csv')
+
+
+
+    # Procrastination Points
+
+    # ESPN Settings
+
+    ## Batting Scoring
+
+    R = 1
+    # Runs Scored
+
+    Single = 0
+    # Singles
+
+    Double = 0
+    # Doubles
+
+    Triple = 0
+    # Triples
+
+    HR = 2
+    # Home Runs
+
+    TB = 1
+    # Total Bases
+
+    RBI = 1
+    # Runs Batted In
+
+    BB = 1
+    # Walks
+
+    K = -1
+    # Strikeouts
+
+    SB = 1
+    # Stolen Bases
+
+
+    AB = 0
+    # At Bats
+
+    Hits = 0
+    # Hits
+
+    XBH = 0
+    # Extra Base Hits
+
+    GWRBI = 0
+    # Game Winning RBI
+
+    IBB = 1
+    # Intentional Walks
+
+    HBP = 0
+    # Hit by Pitch
+
+    SAC = 0
+    # Sacrifices
+
+    CS = -1
+    # Caught Stealing
+
+    SBN = 0
+    # Net Stolen Bases
+
+    GIDP = 0
+    # Ground into Double Plays
+
+    CYC = 20
+    # Hitting for the Cycle
+
+    GSHR = 4
+    # Grand Slam Home Runs
+
+    BTW = 0
+    # Batter Team Win
+
+    BTL = 0
+    # Batter Team Loss
+
+
+
+    points = ( ( R * data['R_bat'] )
+    + ( Single * data['1B_bat'] )
+    + ( Double * data['2B_bat'] )
+    + ( Triple * data['3B_bat'] )
+    + ( HR * data['HR_bat'] )
+    + ( TB * ( data['1B_bat'] + (2 * data['2B_bat']) + (3 * data['3B_bat']) + (4 * data['HR_bat']) ) )
+    + ( RBI * data['RBI_bat'] )
+    + ( BB * data['BB_bat'] )
+    + ( K * data['SO_bat'] )
+    + ( SB * data['SB_bat'] )
+    + ( AB * data['AB_bat'] )
+    + ( Hits * data['H_bat'])
+    + ( XBH * ( data['2B_bat'] + data['3B_bat'] + data['HR_bat']) )
+    + ( IBB * data['IBB_bat'] )
+    + ( HBP * data['HBP_bat'] )
+    + ( CS * data['CS_bat'] ) )
+
+
+    # missing Sac and GWRBI and everything past CS
+
+    data['Points'] = points
+
+    data.to_csv('data/marcel/MarcelResultBat.csv')
+
+    ## Fielding
+
+    FC = 0
+    # Fielding Chances
+
+    PO = 0
+    # Put Outs
+
+    AST = 0
+    # Assists
+
+    OFAST = 0
+    # Outfield Assists
+
+    BatE = -1
+    # Errors
+
+    DPT = 0
+    # Double Plays Turned
+
+
+
+
+
+
+    pdata = pd.read_csv('data/marcel/MarcelResultPit.csv')
+
+    ### Pitching
+
+    IP = 3
+    # Innings Pitched
+    # INNINGS PITCHED / OUTS RECORDED
+    # Although Innings Pitched are typically displayed throughout the game, pitchers will accrue points for each out they record. The point value entered here applies to outs recorded. For example, if you choose a value of 2 points, a pitcher that pitches 1 inning will earn 6 points (2 points * 3 outs).
+
+    ER = -2
+    # Earned Runs
+
+    K = 1
+    # Strikeouts
+
+    SO = 5
+    # Shutouts
+
+    W = 5
+    # Wins
+
+    L = -5
+    # Losses
+
+    SV = 5
+    # Saves
+
+    BS = -5
+    # Blown Saves
+
+
+    G = 0
+    # Appearances
+
+    GS = 0
+    # Games Started
+
+    H = -1
+    # Hits Allowed
+
+    RA = 0
+    # Runs Allowed
+
+    HR = 0
+    # Home Runs Allowed
+
+    BB = -1
+    # Walks Issued
+
+    HB = -1
+    # Hit Batsmen
+
+    WP = -1
+    # Wild Pitches
+
+    B = -1
+    # Balks
+
+    PKO = 2
+    # Pick Offs
+
+    QS = 5
+    # Quality Starts
+
+    CG = 10
+    # Complete Games
+
+    NH = 15
+    # No Hitters
+
+    PG = 20
+    # Perfect Games
+
+    BF = 0
+    # Batters Faced
+
+    PC = 0
+    # Pitch Count
+
+    SOP = 0
+    # Save Opportunities
+
+    HD = 0
+    # Holds
+
+    PTW = 0
+    # Pitcher Team Win
+
+    PTL = 0
+    # Pitcher Team Loss
+
+    SVHD = 0
+    # Saves Plus Holds
+
+
+    ppoints = ( ( IP * pdata['IP_pit'] )
+    + ( ER * pdata['ER_pit'] )
+    + ( K * pdata['SO_pit'] )
+    + ( SO * pdata['ShO_pit'] )
+    + ( W * pdata['W_pit'] )
+    + ( L * pdata['L_pit'] )
+    + ( SV * pdata['SV_pit'] )
+    + ( BS * pdata['BS_pit'] )
+    + ( G * pdata['G_pit'] )
+    + ( GS * pdata['GS_pit'] )
+    + ( BS * pdata['BS_pit'] )
+    + ( H * pdata['H_pit'] )
+    + ( RA * pdata['R_pit'] )
+    + ( HR * pdata['HR_pit'] )
+    + ( BB * pdata['BB_pit'] )
+    + ( HB * pdata['HBP_pit'] )
+    + ( IBB * pdata['IBB_pit'] )
+    + ( B * pdata['BK_pit'] )
+    #+ ( PKO * pdata['PKO'] )
+    + ( QS * pdata['BK_pit'] )
+    + ( CG * pdata['CG_pit'] )
+    #+ ( NH * pdata['NH'] )
+    #+ ( PG * pdata['PG'] )
+    #+ ( BF * pdata['BF'] )
+    + ( PC * pdata['Pitches_pit'] )
+    #+ ( SOP * pdata['SOP'] )
+    #+ ( HD * pdata['HD'] )
+    )
+
+    pdata['Points'] = ppoints
+
+    pdata.to_csv('data/marcel/MarcelResultPit.csv')
+
+
 
 #####################
 
@@ -703,4 +968,4 @@ def marcelCalculations_pit():
 
 # Run Marcel Projections
 # marcelCalculations()
-marcelCalculations_pit()
+MarcelPoints()
