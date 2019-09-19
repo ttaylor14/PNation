@@ -302,7 +302,7 @@ def points(currentSeason):
 
     pdata['Points'] = ppoints
 
-    PitchingStats = pdata[['Season', 'Name', 'Team', 'Age', 'Points', 'W', 'L', 'ERA', 'WAR', 'G', 'GS', 'CG', 'ShO', 'SV', 'BS', 'IP', 'H', 'R', 'HR', 'BB', 'IBB', 'HBP', 'BK', 'SO', 'TBF', 'Pitches']]
+    PitchingStats = pdata[['Season', 'Name', 'Team', 'Age', 'Points', 'W', 'L', 'ERA', 'ER', 'WAR', 'G', 'GS', 'CG', 'ShO', 'SV', 'BS', 'IP', 'H', 'R', 'HR', 'BB', 'IBB', 'HBP', 'BK', 'SO', 'TBF', 'Pitches']]
     # PitchingStats.sort_values("Points", inplace=True)
     # print(PitchingStats)
     PitchingStats.to_csv('data/pstats.csv')
@@ -602,7 +602,7 @@ def marcelCalculations_pit():
     lgAVG = lgAVG.fillna(0)
 
     # Stats we need
-    PitStatNeeded = ['W', 'L', 'ERA', 'WAR', 'G', 'GS', 'CG', 'ShO', 'SV', 'BS', 'IP', 'H', 'R', 'HR', 'BB', 'IBB', 'HBP', 'BK', 'SO', 'Pitches']
+    PitStatNeeded = ['W', 'L', 'ERA', 'ER', 'WAR', 'G', 'GS', 'CG', 'ShO', 'SV', 'BS', 'IP', 'H', 'R', 'HR', 'BB', 'IBB', 'HBP', 'BK', 'SO', 'Pitches']
     PitStatNeeded = [x + '_pit' for x in PitStatNeeded]
     # print(BatStatNeeded)
 
@@ -946,6 +946,33 @@ def MarcelPoints():
 
 
 
+def marcelCalculations():
+    marcelCalculations_bat()
+    marcelCalculations_pit()
+    MarcelPoints()
+
+    bstats = pd.read_csv('data/marcel/MarcelResultBat.csv')
+    pstats = pd.read_csv('data/marcel/MarcelResultPit.csv')
+
+    bstats = bstats.add_suffix('_bat')
+    pstats = pstats.add_suffix('_pit')
+
+    #Combine CSV
+    Rankings = pd.merge(bstats, pstats, left_on=['Name_bat'], right_on=['Name_pit'], how='outer', suffixes=('_bat', '_pit'))
+    Rankings.drop(labels=['Unnamed: 0_bat', 'Unnamed: 0_pit'], axis=1,inplace = True)
+    Rankings.Name_bat.fillna(Rankings.Name_pit, inplace=True)
+    Rankings = Rankings.fillna(0)
+    Total_Points = Rankings['Points_bat'] + Rankings['Points_pit']
+    Rankings.insert(1, 'Total_Points', Total_Points)
+    Rankings = Rankings.sort_values('Total_Points', ascending=False)
+    Rankings = Rankings.reset_index(drop=True)
+    Rank = Rankings.index
+    Rankings.insert(0, 'Rank', Rank)
+
+    Rankings.to_csv('data/marcel/MarcelResultTotal.csv', sep=',', index=False, encoding='utf-8')
+
+
+
 #####################
 
 #### Run Programs ###
@@ -967,5 +994,4 @@ def MarcelPoints():
 
 
 # Run Marcel Projections
-# marcelCalculations()
-MarcelPoints()
+marcelCalculations()
