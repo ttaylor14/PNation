@@ -500,7 +500,7 @@ def marcelCombinedFile():
 
 
 
-def marcelCalculations():
+def marcelCalculations_bat():
 
 
     #Import Files
@@ -517,15 +517,11 @@ def marcelCalculations():
     BatStatNeeded = [x + '_bat' for x in BatStatNeeded]
     # print(BatStatNeeded)
 
-    PitStatNeeded = ['W', 'L', 'ERA', 'WAR', 'G', 'GS', 'CG', 'ShO', 'SV', 'BS', 'IP', 'H', 'R', 'HR', 'BB', 'IBB', 'HBP', 'BK', 'SO', 'Pitches']
-    PitStatNeeded = [x + '_pit' for x in PitStatNeeded]
-    # print(BatStatNeeded)
-
     # need to add Name, Age, Etc...
     #Create Empty set to use for export
     Result = pd.DataFrame(index=MarcelTable.index, columns=BatStatNeeded )
     Result = Result.fillna(0)
-    Result.to_csv('data/marcel/MarcelResult.csv')
+    Result.to_csv('data/marcel/MarcelResultBat.csv')
 
     # What Year are we using?
     Year1 = MarcelTable['Season_bat_Year1'][1]
@@ -594,6 +590,95 @@ def marcelCalculations():
     print("Success")
 
 
+def marcelCalculations_pit():
+
+    #Import Files
+    # last three years of player data
+    MarcelTable = pd.read_csv('data/marcel/MarcelTable.csv')
+    MarcelTable = MarcelTable.fillna(0)
+
+    # League Averages by Year
+    lgAVG = pd.read_csv('data/marcel/lgAVG.csv')
+    lgAVG = lgAVG.fillna(0)
+
+    # Stats we need
+    PitStatNeeded = ['W', 'L', 'ERA', 'WAR', 'G', 'GS', 'CG', 'ShO', 'SV', 'BS', 'IP', 'H', 'R', 'HR', 'BB', 'IBB', 'HBP', 'BK', 'SO', 'Pitches']
+    PitStatNeeded = [x + '_pit' for x in PitStatNeeded]
+    # print(BatStatNeeded)
+
+    # need to add Name, Age, Etc...
+    #Create Empty set to use for export
+    Result = pd.DataFrame(index=MarcelTable.index, columns=PitStatNeeded )
+    Result = Result.fillna(0)
+    Result.to_csv('data/marcel/MarcelResultPit.csv')
+
+    # What Year are we using?
+    Year1 = MarcelTable['Season_bat_Year1'][1]
+    Year2 = MarcelTable['Season_bat_Year2'][1]
+    Year3 = MarcelTable['Season_bat_Year3'][1]
+    # print("Year Data being Accessed: " + str(Year1) + " , " + str(Year2) + " , " + str(Year3) )
+
+    # finds the index number of each season
+    LG_Year1 = lgAVG[lgAVG['Season_pit']==Year1].index.values.astype(int)[0]
+    LG_Year2 = lgAVG[lgAVG['Season_pit']==Year2].index.values.astype(int)[0]
+    LG_Year3 = lgAVG[lgAVG['Season_pit']==Year3].index.values.astype(int)[0]
+    # print("lgAVG Index Number: " + str(LG_Year1) + " , " + str(LG_Year2) + " , " + str(LG_Year3) )
+
+    # Cycle through columns
+    for ind in MarcelTable.index:
+        for word in PitStatNeeded:
+            Mstat = word
+            # print ("State being Evaluated: " + str(Mstat) )
+
+            # Label the Stat for each year of Data
+            MS_Year1 = (str(Mstat) + "_Year1")
+            MS_Year2 = (str(Mstat) + "_Year2")
+            MS_Year3 = (str(Mstat) + "_Year3")
+            # print ("State Labels: " + str(MS_Year1) + " , " + str(MS_Year2) + " , " + str(MS_Year3) )
+
+            # Weighted total of individual players stat and Plate Apperances
+            MStateTotal = (MarcelTable[MS_Year1][ind] * 5) + (MarcelTable[MS_Year2][ind] * 4) + (MarcelTable[MS_Year3][ind] * 3)
+            TBF = (MarcelTable['TBF_pit_Year1'][ind]*.5) + (MarcelTable['TBF_pit_Year2'][ind]*.1) + (200)
+            # print("Player Weighted Stat: " + str(MStateTotal) + "  Player Weighted Plate Apperances: " + str(PA) )
+
+            # Calculating the Weighted Mean of state per plate apperances for that individual player
+            MS_Y1 = lgAVG[Mstat][LG_Year1]/lgAVG['TBF_pit'][LG_Year1] * MarcelTable['TBF_pit_Year1'][ind] * 5
+            MS_Y2 = lgAVG[Mstat][LG_Year2]/lgAVG['TBF_pit'][LG_Year2] * MarcelTable['TBF_pit_Year2'][ind] * 4
+            MS_Y3 = lgAVG[Mstat][LG_Year3]/lgAVG['TBF_pit'][LG_Year3] * MarcelTable['TBF_pit_Year3'][ind] * 3
+            # print("Player State Mean by year: " + str(MS_Y1) + " , " + str(MS_Y2) + " , " + str(MS_Y3) )
+
+            # Players total Weighted Plate Apperances (added +1 to ensure no PA = 0 or NAN values)
+            Total_TBF = ( MarcelTable['TBF_pit_Year1'][ind] * 5 ) + ( MarcelTable['TBF_pit_Year2'][ind] * 4 ) + ( MarcelTable['TBF_pit_Year3'][ind] * 3 ) + 1
+            # print("Weighted PA: " + str(Total_PAS) )
+
+            # Adjusting ratio to match 1200 apperances
+            MS_Ratio = ( (MS_Y1 + MS_Y2 + MS_Y3) * 1200 ) / Total_TBF
+            # print("Adjusted Ratio for 1200 PA: " + str(MS_Ratio) )
+
+            # taking league ratio out of 1200 and adding it to the actual players result to get that players ratio of stat per PA
+            MS_Perct = ( MS_Ratio + MStateTotal ) / ( 1200 + Total_TBF )
+            # print("Adjusting with League Average: " + str(MS_Perct) )
+
+            # Take the player's ratio and multiply it by the expected number of plate apperances
+            MS_Expected = ( MS_Perct * TBF )
+            # print("Player Ratio for # of PA: " + str(MS_Expected) )
+
+            # Adjust for players age
+            Age_Reg = ( ( 29 - MarcelTable['Age_pit_Year1'][ind] ) * 0.5 )
+            # print("Age Adjustment: " + str(Age_Reg) )
+
+            # Final Result
+            Marcel_Result = MS_Expected * ( 1 + Age_Reg )
+            # print("Final Player Projection: " + str(Marcel_Result) )
+
+            Result.at[ind, word] = Marcel_Result
+            # print(Result.head())
+
+    # print(Result)
+    Result.to_csv('data/marcel/MarcelResultPit.csv')
+    print("Success")
+
+
 
 
 #####################
@@ -618,3 +703,4 @@ marcelCombinedFile()
 
 # Run Marcel Projections
 # marcelCalculations()
+#marcelCalculations_pit()
