@@ -695,7 +695,7 @@ def marcelCalculations_pit():
 # combinePoints()
 
 # Run Marcel Projections Table to later create projections
-marcelCombinedFile()
+# marcelCombinedFile()
 
 ## Creating a Lg Total document for Marcel Projections
 # lgAVG()
@@ -703,4 +703,4 @@ marcelCombinedFile()
 
 # Run Marcel Projections
 # marcelCalculations()
-#marcelCalculations_pit()
+marcelCalculations_pit()
