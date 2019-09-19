@@ -512,6 +512,8 @@ def marcelCalculations():
 
     # Stats we need
     BatStatNeeded = ['G', 'AB', 'AVG', 'H', '1B', '2B', '3B', 'HR', 'R', 'RBI', 'BB', 'IBB', 'SO', 'HBP', 'SB', 'CS', 'Pitches']
+    BatStatNeeded = [x + '_bat' for x in BatStatNeeded]
+    print(BatStatNeeded)
 
     # need to add Name, Age, Etc...
     #Create Empty set to use for export
@@ -547,19 +549,19 @@ def marcelCalculations():
 
             # Weighted total of individual players stat and Plate Apperances
             MStateTotal = (MarcelTable[MS_Year1][ind] * 5) + (MarcelTable[MS_Year2][ind] * 4) + (MarcelTable[MS_Year3][ind] * 3)
-            PA = (MarcelTable['PA_Year1'][ind]*.5) + (MarcelTable['PA_Year2'][ind]*.1) + (200)
+            PA = (MarcelTable['PA_bat_Year1'][ind]*.5) + (MarcelTable['PA_bat_Year2'][ind]*.1) + (200)
             print("Player Weighted Stat: " + str(MStateTotal) + "  Player Weighted Plate Apperances: " + str(PA) )
             print(" ")
 
             # Calculating the Weighted Mean of state per plate apperances for that individual player
-            MS_Y1 = lgAVG[Mstat][LG_Year1]/lgAVG['PA_bat'][LG_Year1] * MarcelTable['PA_Year1'][ind] * 5
-            MS_Y2 = lgAVG[Mstat][LG_Year2]/lgAVG['PA_bat'][LG_Year2] * MarcelTable['PA_Year2'][ind] * 4
-            MS_Y3 = lgAVG[Mstat][LG_Year3]/lgAVG['PA_bat'][LG_Year3] * MarcelTable['PA_Year3'][ind] * 3
+            MS_Y1 = lgAVG[Mstat][LG_Year1]/lgAVG['PA_bat'][LG_Year1] * MarcelTable['PA_bat_Year1'][ind] * 5
+            MS_Y2 = lgAVG[Mstat][LG_Year2]/lgAVG['PA_bat'][LG_Year2] * MarcelTable['PA_bat_Year2'][ind] * 4
+            MS_Y3 = lgAVG[Mstat][LG_Year3]/lgAVG['PA_bat'][LG_Year3] * MarcelTable['PA_bat_Year3'][ind] * 3
             print("Player State Mean by year: " + str(MS_Y1) + " , " + str(MS_Y2) + " , " + str(MS_Y3) )
             print(" ")
 
             # Players total Weighted Plate Apperances
-            Total_PAS = ( MarcelTable['PA_Year1'][ind] * 5 ) + ( MarcelTable['PA_Year2'][ind] * 4 ) + ( MarcelTable['PA_Year3'][ind] * 3 )
+            Total_PAS = ( MarcelTable['P_bat_Year1'][ind] * 5 ) + ( MarcelTable['PA_bat_Year2'][ind] * 4 ) + ( MarcelTable['PA_bat_Year3'][ind] * 3 )
             print("Weighted PA: " + str(Total_PAS) )
             print(" ")
 
@@ -612,11 +614,11 @@ def marcelCalculations():
 # combinePoints()
 
 # Run Marcel Projections Table to later create projections
-marcelCombinedFile()
+# marcelCombinedFile()
 
 ## Creating a Lg Total document for Marcel Projections
 # lgAVG()
 
 
 # Run Marcel Projections
-#marcelCalculations()
+marcelCalculations()
