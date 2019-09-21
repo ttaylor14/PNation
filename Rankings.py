@@ -586,6 +586,13 @@ def marcelCalculations_bat():
             # print(Result.head())
 
     # print(Result)
+
+    Result.insert(0, 'Season', MarcelTable['Season_bat_Year1'])
+    Result.insert(1, 'Name', MarcelTable['Name_bat_Year1'])
+    Result.insert(2, 'Team', MarcelTable['Team_bat_Year1'])
+    Result.insert(3, 'Age', MarcelTable['Age_bat_Year1'])
+
+
     Result.to_csv('data/marcel/MarcelResultBat.csv')
     print("Success")
 
@@ -675,6 +682,13 @@ def marcelCalculations_pit():
             # print(Result.head())
 
     # print(Result)
+
+    Result.insert(0, 'Season', MarcelTable['Season_bat_Year1'])
+    Result.insert(1, 'Name', MarcelTable['Name_bat_Year1'])
+    Result.insert(2, 'Team', MarcelTable['Team_bat_Year1'])
+    Result.insert(3, 'Age', MarcelTable['Age_bat_Year1'])
+
+
     Result.to_csv('data/marcel/MarcelResultPit.csv')
     print("Success")
 
