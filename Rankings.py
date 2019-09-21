@@ -29,95 +29,101 @@ import numpy as np
 # Creates files for batting and pitching point totals
 
 
+# Procrastination Points
+
+# ESPN Settings
+
+
+
+def pointAmountsBat():
+
+    global R, Single, Double, Triple, HR, TB, RBI, BB, K, SB, AB, Hits, XBH, GWRBI, IBB, HBP, SAC, CS, SBN, GIDP, CYC, GSHR, BTW, BTL
+    global FC, PO, AST, OFAST, BatE, DPT
+
+    ## Batting Scoring
+    R = 1 # Runs Scored
+    Single = 0 # Singles
+    Double = 0 # Doubles
+    Triple = 0 # Triples
+    HR = 2 # Home Runs
+    TB = 1 # Total Bases
+    RBI = 1 # Runs Batted In
+    BB = 1 # Walks
+    K = -1 # Strikeouts
+    SB = 1 # Stolen Bases
+    AB = 0 # At Bats
+    Hits = 0 # Hits
+    XBH = 0 # Extra Base Hits
+    GWRBI = 0 # Game Winning RBI
+    IBB = 1 # Intentional Walks
+    HBP = 0 # Hit by Pitch
+    SAC = 0 # Sacrifices
+    CS = -1 # Caught Stealing
+    SBN = 0 # Net Stolen Bases
+    GIDP = 0 # Ground into Double Plays
+    CYC = 20 # Hitting for the Cycle
+    GSHR = 4 # Grand Slam Home Runs
+    BTW = 0 # Batter Team Win
+    BTL = 0 # Batter Team Loss
+
+    ## Fielding
+    FC = 0 # Fielding Chances
+    PO = 0 # Put Outs
+    AST = 0 # Assists
+    OFAST = 0 # Outfield Assists
+    BatE = -1 # Errors
+    DPT = 0 # Double Plays Turned
+
+    return R, Single, Double, Triple, HR, TB, RBI, BB, K, SB, AB, Hits, XBH, GWRBI, IBB, HBP, SAC, CS, SBN, GIDP, CYC, GSHR, BTW, BTL
+    return FC, PO, AST, OFAST, BatE, DPT
+
+
+def pointAmountsPit():
+
+    global IP, ER, K, SO, W, L, SV, BS, G, GS, H, RA, HR, BB, HB, WP, B, PKO, QS, CG, NH, PG, BF, PC, SOP, HD, PTW, PTL, SVHD
+
+    ### Pitching
+    IP = 3 # Innings Pitched # INNINGS PITCHED / OUTS RECORDED
+    # Although Innings Pitched are typically displayed throughout the game, pitchers will accrue points for each out they record. The point value entered here applies to outs recorded. For example, if you choose a value of 2 points, a pitcher that pitches 1 inning will earn 6 points (2 points * 3 outs).
+    ER = -2 # Earned Runs
+    K = 1 # Strikeouts
+    SO = 5 # Shutouts
+    W = 5 # Wins
+    L = -5 # Losses
+    SV = 5 # Saves
+    BS = -5 # Blown Saves
+    G = 0 # Appearances
+    GS = 0 # Games Started
+    H = -1 # Hits Allowed
+    RA = 0 # Runs Allowed
+    HR = 0 # Home Runs Allowed
+    BB = -1 # Walks Issued
+    HB = -1 # Hit Batsmen
+    WP = -1 # Wild Pitches
+    B = -1 # Balks
+    PKO = 2 # Pick Offs
+    QS = 5 # Quality Starts
+    CG = 10 # Complete Games
+    NH = 15 # No Hitters
+    PG = 20 # Perfect Games
+    BF = 0 # Batters Faced
+    PC = 0 # Pitch Count
+    SOP = 0 # Save Opportunities
+    HD = 0 # Holds
+    PTW = 0 # Pitcher Team Win
+    PTL = 0 # Pitcher Team Loss
+    SVHD = 0 # Saves Plus Holds
+
+    return IP, ER, K, SO, W, L, SV, BS, G, GS, H, RA, HR, BB, HB, WP, B, PKO, QS, CG, NH, PG, BF, PC, SOP, HD, PTW, PTL, SVHD
+
+
 
 def points(currentSeason):
     from pybaseball import batting_stats
 
-
     data = batting_stats(currentSeason, qual=1)
 
-
-
-    # Procrastination Points
-
-    # ESPN Settings
-
-    ## Batting Scoring
-
-    R = 1
-    # Runs Scored
-
-    Single = 0
-    # Singles
-
-    Double = 0
-    # Doubles
-
-    Triple = 0
-    # Triples
-
-    HR = 2
-    # Home Runs
-
-    TB = 1
-    # Total Bases
-
-    RBI = 1
-    # Runs Batted In
-
-    BB = 1
-    # Walks
-
-    K = -1
-    # Strikeouts
-
-    SB = 1
-    # Stolen Bases
-
-
-    AB = 0
-    # At Bats
-
-    Hits = 0
-    # Hits
-
-    XBH = 0
-    # Extra Base Hits
-
-    GWRBI = 0
-    # Game Winning RBI
-
-    IBB = 1
-    # Intentional Walks
-
-    HBP = 0
-    # Hit by Pitch
-
-    SAC = 0
-    # Sacrifices
-
-    CS = -1
-    # Caught Stealing
-
-    SBN = 0
-    # Net Stolen Bases
-
-    GIDP = 0
-    # Ground into Double Plays
-
-    CYC = 20
-    # Hitting for the Cycle
-
-    GSHR = 4
-    # Grand Slam Home Runs
-
-    BTW = 0
-    # Batter Team Win
-
-    BTL = 0
-    # Batter Team Loss
-
-
+    pointAmountsBat()
 
     points = ( ( R * data['R'] )
     + ( Single * data['1B'] )
@@ -148,128 +154,11 @@ def points(currentSeason):
 
     BattingStats.to_csv('data/bstats.csv')
 
-    ## Fielding
-
-    FC = 0
-    # Fielding Chances
-
-    PO = 0
-    # Put Outs
-
-    AST = 0
-    # Assists
-
-    OFAST = 0
-    # Outfield Assists
-
-    BatE = -1
-    # Errors
-
-    DPT = 0
-    # Double Plays Turned
-
-
-
-
-
-
-
     from pybaseball import pitching_stats
 
     pdata = pitching_stats(currentSeason)
 
-    ### Pitching
-
-    IP = 3
-    # Innings Pitched
-    # INNINGS PITCHED / OUTS RECORDED
-    # Although Innings Pitched are typically displayed throughout the game, pitchers will accrue points for each out they record. The point value entered here applies to outs recorded. For example, if you choose a value of 2 points, a pitcher that pitches 1 inning will earn 6 points (2 points * 3 outs).
-
-    ER = -2
-    # Earned Runs
-
-    K = 1
-    # Strikeouts
-
-    SO = 5
-    # Shutouts
-
-    W = 5
-    # Wins
-
-    L = -5
-    # Losses
-
-    SV = 5
-    # Saves
-
-    BS = -5
-    # Blown Saves
-
-
-    G = 0
-    # Appearances
-
-    GS = 0
-    # Games Started
-
-    H = -1
-    # Hits Allowed
-
-    RA = 0
-    # Runs Allowed
-
-    HR = 0
-    # Home Runs Allowed
-
-    BB = -1
-    # Walks Issued
-
-    HB = -1
-    # Hit Batsmen
-
-    WP = -1
-    # Wild Pitches
-
-    B = -1
-    # Balks
-
-    PKO = 2
-    # Pick Offs
-
-    QS = 5
-    # Quality Starts
-
-    CG = 10
-    # Complete Games
-
-    NH = 15
-    # No Hitters
-
-    PG = 20
-    # Perfect Games
-
-    BF = 0
-    # Batters Faced
-
-    PC = 0
-    # Pitch Count
-
-    SOP = 0
-    # Save Opportunities
-
-    HD = 0
-    # Holds
-
-    PTW = 0
-    # Pitcher Team Win
-
-    PTL = 0
-    # Pitcher Team Loss
-
-    SVHD = 0
-    # Saves Plus Holds
-
+    pointAmountsPit()
 
     ppoints = ( ( IP * pdata['IP'] )
     + ( ER * pdata['ER'] )
@@ -696,90 +585,8 @@ def marcelCalculations_pit():
 
 def MarcelPoints():
 
+    pointAmountsBat()
     data = pd.read_csv('data/marcel/MarcelResultBat.csv')
-
-
-
-    # Procrastination Points
-
-    # ESPN Settings
-
-    ## Batting Scoring
-
-    R = 1
-    # Runs Scored
-
-    Single = 0
-    # Singles
-
-    Double = 0
-    # Doubles
-
-    Triple = 0
-    # Triples
-
-    HR = 2
-    # Home Runs
-
-    TB = 1
-    # Total Bases
-
-    RBI = 1
-    # Runs Batted In
-
-    BB = 1
-    # Walks
-
-    K = -1
-    # Strikeouts
-
-    SB = 1
-    # Stolen Bases
-
-
-    AB = 0
-    # At Bats
-
-    Hits = 0
-    # Hits
-
-    XBH = 0
-    # Extra Base Hits
-
-    GWRBI = 0
-    # Game Winning RBI
-
-    IBB = 1
-    # Intentional Walks
-
-    HBP = 0
-    # Hit by Pitch
-
-    SAC = 0
-    # Sacrifices
-
-    CS = -1
-    # Caught Stealing
-
-    SBN = 0
-    # Net Stolen Bases
-
-    GIDP = 0
-    # Ground into Double Plays
-
-    CYC = 20
-    # Hitting for the Cycle
-
-    GSHR = 4
-    # Grand Slam Home Runs
-
-    BTW = 0
-    # Batter Team Win
-
-    BTL = 0
-    # Batter Team Loss
-
-
 
     points = ( ( R * data['R_bat'] )
     + ( Single * data['1B_bat'] )
@@ -801,129 +608,15 @@ def MarcelPoints():
 
     # missing Sac and GWRBI and everything past CS
 
-    data['Points'] = points
+    data['Points_bat'] = points
 
+
+    data.drop(labels=['Unnamed: 0'], axis=1, inplace = True)
     data.to_csv('data/marcel/MarcelResultBat.csv')
-
-    ## Fielding
-
-    FC = 0
-    # Fielding Chances
-
-    PO = 0
-    # Put Outs
-
-    AST = 0
-    # Assists
-
-    OFAST = 0
-    # Outfield Assists
-
-    BatE = -1
-    # Errors
-
-    DPT = 0
-    # Double Plays Turned
-
-
-
-
-
 
     pdata = pd.read_csv('data/marcel/MarcelResultPit.csv')
 
-    ### Pitching
-
-    IP = 3
-    # Innings Pitched
-    # INNINGS PITCHED / OUTS RECORDED
-    # Although Innings Pitched are typically displayed throughout the game, pitchers will accrue points for each out they record. The point value entered here applies to outs recorded. For example, if you choose a value of 2 points, a pitcher that pitches 1 inning will earn 6 points (2 points * 3 outs).
-
-    ER = -2
-    # Earned Runs
-
-    K = 1
-    # Strikeouts
-
-    SO = 5
-    # Shutouts
-
-    W = 5
-    # Wins
-
-    L = -5
-    # Losses
-
-    SV = 5
-    # Saves
-
-    BS = -5
-    # Blown Saves
-
-
-    G = 0
-    # Appearances
-
-    GS = 0
-    # Games Started
-
-    H = -1
-    # Hits Allowed
-
-    RA = 0
-    # Runs Allowed
-
-    HR = 0
-    # Home Runs Allowed
-
-    BB = -1
-    # Walks Issued
-
-    HB = -1
-    # Hit Batsmen
-
-    WP = -1
-    # Wild Pitches
-
-    B = -1
-    # Balks
-
-    PKO = 2
-    # Pick Offs
-
-    QS = 5
-    # Quality Starts
-
-    CG = 10
-    # Complete Games
-
-    NH = 15
-    # No Hitters
-
-    PG = 20
-    # Perfect Games
-
-    BF = 0
-    # Batters Faced
-
-    PC = 0
-    # Pitch Count
-
-    SOP = 0
-    # Save Opportunities
-
-    HD = 0
-    # Holds
-
-    PTW = 0
-    # Pitcher Team Win
-
-    PTL = 0
-    # Pitcher Team Loss
-
-    SVHD = 0
-    # Saves Plus Holds
-
+    pointAmountsPit()
 
     ppoints = ( ( IP * pdata['IP_pit'] )
     + ( ER * pdata['ER_pit'] )
@@ -954,8 +647,8 @@ def MarcelPoints():
     #+ ( HD * pdata['HD'] )
     )
 
-    pdata['Points'] = ppoints
-
+    pdata['Points_pit'] = ppoints
+    pdata.drop(labels=['Unnamed: 0'], axis=1, inplace = True)
     pdata.to_csv('data/marcel/MarcelResultPit.csv')
 
 
@@ -968,13 +661,14 @@ def marcelCalculations():
     bstats = pd.read_csv('data/marcel/MarcelResultBat.csv')
     pstats = pd.read_csv('data/marcel/MarcelResultPit.csv')
 
-    bstats = bstats.add_suffix('_bat')
-    pstats = pstats.add_suffix('_pit')
+    print(bstats.describe())
+    print(pstats.describe())
 
     #Combine CSV
-    Rankings = pd.merge(bstats, pstats, left_on=['Name_bat'], right_on=['Name_pit'], how='inner')
-    Rankings.drop(labels=['Unnamed: 0_bat', 'Unnamed: 0_pit', 'Unnamed: 0.1_pit', 'Unnamed: 0.1_bat'], axis=1, inplace = True)
-    Rankings.Name_bat.fillna(Rankings.Name_pit, inplace=True)
+    Rankings = pd.merge(bstats, pstats, left_on=['Name'], right_on=['Name'], how='outer')
+
+    #Rankings.drop(labels=['Unnamed: 0_bat', 'Unnamed: 0_pit'], axis=1, inplace = True)
+    # Rankings.Name_bat.fillna(Rankings.Name_pit, inplace=True)
     Rankings = Rankings.fillna(0)
     Total_Points = Rankings['Points_bat'] + Rankings['Points_pit']
     Rankings.insert(1, 'Total_Points', Total_Points)
