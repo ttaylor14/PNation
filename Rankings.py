@@ -972,8 +972,8 @@ def marcelCalculations():
     pstats = pstats.add_suffix('_pit')
 
     #Combine CSV
-    Rankings = pd.merge(bstats, pstats, left_on=['Name_bat'], right_on=['Name_pit'], how='outer', suffixes=('_bat', '_pit'))
-    Rankings.drop(labels=['Unnamed: 0_bat', 'Unnamed: 0_pit'], axis=1,inplace = True)
+    Rankings = pd.merge(bstats, pstats, left_on=['Name_bat'], right_on=['Name_pit'], how='inner')
+    Rankings.drop(labels=['Unnamed: 0_bat', 'Unnamed: 0_pit', 'Unnamed: 0.1_pit', 'Unnamed: 0.1_bat'], axis=1, inplace = True)
     Rankings.Name_bat.fillna(Rankings.Name_pit, inplace=True)
     Rankings = Rankings.fillna(0)
     Total_Points = Rankings['Points_bat'] + Rankings['Points_pit']
@@ -982,8 +982,8 @@ def marcelCalculations():
     Rankings = Rankings.reset_index(drop=True)
     Rank = Rankings.index
     Rankings.insert(0, 'Rank', Rank)
-
-    Rankings.to_csv('data/marcel/MarcelResultTotal.csv', sep=',', index=False, encoding='utf-8')
+    print(Rankings.describe())
+    #Rankings.to_csv('data/marcel/MarcelResultTotal.csv', sep=',', index=False, encoding='utf-8')
 
 
 
