@@ -20,6 +20,9 @@
 import pandas as pd
 import numpy as np
 
+
+currentYear = 2019
+
 #################################################
 
 #### Create Batting and Pitching Point totals ###
@@ -340,7 +343,7 @@ def lgAVG():
 def marcelCombinedFile():
 
     # Current or Season before Projection
-    currentYear = 2019
+    global currentYear
     previousYear = (currentYear - 1)
     TwoYear = (currentYear - 2)
 
@@ -426,6 +429,7 @@ def marcelCalculations_bat():
 
     # Cycle through columns
     for ind in MarcelTable.index:
+
         for word in BatStatNeeded:
             Mstat = word
             # print ("State being Evaluated: " + str(Mstat) )
@@ -464,7 +468,7 @@ def marcelCalculations_bat():
             # print("Player Ratio for # of PA: " + str(MS_Expected) )
 
             # Adjust for players age
-            Age_Reg = ( ( 29 - MarcelTable['Age_bat_Year1'][ind] ) * 0.5 )
+            Age_Reg = ( ( 29 - MarcelTable['Age_bat_Year1'][ind] ) * 0.05 )
             # print("Age Adjustment: " + str(Age_Reg) )
 
             # Final Result
@@ -474,14 +478,18 @@ def marcelCalculations_bat():
             Result.at[ind, word] = Marcel_Result
             # print(Result.head())
 
-    # print(Result)
+        if MarcelTable['Name_bat_Year1'][ind] is '0':
+            Result.at[ind, 'Season'] = MarcelTable['Season_pit_Year1'][ind]
+            Result.at[ind, 'Name'] = MarcelTable['Name_pit_Year1'][ind]
+            Result.at[ind, 'Team'] = MarcelTable['Team_pit_Year1'][ind]
+            Result.at[ind, 'Age'] = MarcelTable['Age_pit_Year1'][ind]
+        else:
+            Result.at[ind, 'Season'] = MarcelTable['Season_bat_Year1'][ind]
+            Result.at[ind, 'Name'] = MarcelTable['Name_bat_Year1'][ind]
+            Result.at[ind, 'Team'] = MarcelTable['Team_bat_Year1'][ind]
+            Result.at[ind, 'Age'] = MarcelTable['Age_bat_Year1'][ind]
 
-    Result.insert(0, 'Season', MarcelTable['Season_bat_Year1'])
-    Result.insert(1, 'Name', MarcelTable['Name_bat_Year1'])
-    Result.insert(2, 'Team', MarcelTable['Team_bat_Year1'])
-    Result.insert(3, 'Age', MarcelTable['Age_bat_Year1'])
-
-
+    Result = Result[Result.Name != 0]
     Result.to_csv('data/marcel/MarcelResultBat.csv')
     print("Success")
 
@@ -560,7 +568,7 @@ def marcelCalculations_pit():
             # print("Player Ratio for # of PA: " + str(MS_Expected) )
 
             # Adjust for players age
-            Age_Reg = ( ( 29 - MarcelTable['Age_pit_Year1'][ind] ) * 0.5 )
+            Age_Reg = ( ( 29 - MarcelTable['Age_pit_Year1'][ind] ) * 0.05 )
             # print("Age Adjustment: " + str(Age_Reg) )
 
             # Final Result
@@ -570,20 +578,26 @@ def marcelCalculations_pit():
             Result.at[ind, word] = Marcel_Result
             # print(Result.head())
 
-    # print(Result)
+        if MarcelTable['Name_bat_Year1'][ind] is '0':
+            Result.at[ind, 'Season'] = MarcelTable['Season_pit_Year1'][ind]
+            Result.at[ind, 'Name'] = MarcelTable['Name_pit_Year1'][ind]
+            Result.at[ind, 'Team'] = MarcelTable['Team_pit_Year1'][ind]
+            Result.at[ind, 'Age'] = MarcelTable['Age_pit_Year1'][ind]
+        else:
+            Result.at[ind, 'Season'] = MarcelTable['Season_bat_Year1'][ind]
+            Result.at[ind, 'Name'] = MarcelTable['Name_bat_Year1'][ind]
+            Result.at[ind, 'Team'] = MarcelTable['Team_bat_Year1'][ind]
+            Result.at[ind, 'Age'] = MarcelTable['Age_bat_Year1'][ind]
 
-    Result.insert(0, 'Season', MarcelTable['Season_bat_Year1'])
-    Result.insert(1, 'Name', MarcelTable['Name_bat_Year1'])
-    Result.insert(2, 'Team', MarcelTable['Team_bat_Year1'])
-    Result.insert(3, 'Age', MarcelTable['Age_bat_Year1'])
 
-
+    Result = Result[Result.Name != 0]
     Result.to_csv('data/marcel/MarcelResultPit.csv')
     print("Success")
 
 
 
 def MarcelPoints():
+    global currentYear
 
     pointAmountsBat()
     data = pd.read_csv('data/marcel/MarcelResultBat.csv')
@@ -609,9 +623,13 @@ def MarcelPoints():
     # missing Sac and GWRBI and everything past CS
 
     data['Points_bat'] = points
-
+    data['Season'] = currentYear + 1
 
     data.drop(labels=['Unnamed: 0'], axis=1, inplace = True)
+    data = data.sort_values('Points_bat', ascending=False)
+    data = data.reset_index(drop=True)
+    Rank = data.index
+    data.insert(0, 'Bat_Rank', Rank)
     data.to_csv('data/marcel/MarcelResultBat.csv')
 
     pdata = pd.read_csv('data/marcel/MarcelResultPit.csv')
@@ -648,12 +666,19 @@ def MarcelPoints():
     )
 
     pdata['Points_pit'] = ppoints
+    pdata['Season'] = currentYear + 1
     pdata.drop(labels=['Unnamed: 0'], axis=1, inplace = True)
+    pdata = pdata.sort_values('Points_pit', ascending=False)
+    pdata = pdata.reset_index(drop=True)
+    Rank = pdata.index
+    pdata.insert(0, 'Pit_Rank', Rank)
     pdata.to_csv('data/marcel/MarcelResultPit.csv')
 
 
 
 def marcelCalculations():
+    global currentYear
+
     marcelCalculations_bat()
     marcelCalculations_pit()
     MarcelPoints()
@@ -661,23 +686,72 @@ def marcelCalculations():
     bstats = pd.read_csv('data/marcel/MarcelResultBat.csv')
     pstats = pd.read_csv('data/marcel/MarcelResultPit.csv')
 
-    print(bstats.describe())
-    print(pstats.describe())
+    bstats.drop(labels=['Unnamed: 0'], axis=1, inplace = True)
+    pstats.drop(labels=['Unnamed: 0'], axis=1, inplace = True)
 
     #Combine CSV
-    Rankings = pd.merge(bstats, pstats, left_on=['Name'], right_on=['Name'], how='outer')
+    Rankings = pd.merge(bstats, pstats, on=['Name'], how='inner', suffixes=('_bat', '_pit'))
 
     #Rankings.drop(labels=['Unnamed: 0_bat', 'Unnamed: 0_pit'], axis=1, inplace = True)
     # Rankings.Name_bat.fillna(Rankings.Name_pit, inplace=True)
     Rankings = Rankings.fillna(0)
     Total_Points = Rankings['Points_bat'] + Rankings['Points_pit']
-    Rankings.insert(1, 'Total_Points', Total_Points)
+    Rankings.insert(0, 'Total_Points', Total_Points)
     Rankings = Rankings.sort_values('Total_Points', ascending=False)
     Rankings = Rankings.reset_index(drop=True)
     Rank = Rankings.index
     Rankings.insert(0, 'Rank', Rank)
-    print(Rankings.describe())
-    #Rankings.to_csv('data/marcel/MarcelResultTotal.csv', sep=',', index=False, encoding='utf-8')
+    # print(Rankings.describe())
+    Teams = np.where(Rankings['Team_bat'] == 0, Rankings['Team_pit'], Rankings['Team_bat'])
+    Age = np.where(Rankings['Age_bat'] == 0, Rankings['Age_pit'], Rankings['Age_bat'])
+
+    Season = (currentYear + 1)
+    Name = Rankings['Name']
+    #Teams = Rankings['Team_bat'] + Rankings['Team_pit']
+    Rankings.drop(labels=['Name', 'Age_bat', 'Age_pit', 'Team_bat', 'Team_pit', 'Season_bat', 'Season_pit'], axis=1, inplace = True)
+
+    Rankings.insert(2, 'Name', Name)
+    Rankings.insert(3, 'Age', Age)
+    Rankings.insert(4, 'Season', Season)
+    Rankings.insert(5, 'Team', Teams)
+
+
+    Rankings.to_csv('data/marcel/MarcelResultTotal.csv', sep=',', index=False, encoding='utf-8')
+
+
+
+
+################################
+
+#### Cycle Through Each Year ###
+
+################################
+
+# runs points on a range of years and creates a csv for that year
+# Each Year is Tabulated and saved to its own csv file
+# each year also runs a lgAVG and that data is stored
+
+
+def PointCycle():
+    global currentYear
+
+    yearRange = list(range(2000, currentYear + 1))
+    # print(yearRange)
+    for x in yearRange:
+        # print(X)
+        points(x)
+        combinePoints()
+        R = pd.read_csv('data/Rankings.csv')
+        filename = "data/YearPoints/%s.csv" % x
+        R.to_csv(filename, sep=',', index=False, encoding='utf-8')
+        lgAVG()
+        print(str(x) + ": Successful")
+
+
+
+
+
+
 
 
 
@@ -702,4 +776,7 @@ def marcelCalculations():
 
 
 # Run Marcel Projections
-marcelCalculations()
+#marcelCalculations()
+
+# Run Point Cycle
+PointCycle()
