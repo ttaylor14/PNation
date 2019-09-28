@@ -1,13 +1,13 @@
 # Draft Calculator File
 
-# last Update : 9.27.19
+# last Update : 9.28.19
 
 #### To Do:
 # update info to match FullRoster.csv label changes
-# add section on removing players not kept or rows with no names listed
 # ensure faab works properly
 
 import pandas as pd
+import numpy as np
 
 
 ##################################
@@ -34,13 +34,7 @@ keeper_cost_reduction = 'on'
 # Temporary Team Place Holder
 tempdf = []
 avail_faab = 0
-full_roster = pd.read_csv('data/rosters.csv')
-full_roster = full_roster.iloc[0:0]
-# print(full_roster)
 
-temp_faab = pd.read_csv('data/team_info.csv')
-# print(temp_faab)
-# Faab is col 4, team id is the index/col 0
 
 
 ####################
@@ -53,13 +47,29 @@ temp_faab = pd.read_csv('data/team_info.csv')
 # then all changes are done to the duplicate before everything is confirmed!
 
 # import files
-rosters = pd.read_csv('data/FullRosters.csv')
+rosters = pd.read_csv('data/FullRoster.csv')
 team_info = pd.read_csv('data/Teams/team_info.csv')
+
+# Rename col "Player Salary" to salary
+rosters.rename(columns={'Player Salary':'salary'}, inplace=True)
+
+
+# Pull Team Info
+temp_faab = pd.read_csv('data/Teams/team_info.csv')
+# print(temp_faab)
+
+# Deletd row with no name and are not begin kept
+rosters['Player'].replace('', np.nan, inplace=True)
+rosters['salary'].replace('', np.nan, inplace=True)
+rosters['Keeping'].replace('', np.nan, inplace=True)
+rosters.dropna(subset=['Player'], inplace=True)
+rosters.dropna(subset=['salary'], inplace=True)
+rosters.dropna(subset=['Keeping'], inplace=True)
 
 team_info = team_info.set_index("team_id", drop=False)
 
 # convert columns to correct types
-rosters[['team_id', 'Player Salary']] = rosters[['team_id', 'Player Salary']].apply(pd.to_numeric)
+rosters[['team_id', 'salary']] = rosters[['team_id', 'salary']].apply(pd.to_numeric)
 team_info[['team_id', 'faab']] = team_info[['team_id', 'faab']].apply(pd.to_numeric)
 
 # print(rosters.head())
@@ -297,20 +307,20 @@ def update_rosters():
     team_14 = full_roster[full_roster['team_id'] == 14]
 
 # at the end export each team to own file in teams Folder
-    team_1.to_csv('teams/team1_Draft.csv', encoding='utf-8', index=False)
-    team_2.to_csv('teams/team2_Draft.csv', encoding='utf-8', index=False)
-    team_3.to_csv('teams/team3_Draft.csv', encoding='utf-8', index=False)
-    team_4.to_csv('teams/team4_Draft.csv', encoding='utf-8', index=False)
-    team_5.to_csv('teams/team5_Draft.csv', encoding='utf-8', index=False)
-    team_6.to_csv('teams/team6_Draft.csv', encoding='utf-8', index=False)
-    team_7.to_csv('teams/team7_Draft.csv', encoding='utf-8', index=False)
-    team_8.to_csv('teams/team8_Draft.csv', encoding='utf-8', index=False)
-    team_9.to_csv('teams/team9_Draft.csv', encoding='utf-8', index=False)
-    team_10.to_csv('teams/team10_Draft.csv', encoding='utf-8', index=False)
-    team_11.to_csv('teams/team11_Draft.csv', encoding='utf-8', index=False)
-    team_12.to_csv('teams/team12_Draft.csv', encoding='utf-8', index=False)
-    team_13.to_csv('teams/team13_Draft.csv', encoding='utf-8', index=False)
-    team_14.to_csv('teams/team14_Draft.csv', encoding='utf-8', index=False)
+    team_1.to_csv('data/Teams/Team1.csv', encoding='utf-8', index=False)
+    team_2.to_csv('data/Teams/Team2_Draft.csv', encoding='utf-8', index=False)
+    team_3.to_csv('data/Teams/Team3_Draft.csv', encoding='utf-8', index=False)
+    team_4.to_csv('data/Teams/Team4_Draft.csv', encoding='utf-8', index=False)
+    team_5.to_csv('data/Teams/Team5_Draft.csv', encoding='utf-8', index=False)
+    team_6.to_csv('data/Teams/Team6_Draft.csv', encoding='utf-8', index=False)
+    team_7.to_csv('data/Teams/Team7_Draft.csv', encoding='utf-8', index=False)
+    team_8.to_csv('data/Teams/Team8_Draft.csv', encoding='utf-8', index=False)
+    team_9.to_csv('data/Teams/Team9_Draft.csv', encoding='utf-8', index=False)
+    team_10.to_csv('data/Teams/Team10_Draft.csv', encoding='utf-8', index=False)
+    team_11.to_csv('data/Teams/Team11_Draft.csv', encoding='utf-8', index=False)
+    team_12.to_csv('data/Teams/Team12_Draft.csv', encoding='utf-8', index=False)
+    team_13.to_csv('data/Teams/Team13_Draft.csv', encoding='utf-8', index=False)
+    team_14.to_csv('data/Teams/Team14_Draft.csv', encoding='utf-8', index=False)
 
 
 # create roster file by combining all team files

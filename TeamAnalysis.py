@@ -1,13 +1,20 @@
 # Team Analysis
 
-# last Update : 9.27.19
+# last Update : 9.28.19
 
 
 import pandas as pd
+import numpy as np
 
 # Pull Rosters
 roster = pd.read_csv('data/FullRoster.csv')
 # print(roster.head())
+
+# Deletd row with no name and are not begin kept
+roster['Player'].replace('', np.nan, inplace=True)
+roster['Player Salary'].replace('', np.nan, inplace=True)
+roster.dropna(subset=['Player'], inplace=True)
+roster.dropna(subset=['Player Salary'], inplace=True)
 
 # Pull Projection
 marcel = pd.read_csv('data/marcel/MarcelResultTotal.csv')
