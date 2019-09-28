@@ -1,4 +1,8 @@
-# Master.py
+# Master PNation File
+
+# last Update : 9.27.19
+
+
 
 import GooglePull
 
@@ -6,9 +10,9 @@ from FileManagementTeams import combine_Teams_to_Roster, Rosters_To_Team_Files, 
 
 import GooglePush
 
-from Rankings import PointCycle, points
+from Rankings import PointCycle, points, marcelCalculations
 
-from DraftCalculatorUpdate import draft_prep
+from DraftCalculator import draft_prep
 
 
 

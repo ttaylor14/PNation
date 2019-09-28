@@ -1,6 +1,6 @@
 # Projected Rankings System
 
-# last Update : 9.2.19
+# last Update : 9.27.19
 
 
 
