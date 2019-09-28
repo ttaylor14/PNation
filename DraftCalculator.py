@@ -126,8 +126,8 @@ def team_settings(id):
 
     avail_faab = team_info.loc[id, 'faab']
     tempdf = rosters.loc[rosters['team_id'] == id]
-    # print(avail_faab)
-    # print(tempdf)
+    print(avail_faab)
+    print(tempdf)
 
 # test function
 # team_settings(5)
@@ -180,30 +180,28 @@ def Faab_Reduction(id):
 
     i = 0
 
-    while avail_faab > 0:                                              # If you have faab
-        while tempdf['salary'].sum() > len(tempdf.index):              # if the sum of all salaries is greater than the number of players (all $1)
+    while avail_faab > 0:
+                                          # If you have faab
+        while tempdf['salary'].sum() < len(tempdf.index):              # if the sum of all salaries is greater than the number of players (all $1)
 
-            while int(tempdf.salary.iloc[[i]]) == 1:                   # when a salary = 1 skip
-                i = i + 1
-                if i >= (len(tempdf.index)):                           # when we reach the last entry
-                    i = 0
-                break
+            while int(tempdf.salary.iloc[[i]]) >= 0:
+                if int(tempdf.salary.iloc[[i]]) == 1:                   # when a salary = 1 skip
+                    i = i + 1
+                    if i >= (len(tempdf.index)):                           # when we reach the last entry
+                        i = 0
+                    break
 
-            while int(tempdf.salary.iloc[[i]]) > 1:
-                if avail_faab > 0:
-                    avail_faab = avail_faab - 1                       # reduce faab
-                    new_sal = int(tempdf.salary.iloc[[i]]) - 1        # reduce salary of dataframe
-                    tempdf.salary.iloc[[i]] = new_sal                 # apply new Salary to temp datafram
-
-                    i = i + 1                                         # next entry
-                    if i >= (len(tempdf.index)):                      # when we reach the last entry
-                        i = 0                                         # reset to 0
-                    # print("Available faab: " + str(avail_faab))              # Print Available Faab
-                    # print(tempdf)                                   # Prints Temp Dataframe
-                break
-
-            else:
-                break
+                if int(tempdf.salary.iloc[[i]]) > 1:
+                    if avail_faab > 0:
+                        avail_faab = avail_faab - 1                       # reduce faab
+                        new_sal = int(tempdf.salary.iloc[[i]]) - 1        # reduce salary of dataframe
+                        tempdf.salary.iloc[[i]] = new_sal                 # apply new Salary to temp datafram
+                        #tempdf.iloc[tempdf.iloc[i], "salay"] = int(tempdf.salary.iloc[[i]]) - 1
+                        i = i + 1                                         # next entry
+                        print("my faab" + str(avail_faab))              # Print Available Faab
+                        print(tempdf)                                   # Prints Temp Dataframe
+                        if i >= (len(tempdf.index)):                      # when we reach the last entry
+                            i = 0 # reset to 0
 
         else:
             print("Salaries are all $1")
@@ -215,7 +213,6 @@ def Faab_Reduction(id):
         print("Out of FAAb")
         print("Team ID: " + str(id))
         print(tempdf)
-
 
 
 # test function
@@ -410,10 +407,6 @@ def draft_prep():
 # the following function will complete all draft prep work
 # this will be irreversible and must be take with extreme caution.
 
-# draft_prep()
+draft_prep()
 
 
-
-team_settings(3)
-
-Faab_Reduction(3)
