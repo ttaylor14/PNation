@@ -1,1 +1,15 @@
-team_id,team_name,acronym,faab,owner,email1,Deadline Dodgers,DDMO,154,Stephen Mothes,2,Pittsburg War Dogs,PWD,257,Alan Perkins,alanbperkins@gmail.com3,Coconut Institiution,CI,117,Michael Dion,mchdlion@gmail.com4,Owl or Nothin',DION,238,Cassidi Dion,cassididion@gmail.com5,Nashville Eagles,TAYL,205,Todd Taylor,mrtsart@gmail.com6,Team Dale,DALE,175,Vern Dale,7,I Play First Base,IPFB,186,Barrett Watson,8,There'sNoCrying in Baseball,TURN,314,Jordan Truner,9,Leonard Nimoy's Angry Kitties,LNAK,160,Tim Calvert,10,Team Wicks 2,KYLE,261,Kyle Wicks,11,50 shades of Trea,KG,136,Ken Goessl,12,NOmar Losing,METH,50,Josh Metheny,13,Yu all going down,VANZ,149,Brett Vanzant,14,Size 9 Crown,WICK,291,Ryan Wicks,
+team_id,team_name,acronym,faab,owner,email,rank
+1,Deadline Dodgers,DDMO,154,Stephen Mothes,,
+2,Pittsburg War Dogs,PWD,257,Alan Perkins,alanbperkins@gmail.com,
+3,Coconut Institiution,CI,117,Michael Dion,mchdlion@gmail.com,
+4,Owl or Nothin',DION,238,Cassidi Dion,cassididion@gmail.com,
+5,Nashville Eagles,TAYL,205,Todd Taylor,mrtsart@gmail.com,
+6,Team Dale,DALE,175,Vern Dale,,
+7,I Play First Base,IPFB,186,Barrett Watson,,
+8,There'sNoCrying in Baseball,TURN,314,Jordan Truner,,
+9,Leonard Nimoy's Angry Kitties,LNAK,160,Tim Calvert,,
+10,Team Wicks 2,KYLE,261,Kyle Wicks,,
+11,50 shades of Trea,KG,136,Ken Goessl,,
+12,NOmar Losing,METH,50,Josh Metheny,,
+13,Yu all going down,VANZ,149,Brett Vanzant,,
+14,Size 9 Crown,WICK,291,Ryan Wicks,,

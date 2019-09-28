@@ -776,7 +776,7 @@ def PointCycle():
 
 
 # Run Marcel Projections
-#marcelCalculations()
+# marcelCalculations()
 
 # Run Point Cycle
-PointCycle()
+# PointCycle()

@@ -1,19 +1,13 @@
-# Googlesheet File management
+# GooglePull.py
 
 # last Update : 9.27.19
 
-# See: http://www.indjango.com/access-google-sheets-in-python-using-gspread/
 
 # Goal is to pull google sheet information and place them in the appropriate csv file.
-# Later a sperate file will be created to run this process backwards to replace the relevent information back onto the excell sheet1)
 
-
-### To DO
-# Pull this data and place in csv files?
-# create a loop that will repeat the team1 code with all teams
-# create second file that replaces values backwards from csv file (test after hard copy made)
-
-
+## To DO
+# Verify that Master CSV is updated from Google Sheet
+### Add Team_id col to Rosters
 
 import gspread
 import pandas as pd
@@ -21,6 +15,7 @@ import pandas as pd
 from oauth2client.service_account import ServiceAccountCredentials
 import pprint
 
+#Google API Credentials
 scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 creds = ServiceAccountCredentials.from_json_keyfile_name('pnation-6409ef8b6f8a.json', scope)
 client = gspread.authorize(creds)
@@ -42,6 +37,8 @@ TeamPositions = pd.DataFrame(TeamPositions)
 
 # print(TeamPositions)
 
+TeamMaster = pd.read_csv('data/team_info.csv')
+# print(TeamMaster)
 
 # Loop through each Team Sheet to pull data
 for teamNumber in TeamPositions['TeamNumber']:
@@ -68,6 +65,10 @@ for teamNumber in TeamPositions['TeamNumber']:
     teamEmail = masterInfo.acell(Email).value
     teamRank = masterInfo.acell(Rank).value
 
+    #Find Team ID
+    TeamID = TeamPositions.index[TeamPositions['TeamNumber'] == teamNumber].values.astype(int)[0] + 1
+    # print(TeamID)
+
     # Finds Team Tab
     teampage = sheet.worksheet(teamName)
 
@@ -83,6 +84,9 @@ for teamNumber in TeamPositions['TeamNumber']:
     Team['Player'] = Team['Player'].str.split('\n').str[0]
     Team['Player Salary'] = Team['Player Salary'].str.split('$').str[1]
 
+    # Add team_id to roster csv
+    Team.insert(0, 'team_id', TeamID)
+
     # print(Team.head())
 
     # Save DF as file for each team
@@ -90,31 +94,20 @@ for teamNumber in TeamPositions['TeamNumber']:
     Team.to_csv(filename, sep=',', index=False, encoding='utf-8')
 
     # Open Team_Info Doc to store FAAB
-    TeamMaster = pd.read_csv('data/team_info.csv')
-    print(TeamMaster)
-
-    #Find Team ID
-    TeamID = TeamPositions.index[TeamPositions['TeamNumber'] == teamNumber].values.astype(int)[0] + 1
-    # print(TeamID)
 
     # Find Team row that matched TeamID
     MastIDX = TeamMaster[TeamMaster['team_id'] == TeamID].index
-    print(MastIDX)
 
     # Update Team Info from Master File
-    TeamMaster['team_name'].at[MastIDX] = teamName
-    TeamMaster['team_acronym'].at[MastIDX] = teamAcronym
-    TeamMaster['faab'].at[MastIDX] = teamFaab
-    TeamMaster['owner'].at[MastIDX] = teamOwner
-    TeamMaster['email'].at[MastIDX] = teamEmail
-    TeamMaster['rank'].at[MastIDX] = teamRank
+    TeamMaster.at['team_name', MastIDX] = teamName
+    TeamMaster.at['acronym', MastIDX] = teamAcronym
+    TeamMaster.at['faab', MastIDX] = teamFaab
+    TeamMaster.at['owner', MastIDX] = teamOwner
+    TeamMaster.at['email', MastIDX] = teamEmail
+    TeamMaster.at['rank', MastIDX] = teamRank
 
-
-    print(TeamMaster)
-
-
-    # Send DF Back to CSV
-    #TeamMaster.to_csv('data/team_info.csv', sep=',', index=False, encoding='utf-8')
+# Send DF Back to CSV
+TeamMaster.to_csv('data/Teams/team_info.csv', sep=',', index=False, encoding='utf-8')
 
 
 print('Success')
