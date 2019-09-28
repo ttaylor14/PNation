@@ -1,6 +1,11 @@
 # Draft Calculator File
 
-# last Update : 8.27.19
+# last Update : 9.27.19
+
+#### To Do:
+# update info to match FullRoster.csv label changes
+# add section on removing players not kept or rows with no names listed
+# ensure faab works properly
 
 import pandas as pd
 
