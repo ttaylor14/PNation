@@ -99,14 +99,19 @@ for teamNumber in TeamPositions['TeamNumber']:
     MastIDX = TeamMaster[TeamMaster['team_id'] == TeamID].index
 
     # Update Team Info from Master File
-    TeamMaster.at['team_name', MastIDX] = teamName
-    TeamMaster.at['acronym', MastIDX] = teamAcronym
-    TeamMaster.at['faab', MastIDX] = teamFaab
-    TeamMaster.at['owner', MastIDX] = teamOwner
-    TeamMaster.at['email', MastIDX] = teamEmail
-    TeamMaster.at['rank', MastIDX] = teamRank
+    TeamMaster['team_name'].at[MastIDX] = teamName
+    TeamMaster['acronym'].at[MastIDX] = teamAcronym
+    TeamMaster['faab'].at[MastIDX] = teamFaab
+    TeamMaster['owner'].at[MastIDX] = teamOwner
+    TeamMaster['email'].at[MastIDX] = teamEmail
+    TeamMaster['rank'].at[MastIDX] = teamRank
 
 # Send DF Back to CSV
+
+# Removes $ from faab
+TeamMaster['faab'] = TeamMaster['faab'].str.split('$').str[1]
+
+# Saves File
 TeamMaster.to_csv('data/Teams/team_info.csv', sep=',', index=False, encoding='utf-8')
 
 
