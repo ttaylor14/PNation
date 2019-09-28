@@ -1,29 +1,29 @@
-team_id,Trade Block,Positions,Player,Player Salary,Keeping
-8,x,1B,Carlos Santana ,12,X
-8,,2B,Jeff McNeil,1,X
-8,x,3B,David Flecher,1,X
-8,,SS,Xander Bogaerts,6,X
-8,x,OF,Ender Inciarte,1,X
-8,,OF,Eddie Rosario,1,X
-8,,OF,Whit Merrifield,1,X
-8,,UTIL,Austin Meadows,1,X
-8,x,SP,Sixto Sanchez,6,X
-8,,SP,Tyler Glasnow,1,X
-8,,SP,Matthew Boyd,1,X
-8,,SP,Robbie Ray,7,X
-8,,SP,,,
-8,x,RP,Kirby Yates,1,X
-8,,RP,Felipe Vazquez,1,X
-8,,BE,Victor Robles,6,X
-8,,BE,Shane Bieber,1,X
-8,,BE,Nick Senzel,6,x
-8,,BE,Lourdes Gurriel Jr.,1,X
-8,,BE,Kyle Hendricks,3,X
-8,x,BE,Matt Manning,1,X
-8,x,BE,Zac Gallen,1,X
-8,,BE,,,
-8,x,BE,Mitch Keller,6,X
-8,,BE,Mike Soroka,10,X
-8,,,,,X
-8,,DL,,,X
-8,,DL,,,X
+team_id,Trade Block,Positions,Player,Player Salary,Keeping,lahmanID,retroID,bbrefID
+8,x,1B,Carlos Santana ,12.0,X,,,
+8,,2B,Jeff McNeil,1.0,X,,,
+8,x,3B,David Flecher,1.0,X,,,
+8,,SS,Xander Bogaerts,6.0,X,,,
+8,x,OF,Ender Inciarte,1.0,X,,,
+8,,OF,Eddie Rosario,1.0,X,,,
+8,,OF,Whit Merrifield,1.0,X,,,
+8,,UTIL,Austin Meadows,1.0,X,,,
+8,x,SP,Sixto Sanchez,6.0,X,,,
+8,,SP,Tyler Glasnow,1.0,X,,,
+8,,SP,Matthew Boyd,1.0,X,,,
+8,,SP,Robbie Ray,7.0,X,,,
+8,,SP,,,,,,
+8,x,RP,Kirby Yates,1.0,X,,,
+8,,RP,Felipe Vazquez,1.0,X,,,
+8,,BE,Victor Robles,6.0,X,,,
+8,,BE,Shane Bieber,1.0,X,,,
+8,,BE,Nick Senzel,6.0,x,,,
+8,,BE,Lourdes Gurriel Jr.,1.0,X,,,
+8,,BE,Kyle Hendricks,3.0,X,,,
+8,x,BE,Matt Manning,1.0,X,,,
+8,x,BE,Zac Gallen,1.0,X,,,
+8,,BE,,,,,,
+8,x,BE,Mitch Keller,6.0,X,,,
+8,,BE,Mike Soroka,10.0,X,,,
+8,,,,,X,,,
+8,,DL,,,X,,,
+8,,DL,,,X,,,

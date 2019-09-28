@@ -201,7 +201,7 @@ def Roster_lahman_tag():
 # combine_Teams_to_Roster()
 
 # Push roster.csv rosters to individual files
-# Rosters_To_Team_Files()
+Rosters_To_Team_Files()
 
 
 

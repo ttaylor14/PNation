@@ -1,29 +1,29 @@
-team_id,Trade Block,Positions,Player,Player Salary,Keeping
-11,,1B,Pete Alonso,6,X
-11,,2B,Lourdes Gurriel jr,1,X
-11,,3B,,,
-11,,SS,Trea Turner,10,X
-11,,OF,Marcel Ozuna ,6,X
-11,,OF,Victor Robles ,6,X
-11,X,OF,Tommy Pham,14,
-11,X,UTIL,Khris Davis,10,X
-11,,SP,Yu Darvish,10,X
-11,,SP,Luke Weaver,1,X
-11,,SP,James Paxton,9,X
-11,,SP,Jack Flaherty ,6,X
-11,,SP,Michael Kopech ,1,X
-11,,RP,Dakota Hudson ,1,X
-11,,RP,Nick Pivetta ,6,X
-11,,BE,Michael Chavis,1,X
-11,,BE,Marco Gonzalez,1,
-11,,BE,Fransisco Mejia ,6,X
-11,,BE,Luis Garcia ,1,X
-11,,BE,Brent Honeywell,6,X
-11,X,BE,Domingo Santana,3,X
-11,,BE,Danny Santana ,1,X
-11,,BE,Griffin Canning ,1,X
-11,,BE,Triston McKenzie,6,X
-11,,BE,Patrick Corbin ,6,X
-11,,BE,,,
-11,,DL,,,
-11,,DL,,,
+team_id,Trade Block,Positions,Player,Player Salary,Keeping,lahmanID,retroID,bbrefID
+11,,1B,Pete Alonso,6.0,X,,,
+11,,2B,Lourdes Gurriel jr,1.0,X,,,
+11,,3B,,,,,,
+11,,SS,Trea Turner,10.0,X,,,
+11,,OF,Marcel Ozuna ,6.0,X,,,
+11,,OF,Victor Robles ,6.0,X,,,
+11,X,OF,Tommy Pham,14.0,,,,
+11,X,UTIL,Khris Davis,10.0,X,,,
+11,,SP,Yu Darvish,10.0,X,,,
+11,,SP,Luke Weaver,1.0,X,,,
+11,,SP,James Paxton,9.0,X,,,
+11,,SP,Jack Flaherty ,6.0,X,,,
+11,,SP,Michael Kopech ,1.0,X,,,
+11,,RP,Dakota Hudson ,1.0,X,,,
+11,,RP,Nick Pivetta ,6.0,X,,,
+11,,BE,Michael Chavis,1.0,X,,,
+11,,BE,Marco Gonzalez,1.0,,,,
+11,,BE,Fransisco Mejia ,6.0,X,,,
+11,,BE,Luis Garcia ,1.0,X,,,
+11,,BE,Brent Honeywell,6.0,X,,,
+11,X,BE,Domingo Santana,3.0,X,,,
+11,,BE,Danny Santana ,1.0,X,,,
+11,,BE,Griffin Canning ,1.0,X,,,
+11,,BE,Triston McKenzie,6.0,X,,,
+11,,BE,Patrick Corbin ,6.0,X,,,
+11,,BE,,,,,,
+11,,DL,,,,,,
+11,,DL,,,,,,

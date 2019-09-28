@@ -1,29 +1,29 @@
-team_id,Trade Block,Positions,Player,Player Salary,Keeping
-1,,1B,Luke Voit,6,X
-1,,2B,DJ LeMahieu,10,X
-1,,3B,Matt Chapman,7,X
-1,,SS,Jean Segura,7,X
-1,,OF,Mookie Betts,45,X
-1,,OF,Christian Yelich,11,X
-1,,OF,Austin Hays,6,X
-1,,UTIL,David Peralta,6,X
-1,,SP,Frankie Montas,1,X
-1,,SP,J.A. Happ,9,X
-1,,SP,Rick Porcello,7,X
-1,,SP,Sean Newcomb,8,X
-1,,SP,Zach Eflin,6,X
-1,,RP,Cody Allen,2,X
-1,,RP,Kenley Jansen,7,X
-1,,BE,Asdrubal Cabrera,6,X
-1,,BE,Scott Kingery,6,X
-1,,BE,Trey Mancini,1,X
-1,,BE,Marcus Stroman,7,X
-1,,BE,Isiah Kiner- Falefa,9,X
-1,,BE,Dane Dunning,1,X
-1,,BE,Andrew Miller,7,X
-1,,BE,Marcus Walden,1,X
-1,,BE,Spencer Turnbull,1,X
-1,,BE,,,X
-1,,,,,X
-1,,DL,Dellin Betances,6,X
-1,,DL,Luis Severino,7,X
+team_id,Trade Block,Positions,Player,Player Salary,Keeping,lahmanID,retroID,bbrefID
+1,,1B,Luke Voit,6.0,X,,,
+1,,2B,DJ LeMahieu,10.0,X,,,
+1,,3B,Matt Chapman,7.0,X,,,
+1,,SS,Jean Segura,7.0,X,,,
+1,,OF,Mookie Betts,45.0,X,,,
+1,,OF,Christian Yelich,11.0,X,,,
+1,,OF,Austin Hays,6.0,X,,,
+1,,UTIL,David Peralta,6.0,X,,,
+1,,SP,Frankie Montas,1.0,X,,,
+1,,SP,J.A. Happ,9.0,X,,,
+1,,SP,Rick Porcello,7.0,X,,,
+1,,SP,Sean Newcomb,8.0,X,,,
+1,,SP,Zach Eflin,6.0,X,,,
+1,,RP,Cody Allen,2.0,X,,,
+1,,RP,Kenley Jansen,7.0,X,,,
+1,,BE,Asdrubal Cabrera,6.0,X,,,
+1,,BE,Scott Kingery,6.0,X,,,
+1,,BE,Trey Mancini,1.0,X,,,
+1,,BE,Marcus Stroman,7.0,X,,,
+1,,BE,Isiah Kiner- Falefa,9.0,X,,,
+1,,BE,Dane Dunning,1.0,X,,,
+1,,BE,Andrew Miller,7.0,X,,,
+1,,BE,Marcus Walden,1.0,X,,,
+1,,BE,Spencer Turnbull,1.0,X,,,
+1,,BE,,,X,,,
+1,,,,,X,,,
+1,,DL,Dellin Betances,6.0,X,,,
+1,,DL,Luis Severino,7.0,X,,,

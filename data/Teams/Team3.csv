@@ -1,29 +1,29 @@
-team_id,Trade Block,Positions,Player,Player Salary,Keeping
-3,X,1B,Rhys Hoskins,6,X
-3,X,2B,Eric Sogard,1,X
-3,X,3B,Manny Machado,25,X
-3,,SS,Trevor Story,6,X
-3,,OF,Nicholas Castellanos,6,X
-3,X,OF,Jesse Winker,11,x
-3,,OF,Aaron Judge,6,X
-3,,UTIL,Yordan Alvarez,1,X
-3,X,SP,Julio Urias,6,X
-3,,SP,Trevor Bauer,6,X
-3,,SP,Jose Berrios,6,X
-3,,SP,Lucas Giolito,1,X
-3,X,SP,Justin Verlander,6,X
-3,X,RP,Brandon Workman,1,x
-3,X,RP,Alex Colome,1,x
-3,X,BE,Mike Foltynewicz,6,X
-3,,BE,Alex Verdugo,6,X
-3,,BE,Carter Kieboom,1,X
-3,,BE,Gavin Lux,1,X
-3,X,BE,Charlie Blackmon,25,x
-3,,BE,,,
-3,X,BE,Christian Vazquez,1,x
-3,,BE,Nate Lowe,1,X
-3,,BE,Brad Peacock,5,X
-3,,BE,,,
-3,X,DL,Chris Sale,1,X
-3,,DL,Jameson Taillon,1,X
-3,,DL,Carlos Carrasco,6,X
+team_id,Trade Block,Positions,Player,Player Salary,Keeping,lahmanID,retroID,bbrefID
+3,X,1B,Rhys Hoskins,6.0,X,,,
+3,X,2B,Eric Sogard,1.0,X,,,
+3,X,3B,Manny Machado,25.0,X,,,
+3,,SS,Trevor Story,6.0,X,,,
+3,,OF,Nicholas Castellanos,6.0,X,,,
+3,X,OF,Jesse Winker,11.0,x,,,
+3,,OF,Aaron Judge,6.0,X,,,
+3,,UTIL,Yordan Alvarez,1.0,X,,,
+3,X,SP,Julio Urias,6.0,X,,,
+3,,SP,Trevor Bauer,6.0,X,,,
+3,,SP,Jose Berrios,6.0,X,,,
+3,,SP,Lucas Giolito,1.0,X,,,
+3,X,SP,Justin Verlander,6.0,X,,,
+3,X,RP,Brandon Workman,1.0,x,,,
+3,X,RP,Alex Colome,1.0,x,,,
+3,X,BE,Mike Foltynewicz,6.0,X,,,
+3,,BE,Alex Verdugo,6.0,X,,,
+3,,BE,Carter Kieboom,1.0,X,,,
+3,,BE,Gavin Lux,1.0,X,,,
+3,X,BE,Charlie Blackmon,25.0,x,,,
+3,,BE,,,,,,
+3,X,BE,Christian Vazquez,1.0,x,,,
+3,,BE,Nate Lowe,1.0,X,,,
+3,,BE,Brad Peacock,5.0,X,,,
+3,,BE,,,,,,
+3,X,DL,Chris Sale,1.0,X,,,
+3,,DL,Jameson Taillon,1.0,X,,,
+3,,DL,Carlos Carrasco,6.0,X,,,

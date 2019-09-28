@@ -5,6 +5,7 @@
 #### To Do:
 # update info to match FullRoster.csv label changes
 # ensure faab works properly
+# Ensure program would work with decimals...
 
 import pandas as pd
 import numpy as np
@@ -34,6 +35,9 @@ keeper_cost_reduction = 'on'
 # Temporary Team Place Holder
 tempdf = []
 avail_faab = 0
+full_roster = pd.read_csv('data/FullRoster.csv')
+full_roster = full_roster.iloc[0:0]
+print(full_roster)
 
 
 
@@ -43,8 +47,6 @@ avail_faab = 0
 
 ####################
 
-# To create a temp file... maybe duplicate the rosters object or duplicate the rosters.csv file?
-# then all changes are done to the duplicate before everything is confirmed!
 
 # import files
 rosters = pd.read_csv('data/FullRoster.csv')
@@ -65,6 +67,9 @@ rosters['Keeping'].replace('', np.nan, inplace=True)
 rosters.dropna(subset=['Player'], inplace=True)
 rosters.dropna(subset=['salary'], inplace=True)
 rosters.dropna(subset=['Keeping'], inplace=True)
+
+# Removes all Player Salaries less than 1
+rosters = rosters[rosters['salary'] > 1]
 
 team_info = team_info.set_index("team_id", drop=False)
 
@@ -112,7 +117,7 @@ def settings_confirm():
 ######################################
 
 # This function will be used to confirm Team Settings
-# THis will include lineup sizes, faab balances, etc...
+# This will include lineup sizes, faab balances, etc...
 
 
 def team_settings(id):
@@ -121,11 +126,11 @@ def team_settings(id):
 
     avail_faab = team_info.loc[id, 'faab']
     tempdf = rosters.loc[rosters['team_id'] == id]
-    print(tempdf)
-
+    # print(avail_faab)
+    # print(tempdf)
 
 # test function
-# team_settings()
+# team_settings(5)
 
 
 #################################
@@ -182,19 +187,22 @@ def Faab_Reduction(id):
                 i = i + 1
                 if i >= (len(tempdf.index)):                           # when we reach the last entry
                     i = 0
-                continue
+                break
 
             while int(tempdf.salary.iloc[[i]]) > 1:
                 if avail_faab > 0:
                     avail_faab = avail_faab - 1                       # reduce faab
                     new_sal = int(tempdf.salary.iloc[[i]]) - 1        # reduce salary of dataframe
                     tempdf.salary.iloc[[i]] = new_sal                 # apply new Salary to temp datafram
-                    #tempdf.iloc[tempdf.iloc[i], "salay"] = int(tempdf.salary.iloc[[i]]) - 1
+
                     i = i + 1                                         # next entry
-                    # print("my faab" + str(avail_faab))              # Print Available Faab
-                    # print(tempdf)                                   # Prints Temp Dataframe
                     if i >= (len(tempdf.index)):                      # when we reach the last entry
                         i = 0                                         # reset to 0
+                    # print("Available faab: " + str(avail_faab))              # Print Available Faab
+                    # print(tempdf)                                   # Prints Temp Dataframe
+                break
+
+            else:
                 break
 
         else:
@@ -207,6 +215,7 @@ def Faab_Reduction(id):
         print("Out of FAAb")
         print("Team ID: " + str(id))
         print(tempdf)
+
 
 
 # test function
@@ -308,19 +317,19 @@ def update_rosters():
 
 # at the end export each team to own file in teams Folder
     team_1.to_csv('data/Teams/Team1.csv', encoding='utf-8', index=False)
-    team_2.to_csv('data/Teams/Team2_Draft.csv', encoding='utf-8', index=False)
-    team_3.to_csv('data/Teams/Team3_Draft.csv', encoding='utf-8', index=False)
-    team_4.to_csv('data/Teams/Team4_Draft.csv', encoding='utf-8', index=False)
-    team_5.to_csv('data/Teams/Team5_Draft.csv', encoding='utf-8', index=False)
-    team_6.to_csv('data/Teams/Team6_Draft.csv', encoding='utf-8', index=False)
-    team_7.to_csv('data/Teams/Team7_Draft.csv', encoding='utf-8', index=False)
-    team_8.to_csv('data/Teams/Team8_Draft.csv', encoding='utf-8', index=False)
-    team_9.to_csv('data/Teams/Team9_Draft.csv', encoding='utf-8', index=False)
-    team_10.to_csv('data/Teams/Team10_Draft.csv', encoding='utf-8', index=False)
-    team_11.to_csv('data/Teams/Team11_Draft.csv', encoding='utf-8', index=False)
-    team_12.to_csv('data/Teams/Team12_Draft.csv', encoding='utf-8', index=False)
-    team_13.to_csv('data/Teams/Team13_Draft.csv', encoding='utf-8', index=False)
-    team_14.to_csv('data/Teams/Team14_Draft.csv', encoding='utf-8', index=False)
+    team_2.to_csv('data/Teams/Team2.csv', encoding='utf-8', index=False)
+    team_3.to_csv('data/Teams/Team3.csv', encoding='utf-8', index=False)
+    team_4.to_csv('data/Teams/Team4.csv', encoding='utf-8', index=False)
+    team_5.to_csv('data/Teams/Team5.csv', encoding='utf-8', index=False)
+    team_6.to_csv('data/Teams/Team6.csv', encoding='utf-8', index=False)
+    team_7.to_csv('data/Teams/Team7.csv', encoding='utf-8', index=False)
+    team_8.to_csv('data/Teams/Team8.csv', encoding='utf-8', index=False)
+    team_9.to_csv('data/Teams/Team9.csv', encoding='utf-8', index=False)
+    team_10.to_csv('data/Teams/Team10.csv', encoding='utf-8', index=False)
+    team_11.to_csv('data/Teams/Team11.csv', encoding='utf-8', index=False)
+    team_12.to_csv('data/Teams/Team12.csv', encoding='utf-8', index=False)
+    team_13.to_csv('data/Teams/Team13.csv', encoding='utf-8', index=False)
+    team_14.to_csv('data/Teams/Team14.csv', encoding='utf-8', index=False)
 
 
 # create roster file by combining all team files
@@ -401,4 +410,10 @@ def draft_prep():
 # the following function will complete all draft prep work
 # this will be irreversible and must be take with extreme caution.
 
-draft_prep()
+# draft_prep()
+
+
+
+team_settings(3)
+
+Faab_Reduction(3)
