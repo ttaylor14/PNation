@@ -29,7 +29,10 @@ def Draft():
     # Step 3: Run Draft Calculator to process Draft Calculations
     draft_prep()
 
-    # Step 4: Update Google Sheet with Updated
+    # Step 4: Send FullRoster Draft results to individual team files
+    Rosters_To_Team_Files()
+
+    # Step 5: Update Google Sheet with Updated
     GooglePush()
 
 

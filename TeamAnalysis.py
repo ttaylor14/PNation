@@ -22,6 +22,9 @@ TeamStats.drop(labels=['Trade Block'], axis=1,inplace = True)
 TeamStats = TeamStats[['team_id', 'Player', 'Player Salary', 'Age', 'Team', 'Positions', 'Total_Points']]
 # print(TeamStats.head())
 
+TeamStats.to_csv('data/TeamAnalysis/TeamPoints.csv', sep=',', index=False, encoding='utf-8')
+
+
 AllTeams = list(range(1,  15) )
 projection = []
 
@@ -48,6 +51,9 @@ team_info = team_info[['team_id', 'team_name']]
 #merge csv together
 projection = pd.merge(team_info, projection, left_on=['team_id'], right_on=['team_id'], how='inner')
 # print(TeamStats.head())
+
+
+
 
 projection = projection.sort_values('Total_Points', ascending=False)
 projection = projection.reset_index(drop=True)
