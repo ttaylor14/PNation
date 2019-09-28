@@ -43,6 +43,7 @@ team_id,Player,Player Salary,Age,Team,Positions,Total_Points
 2,Jake Odorizzi,1.0,29.0,Twins,BE,353
 2,Chris Bassitt,1.0,30.0,Athletics,BE,307
 2,Buster Posey,14.0,32.0,Giants,BE,212
+2,Aledmys Diaz,1.0,28.0,Astros,DL,221
 2,Dwight Smith Jr.,1.0,26.0,Orioles,DL,247
 2,Scooter Gennett,2.0,29.0,- - -,DL,368
 3,Rhys Hoskins,6.0,26.0,Phillies,1B,472
@@ -230,6 +231,7 @@ team_id,Player,Player Salary,Age,Team,Positions,Total_Points
 10,Josh Bell,3.0,26.0,Pirates,BE,456
 10,Michael Wacha,1.0,27.0,Cardinals,BE,285
 11,Trea Turner,10.0,26.0,Nationals,SS,388
+11,Tommy Pham,14.0,31.0,Rays,OF,332
 11,Khris Davis,10.0,31.0,Athletics,UTIL,298
 11,Yu Darvish,10.0,32.0,Cubs,SP,284
 11,Luke Weaver,1.0,25.0,Diamondbacks,SP,286
