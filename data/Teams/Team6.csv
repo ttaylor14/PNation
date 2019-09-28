@@ -1,29 +1,29 @@
-team_id,Trade Block,Positions,Player,Player Salary,Keeping,lahmanID,retroID,bbrefID
-6,,1B,Justin Smoak,6.0,X,,,
-6,,2B,Dee Gordon,6.0,X,,,
-6,,3B,Evan Longoria,1.0,X,,,
-6,,SS,Chris Taylor,3.0,X,,,
-6,,OF,Ryan Braun,6.0,X,,,
-6,,OF,Yasiel Puig,7.0,X,,,
-6,,OF,Mitch Haniger,6.0,X,,,
-6,,UTIL,Nelson Cruz,6.0,X,,,
-6,,SP,Zack Greinke,28.0,X,,,
-6,,SP,David Price,26.0,X,,,
-6,,SP,Jose Quintana,6.0,X,,,
-6,,SP,Cole Hamels,6.0,X,,,
-6,,SP,Aaron Sanchez,1.0,X,,,
-6,,RP,Mychal Givens,1.0,X,,,
-6,,RP,Will Smith,14.0,X,,,
-6,,BE,Joey Wendle,1.0,X,,,
-6,,BE,Randal Grichuk,1.0,X,,,
-6,,BE,C.J. Cron,1.0,X,,,
-6,,BE,Shin-Soo Choo,2.0,X,,,
-6,,BE,Yuli Gurriel,7.0,X,,,
-6,,BE,Marcus Semien,9.0,X,,,
-6,,BE,Matt Strahm,11.0,X,,,
-6,,BE,Josh James,12.0,X,,,
-6,,BE,Ian Desmond,3.0,X,,,
-6,,BE,,,X,,,
-6,,,,,X,,,
-6,,,,,X,,,
-6,,,,,X,,,
+team_id,Trade Block,Positions,Player,Player Salary,Keeping
+6,,1B,Justin Smoak,6,X
+6,,2B,Dee Gordon,6,X
+6,,3B,,,X
+6,,SS,,,X
+6,,OF,Ryan Braun,6,X
+6,,OF,Yasiel Puig,7,X
+6,,OF,Mitch Haniger,6,X
+6,,UTIL,Nelson Cruz,6,X
+6,,SP,Zack Greinke,28,X
+6,,SP,David Price,26,X
+6,,SP,Jose Quintana,6,X
+6,,SP,Cole Hamels,6,X
+6,,SP,Logan Webb,2,X
+6,,RP,Marco Gonzalez,1,X
+6,,RP,Will Smith,14,X
+6,,BE,Jeff Samardzija,1,X
+6,,BE,Randal Grichuk,1,X
+6,,BE,C.J. Cron,1,X
+6,,BE,Shin-Soo Choo,2,X
+6,,BE,Yuli Gurriel,7,X
+6,,BE,Marcus Semien,9,X
+6,,BE,Raisel Iglesias,2,X
+6,,BE,Jose Leclerc,1,X
+6,,BE,Ian Desmond,3,X
+6,,BE,Mitch Garver,1,X
+6,,,David Fletcher,2,X
+6,,,Mike Minor,3,X
+6,,,,,X

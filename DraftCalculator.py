@@ -215,6 +215,9 @@ def Faab_Reduction(id):
         print(tempdf)
 
 
+
+
+
 # test function
 # Faab_Reduction(5)
 
@@ -239,6 +242,7 @@ def Add_Keeper_Salaries(id):
     tempdf['salary'] = (tempdf['salary'] + keeper_cost)       # Keeper Cost is applied to salaries
     print("Team ID: " + str(id))
     print(tempdf)
+
 
 
 #################################
@@ -268,7 +272,7 @@ def tempdf_rosters():
     # Build full Roster Page
 
     # merge dataframes
-    # full_roster = full_roster.append(tempdf, ignore_index=True, sort=False)
+    #full_roster = full_roster.append(tempdf, ignore_index=True, sort=False)
     full_roster = pd.concat([full_roster, tempdf])
     print("Final Team Rosters for the Draft:")
     print(full_roster)
@@ -382,17 +386,20 @@ def draft_prep():
         else:
             pass
 
-        # Step 5: Draft Budgets
-        # draft_budget()
-
-        # Step 6: Add new df to full_roster
+        # Step 5: Add new df to full_roster
         tempdf_rosters()
 
-        # Step 7: Update Team Files with Accurate Information
-        update_rosters()
+        # Step 6: Update new Faab amount
+        # tempdf_faab()
 
-        # Step 8: Clean Global Variables for next team
-        # clean_df()
+        # Step 7: Draft Budgets
+        # draft_budget()
+
+    # Step 8: Update Team CSV Files with Accurate Information
+    update_rosters()
+
+    # Step 9: Clean Global Variables for next team
+    # clean_df()
 
     # This will only update individual team files
     # Not the Roster File
@@ -407,6 +414,10 @@ def draft_prep():
 # the following function will complete all draft prep work
 # this will be irreversible and must be take with extreme caution.
 
-draft_prep()
+# draft_prep()
 
-
+team_settings(5)
+Faab_Reduction(5)
+Add_Keeper_Salaries(5)
+Faab_Reduction(5)
+tempdf_rosters()
