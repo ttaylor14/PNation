@@ -2,7 +2,11 @@
 
 #Ignore json Files
 
+Pull:
 pnation-6409ef8b6f8a.json
+
+push:
+PNation-b9bdc025c6af.json
 
 
 #API Cache Files
