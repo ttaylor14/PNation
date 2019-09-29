@@ -54,6 +54,7 @@ team_info = pd.read_csv('data/Teams/team_info.csv')
 
 # Rename col "Player Salary" to salary
 rosters.rename(columns={'Player Salary':'salary'}, inplace=True)
+team_info.rename(columns={'FAAB':'faab'}, inplace=True)
 
 
 # Pull Team Info
@@ -69,7 +70,7 @@ rosters.dropna(subset=['salary'], inplace=True)
 rosters.dropna(subset=['Keeping'], inplace=True)
 
 # Removes all Player Salaries less than 1
-rosters = rosters[rosters['salary'] > 1]
+rosters = rosters[rosters['salary'] > 0]
 
 team_info = team_info.set_index("team_id", drop=False)
 
@@ -126,8 +127,8 @@ def team_settings(id):
 
     avail_faab = team_info.loc[id, 'faab']
     tempdf = rosters.loc[rosters['team_id'] == id]
-    print(avail_faab)
-    print(tempdf)
+    # print(avail_faab)
+    # print(tempdf)
 
 # test function
 # team_settings(5)
@@ -180,39 +181,48 @@ def Faab_Reduction(id):
 
     i = 0
 
-    while avail_faab > 0:
-                                          # If you have faab
-        while tempdf['salary'].sum() < len(tempdf.index):              # if the sum of all salaries is greater than the number of players (all $1)
 
-            while int(tempdf.salary.iloc[[i]]) >= 0:
-                if int(tempdf.salary.iloc[[i]]) == 1:                   # when a salary = 1 skip
-                    i = i + 1
-                    if i >= (len(tempdf.index)):                           # when we reach the last entry
-                        i = 0
+    while avail_faab > 0:                                             # If you have faab
+
+        while tempdf['salary'].sum() > len(tempdf.index):             # if the sum of all salaries is greater than the number of players (all $1)
+
+            if int(tempdf.salary.iloc[[i]]) == 1:                     # when a salary = 1 skip
+                i = i + 1
+                if i >= (len(tempdf.index)):                          # when we reach the last entry
+                    i = 0
+
+                else:
                     break
 
-                if int(tempdf.salary.iloc[[i]]) > 1:
-                    if avail_faab > 0:
-                        avail_faab = avail_faab - 1                       # reduce faab
-                        new_sal = int(tempdf.salary.iloc[[i]]) - 1        # reduce salary of dataframe
-                        tempdf.salary.iloc[[i]] = new_sal                 # apply new Salary to temp datafram
-                        #tempdf.iloc[tempdf.iloc[i], "salay"] = int(tempdf.salary.iloc[[i]]) - 1
-                        i = i + 1                                         # next entry
-                        print("my faab" + str(avail_faab))              # Print Available Faab
-                        print(tempdf)                                   # Prints Temp Dataframe
-                        if i >= (len(tempdf.index)):                      # when we reach the last entry
-                            i = 0 # reset to 0
+
+            if int(tempdf.salary.iloc[[i]]) > 1:
+                if avail_faab > 0:
+                    avail_faab = avail_faab - 1                       # reduce faab
+                    new_sal = int(tempdf.salary.iloc[[i]]) - 1        # reduce salary of dataframe
+                    tempdf.salary.iloc[[i]] = new_sal                 # apply new Salary to temp dataframe --- fix...
+
+                    i = i + 1                                         # next entry
+                    # print("my faab" + str(avail_faab))                # Print Available Faab
+                    # print(tempdf)                                     # Prints Temp Dataframe
+                    if i >= (len(tempdf.index)):                      # when we reach the last entry
+                        i = 0                                         # reset to 0
+                else:
+                    break
+
+            else:
+                break
 
         else:
-            print("Salaries are all $1")
-            print("Team ID: " + str(id))
-            print(tempdf)
+            # print("Salaries are all $1")
+            # print("Team ID: " + str(id))
+            # print(tempdf)
             break
 
     else:
-        print("Out of FAAb")
-        print("Team ID: " + str(id))
-        print(tempdf)
+        # print("Out of FAAb")
+        # print("Team ID: " + str(id))
+        # print(tempdf)
+        pass
 
 
 
@@ -232,16 +242,14 @@ def Faab_Reduction(id):
 def Add_Keeper_Salaries(id):
 
     global keeper_cost
-    global faab_reduction
-    global keeper_cost_reduction
     global tempdf
 
-    print("You current have: $" + str(avail_faab) + " of FAAB Remaining")
-    print("Current Roster: ")
+    # print("You current have: $" + str(avail_faab) + " of FAAB Remaining")
+    # print("Current Roster: ")
 
     tempdf['salary'] = (tempdf['salary'] + keeper_cost)       # Keeper Cost is applied to salaries
-    print("Team ID: " + str(id))
-    print(tempdf)
+    # print("Team ID: " + str(id))
+    # print(tempdf)
 
 
 
@@ -274,24 +282,36 @@ def tempdf_rosters():
     # merge dataframes
     #full_roster = full_roster.append(tempdf, ignore_index=True, sort=False)
     full_roster = pd.concat([full_roster, tempdf])
-    print("Final Team Rosters for the Draft:")
-    print(full_roster)
+
+    # Print Rosters
+    # print("Final Team Rosters for the Draft:")
+    # print(full_roster)
 
 
-def tempdf_faab():
+def tempdf_faab(id):
 
-    global temp_faab
-    global tempdf
+    global avail_faab
 
-    # Build full Roster Page
+    # pint(id)
 
-    # merge dataframes
-    # full_roster = full_roster.append(tempdf, ignore_index=True, sort=False)
-    temp_faab = pd.concat([temp_faab, tempdf])
-    print("Final Team faab for the Draft:")
-    print(temp_faab)
+    index = id - 1
 
-    # replace faab...
+    # print(index)
+    # print(avail_faab)
+
+    faab = pd.read_csv('data/Teams/team_info_Draft.csv')
+
+    # Adds faab to team_info page
+
+    faab['FAAB'].at[index] = avail_faab
+
+    # prints team's faab amount
+    # print("Final Team faab for the Draft:")
+    # print(faab.iloc[index])
+
+    # Sends faab back to team_info page
+    faab.to_csv('data/Teams/team_info_Draft.csv', encoding='utf-8', index=False)
+
 
 
 def update_rosters():
@@ -390,7 +410,7 @@ def draft_prep():
         tempdf_rosters()
 
         # Step 6: Update new Faab amount
-        # tempdf_faab()
+        tempdf_faab(id)
 
         # Step 7: Draft Budgets
         # draft_budget()
@@ -414,10 +434,4 @@ def draft_prep():
 # the following function will complete all draft prep work
 # this will be irreversible and must be take with extreme caution.
 
-# draft_prep()
-
-team_settings(5)
-Faab_Reduction(5)
-Add_Keeper_Salaries(5)
-Faab_Reduction(5)
-tempdf_rosters()
+draft_prep()

@@ -1,29 +1,29 @@
-team_id,Trade Block,Positions,Player,Player Salary,Keeping
-10,,1B,Edwin Encarnacion,16,X
-10,,2B,Adam Frazier,7,X
-10,,3B,Kris Bryant,1,X
-10,,SS,Jorge Polanco,5,X
-10,,OF,Byron Buxton,3,X
-10,,OF,Mark Trumbo,1,X
-10,,OF,Max Kepler,1,X
-10,,UTIL,Kyle Schwarber,10,X
-10,,SP,Madison Bumgarner,1,X
-10,,SP,Zack Wheeler,1,X
-10,,SP,Chris Archer,27,X
-10,,SP,Yusei Kikuchi,14,X
-10,,SP,Domingo German,7,X
-10,,RP,Craig Kimbrel,1,X
-10,,RP,Blake Treinen,1,X
-10,,BE,Jason Kipnis,2,X
-10,,BE,Dylan Bundy,15,X
-10,,BE, Reynaldo Lopez,1,X
-10,,BE,Jakob Junis,11,X
-10,,BE,Kyle Gibson,1,X
-10,,BE,Kendrys Morales,3,X
-10,,BE,Kevin Pillar,1,X
-10,,BE,Josh Bell,3,X
-10,,BE,Michael Wacha,1,X
-10,,BE,Luis Urias,1,X
-10,,BE,,,X
-10,,,,,X
-10,,,,,X
+team_id,Trade Block,Positions,Player,Player Salary,Keeping,lahmanID,retroID,bbrefID
+10,,1B,Edwin Encarnacion,16.0,X,,,
+10,,2B,Adam Frazier,7.0,X,,,
+10,,3B,Kris Bryant,1.0,X,,,
+10,,SS,Jorge Polanco,5.0,X,,,
+10,,OF,Byron Buxton,3.0,X,,,
+10,,OF,Mark Trumbo,1.0,X,,,
+10,,OF,Max Kepler,1.0,X,,,
+10,,UTIL,Kyle Schwarber,10.0,X,,,
+10,,SP,Madison Bumgarner,1.0,X,,,
+10,,SP,Zack Wheeler,1.0,X,,,
+10,,SP,Chris Archer,27.0,X,,,
+10,,SP,Yusei Kikuchi,14.0,X,,,
+10,,SP,Domingo German,7.0,X,,,
+10,,RP,Craig Kimbrel,1.0,X,,,
+10,,RP,Blake Treinen,1.0,X,,,
+10,,BE,Jason Kipnis,2.0,X,,,
+10,,BE,Dylan Bundy,15.0,X,,,
+10,,BE, Reynaldo Lopez,1.0,X,,,
+10,,BE,Jakob Junis,11.0,X,,,
+10,,BE,Kyle Gibson,1.0,X,,,
+10,,BE,Kendrys Morales,3.0,X,,,
+10,,BE,Kevin Pillar,1.0,X,,,
+10,,BE,Josh Bell,3.0,X,,,
+10,,BE,Michael Wacha,1.0,X,,,
+10,,BE,Luis Urias,1.0,X,,,
+10,,BE,,,X,,,
+10,,,,,X,,,
+10,,,,,X,,,

@@ -1,29 +1,29 @@
-team_id,Trade Block,Positions,Player,Player Salary,Keeping
-11,,1B,Pete Alonso,6,X
-11,,2B,Lourdes Gurriel jr,1,X
-11,,3B,,,
-11,,SS,Trea Turner,10,X
-11,,OF,Bryce Harper,4,X
-11,,OF,Victor Robles ,6,X
-11,,OF,Tommy Pham,14,
-11,,UTIL,Khris Davis,10,X
-11,,SP,Yu Darvish,10,X
-11,,SP,Luke Weaver,1,X
-11,,SP,James Paxton,9,X
-11,,SP,Dinelson Lamet,1,X
-11,,SP,Michael Kopech ,1,X
-11,,RP,Dakota Hudson ,1,X
-11,,RP,Alex Colome,1,X
-11,,BE,Michael Chavis,1,X
-11,,BE,Sandy Alcantara,1,
-11,,BE,Fransisco Mejia ,6,X
-11,,BE,Max Fried,1,X
-11,,BE,Brent Honeywell,6,X
-11,,BE,Domingo Santana,3,X
-11,,BE,,,X
-11,,BE,Griffin Canning ,1,X
-11,,BE,Triston McKenzie,6,X
-11,,BE,Patrick Corbin ,6,X
-11,,BE,J.D. Davis,1,
-11,,DL,Willie Calhoun,1,
-11,,DL,Brett Gardner,1,
+team_id,Trade Block,Positions,Player,Player Salary,Keeping,lahmanID,retroID,bbrefID
+11,,1B,Pete Alonso,6.0,X,,,
+11,,2B,Lourdes Gurriel jr,1.0,X,,,
+11,,3B,,,,,,
+11,,SS,Trea Turner,10.0,X,,,
+11,,OF,Bryce Harper,4.0,X,,,
+11,,OF,Victor Robles ,6.0,X,,,
+11,,OF,Tommy Pham,14.0,,,,
+11,,UTIL,Khris Davis,10.0,X,,,
+11,,SP,Yu Darvish,10.0,X,,,
+11,,SP,Luke Weaver,1.0,X,,,
+11,,SP,James Paxton,9.0,X,,,
+11,,SP,Dinelson Lamet,1.0,X,,,
+11,,SP,Michael Kopech ,1.0,X,,,
+11,,RP,Dakota Hudson ,1.0,X,,,
+11,,RP,Alex Colome,1.0,X,,,
+11,,BE,Michael Chavis,1.0,X,,,
+11,,BE,Sandy Alcantara,1.0,,,,
+11,,BE,Fransisco Mejia ,6.0,X,,,
+11,,BE,Max Fried,1.0,X,,,
+11,,BE,Brent Honeywell,6.0,X,,,
+11,,BE,Domingo Santana,3.0,X,,,
+11,,BE,,,X,,,
+11,,BE,Griffin Canning ,1.0,X,,,
+11,,BE,Triston McKenzie,6.0,X,,,
+11,,BE,Patrick Corbin ,6.0,X,,,
+11,,BE,J.D. Davis,1.0,,,,
+11,,DL,Willie Calhoun,1.0,,,,
+11,,DL,Brett Gardner,1.0,,,,

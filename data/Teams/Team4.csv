@@ -1,29 +1,29 @@
-team_id,Trade Block,Positions,Player,Player Salary,Keeping
-4,,1B,Freddie Freeman,4,X
-4,,2B,Ozzie Albies,3,X
-4,,3B,Max Muncy,6,X
-4,,SS,Javier Baez,4,X
-4,,OF,J.D. Martinez,4,X
-4,,OF,Andrew Benintendi,3,X
-4,,OF,Marcell Ozuna,6,X
-4,,UTIL,Howie Kendrick,1,X
-4,,SP,Jack Flaherty,6,X
-4,,SP,Kevin Gausman,3,X
-4,,SP,Jacob deGrom,3,X
-4,,SP,Aaron Nola,4,X
-4,,SP,HyunJin Ryu,15,X
-4,,RP,,,X
-4,,RP,,,X
-4,,BE,Christian Walker,1,X
-4,,BE,Caleb Smith,1,X
-4,,BE,Freddy Peralta,3,X
-4,,BE,Fernando Tatis Jr.,3,X
-4,,BE,Pablo Lopez,3,X
-4,,BE,Franmil Reyes,5,X
-4,,BE,Brock Holt,1,X
-4,,BE,Giancarlo Stanton,31,X
-4,,BE,,,X
-4,,BE,Clayton Kershaw,4,X
-4,,,Tommy Edman,1,X
-4,,DL,Collin McHugh,13,X
-4,,DL,Alex Wood,3,X
+team_id,Trade Block,Positions,Player,Player Salary,Keeping,lahmanID,retroID,bbrefID
+4,,1B,Freddie Freeman,4.0,X,,,
+4,,2B,Ozzie Albies,3.0,X,,,
+4,,3B,Max Muncy,6.0,X,,,
+4,,SS,Javier Baez,4.0,X,,,
+4,,OF,J.D. Martinez,4.0,X,,,
+4,,OF,Andrew Benintendi,3.0,X,,,
+4,,OF,Marcell Ozuna,6.0,X,,,
+4,,UTIL,Howie Kendrick,1.0,X,,,
+4,,SP,Jack Flaherty,6.0,X,,,
+4,,SP,Kevin Gausman,3.0,X,,,
+4,,SP,Jacob deGrom,3.0,X,,,
+4,,SP,Aaron Nola,4.0,X,,,
+4,,SP,HyunJin Ryu,15.0,X,,,
+4,,RP,,,X,,,
+4,,RP,,,X,,,
+4,,BE,Christian Walker,1.0,X,,,
+4,,BE,Caleb Smith,1.0,X,,,
+4,,BE,Freddy Peralta,3.0,X,,,
+4,,BE,Fernando Tatis Jr.,3.0,X,,,
+4,,BE,Pablo Lopez,3.0,X,,,
+4,,BE,Franmil Reyes,5.0,X,,,
+4,,BE,Brock Holt,1.0,X,,,
+4,,BE,Giancarlo Stanton,31.0,X,,,
+4,,BE,,,X,,,
+4,,BE,Clayton Kershaw,4.0,X,,,
+4,,,Tommy Edman,1.0,X,,,
+4,,DL,Collin McHugh,13.0,X,,,
+4,,DL,Alex Wood,3.0,X,,,
