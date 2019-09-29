@@ -12,137 +12,137 @@ team_id,Trade Block,Positions,Player,Player Salary,Keeping
 1,,SP,Rick Porcello,7.0,X
 1,,SP,Sean Newcomb,8.0,X
 1,,SP,Zach Eflin,6.0,X
-1,,RP,Cody Allen,2.0,X
+1,,RP,,,X
 1,,RP,Kenley Jansen,7.0,X
 1,,BE,Asdrubal Cabrera,6.0,X
 1,,BE,Scott Kingery,6.0,X
 1,,BE,Trey Mancini,1.0,X
 1,,BE,Marcus Stroman,7.0,X
 1,,BE,Isiah Kiner- Falefa,9.0,X
-1,,BE,Dane Dunning,1.0,X
-1,,BE,Andrew Miller,7.0,X
-1,,BE,Marcus Walden,1.0,X
-1,,BE,Spencer Turnbull,1.0,X
+1,,BE,Nathan Eovaldi,1.0,X
 1,,BE,,,X
-1,,,,,X
+1,,BE,Marcus Walden,1.0,X
+1,,BE,,,X
+1,,BE,Jake Odorizzi,1.0,X
+1,,,Tony Gonsolin,1.0,X
 1,,DL,Dellin Betances,6.0,X
 1,,DL,Luis Severino,7.0,X
 2,,1B,Joey Votto,2.0,X
-2,,2B,Kolten Wong,1.0,X
+2,,2B,Hanser Alberto,1.0,X
 2,,3B,Eugenio Suarez,2.0,X
-2,,SS,Elvis Andrus,2.0,X
+2,,SS,Didi Gregorius,2.0,X
 2,,OF,Kole Calhoun,1.0,X
 2,,OF,Starling Marte,2.0,X
 2,,OF,Michael Brantley,2.0,X
 2,,UTIL,Hunter Renfroe,2.0,X
 2,,SP,Eduardo Rodriguez,2.0,X
-2,,SP,Adrian Sampson,1.0,X
-2,,SP,Zach Davies,1.0,X
+2,,SP,,,X
+2,,SP,,,X
 2,,SP,Charlie Morton,2.0,X
-2,,SP,Jake Arrieta,22.0,X
+2,,SP,Giovanny Gallegos,1.0,X
 2,,RP,Hector Neris,1.0,X
-2,,BE,Didi Gregorius,2.0,X
+2,,BE,Jason Vargas,1.0,X
 2,,BE,Wade Miley,1.0,X
-2,,BE,Shane Greene,1.0,X
-2,,BE,Jake Odorizzi,1.0,X
-2,,BE,Chris Bassitt,1.0,X
+2,,BE,Michael Pineda,1.0,X
+2,,BE,John Means,3.0,X
+2,,BE,,,X
 2,,BE,Buster Posey,14.0,X
-2,,BE,,,X
-2,,BE,,,X
-2,,BE,,,X
-2,,DL,Aledmys Diaz,1.0,
+2,,BE,luis Arraez,1.0,X
+2,,BE,Mike Yastrzemski,1.0,X
+2,,BE,brian Anderson,1.0,X
+2,,DL,,,
 2,,DL,Corey Knebell,6.0,X
-2,,DL,Dwight Smith Jr.,1.0,X
+2,,DL,,,X
 2,,DL,Salvador Perez,2.0,X
-2,,DL,Scooter Gennett,2.0,X
-3,X,1B,Rhys Hoskins,6.0,X
-3,X,2B,Eric Sogard,1.0,X
-3,X,3B,Manny Machado,25.0,X
+2,,DL,,,X
+3,,1B,Rhys Hoskins,6.0,X
+3,,2B,Eric Sogard,1.0,X
+3,,3B,Manny Machado,25.0,X
 3,,SS,Trevor Story,6.0,X
 3,,OF,Nicholas Castellanos,6.0,X
-3,X,OF,Jesse Winker,11.0,x
+3,,OF,Jesse Winker,11.0,x
 3,,OF,Aaron Judge,6.0,X
 3,,UTIL,Yordan Alvarez,1.0,X
-3,X,SP,Julio Urias,6.0,X
+3,,SP,Julio Urias,6.0,X
 3,,SP,Trevor Bauer,6.0,X
 3,,SP,Jose Berrios,6.0,X
 3,,SP,Lucas Giolito,1.0,X
-3,X,SP,Justin Verlander,6.0,X
-3,X,RP,Brandon Workman,1.0,x
-3,X,RP,Alex Colome,1.0,x
-3,X,BE,Mike Foltynewicz,6.0,X
+3,,SP,Justin Verlander,6.0,X
+3,,RP,,,x
+3,,RP,,,x
+3,,BE,Mike Foltynewicz,6.0,X
 3,,BE,Alex Verdugo,6.0,X
 3,,BE,Carter Kieboom,1.0,X
 3,,BE,Gavin Lux,1.0,X
-3,X,BE,Charlie Blackmon,25.0,x
-3,,BE,,,
-3,X,BE,Christian Vazquez,1.0,x
+3,,BE,Charlie Blackmon,25.0,x
+3,,BE,Nick Solak,1.0,x
+3,,BE,Christian Vazquez,1.0,x
 3,,BE,Nate Lowe,1.0,X
 3,,BE,Brad Peacock,5.0,X
-3,,BE,,,
-3,X,DL,Chris Sale,1.0,X
+3,,BE,Nico Hoerner,1.0,x
+3,,DL,Chris Sale,1.0,X
 3,,DL,Jameson Taillon,1.0,X
 3,,DL,Carlos Carrasco,6.0,X
 4,,1B,Freddie Freeman,4.0,X
 4,,2B,Ozzie Albies,3.0,X
-4,,3B,Mike Moustakas,4.0,X
+4,,3B,Max Muncy,6.0,X
 4,,SS,Javier Baez,4.0,X
 4,,OF,J.D. Martinez,4.0,X
 4,,OF,Andrew Benintendi,3.0,X
-4,,OF,Bryce Harper,4.0,X
-4,,UTIL,Stephen Piscotty,3.0,X
-4,,SP,Kyle Hendricks,3.0,X
+4,,OF,Marcell Ozuna,6.0,X
+4,,UTIL,Howie Kendrick,1.0,X
+4,,SP,Jack Flaherty,6.0,X
 4,,SP,Kevin Gausman,3.0,X
 4,,SP,Jacob deGrom,3.0,X
 4,,SP,Aaron Nola,4.0,X
-4,,SP,Nathan Eovaldi,3.0,X
-4,,RP,Ryan Brasier,1.0,X
-4,,RP,Ty Buttrey,7.0,X
+4,,SP,HyunJin Ryu,15.0,X
+4,,RP,,,X
+4,,RP,,,X
 4,,BE,Christian Walker,1.0,X
-4,,BE,Austin Barnes,1.0,X
+4,,BE,Caleb Smith,1.0,X
 4,,BE,Freddy Peralta,3.0,X
 4,,BE,Fernando Tatis Jr.,3.0,X
 4,,BE,Pablo Lopez,3.0,X
 4,,BE,Franmil Reyes,5.0,X
+4,,BE,Brock Holt,1.0,X
+4,,BE,Giancarlo Stanton,31.0,X
 4,,BE,,,X
-4,,BE,,,X
-4,,BE,Max Fried,1.0,X
 4,,BE,Clayton Kershaw,4.0,X
-4,,,,,X
+4,,,Tommy Edman,1.0,X
 4,,DL,Collin McHugh,13.0,X
 4,,DL,Alex Wood,3.0,X
 5,,1B,Cody Bellinger,6.0,X
-5,X,2B,Mike Moustakas,4.0,X
+5,,2B,Mike Moustakas,4.0,X
 5,,3B,Nolan Arenado,33.0,X
 5,,SS,Francisco Lindor,1.0,X
 5,,OF,Eloy Jimenez,6.0,X
-5,X,OF,Ramon Laureano,2.0,X
-5,X,OF,Joey Gallo,9.0,X
-5,X,UTIL,Yoan Moncada,6.0,X
+5,,OF,Ramon Laureano,2.0,X
+5,,OF,Joey Gallo,9.0,X
+5,,UTIL,Yoan Moncada,6.0,X
 5,,SP,Luis Castillo,2.0,X
 5,,SP,Chris Paddack,20.0,X
 5,,SP,,,X
 5,,SP,A.J. Puk,6.0,X
-5,X,SP,Jesus Luzardo,27.0,X
+5,,SP,Jesus Luzardo,27.0,X
 5,,RP,Edwin Diaz,6.0,X
 5,,RP,Josh Hader,6.0,X
-5,X,BE,Jordan Hicks,6.0,X
-5,X,BE,Aldaberto Mondesi ,6.0,X
-5,X,BE,Eric Lauer,1.0,X
-5,X,BE,Joe Musgrove,1.0,X
-5,X,BE,Corey Seager,36.0,X
+5,,BE,Jordan Hicks,6.0,X
+5,,BE,Aldaberto Mondesi ,6.0,X
+5,,BE,Eric Lauer,1.0,X
+5,,BE,Joe Musgrove,1.0,X
+5,,BE,Corey Seager,36.0,X
 5,,BE,Nolan Gorman,1.0,X
-5,X,BE,A.J. Pollock,12.0,X
+5,,BE,A.J. Pollock,12.0,X
 5,,BE,Vidal Brujan,1.0,X
 5,,BE,Dylan Carlson,1.0,X
 5,,BE,Kristian Robinson,1.0,X
-5,X,BE,Clint Frazier,1.0,X
-5,X,DL,Sean Manaea,1.0,X
-5,X,DL,Michael Fulmer,6.0,X
+5,,BE,Clint Frazier,1.0,X
+5,,DL,Sean Manaea,1.0,X
+5,,DL,Michael Fulmer,6.0,X
 6,,1B,Justin Smoak,6.0,X
 6,,2B,Dee Gordon,6.0,X
-6,,3B,Evan Longoria,1.0,X
-6,,SS,Chris Taylor,3.0,X
+6,,3B,,,X
+6,,SS,,,X
 6,,OF,Ryan Braun,6.0,X
 6,,OF,Yasiel Puig,7.0,X
 6,,OF,Mitch Haniger,6.0,X
@@ -151,106 +151,106 @@ team_id,Trade Block,Positions,Player,Player Salary,Keeping
 6,,SP,David Price,26.0,X
 6,,SP,Jose Quintana,6.0,X
 6,,SP,Cole Hamels,6.0,X
-6,,SP,Aaron Sanchez,1.0,X
-6,,RP,Mychal Givens,1.0,X
+6,,SP,Logan Webb,2.0,X
+6,,RP,Marco Gonzalez,1.0,X
 6,,RP,Will Smith,14.0,X
-6,,BE,Joey Wendle,1.0,X
+6,,BE,Jeff Samardzija,1.0,X
 6,,BE,Randal Grichuk,1.0,X
 6,,BE,C.J. Cron,1.0,X
 6,,BE,Shin-Soo Choo,2.0,X
 6,,BE,Yuli Gurriel,7.0,X
 6,,BE,Marcus Semien,9.0,X
-6,,BE,Matt Strahm,11.0,X
-6,,BE,Josh James,12.0,X
+6,,BE,Raisel Iglesias,2.0,X
+6,,BE,Jose Leclerc,1.0,X
 6,,BE,Ian Desmond,3.0,X
-6,,BE,,,X
-6,,,,,X
-6,,,,,X
+6,,BE,Mitch Garver,1.0,X
+6,,,David Fletcher,2.0,X
+6,,,Mike Minor,3.0,X
 6,,,,,X
 7,,1B,Anthony Rizzo,18.0,X
 7,,2B,Brandon Lowe,6.0,X
 7,,3B,Anthony Rendon,6.0,X
 7,,SS,Amed Rosario,6.0,X
-7,x,OF,Joc Pederson,1.0,X
+7,,OF,Joc Pederson,1.0,X
 7,,OF,Jake Bauers,6.0,X
 7,,OF,Jason Heyward,6.0,X
-7,,UTIL,Garrett Hampson,5.0,X
-7,,SP,Stephen Strasburg,6.0,X
-7,,SP,Justin Verlander,6.0,X
+7,,UTIL,George Springer,43.0,X
+7,,SP,Lance Lynn,1.0,X
+7,,SP,Tanner Roark,1.0,X
 7,,SP,Jon Lester,6.0,X
-7,,SP,Zack Godley,6.0,X
-7,,SP,Dereck Rodriguez,6.0,X
+7,,SP,Alex Young,1.0,X
+7,,SP,Chris Bassitt,1.0,X
 7,,RP,Brad Hand,6.0,X
 7,,RP,Ken Giles,6.0,X
-7,,BE,Tim Beckham,2.0,X
-7,,BE,Ronald Guzman,1.0,X
-7,,BE,Anibal Sanchez,1.0,X
-7,,BE,Trevor Williams,3.0,X
-7,,BE,Jackie Bradley Jr.,6.0,X
+7,,BE,Homer Bailey,1.0,X
+7,,BE,Hansel Robles,1.0,X
+7,,BE,Rich Hill,15.0,X
+7,,BE,Anthony Santander,1.0,X
+7,,BE,Tommy La Stella,1.0,X
 7,,BE,Zach Plesac,1.0,X
-7,,BE,Jake Lamb,1.0,X
+7,,BE,Justin Upton,20.0,X
 7,,BE,David Dahl,10.0,X
 7,,BE,Jonathan Schoop,1.0,X
 7,,,Corey Kluber,1.0,X
-7,,,,,X
+7,,,Kevin Newman,1.0,X
 7,,DL,Daniel Murphy,6.0,X
-7,,DL,Justin Upton,20.0,X
-8,x,1B,Carlos Santana ,12.0,X
+7,,DL,,,X
+8,,1B,Carlos Santana ,12.0,X
 8,,2B,Jeff McNeil,1.0,X
-8,x,3B,David Flecher,1.0,X
+8,,3B,,,X
 8,,SS,Xander Bogaerts,6.0,X
-8,x,OF,Ender Inciarte,1.0,X
-8,,OF,Eddie Rosario,1.0,X
+8,,OF,,,X
+8,,OF,,,X
 8,,OF,Whit Merrifield,1.0,X
 8,,UTIL,Austin Meadows,1.0,X
-8,x,SP,Sixto Sanchez,6.0,X
+8,,SP,Sixto Sanchez,6.0,X
 8,,SP,Tyler Glasnow,1.0,X
 8,,SP,Matthew Boyd,1.0,X
 8,,SP,Robbie Ray,7.0,X
 8,,SP,,,
-8,x,RP,Kirby Yates,1.0,X
-8,,RP,Felipe Vazquez,1.0,X
-8,,BE,Victor Robles,6.0,X
+8,,RP,Kirby Yates,1.0,X
+8,,RP,Archie Bradley,1.0,X
+8,,BE,Wander Franco,1.0,X
 8,,BE,Shane Bieber,1.0,X
 8,,BE,Nick Senzel,6.0,x
-8,,BE,Lourdes Gurriel Jr.,1.0,X
+8,,BE,Yandy Diaz,1.0,X
 8,,BE,Kyle Hendricks,3.0,X
-8,x,BE,Matt Manning,1.0,X
-8,x,BE,Zac Gallen,1.0,X
-8,,BE,,,
-8,x,BE,Mitch Keller,6.0,X
+8,,BE,Matt Manning,1.0,X
+8,,BE,Zac Gallen,1.0,X
+8,,BE,Kyle Tucker,5.0,
+8,,BE,Mitch Keller,6.0,X
 8,,BE,Mike Soroka,10.0,X
-8,,,,,X
-8,,DL,,,X
-8,,DL,,,X
-9,X,1B,Eric Hosmer ,16.0,X
+8,,,Cavan Biggio,1.0,X
+8,,DL,Oscar Marcado,1.0,X
+8,,DL,Bryan Reynolds,1.0,X
+9,,1B,,,X
 9,,2B,Gleyber Torres,6.0,X
 9,,3B,Jose Ramirez,44.0,X
-9,X,SS,Carlos Correa,21.0,X
+9,,SS,Carlos Correa,21.0,X
 9,,OF,Mike Trout,39.0,X
 9,,OF,Ronald Acuna,6.0,X
 9,,OF,Juan Soto,6.0,X
 9,,UTIL,Rafael Devers,6.0,X
 9,,SP,Gerrit Cole,6.0,X
-9,X,SP,Noah Syndergaard ,39.0,X
+9,,SP,Noah Syndergaard ,39.0,X
 9,,SP,Walker Buehler,6.0,X
 9,,SP,Max Scherzer,61.0,X
 9,,SP,Aaron Sanchez,4.0,X
 9,,RP,Roberto Osuna,6.0,X
-9,X,RP,Liam Hendricks,3.0,X
-9,X,BE,Yonny Chirinos,1.0,X
+9,,RP,Liam Hendricks,3.0,X
+9,,BE,Yonny Chirinos,1.0,X
 9,,BE,Casey Mize,1.0,X
 9,,BE,Alex Kirilloff,1.0,X
-9,X,BE,Jazz Chisholm,1.0,X
-9,X,BE,Drew Waters,1.0,X
-9,X,BE,Travis d' Arnaud,1.0,X
-9,X,BE,Elvis Andrus,2.0,X
-9,X,BE,Deivi Garcia,1.0,X
-9,X,BE,Isan Diaz,2.0,X
-9,,BE,Player Name,0.0,
-9,,BE,Player Name,0.0,X
-9,,BE,Player Name,,X
-9,,BE,Player Name,,X
+9,,BE,Jazz Chisholm,1.0,X
+9,,BE,Drew Waters,1.0,X
+9,,BE,Travis d' Arnaud,1.0,X
+9,,BE,Johnny Cueto,1.0,X
+9,,BE,Deivi Garcia,1.0,X
+9,,BE,Josiah Gray,1.0,X
+9,,BE,Mark Canha,1.0,
+9,,BE,Starlin Castro,1.0,X
+9,,BE,Kolten Wong,1.0,X
+9,,BE,Emilio Pagan,1.0,X
 10,,1B,Edwin Encarnacion,16.0,X
 10,,2B,Adam Frazier,7.0,X
 10,,3B,Kris Bryant,1.0,X
@@ -275,7 +275,7 @@ team_id,Trade Block,Positions,Player,Player Salary,Keeping
 10,,BE,Kevin Pillar,1.0,X
 10,,BE,Josh Bell,3.0,X
 10,,BE,Michael Wacha,1.0,X
-10,,BE,,,X
+10,,BE,Luis Urias,1.0,X
 10,,BE,,,X
 10,,,,,X
 10,,,,,X
@@ -283,86 +283,86 @@ team_id,Trade Block,Positions,Player,Player Salary,Keeping
 11,,2B,Lourdes Gurriel jr,1.0,X
 11,,3B,,,
 11,,SS,Trea Turner,10.0,X
-11,,OF,Marcel Ozuna ,6.0,X
+11,,OF,Bryce Harper,4.0,X
 11,,OF,Victor Robles ,6.0,X
-11,X,OF,Tommy Pham,14.0,
-11,X,UTIL,Khris Davis,10.0,X
+11,,OF,Tommy Pham,14.0,
+11,,UTIL,Khris Davis,10.0,X
 11,,SP,Yu Darvish,10.0,X
 11,,SP,Luke Weaver,1.0,X
 11,,SP,James Paxton,9.0,X
-11,,SP,Jack Flaherty ,6.0,X
+11,,SP,Dinelson Lamet,1.0,X
 11,,SP,Michael Kopech ,1.0,X
 11,,RP,Dakota Hudson ,1.0,X
-11,,RP,Nick Pivetta ,6.0,X
+11,,RP,Alex Colome,1.0,X
 11,,BE,Michael Chavis,1.0,X
-11,,BE,Marco Gonzalez,1.0,
+11,,BE,Sandy Alcantara,1.0,
 11,,BE,Fransisco Mejia ,6.0,X
-11,,BE,Luis Garcia ,1.0,X
+11,,BE,Max Fried,1.0,X
 11,,BE,Brent Honeywell,6.0,X
-11,X,BE,Domingo Santana,3.0,X
-11,,BE,Danny Santana ,1.0,X
+11,,BE,Domingo Santana,3.0,X
+11,,BE,,,X
 11,,BE,Griffin Canning ,1.0,X
 11,,BE,Triston McKenzie,6.0,X
 11,,BE,Patrick Corbin ,6.0,X
-11,,BE,,,
-11,,DL,,,
-11,,DL,,,
-12,,1B,Cody Bellinger,6.0,X
-12,,2B,Cesar Hernandez,1.0,X
+11,,BE,J.D. Davis,1.0,
+11,,DL,Willie Calhoun,1.0,
+11,,DL,Brett Gardner,1.0,
+12,,1B,Matt Olson,10.0,X
+12,,2B,Keston Hiura,1.0,X
 12,,3B,Jurickson Profar,6.0,X
-12,,SS,,,X
-12,,OF,Wil Myers,11.0,X
+12,,SS,Bo Bichette,1.0,X
+12,,OF,Eddie Rosario,1.0,X
 12,,OF,Michael Conforto,14.0,X
 12,,OF,Nomar Mazara,6.0,X
-12,,UTIL,Adam Jones,1.0,X
-12,,SP,Max Scherzer,61.0,X
-12,,SP,Noah Syndergaard,38.0,X
-12,,SP,Robbie Ray,7.0,X
+12,,UTIL,Nick Markakis,1.0,X
+12,,SP,Stephen Strasburg,6.0,X
+12,,SP,Blake Snell,6.0,X
+12,,SP,Aaron Civale,1.0,X
 12,,SP,Dylan Cease,6.0,X
-12,,SP,Jack Flaherty,6.0,X
-12,,RP,Matt Barnes,1.0,X
-12,,RP,Wade Davis,6.0,X
+12,,SP,Nate Pearson,1.0,X
+12,,RP,Logan Gilbert,1.0,X
+12,,RP,,,X
 12,,BE,Kyle Wright,6.0,X
 12,,BE,Alex Reyes,7.0,X
 12,,BE,Vladimir Guerrero Jr.,6.0,X
 12,,BE,Brendan Rodgers,6.0,X
 12,,BE,Miles Mikolas,6.0,X
-12,,BE,Sandy Alcantara,6.0,X
+12,,BE,Brendan McKay,1.0,X
 12,,BE,Jo Adell,6.0,X
 12,,BE,Alex Bregman,6.0,X
-12,,BE,,,X
-12,,BE,,,X
+12,,BE,Julio Rodriguez,1.0,X
+12,,BE,Dustin May,1.0,X
 12,,BE,,,X
 12,,DL,,,X
 12,,DL,,,X
-13,,1B,Matt Carpenter,6.0,X
+13,,1B,Paul Goldschmidt,1.0,X
 13,,2B,Jose Altuve,6.0,X
-13,,3B,,,X
+13,,3B,Matt Carpenter,6.0,X
 13,,SS,Marwin Gonzalez,6.0,X
 13,,OF,Lorenzo Cain,6.0,X
 13,,OF,Paul DeJong,5.0,X
-13,,OF,Jose Martinez,3.0,X
-13,,UTIL,Jesus Aguilar,6.0,X
+13,,OF,Adam Eaton,1.0,X
+13,,UTIL,Austin Riley,1.0,X
 13,,SP,Dallas Keuchel,6.0,X
 13,,SP,Masahiro Tanaka,6.0,X
 13,,SP,Mike Clevinger,6.0,X
 13,,SP,German Marquez,6.0,X
 13,,SP,Steven Matz,1.0,X
 13,,RP,Aroldis Chapman,24.0,X
-13,,RP,Roberto Osuna,6.0,X
+13,,RP,Mark Melancon,2.0,X
 13,,BE,Andrelton Simmons,6.0,X
 13,,BE,Robinson Cano,12.0,X
-13,,BE,Jonathan Villar,2.0,X
-13,,BE,Jose Urena,11.0,X
 13,,BE,Jonathan Villar,5.0,X
+13,,BE,Jose Urena,11.0,X
+13,,BE,Alex Gordon,2.0,X
 13,,BE,Jon Gray,13.0,X
-13,,BE,Ben Zobrist,3.0,X
+13,,BE,Hunter Pence,1.0,X
 13,,BE,Tim Anderson,2.0,X
 13,,BE,,,X
 13,,BE,Shohei Ohtani,6.0,X
 13,,BE,Sonny Gray,1.0,X
-13,,DL,,,X
-13,,DL,,,X
+13,,DL,Aristides Aquino,1.0,X
+13,,DL,Mallex Smith,1.0,X
 14,,1B,Jose Abreu,6.0,X
 14,,2B,Niko Goodrum,3.0,X
 14,,3B,Justin Turner,1.0,X
@@ -370,24 +370,24 @@ team_id,Trade Block,Positions,Player,Player Salary,Keeping
 14,,OF,Harrison Bader,1.0,X
 14,,OF,Andrew McCutchen,1.0,X
 14,,OF,Chad Pinder,1.0,X
-14,,UTIL,Wilmer Flores,11.0,X
-14,,SP,Wade LeBlanc,1.0,X
-14,,SP,Brad Peacock,11.0,X
+14,,UTIL,Daniel Vogelbach,1.0,X
+14,,SP,Merrill Kelly,1.0,X
+14,,SP,Mike Fiers,1.0,X
 14,,SP,Kenta Maeda,12.0,X
-14,,SP,Hyun-Jin Ryu,15.0,X
+14,,SP,Mike Leake,2.0,X
 14,,SP,Julio Teheran,8.0,X
 14,,RP,Jose Alvarado,8.0,X
 14,,RP,Brandon Woodruff,3.0,X
-14,,BE,Wander Franco,1.0,X
+14,,BE,Brett Anderson,1.0,X
 14,,BE,Brandon Nimmo,15.0,X
-14,,BE,Billy Hamilton,3.0,X
+14,,BE,Jay Bruce,1.0,X
 14,,BE,Jonathan Loaisiga,10.0,X
-14,,BE,Willians Astudillo,6.0,X
+14,,BE,,,X
 14,,BE,Ryan Yarbrough,1.0,X
 14,,BE,Kyle Seager,6.0,X
-14,,BE,Miguel Cabrera,8.0,X
+14,,BE,Greg Holland,1.0,X
 14,,BE,Ketel Marte,9.0,X
 14,,BE,Josh Donaldson,22.0,X
-14,,BE,Ryon Healy,1.0,X
+14,,BE,,,X
 14,,DL,Aaron Hicks,1.0,X
 14,,DL,Joey Lucchesi,6.0,X

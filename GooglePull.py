@@ -99,7 +99,8 @@ for teamNumber in TeamPositions['TeamNumber']:
     Team.to_csv(filename, sep=',', index=False, encoding='utf-8')
 
 
-
+team_id = masterInfo.reset_index().index + 1
+masterInfo.insert(loc=0, column='team_id', value=team_id)
 
 # Saves Team Info File
 masterInfo.to_csv('data/Teams/team_info.csv', sep=',', index=False, encoding='utf-8')

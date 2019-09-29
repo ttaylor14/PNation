@@ -52,7 +52,7 @@ projection['Avg_Player_Score'] = projection['Total_Points']/projection['Number_P
 
 # Pull Team Names
 team_info = pd.read_csv('data/Teams/Team_info.csv')
-team_info = team_info[['team_id', 'team_name']]
+team_info = team_info[['team_id', 'Team Name']]
 #print(team_info.head())
 
 #merge csv together
