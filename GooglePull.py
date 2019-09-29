@@ -1,13 +1,11 @@
 # GooglePull.py
 
-# last Update : 9.27.19
+# last Update : 9.29.19
 
 
 # Goal is to pull google sheet information and place them in the appropriate csv file.
 
-## To DO
-# Verify that Master CSV is updated from Google Sheet
-### Add Team_id col to Rosters
+
 
 import gspread
 import pandas as pd
@@ -26,19 +24,33 @@ pp = pprint.PrettyPrinter()
 sheet = client.open("2019 Procrastination Fantasy Baseball")
 
 #Pulls List of Tabs
-List_of_Tabs = sheet.worksheets()
+# List_of_Tabs = sheet.worksheets()
 
 # Opens Master Info Tab
 masterInfo = sheet.worksheet("Master Info")
 
 # intialise data of lists.
-TeamPositions = {'TeamNumber':['Team1', 'Team2', 'Team3', 'Team4', 'Team5', 'Team6', 'Team7', 'Team8', 'Team9', 'Team10', 'Team11', 'Team12', 'Team13', 'Team14'], 'TeamPosition':[13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]}
+TeamPositions = {'TeamNumber':['Team1', 'Team2', 'Team3', 'Team4', 'Team5', 'Team6', 'Team7', 'Team8', 'Team9', 'Team10', 'Team11', 'Team12', 'Team13', 'Team14'], 'TeamPosition':[11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]}
 TeamPositions = pd.DataFrame(TeamPositions)
 
 # print(TeamPositions)
 
 TeamMaster = pd.read_csv('data/team_info.csv')
 # print(TeamMaster)
+
+
+
+masterInfo = masterInfo.get_all_values()
+
+# Adds headers and pushes data into a Pandas DF
+headers = masterInfo.pop(11)
+masterInfo = pd.DataFrame(masterInfo, columns=headers)
+
+# Data Cleaning to only needed information
+masterInfo = masterInfo.iloc[11:25, 0:6]
+masterInfo['FAAB'] = masterInfo['FAAB'].str.split('$').str[1]
+# print(masterInfo)
+
 
 # Loop through each Team Sheet to pull data
 for teamNumber in TeamPositions['TeamNumber']:
@@ -49,21 +61,13 @@ for teamNumber in TeamPositions['TeamNumber']:
 
     # print(id)
 
-    # Assign proper cell location
-    Info = "A%s" % id
-    Acro = "B%s" % id
-    Faab = "C%s" % id
-    Owner = "D%s" % id
-    Email = "E%s" % id
-    Rank = "F%s" % id
-
     # Pulls Information for Master Info
-    teamName = masterInfo.acell(Info).value
-    teamAcronym = masterInfo.acell(Acro).value
-    teamFaab = masterInfo.acell(Faab).value
-    teamOwner = masterInfo.acell(Owner).value
-    teamEmail = masterInfo.acell(Email).value
-    teamRank = masterInfo.acell(Rank).value
+    teamName = masterInfo['Team Name'].at[id]
+    teamAcronym = masterInfo['Acronym'].at[id]
+    teamFaab = masterInfo['FAAB'].at[id]
+    teamOwner = masterInfo['Owner'].at[id]
+    teamEmail = masterInfo['Email'].at[id]
+    teamRank = masterInfo['Ranking'].at[id]
 
     #Find Team ID
     TeamID = TeamPositions.index[TeamPositions['TeamNumber'] == teamNumber].values.astype(int)[0] + 1
@@ -84,6 +88,7 @@ for teamNumber in TeamPositions['TeamNumber']:
     Team['Player'] = Team['Player'].str.split('\n').str[0]
     Team['Player Salary'] = Team['Player Salary'].str.split('$').str[1]
 
+
     # Add team_id to roster csv
     Team.insert(0, 'team_id', TeamID)
 
@@ -93,26 +98,11 @@ for teamNumber in TeamPositions['TeamNumber']:
     filename = "data/Teams/%s.csv" % teamNumber
     Team.to_csv(filename, sep=',', index=False, encoding='utf-8')
 
-    # Open Team_Info Doc to store FAAB
 
-    # Find Team row that matched TeamID
-    MastIDX = TeamMaster[TeamMaster['team_id'] == TeamID].index
 
-    # Update Team Info from Master File
-    TeamMaster['team_name'].at[MastIDX] = teamName
-    TeamMaster['acronym'].at[MastIDX] = teamAcronym
-    TeamMaster['faab'].at[MastIDX] = teamFaab
-    TeamMaster['owner'].at[MastIDX] = teamOwner
-    TeamMaster['email'].at[MastIDX] = teamEmail
-    TeamMaster['rank'].at[MastIDX] = teamRank
 
-# Send DF Back to CSV
-
-# Removes $ from faab
-TeamMaster['faab'] = TeamMaster['faab'].str.split('$').str[1]
-
-# Saves File
-TeamMaster.to_csv('data/Teams/team_info.csv', sep=',', index=False, encoding='utf-8')
+# Saves Team Info File
+masterInfo.to_csv('data/Teams/team_info.csv', sep=',', index=False, encoding='utf-8')
 
 
 print('Success')

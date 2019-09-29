@@ -1,29 +1,29 @@
-team_id,Trade Block,Positions,Player,Player Salary,Keeping,lahmanID,retroID,bbrefID
-12,,1B,Cody Bellinger,6.0,X,,,
-12,,2B,Cesar Hernandez,1.0,X,,,
-12,,3B,Jurickson Profar,6.0,X,,,
-12,,SS,,,X,,,
-12,,OF,Wil Myers,11.0,X,,,
-12,,OF,Michael Conforto,14.0,X,,,
-12,,OF,Nomar Mazara,6.0,X,,,
-12,,UTIL,Adam Jones,1.0,X,,,
-12,,SP,Max Scherzer,61.0,X,,,
-12,,SP,Noah Syndergaard,38.0,X,,,
-12,,SP,Robbie Ray,7.0,X,,,
-12,,SP,Dylan Cease,6.0,X,,,
-12,,SP,Jack Flaherty,6.0,X,,,
-12,,RP,Matt Barnes,1.0,X,,,
-12,,RP,Wade Davis,6.0,X,,,
-12,,BE,Kyle Wright,6.0,X,,,
-12,,BE,Alex Reyes,7.0,X,,,
-12,,BE,Vladimir Guerrero Jr.,6.0,X,,,
-12,,BE,Brendan Rodgers,6.0,X,,,
-12,,BE,Miles Mikolas,6.0,X,,,
-12,,BE,Sandy Alcantara,6.0,X,,,
-12,,BE,Jo Adell,6.0,X,,,
-12,,BE,Alex Bregman,6.0,X,,,
-12,,BE,,,X,,,
-12,,BE,,,X,,,
-12,,BE,,,X,,,
-12,,DL,,,X,,,
-12,,DL,,,X,,,
+team_id,Trade Block,Positions,Player,Player Salary,Keeping
+12,,1B,Matt Olson,10,X
+12,,2B,Keston Hiura,1,X
+12,,3B,Jurickson Profar,6,X
+12,,SS,Bo Bichette,1,X
+12,,OF,Eddie Rosario,1,X
+12,,OF,Michael Conforto,14,X
+12,,OF,Nomar Mazara,6,X
+12,,UTIL,Nick Markakis,1,X
+12,,SP,Stephen Strasburg,6,X
+12,,SP,Blake Snell,6,X
+12,,SP,Aaron Civale,1,X
+12,,SP,Dylan Cease,6,X
+12,,SP,Nate Pearson,1,X
+12,,RP,Logan Gilbert,1,X
+12,,RP,,,X
+12,,BE,Kyle Wright,6,X
+12,,BE,Alex Reyes,7,X
+12,,BE,Vladimir Guerrero Jr.,6,X
+12,,BE,Brendan Rodgers,6,X
+12,,BE,Miles Mikolas,6,X
+12,,BE,Brendan McKay,1,X
+12,,BE,Jo Adell,6,X
+12,,BE,Alex Bregman,6,X
+12,,BE,Julio Rodriguez,1,X
+12,,BE,Dustin May,1,X
+12,,BE,,,X
+12,,DL,,,X
+12,,DL,,,X

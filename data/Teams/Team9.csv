@@ -1,29 +1,29 @@
-team_id,Trade Block,Positions,Player,Player Salary,Keeping,lahmanID,retroID,bbrefID
-9,X,1B,Eric Hosmer ,16.0,X,,,
-9,,2B,Gleyber Torres,6.0,X,,,
-9,,3B,Jose Ramirez,44.0,X,,,
-9,X,SS,Carlos Correa,21.0,X,,,
-9,,OF,Mike Trout,39.0,X,,,
-9,,OF,Ronald Acuna,6.0,X,,,
-9,,OF,Juan Soto,6.0,X,,,
-9,,UTIL,Rafael Devers,6.0,X,,,
-9,,SP,Gerrit Cole,6.0,X,,,
-9,X,SP,Noah Syndergaard ,39.0,X,,,
-9,,SP,Walker Buehler,6.0,X,,,
-9,,SP,Max Scherzer,61.0,X,,,
-9,,SP,Aaron Sanchez,4.0,X,,,
-9,,RP,Roberto Osuna,6.0,X,,,
-9,X,RP,Liam Hendricks,3.0,X,,,
-9,X,BE,Yonny Chirinos,1.0,X,,,
-9,,BE,Casey Mize,1.0,X,,,
-9,,BE,Alex Kirilloff,1.0,X,,,
-9,X,BE,Jazz Chisholm,1.0,X,,,
-9,X,BE,Drew Waters,1.0,X,,,
-9,X,BE,Travis d' Arnaud,1.0,X,,,
-9,X,BE,Elvis Andrus,2.0,X,,,
-9,X,BE,Deivi Garcia,1.0,X,,,
-9,X,BE,Isan Diaz,2.0,X,,,
-9,,BE,Player Name,0.0,,,,
-9,,BE,Player Name,0.0,X,,,
-9,,BE,Player Name,,X,,,
-9,,BE,Player Name,,X,,,
+team_id,Trade Block,Positions,Player,Player Salary,Keeping
+9,,1B,,,X
+9,,2B,Gleyber Torres,6,X
+9,,3B,Jose Ramirez,44,X
+9,,SS,Carlos Correa,21,X
+9,,OF,Mike Trout,39,X
+9,,OF,Ronald Acuna,6,X
+9,,OF,Juan Soto,6,X
+9,,UTIL,Rafael Devers,6,X
+9,,SP,Gerrit Cole,6,X
+9,,SP,Noah Syndergaard ,39,X
+9,,SP,Walker Buehler,6,X
+9,,SP,Max Scherzer,61,X
+9,,SP,Aaron Sanchez,4,X
+9,,RP,Roberto Osuna,6,X
+9,,RP,Liam Hendricks,3,X
+9,,BE,Yonny Chirinos,1,X
+9,,BE,Casey Mize,1,X
+9,,BE,Alex Kirilloff,1,X
+9,,BE,Jazz Chisholm,1,X
+9,,BE,Drew Waters,1,X
+9,,BE,Travis d' Arnaud,1,X
+9,,BE,Johnny Cueto,1,X
+9,,BE,Deivi Garcia,1,X
+9,,BE,Josiah Gray,1,X
+9,,BE,Mark Canha,1,
+9,,BE,Starlin Castro,1,X
+9,,BE,Kolten Wong,1,X
+9,,BE,Emilio Pagan,1,X
