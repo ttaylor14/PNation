@@ -1,29 +1,34 @@
-team_id,Trade Block,Positions,Player,Player Salary,Keeping,lahmanID,retroID,bbrefID
-2,,1B,Joey Votto,2.0,X,,,
-2,,2B,Hanser Alberto,1.0,X,,,
-2,,3B,Eugenio Suarez,2.0,X,,,
-2,,SS,Didi Gregorius,2.0,X,,,
-2,,OF,Kole Calhoun,1.0,X,,,
-2,,OF,Starling Marte,2.0,X,,,
-2,,OF,Michael Brantley,2.0,X,,,
-2,,UTIL,Hunter Renfroe,2.0,X,,,
-2,,SP,Eduardo Rodriguez,2.0,X,,,
-2,,SP,,,X,,,
-2,,SP,,,X,,,
-2,,SP,Charlie Morton,2.0,X,,,
-2,,SP,Giovanny Gallegos,1.0,X,,,
-2,,RP,Hector Neris,1.0,X,,,
-2,,BE,Jason Vargas,1.0,X,,,
-2,,BE,Wade Miley,1.0,X,,,
-2,,BE,Michael Pineda,1.0,X,,,
-2,,BE,John Means,3.0,X,,,
-2,,BE,,,X,,,
-2,,BE,Buster Posey,14.0,X,,,
-2,,BE,luis Arraez,1.0,X,,,
-2,,BE,Mike Yastrzemski,1.0,X,,,
-2,,BE,brian Anderson,1.0,X,,,
-2,,DL,,,,,,
-2,,DL,Corey Knebell,6.0,X,,,
-2,,DL,,,X,,,
-2,,DL,Salvador Perez,2.0,X,,,
-2,,DL,,,X,,,
+team_id,Trade Block,Positions,Player,Player Salary,Keeping
+2,,C,Yasmani Grandal,6,X
+2,,1B,Joey Votto,2,X
+2,,2B,Hanser Alberto,1,X
+2,,3B,Eugenio Suarez,2,X
+2,,SS,Didi Gregorius,2,X
+2,,OF,Kole Calhoun,1,X
+2,,OF,Starling Marte,2,X
+2,,OF,Michael Brantley,2,X
+2,,UTIL,Hunter Renfroe,2,X
+2,,SP,Eduardo Rodriguez,2,X
+2,,SP,,,X
+2,,SP,,,X
+2,,SP,Charlie Morton,2,X
+2,,SP,Giovanny Gallegos,1,X
+2,,RP,Hector Neris,1,X
+2,,BE,Jason Vargas,1,X
+2,,BE,Wade Miley,1,X
+2,,BE,Michael Pineda,1,X
+2,,BE,John Means,3,X
+2,,BE,,,X
+2,,BE,Buster Posey,14,X
+2,,BE,luis Arraez,1,X
+2,,BE,Mike Yastrzemski,1,X
+2,,BE,brian Anderson,1,X
+2,,DL,,,
+2,,DL,Corey Knebell,6,X
+2,,DL,,,X
+2,,DL,Salvador Perez,2,X
+2,,DL,,,X
+2,,,,,
+2,,,Total Team Salary,57,57
+2,,,# of Players Kept,,23
+2,,,FAAB Left,,189

@@ -1,29 +1,34 @@
-team_id,Trade Block,Positions,Player,Player Salary,Keeping,lahmanID,retroID,bbrefID
-14,,1B,Jose Abreu,6.0,X,,,
-14,,2B,Niko Goodrum,3.0,X,,,
-14,,3B,Justin Turner,1.0,X,,,
-14,,SS,Eduardo Escobar,1.0,X,,,
-14,,OF,Harrison Bader,1.0,X,,,
-14,,OF,Andrew McCutchen,1.0,X,,,
-14,,OF,Chad Pinder,1.0,X,,,
-14,,UTIL,Daniel Vogelbach,1.0,X,,,
-14,,SP,Merrill Kelly,1.0,X,,,
-14,,SP,Mike Fiers,1.0,X,,,
-14,,SP,Kenta Maeda,12.0,X,,,
-14,,SP,Mike Leake,2.0,X,,,
-14,,SP,Julio Teheran,8.0,X,,,
-14,,RP,Jose Alvarado,8.0,X,,,
-14,,RP,Brandon Woodruff,3.0,X,,,
-14,,BE,Brett Anderson,1.0,X,,,
-14,,BE,Brandon Nimmo,15.0,X,,,
-14,,BE,Jay Bruce,1.0,X,,,
-14,,BE,Jonathan Loaisiga,10.0,X,,,
-14,,BE,,,X,,,
-14,,BE,Ryan Yarbrough,1.0,X,,,
-14,,BE,Kyle Seager,6.0,X,,,
-14,,BE,Greg Holland,1.0,X,,,
-14,,BE,Ketel Marte,9.0,X,,,
-14,,BE,Josh Donaldson,22.0,X,,,
-14,,BE,,,X,,,
-14,,DL,Aaron Hicks,1.0,X,,,
-14,,DL,Joey Lucchesi,6.0,X,,,
+team_id,Trade Block,Positions,Player,Player Salary,Keeping
+14,,C,Omar Narvaez,1,X
+14,,1B,Jose Abreu,6,X
+14,,2B,Niko Goodrum,3,X
+14,,3B,Justin Turner,1,X
+14,,SS,Eduardo Escobar,1,X
+14,,OF,Harrison Bader,1,X
+14,,OF,Andrew McCutchen,1,X
+14,,OF,Chad Pinder,1,X
+14,,UTIL,Daniel Vogelbach,1,X
+14,,SP,Merrill Kelly,1,X
+14,,SP,Mike Fiers,1,X
+14,,SP,Kenta Maeda,12,X
+14,,SP,Mike Leake,2,X
+14,,SP,Julio Teheran,8,X
+14,,RP,Jose Alvarado,8,X
+14,,RP,Brandon Woodruff,3,X
+14,,BE,Brett Anderson,1,X
+14,,BE,Brandon Nimmo,15,X
+14,,BE,Jay Bruce,1,X
+14,,BE,Jonathan Loaisiga,10,X
+14,,BE,,,X
+14,,BE,Ryan Yarbrough,1,X
+14,,BE,Kyle Seager,6,X
+14,,BE,Greg Holland,1,X
+14,,BE,Ketel Marte,9,X
+14,,BE,Josh Donaldson,22,X
+14,,BE,,,X
+14,,DL,Aaron Hicks,1,X
+14,,DL,Joey Lucchesi,6,X
+14,,DL,Will Myers,5,X
+14,,DL,Cesar Hernandez,1,X
+14,,DL,Jorge Soler,2,X
+14,,,,,

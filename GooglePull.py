@@ -84,7 +84,7 @@ for teamNumber in TeamPositions['TeamNumber']:
     df = pd.DataFrame(data, columns=headers)
 
     # Data Cleaning to only needed information
-    Team = df.iloc[4:32, 0:5]
+    Team = df.iloc[3:36, 0:5]
     Team['Player'] = Team['Player'].str.split('\n').str[0]
     Team['Player Salary'] = Team['Player Salary'].str.split('$').str[1]
 
