@@ -1,6 +1,6 @@
 # Draft Calculator File
 
-# last Update : 9.28.19
+# last Update : 9.29.19
 
 #### To Do:
 # update info to match FullRoster.csv label changes
@@ -418,8 +418,8 @@ def draft_prep():
     # Step 8: Update Team CSV Files with Accurate Information
     update_rosters()
 
-    # Step 9: Clean Global Variables for next team
-    # clean_df()
+    # Step 9: Clean Global Variables
+    clean_df()
 
     # This will only update individual team files
     # Not the Roster File
