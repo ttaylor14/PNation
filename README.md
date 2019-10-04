@@ -3,8 +3,7 @@ Procrastination Fantasy Baseball
 
 
 The following project was created with the sole intent
-in creating a Fantasy baseball salary calculator for the
-Procrastination Fantasy League:
+in creating a Editable Fantasy baseball Ranking System specific to league settings:
 
 http://fantasy.espn.com/baseball/league?leagueId=25593
 
@@ -12,30 +11,10 @@ to replace our current system located here:
 
 https://docs.google.com/spreadsheets/d/1Z08eDxf6zWTdcBjk0MuLqNrRBqT6nPLhd_In45e8W0I/edit?usp=sharing
 
--- Future project additions include:
-
-1. a user interface for direct interaction with the league owners for team manipulation
-    - Addition of a League Manager Dashboard and team sign-in
-
-2. A MILB team draft capabilities - to replace the current system and allow for future expansion
-
-3. Integration of historical baseball data for player projections, comparisons, etc... (use of the lahman database)
-    - If I can find a MILB historical database that intergration would be desired as well.
-
-4. Trade Block and interaction system
-    - Allows for a better system for sending trade offers that include MILB players, Cash, and communication
-    -possible trade analyzer at least for league owners??
-
-5. League predictive analytics, projections, and analysis of team dynamics
-    - Do certain characteristics or team make up/keeper selections/etc.. have a direct impact?
-    - How would changes to scoring, keeper costs, etc... effect the league?
-    - Interesting Facts about each team...
 
 
 
-
-
--- Understanding the Draft Calculator --
+# -- Understanding the Draft Calculator --
 
 The Procrastination League utilizes a very specific calculation to determine player salaries.
 
@@ -86,19 +65,13 @@ lowering draft budgets further
 
 -- Additions needed
 
-The Draft Calculator still needs refining. The following items are still desired:
-
-- Keeper selection - marking which players a team wishes to keep (possibly keeping these selections private?)
-
-- Setting Confirmation function - ensures everythign is accurate before draft calculations are copmleted
-
 - Eventual incorporation into the User Interface to allow teams to see simulations of team costs/player salaries based on different keeper selections (or impacts of trades)
 
 
 
 
 
--- Understanding the File Management --
+# -- Understanding the File Management --
 
 This file is used to manage all the files especially during software development. However, some of its functions may be utilized
 in the future for various portions of the system such as updating team rosters.
@@ -111,22 +84,72 @@ Team Name change function
 
 
 
--- Understanding the GoogleSheet --
+# -- Understanding the GooglePULL --
 
-This file is attempting to access the team's current Google Sheet file. This will pull off current team rosters, FAAB, and player salaries. 
-This information will be what is fed through the draft calculator and then reuploaded to the GoogleSheet. This will eliminate all human errors and create instantaneously team rosters than canbe used for projections and teram analysis.
-
-
+This file is attempting to access the team's current Google Sheet file. This will pull current team rosters, FAAB, Keeper Selections, and player salaries. 
+This information will be what is fed through the draft calculator and then re-uploaded to the GoogleSheet. This will eliminate all human errors and create instantaneously team rosters than canbe used for projections and teram analysis.
 
 
--- Understanding the Rankings File --
+
+
+# -- Understanding the GooglePUSH --
+
+This file is attempting to access the team's current Google Sheet file. This will push current team rosters, FAAB, Keeper Selections, and player salaries back to the League Google Sheet after Calculations on player Salaries prior to the draft are copmleted.
+
+
+
+
+# -- Understanding the Rankings File --
 
 The rankings File attempts to quantify a players production. This is done by creating an editable point system that can then be used to examine player's production throughout any year using pybaseball.
 
 
 The File is also attempting to create Marcel projections and use other resources to create player projections and rankings specific to the desired league settings. 
 
+
+-Eventual Addition
 It is hoped that various projection system data can be scraped in order to create an aggregate ranking of multiple sources.
 By creating a aggregate it should neautralize any one system to create  one that is hopefully more accurate.
 
 It is also desired to add the ability to look at stats for several upcoming years to create a proper dynaty ranking system.
+
+
+
+
+# -- Understanding the RotoRankings File --
+
+The RotoRankings File attempts to quantify a players production for Rotisserie Rankings. This is used primarily for comparison to points based leagues.
+
+
+
+
+# -- Understanding the TeamAnalysis File --
+
+The TeamAnalysis file compares the team rosters created by the GooglePull Program. It compares the estimated point totals for both the current year and based on the Marcel Projections.
+
+
+
+
+# -- Future project additions include:
+
+1. a user interface for direct interaction with the league owners for team manipulation
+    - Addition of a League Manager Dashboard and team sign-in
+
+2. A MILB team draft capabilities - to replace the current system and allow for future expansion
+
+3. Integration of historical baseball data for player projections, comparisons, etc... (use of the lahman database)
+    - If I can find a MILB historical database that intergration would be desired as well.
+
+4. Trade Block and interaction system
+    - Allows for a better system for sending trade offers that include MILB players, Cash, and communication
+    -possible trade analyzer at least for league owners??
+
+5. League predictive analytics, projections, and analysis of team dynamics
+    - Do certain characteristics or team make up/keeper selections/etc.. have a direct impact?
+    - How would changes to scoring, keeper costs, etc... effect the league?
+    - Interesting Facts about each team...
+
+
+
+
+
