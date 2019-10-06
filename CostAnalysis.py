@@ -85,21 +85,9 @@ bstatAVG = np.mean(bstats, axis = 0)
 pstatAVG = np.mean(pstats, axis = 0)
 # print(pstatAVG)
 
-'''
-# remove the col dont need avg of...
-bstats = bstats.drop('Season', 1)
-bstats = bstats.drop('Name', 1)
-bstats = bstats.drop('Team', 1)
-bstats = bstats.drop('Age', 1)
-'''
+
 bstats = bstats.drop('Unnamed: 0', 1)
 
-'''
-pstats = pstats.drop('Season', 1)
-pstats = pstats.drop('Name', 1)
-pstats = pstats.drop('Team', 1)
-pstats = pstats.drop('Age', 1)
-'''
 pstats = pstats.drop('Unnamed: 0', 1)
 
 
@@ -164,7 +152,7 @@ pstats['Points_Cost'] = (pstats['Points_AVG'] )
 
 # using point totals
 
-Percent_Hitting = 50
+Percent_Hitting = 60
 Percent_Pitching = 100 - Percent_Hitting
 
 LeagueBudget = 300
@@ -174,20 +162,23 @@ TotalCashSpent = LeagueBudget * NumTeams
 TotalCashHitting = TotalCashSpent * (Percent_Hitting / 100)
 TotalCashPitching = TotalCashSpent * (Percent_Pitching / 100)
 
-PriceHitterZero = (TotalCashHitting / TotalHitters)
-PricePerPointBat = ( PriceHitterZero - 1 ) / 3 # check this math??
+PriceHitterZero = (TotalCashHitting / (TotalHitters + 7) )
+PricePerPointBat = ( PriceHitterZero - 1 ) / 4 # check this math??
 
-bstats['Price'] = PriceHitterZero + (bstats['Points_Cost'] * PricePerPointBat )
+priceB = PriceHitterZero + (bstats['Points_Cost'] * PricePerPointBat )
 
-print(bstats['Price'])
+bstats.insert(5, 'Price', priceB)
 
+bstats['Price'] = bstats['Price'].round(decimals=2)
 
-PricePitcherZero = (TotalCashPitching / TotalPitchers)
-PricePerPointPit = ( PricePitcherZero - 1 ) / 3 # check this math??
+PricePitcherZero = (TotalCashPitching / (TotalPitchers + 7) )
+PricePerPointPit = ( PricePitcherZero - 1 ) / 4 # check this math??
 
-pstats['Price'] = PricePitcherZero + (pstats['Points_Cost'] * PricePerPointPit )
+priceP = PricePitcherZero + (pstats['Points_Cost'] * PricePerPointPit )
 
-print(pstats['Price'])
+pstats.insert(5, 'Price', priceP)
+
+pstats['Price'] = pstats['Price'].round(decimals=2)
 
 bstats.to_csv('data/CostAnalysis/CostAnalysis_Bat.csv', sep=',', index=False, encoding='utf-8')
 pstats.to_csv('data/CostAnalysis/CostAnalysis_Pit.csv', sep=',', index=False, encoding='utf-8')
