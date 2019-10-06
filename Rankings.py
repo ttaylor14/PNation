@@ -218,7 +218,7 @@ def combinePoints():
     pstats = pstats.add_suffix('_pit')
 
     #Combine CSV
-    Rankings = pd.merge(bstats, pstats, left_on=['Name_bat'], right_on=['Name_pit'], how='outer', suffixes=('_bat', '_pit'))
+    Rankings = pd.merge(bstats, pstats, left_on=['Name_bat', 'Age_bat', 'Team_bat'], right_on=['Name_pit', 'Age_pit', 'Team_pit'], how='outer', suffixes=('_bat', '_pit'))
     Rankings.drop(labels=['Unnamed: 0_bat', 'Unnamed: 0_pit'], axis=1,inplace = True)
     Rankings.Name_bat.fillna(Rankings.Name_pit, inplace=True)
     Rankings = Rankings.fillna(0)
@@ -763,10 +763,10 @@ def PointCycle():
 
 
 # Creates files for batting and pitching
-# points(2019)
+points(2018)
 
 # Combines batting an dpitching files together
-# combinePoints()
+combinePoints()
 
 # Run Marcel Projections Table to later create projections
 # marcelCombinedFile()
