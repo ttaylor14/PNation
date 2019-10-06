@@ -689,6 +689,7 @@ def MarcelPoints():
 def marcelCalculations():
     global currentYear
 
+    marcelCombinedFile()
     marcelCalculations_bat()
     marcelCalculations_pit()
     MarcelPoints()
@@ -773,10 +774,10 @@ def PointCycle():
 
 
 # Creates files for batting and pitching
-points(2019)
+# points(2019)
 
 # Combines batting an dpitching files together
-combinePoints()
+# combinePoints()
 
 # Run Marcel Projections Table to later create projections
 # marcelCombinedFile()
@@ -786,7 +787,7 @@ combinePoints()
 
 
 # Run Marcel Projections
-# marcelCalculations()
+marcelCalculations()
 
 # Run Point Cycle
 # PointCycle()

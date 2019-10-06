@@ -5,19 +5,19 @@ team_id,Player,Player Salary,Age,Team,Positions,Total_Points
 1,Jean Segura,7.0,29.0,Phillies,SS,326
 1,Mookie Betts,45.0,26.0,Red Sox,OF,578
 1,Christian Yelich,11.0,27.0,Brewers,OF,508
-1,Austin Hays,6.0,23.0,Orioles,OF,138
+1,Austin Hays,6.0,23.0,Orioles,OF,137
 1,David Peralta,6.0,31.0,Diamondbacks,UTIL,261
 1,Frankie Montas,1.0,26.0,Athletics,SP,328
 1,J.A. Happ,9.0,36.0,Yankees,SP,239
-1,Rick Porcello,7.0,30.0,Red Sox,SP,309
-1,Sean Newcomb,8.0,26.0,Braves,SP,255
+1,Rick Porcello,7.0,30.0,Red Sox,SP,303
+1,Sean Newcomb,8.0,26.0,Braves,SP,254
 1,Zach Eflin,6.0,25.0,Phillies,SP,306
 1,Kenley Jansen,7.0,31.0,Dodgers,RP,400
 1,Asdrubal Cabrera,6.0,33.0,- - -,BE,238
 1,Scott Kingery,6.0,25.0,Phillies,BE,450
 1,Trey Mancini,1.0,27.0,Orioles,BE,382
 1,Marcus Stroman,7.0,28.0,- - -,BE,338
-1,Nathan Eovaldi,1.0,29.0,Red Sox,BE,229
+1,Nathan Eovaldi,1.0,29.0,Red Sox,BE,231
 1,Marcus Walden,1.0,30.0,Red Sox,BE,247
 1,Jake Odorizzi,1.0,29.0,Twins,BE,353
 1,Tony Gonsolin,1.0,25.0,Dodgers,,284
@@ -29,15 +29,15 @@ team_id,Player,Player Salary,Age,Team,Positions,Total_Points
 2,Kole Calhoun,1.0,31.0,Angels,OF,273
 2,Starling Marte,2.0,30.0,Pirates,OF,341
 2,Michael Brantley,2.0,32.0,Astros,OF,340
-2,Hunter Renfroe,2.0,27.0,Padres,UTIL,315
+2,Hunter Renfroe,2.0,27.0,Padres,UTIL,314
 2,Eduardo Rodriguez,2.0,26.0,Red Sox,SP,463
 2,Charlie Morton,2.0,35.0,Rays,SP,325
-2,Giovanny Gallegos,1.0,27.0,Cardinals,SP,318
+2,Giovanny Gallegos,1.0,27.0,Cardinals,SP,316
 2,Hector Neris,1.0,30.0,Phillies,RP,305
-2,Jason Vargas,1.0,36.0,- - -,BE,164
+2,Jason Vargas,1.0,36.0,- - -,BE,163
 2,Wade Miley,1.0,32.0,Astros,BE,252
-2,Michael Pineda,1.0,30.0,Twins,BE,318
-2,John Means,3.0,26.0,Orioles,BE,351
+2,Michael Pineda,1.0,30.0,Twins,BE,319
+2,John Means,3.0,26.0,Orioles,BE,350
 2,Buster Posey,14.0,32.0,Giants,BE,212
 2,Mike Yastrzemski,1.0,28.0,Giants,BE,254
 3,Rhys Hoskins,6.0,26.0,Phillies,1B,472
@@ -47,7 +47,7 @@ team_id,Player,Player Salary,Age,Team,Positions,Total_Points
 3,Nicholas Castellanos,6.0,27.0,- - -,OF,409
 3,Jesse Winker,11.0,25.0,Reds,OF,323
 3,Aaron Judge,6.0,27.0,Yankees,OF,356
-3,Yordan Alvarez,1.0,22.0,Astros,UTIL,405
+3,Yordan Alvarez,1.0,22.0,Astros,UTIL,404
 3,Julio Urias,6.0,22.0,Dodgers,SP,377
 3,Trevor Bauer,6.0,28.0,- - -,SP,479
 3,Jose Berrios,6.0,25.0,Twins,SP,494
@@ -55,7 +55,7 @@ team_id,Player,Player Salary,Age,Team,Positions,Total_Points
 3,Justin Verlander,6.0,36.0,Astros,SP,376
 3,Mike Foltynewicz,6.0,27.0,Braves,BE,287
 3,Alex Verdugo,6.0,23.0,Dodgers,BE,311
-3,Carter Kieboom,1.0,21.0,Nationals,BE,155
+3,Carter Kieboom,1.0,21.0,Nationals,BE,153
 3,Gavin Lux,1.0,21.0,Dodgers,BE,182
 3,Charlie Blackmon,25.0,32.0,Rockies,BE,365
 3,Nick Solak,1.0,24.0,Rangers,BE,186
@@ -64,9 +64,9 @@ team_id,Player,Player Salary,Age,Team,Positions,Total_Points
 3,Nico Hoerner,1.0,22.0,Cubs,BE,186
 3,Chris Sale,1.0,0.0,0,DL,594
 3,Jameson Taillon,1.0,27.0,Pirates,DL,247
-3,Carlos Carrasco,6.0,0.0,0,DL,449
+3,Carlos Carrasco,6.0,0.0,0,DL,450
 4,Freddie Freeman,4.0,29.0,Braves,1B,476
-4,Ozzie Albies,3.0,22.0,Braves,2B,543
+4,Ozzie Albies,3.0,22.0,Braves,2B,542
 4,Max Muncy,6.0,28.0,Dodgers,3B,409
 4,Javier Baez,4.0,26.0,Cubs,SS,429
 4,J.D. Martinez,4.0,31.0,Red Sox,OF,445
@@ -74,14 +74,14 @@ team_id,Player,Player Salary,Age,Team,Positions,Total_Points
 4,Marcell Ozuna,6.0,28.0,Cardinals,OF,372
 4,Howie Kendrick,1.0,35.0,Nationals,UTIL,181
 4,Jack Flaherty,6.0,23.0,Cardinals,SP,542
-4,Kevin Gausman,3.0,28.0,- - -,SP,246
+4,Kevin Gausman,3.0,28.0,- - -,SP,245
 4,Jacob deGrom,3.0,31.0,Mets,SP,464
 4,Aaron Nola,4.0,26.0,Phillies,SP,503
 4,Christian Walker,1.0,28.0,Diamondbacks,BE,298
-4,Caleb Smith,1.0,27.0,Marlins,BE,347
+4,Caleb Smith,1.0,27.0,Marlins,BE,349
 4,Freddy Peralta,3.0,23.0,Brewers,BE,344
-4,Fernando Tatis Jr.,3.0,20.0,Padres,BE,384
-4,Pablo Lopez,3.0,23.0,Marlins,BE,323
+4,Fernando Tatis Jr.,3.0,20.0,Padres,BE,382
+4,Pablo Lopez,3.0,23.0,Marlins,BE,324
 4,Franmil Reyes,5.0,23.0,- - -,BE,383
 4,Brock Holt,1.0,31.0,Red Sox,BE,168
 4,Giancarlo Stanton,31.0,29.0,Yankees,BE,208
@@ -94,13 +94,13 @@ team_id,Player,Player Salary,Age,Team,Positions,Total_Points
 5,Nolan Arenado,33.0,28.0,Rockies,3B,522
 5,Francisco Lindor,1.0,25.0,Indians,SS,534
 5,Eloy Jimenez,6.0,22.0,White Sox,OF,361
-5,Ramon Laureano,2.0,24.0,Athletics,OF,341
+5,Ramon Laureano,2.0,24.0,Athletics,OF,340
 5,Joey Gallo,9.0,25.0,Rangers,OF,319
 5,Yoan Moncada,6.0,24.0,White Sox,UTIL,340
-5,Luis Castillo,2.0,26.0,Reds,SP,446
+5,Luis Castillo,2.0,26.0,Reds,SP,445
 5,Chris Paddack,20.0,23.0,Padres,SP,460
 5,A.J. Puk,6.0,0.0,0,SP,114
-5,Jesus Luzardo,27.0,0.0,0,SP,126
+5,Jesus Luzardo,27.0,0.0,0,SP,127
 5,Edwin Diaz,6.0,0.0,0,RP,571
 5,Josh Hader,6.0,25.0,Brewers,RP,502
 5,Jordan Hicks,6.0,0.0,0,BE,375
@@ -117,7 +117,7 @@ team_id,Player,Player Salary,Age,Team,Positions,Total_Points
 6,Mitch Haniger,6.0,28.0,Mariners,OF,266
 6,Nelson Cruz,6.0,38.0,Twins,UTIL,211
 6,Zack Greinke,28.0,35.0,- - -,SP,344
-6,David Price,26.0,33.0,Red Sox,SP,276
+6,David Price,26.0,33.0,Red Sox,SP,275
 6,Jose Quintana,6.0,30.0,Cubs,SP,295
 6,Cole Hamels,6.0,35.0,Cubs,SP,218
 6,Logan Webb,2.0,22.0,Giants,SP,249
@@ -149,9 +149,9 @@ team_id,Player,Player Salary,Age,Team,Positions,Total_Points
 7,Tanner Roark,1.0,32.0,- - -,SP,250
 7,Jon Lester,6.0,35.0,Cubs,SP,244
 7,Alex Young,1.0,25.0,Diamondbacks,SP,307
-7,Chris Bassitt,1.0,30.0,Athletics,SP,307
+7,Chris Bassitt,1.0,30.0,Athletics,SP,306
 7,Brad Hand,6.0,0.0,0,RP,520
-7,Ken Giles,6.0,0.0,0,RP,301
+7,Ken Giles,6.0,0.0,0,RP,302
 7,Homer Bailey,1.0,33.0,- - -,BE,176
 7,Hansel Robles,1.0,0.0,0,BE,443
 7,Rich Hill,15.0,39.0,Dodgers,BE,134
@@ -160,17 +160,17 @@ team_id,Player,Player Salary,Age,Team,Positions,Total_Points
 7,Zach Plesac,1.0,0.0,0,BE,220
 7,Justin Upton,20.0,31.0,Angels,BE,211
 7,David Dahl,10.0,25.0,Rockies,BE,334
-7,Jonathan Schoop,1.0,27.0,Twins,BE,300
-7,Corey Kluber,1.0,33.0,Indians,,262
+7,Jonathan Schoop,1.0,27.0,Twins,BE,299
+7,Corey Kluber,1.0,33.0,Indians,,261
 7,Kevin Newman,1.0,25.0,Pirates,,310
 7,Daniel Murphy,6.0,34.0,Rockies,DL,242
-8,Jeff McNeil,1.0,27.0,Mets,2B,364
+8,Jeff McNeil,1.0,27.0,Mets,2B,363
 8,Xander Bogaerts,6.0,26.0,Red Sox,SS,479
 8,Whit Merrifield,1.0,30.0,Royals,OF,368
 8,Austin Meadows,1.0,24.0,Rays,UTIL,422
-8,Tyler Glasnow,1.0,25.0,Rays,SP,290
+8,Tyler Glasnow,1.0,25.0,Rays,SP,291
 8,Matthew Boyd,1.0,28.0,Tigers,SP,364
-8,Robbie Ray,7.0,27.0,Diamondbacks,SP,420
+8,Robbie Ray,7.0,27.0,Diamondbacks,SP,421
 8,Kirby Yates,1.0,0.0,0,RP,476
 8,Archie Bradley,1.0,26.0,Diamondbacks,RP,296
 8,Shane Bieber,1.0,24.0,Indians,BE,588
@@ -181,7 +181,7 @@ team_id,Player,Player Salary,Age,Team,Positions,Total_Points
 8,Kyle Tucker,5.0,22.0,Astros,BE,156
 8,Mitch Keller,6.0,23.0,Pirates,BE,232
 8,Mike Soroka,10.0,21.0,Braves,BE,521
-8,Cavan Biggio,1.0,24.0,Blue Jays,,281
+8,Cavan Biggio,1.0,24.0,Blue Jays,,280
 8,Bryan Reynolds,1.0,24.0,Pirates,DL,362
 9,Gleyber Torres,6.0,22.0,Yankees,2B,516
 9,Jose Ramirez,44.0,26.0,Indians,3B,635
@@ -189,7 +189,7 @@ team_id,Player,Player Salary,Age,Team,Positions,Total_Points
 9,Mike Trout,39.0,27.0,Angels,OF,580
 9,Juan Soto,6.0,20.0,Nationals,OF,643
 9,Rafael Devers,6.0,22.0,Red Sox,UTIL,542
-9,Gerrit Cole,6.0,28.0,Astros,SP,539
+9,Gerrit Cole,6.0,28.0,Astros,SP,540
 9,Walker Buehler,6.0,24.0,Dodgers,SP,560
 9,Max Scherzer,61.0,34.0,Nationals,SP,383
 9,Aaron Sanchez,4.0,26.0,- - -,SP,235
@@ -204,10 +204,10 @@ team_id,Player,Player Salary,Age,Team,Positions,Total_Points
 10,Adam Frazier,7.0,27.0,Pirates,2B,333
 10,Kris Bryant,1.0,27.0,Cubs,3B,413
 10,Jorge Polanco,5.0,25.0,Twins,SS,423
-10,Byron Buxton,3.0,25.0,Twins,OF,232
+10,Byron Buxton,3.0,25.0,Twins,OF,231
 10,Mark Trumbo,1.0,33.0,Orioles,OF,97
 10,Max Kepler,1.0,26.0,Twins,OF,426
-10,Kyle Schwarber,10.0,26.0,Cubs,UTIL,402
+10,Kyle Schwarber,10.0,26.0,Cubs,UTIL,401
 10,Madison Bumgarner,1.0,29.0,Giants,SP,381
 10,Zack Wheeler,1.0,29.0,Mets,SP,369
 10,Chris Archer,27.0,30.0,Pirates,SP,266
@@ -217,7 +217,7 @@ team_id,Player,Player Salary,Age,Team,Positions,Total_Points
 10,Blake Treinen,1.0,0.0,0,RP,219
 10,Jason Kipnis,2.0,32.0,Indians,BE,242
 10,Dylan Bundy,15.0,26.0,Orioles,BE,335
-10,Jakob Junis,11.0,26.0,Royals,BE,366
+10,Jakob Junis,11.0,26.0,Royals,BE,364
 10,Kyle Gibson,1.0,31.0,Twins,BE,289
 10,Kendrys Morales,3.0,36.0,- - -,BE,166
 10,Kevin Pillar,1.0,30.0,- - -,BE,302
@@ -228,11 +228,11 @@ team_id,Player,Player Salary,Age,Team,Positions,Total_Points
 11,Bryce Harper,4.0,26.0,Phillies,OF,499
 11,Tommy Pham,14.0,31.0,Rays,OF,332
 11,Khris Davis,10.0,31.0,Athletics,UTIL,298
-11,Yu Darvish,10.0,32.0,Cubs,SP,284
-11,Luke Weaver,1.0,25.0,Diamondbacks,SP,286
+11,Yu Darvish,10.0,32.0,Cubs,SP,283
+11,Luke Weaver,1.0,25.0,Diamondbacks,SP,285
 11,James Paxton,9.0,30.0,Yankees,SP,400
 11,Dinelson Lamet,1.0,26.0,Padres,SP,256
-11,Alex Colome,1.0,0.0,0,RP,258
+11,Alex Colome,1.0,0.0,0,RP,259
 11,Michael Chavis,1.0,23.0,Red Sox,BE,270
 11,Sandy Alcantara,1.0,23.0,Marlins,BE,367
 11,Max Fried,1.0,25.0,Braves,BE,418
@@ -241,9 +241,9 @@ team_id,Player,Player Salary,Age,Team,Positions,Total_Points
 11,Willie Calhoun,1.0,24.0,Rangers,DL,276
 11,Brett Gardner,1.0,35.0,Yankees,DL,222
 12,Matt Olson,10.0,25.0,Athletics,1B,429
-12,Keston Hiura,1.0,22.0,Brewers,2B,301
+12,Keston Hiura,1.0,22.0,Brewers,2B,298
 12,Jurickson Profar,6.0,26.0,Athletics,3B,367
-12,Bo Bichette,1.0,21.0,Blue Jays,SS,263
+12,Bo Bichette,1.0,21.0,Blue Jays,SS,262
 12,Eddie Rosario,1.0,27.0,Twins,OF,419
 12,Michael Conforto,14.0,26.0,Mets,OF,422
 12,Nomar Mazara,6.0,24.0,Rangers,OF,356
@@ -251,15 +251,15 @@ team_id,Player,Player Salary,Age,Team,Positions,Total_Points
 12,Stephen Strasburg,6.0,30.0,Nationals,SP,457
 12,Blake Snell,6.0,0.0,0,SP,575
 12,Aaron Civale,1.0,24.0,Indians,SP,295
-12,Dylan Cease,6.0,0.0,0,SP,129
-12,Kyle Wright,6.0,23.0,Braves,BE,211
+12,Dylan Cease,6.0,0.0,0,SP,130
+12,Kyle Wright,6.0,23.0,Braves,BE,213
 12,Alex Reyes,7.0,0.0,0,BE,283
 12,Vladimir Guerrero Jr.,6.0,20.0,Blue Jays,BE,381
 12,Brendan Rodgers,6.0,22.0,Rockies,BE,142
 12,Miles Mikolas,6.0,30.0,Cardinals,BE,347
 12,Brendan McKay,1.0,23.0,Rays,BE,275
-12,Alex Bregman,6.0,25.0,Astros,BE,580
-12,Dustin May,1.0,21.0,Dodgers,BE,262
+12,Alex Bregman,6.0,25.0,Astros,BE,579
+12,Dustin May,1.0,21.0,Dodgers,BE,261
 13,Paul Goldschmidt,1.0,31.0,Cardinals,1B,374
 13,Jose Altuve,6.0,29.0,Astros,2B,383
 13,Matt Carpenter,6.0,33.0,Cardinals,3B,242
@@ -283,9 +283,9 @@ team_id,Player,Player Salary,Age,Team,Positions,Total_Points
 13,Jon Gray,13.0,27.0,Rockies,BE,338
 13,Hunter Pence,1.0,36.0,Rangers,BE,140
 13,Tim Anderson,2.0,26.0,White Sox,BE,310
-13,Shohei Ohtani,6.0,24.0,Angels,BE,628
+13,Shohei Ohtani,6.0,24.0,Angels,BE,627
 13,Sonny Gray,1.0,29.0,Reds,BE,378
-13,Aristides Aquino,1.0,25.0,Reds,DL,245
+13,Aristides Aquino,1.0,25.0,Reds,DL,243
 13,Mallex Smith,1.0,26.0,Mariners,DL,276
 14,Jose Abreu,6.0,32.0,White Sox,1B,336
 14,Niko Goodrum,3.0,27.0,Tigers,2B,259
@@ -294,15 +294,15 @@ team_id,Player,Player Salary,Age,Team,Positions,Total_Points
 14,Harrison Bader,1.0,25.0,Cardinals,OF,239
 14,Andrew McCutchen,1.0,32.0,Phillies,OF,208
 14,Chad Pinder,1.0,27.0,Athletics,OF,221
-14,Daniel Vogelbach,1.0,26.0,Mariners,UTIL,332
-14,Merrill Kelly,1.0,30.0,Diamondbacks,SP,265
+14,Daniel Vogelbach,1.0,26.0,Mariners,UTIL,331
+14,Merrill Kelly,1.0,30.0,Diamondbacks,SP,266
 14,Mike Fiers,1.0,0.0,0,SP,392
 14,Kenta Maeda,12.0,31.0,Dodgers,SP,320
-14,Mike Leake,2.0,31.0,- - -,SP,280
+14,Mike Leake,2.0,31.0,- - -,SP,279
 14,Julio Teheran,8.0,28.0,Braves,SP,343
 14,Jose Alvarado,8.0,0.0,0,RP,154
-14,Brandon Woodruff,3.0,26.0,Brewers,RP,391
-14,Brett Anderson,1.0,31.0,Athletics,BE,254
+14,Brandon Woodruff,3.0,26.0,Brewers,RP,392
+14,Brett Anderson,1.0,31.0,Athletics,BE,253
 14,Brandon Nimmo,15.0,26.0,Mets,BE,219
 14,Jay Bruce,1.0,32.0,- - -,BE,214
 14,Jonathan Loaisiga,10.0,0.0,0,BE,353
