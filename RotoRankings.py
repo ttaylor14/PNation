@@ -45,6 +45,9 @@ def roto_Rankings():
 
     # print(roster.head())
 
+
+    #### how to make ERA and WHIP better for a lower number vs a higher....
+
     # Limit Data to specific Columns
     roster = roster[rotoCol]
     # print(roster.head())

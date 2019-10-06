@@ -1,25 +1,27 @@
-# Draft Calculator File
+import setuptools
+import os
 
-# last Update : 9.27.19
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
-#### To Do:
-# update info to match FullRoster.csv label changes
-# add section on removing players not kept or rows with no names listed
-# ensure faab works properly
+from statsapi import version
 
-name = 12
-print(name)
-
-def test1():
-    global name
-    name = 32
-    print(name)
-
-def test2():
-    name = 22
-    print(name)
-
-test1()
-test2()
-print(name)
-
+setuptools.setup(
+    name="MLB-StatsAPI",
+    version=version.VERSION,
+    author="Todd Roberts",
+    author_email="todd@toddrob.com",
+    description="MLB Stats API Wrapper for Python",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/toddrob99/MLB-StatsAPI",
+    packages=setuptools.find_packages(),
+    install_requires=['requests'],
+    classifiers=[
+        "Programming Language :: Python",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+        "Operating System :: OS Independent",
+    ],
+)
