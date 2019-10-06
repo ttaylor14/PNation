@@ -24,6 +24,7 @@ http://www.seanlahman.com/baseball-archive/statistics/
 
 
 
+
 ### * Issues found in the pybaseball package: *
 * Many of these stats are included in Lahman Database which could be utilized for data prior to the current year 
 
@@ -35,6 +36,20 @@ http://www.seanlahman.com/baseball-archive/statistics/
 - [ ] Stats do not include all Fielding Stats (Put Outs, Assists, Double PLays....)
 - [ ] Does not include Games played by position
 - [ ] Also the lack of a player code can make merging data slightly more difficult (looking at utilizing Lahman Player ID incorporation)
+
+
+
+## Contributing
+Pull requests are welcome. For changes, please open an issue first to discuss what you would like to change or add.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
+
+
+
+
 
 
 # PYTHON FILES
