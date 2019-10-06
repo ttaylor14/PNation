@@ -47,7 +47,7 @@ The Master File's aim is to create a one stop shop for running and accessing all
 This file will be utilized to complete complex tasks such as League Draft processing.
 Eventually the hope is to incorporate this system into a Visual User Interfafce, possibly using: tkinter?
 
-### * -- Draft() *
+### * Draft() *
 In preperation for a draft this functions aim is to complete the calculations for draft preperations.
 
 Step 1: Pull Current Data from the Google Sheet
@@ -60,20 +60,20 @@ Step 6: Final step must be completed manually:
    - Adjust new Salaries in League Site (ESPN) prior to draft with update player values
 
 
-### * -- teamAnalysis() *
+### * teamAnalysis() *
 Runs a set of Analysis functions on current team rosters (Both current year stats and future projected stats)
 
 
-### * -- pointCycle() *
+### * pointCycle() *
 Runs Point cycle function to create CSV files with league and player stats for each year since 2000.
 Fills in lgAvg CSV file and create CSV for each year for further evaluation.
 
-### * -- pointRank() *
+### * pointRank() *
 Runs current point totals for a specific year (most likely the current season)
 
 
 
-### * -- Additions needed *
+### * Additions needed *
 
 - [ ] User Interface?
 - [ ] Temp. Player Salary Calculations?
@@ -98,7 +98,7 @@ are used when calculating the upcoming year's team budget.
 Cash remining after the draft is rolled into the teams faab account. This money is used for wavier wire pick ups, trades,
 or, as we will discuss, player salary roll downs.
 
-### * -- Salary Roll Down *
+### * Salary Roll Down *
 
 Before the draft remaining faab is used to evenly pay down player salaries (of keepers). If you had $15 remining of faab, the
 first 15 players, over $1, on your roster would subtract $1 from each of their salaries. If a player's salary is already at $1
@@ -107,13 +107,13 @@ then that players salary is skipped and applied to the following player. (No pla
 If, in the example provided above, you only kept 10 players then all 10 would lose $1 and then the first five would lose another $1.
 So the first 5 players would decrease by $2 and the last 5 would decrease by only $1. If money remains it rolls over to the Keeper costs.
 
-### * -- Keeper Costs *
+### * Keeper Costs *
 
 After the faab is applied then the keeper cost is applied to the player's salary. To keep a player, their salary will increase by $5
 (after the faab is applied). If any faab remains player's salaries could be rolled down with any remaining faab until player's
 salaries reach $1. If any faab is left it is applied to the team's draft budget.
 
-### * -- Draft Budget *
+### * Draft Budget *
 
 Once the team's salary is finalized the teams cost is subtracted from the yearly draft budget (which has now decreased to $300 a year).
 Teams draft any remaining players with any remaining cash (teams must have at least $1 per remaining draft spot to complete the draft).
@@ -121,7 +121,7 @@ And once the draft is completed, and remaining draft money is rolled into the te
 
 
 
-Some areas the League is looking to make some changes possibly in the future:
+* Some areas the League is looking to make some changes possibly in the future: *
 
 Salary roll down -- salaries only roll down $2 for $1. This will limit the lowering of salaries
 keeper costs -- increasing keeper costs
@@ -130,7 +130,7 @@ faab not being applied after the keeper costs
 losing faab not used that year?
 lowering draft budgets further
 
-### * -- Additions needed *
+### * Additions needed *
 
 - [ ] Complete Settings Confirmation Function
 - [ ] Eventual incorporation into the User Interface to allow teams to see simulations of team costs/player salaries based on different keeper selections (or impacts of trades)
@@ -146,7 +146,7 @@ in the future for various portions of the system such as updating team rosters.
 
 This File may become out of date once the use of GSpread and accessing the teams Google Sheet file is complete
 
-### * -- Additions needed *
+### * Additions needed *
 
 - [ ] Team Name change function
 
@@ -158,7 +158,7 @@ This File may become out of date once the use of GSpread and accessing the teams
 This file is attempting to access the team's current Google Sheet file. This will pull current team rosters, FAAB, Keeper Selections, and player salaries. 
 This information will be what is fed through the draft calculator and then re-uploaded to the GoogleSheet. This will eliminate all human errors and create instantaneously team rosters than canbe used for projections and teram analysis.
 
-### * -- Additions needed *
+### * Additions needed *
 
 - [ ] Dealing with Duplicate player names
 - [ ] Dealing with Player Teams
@@ -169,7 +169,7 @@ This information will be what is fed through the draft calculator and then re-up
 
 This file is attempting to access the team's current Google Sheet file. This will push current team rosters, FAAB, Keeper Selections, and player salaries back to the League Google Sheet after Calculations on player Salaries prior to the draft are copmleted.
 
-### * -- Additions needed *
+### * Additions needed *
 
 - [ ] Push New Salaries to Google Sheet
 - [ ] Remove Players not kept
@@ -186,7 +186,7 @@ The rankings File attempts to quantify a players production. This is done by cre
 The File is also attempting to create Marcel projections and use other resources to create player projections and rankings specific to the desired league settings. 
 
 
-### * -- Additions needed *
+### * Additions needed *
 
 - [ ] Combine several projection system to create an aggregate ranking of multiple sources which should neautralize any one system to create  one that is hopefully more accurate and consistant.
 - [ ] Dynaty ranking system based on several upcoming years
@@ -202,7 +202,7 @@ The File is also attempting to create Marcel projections and use other resources
 The RotoRankings File attempts to quantify a players production for Rotisserie Rankings. This is used primarily for comparison to points based leagues.
 
 
-### * -- Additions needed *
+### * Additions needed *
 
 - [ ] Adjust Z-score for Lowest values of ERA and WHIP
 - [ ] Adjust for stat totals (someone batting .300 for 5 ab is not worth as much as someone over 300 ab)
@@ -213,7 +213,7 @@ The RotoRankings File attempts to quantify a players production for Rotisserie R
 
 The TeamAnalysis file compares the team rosters created by the GooglePull Program. It compares the estimated point totals for both the current year and based on the Marcel Projections.
 
-### * -- Additions needed *
+### * Additions needed *
 
 - [ ] Adjust to include player positions/scarcity
 - [ ] incorporate the fact that onyl a specific number of players can play at a time
@@ -356,7 +356,23 @@ This folder is primarily used for research and understanding of how to find need
 
 ## -- teamAnalysis Folder --
 
+-- ProjectionRankings.csv
+   - Ranking Teams by total projected point (based on marcel projections and team roster files pulled from the Google Sheet
+
+-- TeamPoints_Proj.csv
+   - Contains projected point totals for each player
+   - organized by team_id
+   
+-- CurrentRankings.csv
+   - Ranking Teams by total the current year's point (based on marcel projections and team roster files pulled from the Google Sheet
+
+-- TeamPoints_Current.csv
+   - Contains current year's point totals for each player
+   - organized by team_id
+
 ## -- Teams Folder --
 
+-- contains team rosters for each team.
+-- files are names Team with team_id Number as an identifier.
 
 
