@@ -1,6 +1,6 @@
 # Projected Rankings System
 
-# last Update : 9.27.19
+# last Update : 10.6.19
 
 
 
@@ -149,10 +149,12 @@ def points(currentSeason):
     # missing Sac and GWRBI and everything past CS
 
     data['Points'] = points
+    data['Points'] = data['Points'].round(decimals=0)
 
     BattingStats = data[['Season', 'Name', 'Team', 'Age', 'Points', 'G', 'PA', 'AB', 'AVG', 'H', '1B', '2B', '3B', 'HR', 'R', 'RBI', 'BB', 'IBB', 'SO', 'HBP', 'SB', 'CS', 'Pitches']]
-    #BattingStats.sort_values("Points", inplace=True)
-    # print(BattingStats)
+
+    BattingStats = BattingStats.sort_values('Points', ascending=False)
+    BattingStats = BattingStats.reset_index(drop=True)
 
 
     BattingStats.to_csv('data/bstats.csv')
@@ -193,10 +195,13 @@ def points(currentSeason):
     )
 
     pdata['Points'] = ppoints
+    pdata['Points'] = pdata['Points'].round(decimals=0)
 
     PitchingStats = pdata[['Season', 'Name', 'Team', 'Age', 'Points', 'W', 'L', 'ERA', 'ER', 'WAR', 'G', 'GS', 'CG', 'ShO', 'SV', 'BS', 'IP', 'H', 'R', 'HR', 'BB', 'IBB', 'HBP', 'BK', 'SO', 'TBF', 'Pitches']]
-    # PitchingStats.sort_values("Points", inplace=True)
-    # print(PitchingStats)
+
+    PitchingStats = PitchingStats.sort_values('Points', ascending=False)
+    PitchingStats = PitchingStats.reset_index(drop=True)
+
     PitchingStats.to_csv('data/pstats.csv')
 
 
@@ -228,6 +233,11 @@ def combinePoints():
     Rankings = Rankings.reset_index(drop=True)
     Rank = Rankings.index
     Rankings.insert(0, 'Rank', Rank)
+
+    Rankings['Name_bat'] = np.where(Rankings['Name_bat'] == 0, Rankings['Name_pit'], Rankings['Name_bat'])
+    Rankings['Season_bat'] = np.where(Rankings['Season_bat'] == 0, Rankings['Season_pit'], Rankings['Season_bat'])
+    Rankings['Age_bat'] = np.where(Rankings['Age_bat'] == 0, Rankings['Age_pit'], Rankings['Age_bat'])
+    Rankings['Team_bat'] = np.where(Rankings['Team_bat'] == 0, Rankings['Team_pit'], Rankings['Team_bat'])
 
     Rankings.to_csv('data/Rankings.csv', sep=',', index=False, encoding='utf-8')
 
@@ -763,7 +773,7 @@ def PointCycle():
 
 
 # Creates files for batting and pitching
-points(2018)
+points(2019)
 
 # Combines batting an dpitching files together
 combinePoints()
