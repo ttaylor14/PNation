@@ -25,7 +25,7 @@ http://www.seanlahman.com/baseball-archive/statistics/
 
 
 ### * Issues found in the pybaseball package: *
-* - Many of these stats are included in Lahman Database which could be utilized for data prior to the current year *
+* Many of these stats are included in Lahman Database which could be utilized for data prior to the current year 
 
 - [ ] Stats do not include Quality Stats (QS)
 - [ ] Stats do not include No Hitters (NH)
