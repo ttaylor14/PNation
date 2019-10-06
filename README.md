@@ -295,6 +295,11 @@ Data files will need to be reorganized, but the following explanation should hel
    - Which included player's name, Team Owner, Player Salary, Keeping Selection, Trade Block Indicator
 
 
+
+## -- baseballdatabank-master --
+contains the Lahman Databae files
+
+
 ## -- Test Folder --
 contains all test data files from various search queries using the pybaseball package. 
 This folder is primarily used for research and understanding of how to find needed statistics.
