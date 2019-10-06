@@ -18,12 +18,13 @@ https://github.com/jldbc/pybaseball
 Adjustments could be made to use the Lahman Database (also accessed using the pybaseball package). Lahman Database, however, does not include the current year's statistics and is not updated until a few months after the season. To ensure the system utilizes the most up to date information I designed it around the pybaseball package. 
 
 Lahman Database can be found here:
+
 http://www.seanlahman.com/baseball-archive/statistics/
 
 
 
 
-### * - Issues found in the pybaseball package: *
+### * Issues found in the pybaseball package: *
 * - Many of these stats are included in Lahman Database which could be utilized for data prior to the current year *
 
 - [ ] Stats do not include Quality Stats (QS)
