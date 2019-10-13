@@ -205,7 +205,7 @@ The File is also attempting to create Marcel projections and use other resources
 ### * Additions needed *
 
 - [ ] Combine several projection system to create an aggregate ranking of multiple sources which should neautralize any one system to create  one that is hopefully more accurate and consistant.
-- [ ] Dynaty ranking system based on several upcoming years
+- [ ] Dynasty ranking system based on several upcoming years
 - [ ] Incorporating MILB stats
 - [ ] Incorporating Position aligibility and position scarcity
 - [ ] Create Rankings cheatsheet file
@@ -236,7 +236,16 @@ The TeamAnalysis file compares the team rosters created by the GooglePull Progra
 - [ ] Add in MILB Players (if MILB stats can be accumulated)
 
 
+## -- Understanding the CostAnalysis File --
 
+The CostAnalysis file compares player point totals and attempts to calculate and assign an estimated player salary. 
+
+### * Additions needed *
+
+- [ ] Adjust to include player positions/scarcity
+- [ ] Compare with team rosters and current salaries
+- [ ] estimate player costs for the upcoming draft (based on all teams remaining budgets, number of players, positions needed, quality of players remaining...)
+- [ ] Use the cost analysis to create a trade analysis function
 
 
 
@@ -284,6 +293,11 @@ Data files will need to be reorganized, but the following explanation should hel
 -- FullRoster.csv
    - Contains the most recently pulled rosters from the Google Sheet. 
    - Which included player's name, Team Owner, Player Salary, Keeping Selection, Trade Block Indicator
+
+
+
+## -- baseballdatabank-master --
+contains the Lahman Databae files
 
 
 ## -- Test Folder --
@@ -392,3 +406,10 @@ This folder is primarily used for research and understanding of how to find need
 -- files are names Team with team_id Number as an identifier.
 
 
+## -- CostAnalysis Folder --
+
+-- CostAnalysis_Bat.csv
+   - Contains projected salary cost of position players based on point totals and available budget
+
+-- CostAnalysis_Bat.csv
+   - Contains projected salary cost of pitchers based on point totals and available budget
