@@ -774,7 +774,7 @@ def PointCycle():
 
 
 # Creates files for batting and pitching
-points(2019)
+# points(2019)
 
 # Combines batting and pitching files together
 combinePoints()
