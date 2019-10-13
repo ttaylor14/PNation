@@ -63,7 +63,7 @@ def roto_Rankings():
     roster.fillna(0)
 
     # Calculate Total Z Score for Rankings
-    roster['Total_Z'] = roster['BA_zscore'] + roster['R_zscore'] + roster['RBI_zscore'] + roster['HR_zscore'] + roster['SB_zscore'] + roster['K_zscore'] + roster['ERA_zscore'] + roster['WHIP_zscore'] + roster['Saves_zscore'] + roster['Wins_zscore']
+    roster['Total_Z'] = roster['BA_zscore'] + roster['R_zscore'] + roster['RBI_zscore'] + roster['HR_zscore'] + roster['SB_zscore'] + roster['K_zscore'] - roster['ERA_zscore'] - roster['WHIP_zscore'] + roster['Saves_zscore'] + roster['Wins_zscore']
     # print(roster['Total_Z'])
 
     # Create Roto Rankings based on overall Z Score

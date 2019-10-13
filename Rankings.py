@@ -774,10 +774,10 @@ def PointCycle():
 
 
 # Creates files for batting and pitching
-# points(2019)
+points(2019)
 
-# Combines batting an dpitching files together
-# combinePoints()
+# Combines batting and pitching files together
+combinePoints()
 
 # Run Marcel Projections Table to later create projections
 # marcelCombinedFile()
@@ -787,7 +787,7 @@ def PointCycle():
 
 
 # Run Marcel Projections
-marcelCalculations()
+# marcelCalculations()
 
 # Run Point Cycle
 # PointCycle()

@@ -183,3 +183,28 @@ pstats['Price'] = pstats['Price'].round(decimals=2)
 bstats.to_csv('data/CostAnalysis/CostAnalysis_Bat.csv', sep=',', index=False, encoding='utf-8')
 pstats.to_csv('data/CostAnalysis/CostAnalysis_Pit.csv', sep=',', index=False, encoding='utf-8')
 
+
+
+##############################
+## Cost Analysis on Marcel ##
+#############################
+
+
+Proj = pd.read_csv('data/marcel/MarcelResultTotal.csv')
+
+ProjAVG = np.mean(Proj, axis = 0)
+
+Proj['Points_AVG'] = (Proj['Total_Points'] - ProjAVG['Total_Points'] ) / ( (750 - 350) / (NumTeams - 1 ) )
+
+
+PriceZero = (TotalCashSpent / (MaxPlayers) )
+PricePerPoint = ( ( PriceZero - 1 ) / 3 ) * 2
+
+priceProj = PriceZero + (Proj['Points_AVG'] * PricePerPoint ) - 20
+
+Proj.insert(2, 'Price', priceProj)
+
+Proj['Price'] = Proj['Price'].round(decimals=2)
+
+
+Proj.to_csv('data/CostAnalysis/CostAnalysis_Proj.csv', sep=',', index=False, encoding='utf-8')
