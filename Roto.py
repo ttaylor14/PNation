@@ -49,6 +49,13 @@ def roto_Rankings():
     rosterP['Saves'] = rosterP['SV']
     rosterP['Wins'] = rosterP['W']
 
+
+    # Needed for Modified Z-Score
+    rosterTempB = pd.DataFrame()
+    rosterTempP = pd.DataFrame()
+    rosterTempB['AB'] = rosterB['AB']
+    rosterTempP['IP'] = rosterP['IP']
+
     # print(roster.head())
 
 
@@ -80,6 +87,14 @@ def roto_Rankings():
 
     rosterB.insert(2, 'Total_Z', ZTotalB)
     rosterP.insert(2, 'Total_Z', ZTotalP)
+
+    ZTotalBModified = ( rosterTempB['AB'] * ZTotalB - rosterTempB['AB'].mean() ) / rosterP['Total_Z'].std(ddof=0)
+    ZTotalPModified = ( rosterTempP['IP'] * ZTotalB - rosterTempP['IP'].mean() ) / rosterP['Total_Z'].std(ddof=0)
+
+
+    #Insert Modified Z-Score to account for player contribution
+    rosterB.insert(2, 'Total_Zn', ZTotalBModified)
+    rosterP.insert(2, 'Total_Zn', ZTotalPModified)
 
     # print(roster['Total_Z'])
 

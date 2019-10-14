@@ -1,6 +1,6 @@
 # Creating Roto Rankings
 
-# last Update : 9.29.19
+# last Update : 10.13.19
 
 # Helpful resource: https://fantasysixpack.net/creating-fantasy-baseball-player-rater/
 

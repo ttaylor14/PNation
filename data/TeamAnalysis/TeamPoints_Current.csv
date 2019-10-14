@@ -1,247 +1,314 @@
 team_id,Player,Player Salary,Age_bat,Team_bat,Positions,Total_Points
-1,Luke Voit,6.0,26.0,Cardinals,1B,69.0
-1,DJ LeMahieu,10.0,28.0,Rockies,2B,395.0
-1,Matt Chapman,7.0,24.0,Athletics,3B,181.0
-1,Jean Segura,7.0,27.0,Mariners,SS,339.0
-1,Mookie Betts,45.0,24.0,Red Sox,OF,569.0
-1,Christian Yelich,11.0,25.0,Marlins,OF,442.0
-1,Austin Hays,6.0,21.0,Orioles,OF,19.0
-1,David Peralta,6.0,29.0,Diamondbacks,UTIL,354.0
-1,Frankie Montas,1.0,24.0,Athletics,SP,20.0
-1,J.A. Happ,9.0,34.0,Blue Jays,SP,267.0
-1,Rick Porcello,7.0,28.0,Red Sox,SP,278.0
-1,Sean Newcomb,8.0,24.0,Braves,SP,117.0
-1,Zach Eflin,6.0,23.0,Phillies,SP,16.0
-1,Kenley Jansen,7.0,29.0,Dodgers,RP,468.0
-1,Asdrubal Cabrera,6.0,31.0,Mets,BE,330.0
-1,Trey Mancini,1.0,25.0,Orioles,BE,352.0
-1,Marcus Stroman,7.0,26.0,Blue Jays,BE,412.0
-1,Jake Odorizzi,1.0,27.0,Rays,BE,257.0
-1,Dellin Betances,6.0,29.0,Yankees,DL,165.0
-1,Luis Severino,7.0,23.0,Yankees,DL,515.0
-2,Joey Votto,2.0,33.0,Reds,1B,676.0
-2,Eugenio Suarez,2.0,25.0,Reds,3B,404.0
-2,Didi Gregorius,2.0,27.0,Yankees,SS,423.0
-2,Kole Calhoun,1.0,29.0,Angels,OF,354.0
-2,Starling Marte,2.0,28.0,Pirates,OF,184.0
-2,Michael Brantley,2.0,30.0,Indians,OF,261.0
-2,Hunter Renfroe,2.0,25.0,Padres,UTIL,260.0
-2,Eduardo Rodriguez,2.0,24.0,Red Sox,SP,250.0
-2,Charlie Morton,2.0,33.0,Astros,SP,332.0
-2,Giovanny Gallegos,1.0,25.0,Yankees,SP,24.0
-2,Hector Neris,1.0,28.0,Phillies,RP,261.0
-2,Jason Vargas,1.0,34.0,Royals,BE,318.0
-2,Wade Miley,1.0,30.0,Orioles,BE,107.0
-2,Michael Pineda,1.0,28.0,Yankees,BE,183.0
-2,Buster Posey,14.0,30.0,Giants,BE,394.0
-2,Salvador Perez,2.0,27.0,Royals,DL,350.0
-3,Rhys Hoskins,6.0,24.0,Phillies,1B,220.0
-3,Eric Sogard,1.0,31.0,Brewers,2B,165.0
-3,Manny Machado,25.0,24.0,Orioles,3B,482.0
-3,Trevor Story,6.0,24.0,Rockies,SS,295.0
-3,Nicholas Castellanos,6.0,25.0,Tigers,OF,425.0
-3,Jesse Winker,11.0,23.0,Reds,OF,105.0
-3,Aaron Judge,6.0,25.0,Yankees,OF,621.0
-3,Julio Urias,6.0,20.0,Dodgers,SP,6.0
-3,Trevor Bauer,6.0,26.0,Indians,SP,357.0
-3,Jose Berrios,6.0,23.0,Twins,SP,290.0
-3,Lucas Giolito,1.0,22.0,White Sox,SP,99.0
-3,Justin Verlander,6.0,34.0,- - -,SP,474.0
-3,Mike Foltynewicz,6.0,25.0,Braves,BE,166.0
-3,Alex Verdugo,6.0,21.0,Dodgers,BE,8.0
-3,Charlie Blackmon,25.0,30.0,Rockies,BE,645.0
-3,Christian Vazquez,1.0,26.0,Red Sox,BE,174.0
-3,Brad Peacock,5.0,29.0,Astros,BE,372.0
-3,Chris Sale,1.0,28.0,Red Sox,DL,652.0
-3,Jameson Taillon,1.0,25.0,Pirates,DL,192.0
-3,Carlos Carrasco,6.0,30.0,Indians,DL,524.0
-4,Freddie Freeman,4.0,27.0,Braves,1B,456.0
-4,Ozzie Albies,3.0,20.0,Braves,2B,165.0
-4,Javier Baez,4.0,24.0,Cubs,SS,329.0
-4,J.D. Martinez,4.0,29.0,- - -,OF,514.0
-4,Andrew Benintendi,3.0,22.0,Red Sox,OF,437.0
-4,Marcell Ozuna,6.0,26.0,Marlins,OF,549.0
-4,Howie Kendrick,1.0,33.0,- - -,UTIL,205.0
-4,Jack Flaherty,6.0,21.0,Cardinals,SP,8.0
-4,Kevin Gausman,3.0,26.0,Orioles,SP,258.0
-4,Jacob deGrom,3.0,29.0,Mets,SP,495.0
-4,Aaron Nola,4.0,24.0,Phillies,SP,345.0
-4,Christian Walker,1.0,26.0,Diamondbacks,BE,14.0
-4,Caleb Smith,1.0,25.0,Yankees,BE,6.0
-4,Brock Holt,1.0,29.0,Red Sox,BE,47.0
-4,Giancarlo Stanton,31.0,27.0,Marlins,BE,685.0
-4,Clayton Kershaw,4.0,29.0,Dodgers,BE,568.0
-4,Collin McHugh,13.0,30.0,Astros,DL,127.0
-4,Alex Wood,3.0,26.0,Dodgers,DL,400.0
-5,Cody Bellinger,6.0,21.0,Dodgers,1B,479.0
-5,Mike Moustakas,4.0,28.0,Royals,2B,472.0
-5,Nolan Arenado,33.0,26.0,Rockies,3B,625.0
-5,Francisco Lindor,1.0,23.0,Indians,SS,568.0
-5,Joey Gallo,9.0,23.0,Rangers,OF,373.0
-5,Yoan Moncada,6.0,22.0,White Sox,UTIL,107.0
-5,Luis Castillo,2.0,24.0,Reds,SP,182.0
-5,Edwin Diaz,6.0,23.0,Mariners,RP,275.0
-5,Josh Hader,6.0,23.0,Brewers,RP,121.0
-5,Joe Musgrove,1.0,24.0,Astros,BE,145.0
-5,Corey Seager,36.0,23.0,Dodgers,BE,407.0
-5,A.J. Pollock,12.0,29.0,Diamondbacks,BE,329.0
-5,Clint Frazier,1.0,22.0,Yankees,BE,66.0
-5,Sean Manaea,1.0,25.0,Athletics,DL,239.0
-5,Michael Fulmer,6.0,24.0,Tigers,DL,273.0
-6,Justin Smoak,6.0,30.0,Blue Jays,1B,494.0
-6,Dee Gordon,6.0,29.0,Marlins,2B,372.0
-6,Ryan Braun,6.0,33.0,Brewers,OF,301.0
-6,Yasiel Puig,7.0,26.0,Dodgers,OF,426.0
-6,Mitch Haniger,6.0,26.0,Mariners,OF,257.0
-6,Nelson Cruz,6.0,36.0,Mariners,UTIL,530.0
-6,Zack Greinke,28.0,33.0,Diamondbacks,SP,529.0
-6,David Price,26.0,31.0,Red Sox,SP,166.0
-6,Jose Quintana,6.0,28.0,- - -,SP,372.0
-6,Cole Hamels,6.0,33.0,Rangers,SP,258.0
-6,Jeff Samardzija,1.0,32.0,Giants,BE,360.0
-6,Randal Grichuk,1.0,25.0,Cardinals,BE,252.0
-6,C.J. Cron,1.0,27.0,Angels,BE,202.0
-6,Shin-Soo Choo,2.0,34.0,Rangers,BE,401.0
-6,Yuli Gurriel,7.0,33.0,Astros,BE,399.0
-6,Marcus Semien,9.0,26.0,Athletics,BE,213.0
-6,Raisel Iglesias,2.0,27.0,Reds,BE,316.0
-6,Jose Leclerc,1.0,23.0,Rangers,BE,86.0
-6,Ian Desmond,3.0,31.0,Rockies,BE,177.0
-6,Mitch Garver,1.0,26.0,Twins,BE,15.0
-6,Mike Minor,3.0,29.0,Royals,,199.0
-7,Anthony Rizzo,18.0,27.0,Cubs,1B,580.0
-7,Anthony Rendon,6.0,27.0,Nationals,3B,515.0
-7,Amed Rosario,6.0,21.0,Mets,SS,57.0
-7,Joc Pederson,1.0,25.0,Dodgers,OF,185.0
-7,Jason Heyward,6.0,27.0,Cubs,OF,283.0
-7,George Springer,43.0,27.0,Astros,UTIL,503.0
-7,Lance Lynn,1.0,30.0,Cardinals,SP,334.0
-7,Tanner Roark,1.0,30.0,Nationals,SP,278.0
-7,Jon Lester,6.0,33.0,Cubs,SP,348.0
-7,Brad Hand,6.0,27.0,Padres,RP,273.0
-7,Ken Giles,6.0,26.0,Astros,RP,292.0
-7,Homer Bailey,1.0,31.0,Reds,BE,37.0
-7,Hansel Robles,1.0,26.0,Mets,BE,78.0
-7,Rich Hill,15.0,37.0,Dodgers,BE,343.0
-7,Anthony Santander,1.0,22.0,Orioles,BE,6.0
-7,Tommy La Stella,1.0,28.0,Cubs,BE,112.0
-7,Justin Upton,20.0,29.0,- - -,BE,486.0
-7,Jonathan Schoop,1.0,25.0,Orioles,BE,468.0
-7,Corey Kluber,1.0,31.0,Indians,,729.0
-7,Daniel Murphy,6.0,32.0,Nationals,DL,514.0
-8,Xander Bogaerts,6.0,24.0,Red Sox,SS,366.0
-8,Whit Merrifield,1.0,28.0,Royals,OF,433.0
-8,Tyler Glasnow,1.0,23.0,Pirates,SP,-8.0
-8,Matthew Boyd,1.0,26.0,Tigers,SP,138.0
-8,Robbie Ray,7.0,25.0,Diamondbacks,SP,478.0
-8,Kirby Yates,1.0,30.0,- - -,RP,118.0
-8,Archie Bradley,1.0,24.0,Diamondbacks,RP,144.0
-8,Yandy Diaz,1.0,25.0,Indians,BE,77.0
-8,Kyle Hendricks,3.0,27.0,Cubs,BE,276.0
-9,Jose Ramirez,44.0,24.0,Indians,3B,589.0
-9,Jose Ramirez,44.0,27.0,Braves,3B,65.0
-9,Carlos Correa,21.0,22.0,Astros,SS,413.0
-9,Mike Trout,39.0,25.0,Angels,OF,520.0
-9,Rafael Devers,6.0,20.0,Red Sox,UTIL,157.0
-9,Gerrit Cole,6.0,26.0,Pirates,SP,357.0
-9,Walker Buehler,6.0,22.0,Dodgers,SP,10.0
-9,Max Scherzer,61.0,32.0,Nationals,SP,649.0
-9,Aaron Sanchez,4.0,24.0,Blue Jays,SP,25.0
-9,Roberto Osuna,6.0,22.0,Blue Jays,RP,259.0
-9,Johnny Cueto,1.0,31.0,Giants,BE,210.0
-9,Mark Canha,1.0,28.0,Athletics,BE,59.0
-9,Starlin Castro,1.0,27.0,Yankees,BE,295.0
-9,Kolten Wong,1.0,26.0,Cardinals,BE,249.0
-9,Emilio Pagan,1.0,26.0,Mariners,BE,106.0
-10,Edwin Encarnacion,16.0,34.0,Indians,1B,536.0
-10,Adam Frazier,7.0,25.0,Pirates,2B,267.0
-10,Kris Bryant,1.0,25.0,Cubs,3B,511.0
-10,Jorge Polanco,5.0,23.0,Twins,SS,332.0
-10,Byron Buxton,3.0,23.0,Twins,OF,261.0
-10,Mark Trumbo,1.0,31.0,Orioles,OF,306.0
-10,Max Kepler,1.0,24.0,Twins,OF,331.0
-10,Kyle Schwarber,10.0,24.0,Cubs,UTIL,293.0
-10,Madison Bumgarner,1.0,27.0,Giants,SP,238.0
-10,Zack Wheeler,1.0,27.0,Mets,SP,73.0
-10,Chris Archer,27.0,28.0,Rays,SP,403.0
-10,Domingo German,7.0,24.0,Yankees,SP,25.0
-10,Craig Kimbrel,1.0,29.0,Red Sox,RP,420.0
-10,Blake Treinen,1.0,29.0,- - -,RP,142.0
-10,Jason Kipnis,2.0,30.0,Indians,BE,202.0
-10,Dylan Bundy,15.0,24.0,Orioles,BE,325.0
-10,Jakob Junis,11.0,24.0,Royals,BE,177.0
-10,Kyle Gibson,1.0,29.0,Twins,BE,179.0
-10,Kendrys Morales,3.0,34.0,Blue Jays,BE,369.0
-10,Kevin Pillar,1.0,28.0,Blue Jays,BE,330.0
-10,Josh Bell,3.0,24.0,Pirates,BE,424.0
-10,Michael Wacha,1.0,25.0,Cardinals,BE,294.0
-11,Trea Turner,10.0,24.0,Nationals,SS,316.0
-11,Bryce Harper,4.0,24.0,Nationals,OF,472.0
-11,Tommy Pham,14.0,29.0,Cardinals,OF,417.0
-11,Khris Davis,10.0,29.0,Athletics,UTIL,469.0
-11,Yu Darvish,10.0,30.0,- - -,SP,368.0
-11,Luke Weaver,1.0,23.0,Cardinals,SP,147.0
-11,James Paxton,9.0,28.0,Mariners,SP,361.0
-11,Dinelson Lamet,1.0,24.0,Padres,SP,195.0
-11,Alex Colome,1.0,28.0,Rays,RP,303.0
-11,Sandy Alcantara,1.0,21.0,Cardinals,BE,11.0
-11,Max Fried,1.0,23.0,Braves,BE,32.0
-11,Domingo Santana,3.0,24.0,Brewers,BE,406.0
-11,J.D. Davis,1.0,24.0,Astros,BE,42.0
-11,Willie Calhoun,1.0,22.0,Rangers,DL,16.0
-11,Brett Gardner,1.0,33.0,Yankees,DL,425.0
-12,Matt Olson,10.0,23.0,Athletics,1B,212.0
-12,Jurickson Profar,6.0,24.0,Rangers,3B,20.0
-12,Eddie Rosario,1.0,25.0,Twins,OF,417.0
-12,Michael Conforto,14.0,24.0,Mets,OF,352.0
-12,Nomar Mazara,6.0,22.0,Rangers,OF,373.0
-12,Nick Markakis,1.0,33.0,Braves,UTIL,360.0
-12,Stephen Strasburg,6.0,28.0,Nationals,SP,534.0
-12,Blake Snell,6.0,24.0,Rays,SP,209.0
-12,Alex Bregman,6.0,23.0,Astros,BE,433.0
-13,Paul Goldschmidt,1.0,29.0,Diamondbacks,1B,598.0
-13,Jose Altuve,6.0,27.0,Astros,2B,567.0
-13,Matt Carpenter,6.0,31.0,Cardinals,3B,419.0
-13,Marwin Gonzalez,6.0,28.0,Astros,SS,403.0
-13,Lorenzo Cain,6.0,31.0,Royals,OF,401.0
-13,Paul DeJong,5.0,23.0,Cardinals,OF,291.0
-13,Adam Eaton,1.0,28.0,Nationals,OF,81.0
-13,Dallas Keuchel,6.0,29.0,Astros,SP,355.0
-13,Masahiro Tanaka,6.0,28.0,Yankees,SP,331.0
-13,Mike Clevinger,6.0,26.0,Indians,SP,293.0
-13,German Marquez,6.0,22.0,Rockies,SP,268.0
-13,Steven Matz,1.0,26.0,Mets,SP,27.0
-13,Aroldis Chapman,24.0,29.0,Yankees,RP,200.0
-13,Mark Melancon,2.0,32.0,Giants,RP,45.0
-13,Andrelton Simmons,6.0,27.0,Angels,BE,415.0
-13,Robinson Cano,12.0,34.0,Mariners,BE,463.0
-13,Jonathan Villar,5.0,26.0,Brewers,BE,175.0
-13,Jose Urena,11.0,25.0,Marlins,BE,273.0
-13,Alex Gordon,2.0,33.0,Royals,BE,190.0
-13,Jon Gray,13.0,25.0,Rockies,BE,229.0
-13,Hunter Pence,1.0,34.0,Giants,BE,276.0
-13,Tim Anderson,2.0,24.0,White Sox,BE,263.0
-13,Sonny Gray,1.0,27.0,- - -,BE,313.0
-13,Mallex Smith,1.0,24.0,Rays,DL,112.0
-14,Jose Abreu,6.0,30.0,White Sox,1B,531.0
-14,Niko Goodrum,3.0,25.0,Twins,2B,-7.0
-14,Justin Turner,1.0,32.0,Dodgers,3B,441.0
-14,Eduardo Escobar,1.0,28.0,Twins,SS,324.0
-14,Harrison Bader,1.0,23.0,Cardinals,OF,41.0
-14,Andrew McCutchen,1.0,30.0,Pirates,OF,483.0
-14,Chad Pinder,1.0,25.0,Athletics,OF,164.0
-14,Daniel Vogelbach,1.0,24.0,Mariners,UTIL,3.0
-14,Mike Fiers,1.0,32.0,Astros,SP,189.0
-14,Kenta Maeda,12.0,29.0,Dodgers,SP,306.0
-14,Mike Leake,2.0,29.0,- - -,SP,270.0
-14,Julio Teheran,8.0,26.0,Braves,SP,257.0
-14,Jose Alvarado,8.0,22.0,Rays,RP,46.0
-14,Brandon Woodruff,3.0,24.0,Brewers,RP,54.0
-14,Brett Anderson,1.0,29.0,- - -,BE,31.0
-14,Brandon Nimmo,15.0,24.0,Mets,BE,107.0
-14,Jay Bruce,1.0,30.0,- - -,BE,455.0
-14,Kyle Seager,6.0,29.0,Mariners,BE,429.0
-14,Greg Holland,1.0,31.0,Rockies,BE,279.0
-14,Ketel Marte,9.0,23.0,Diamondbacks,BE,143.0
-14,Josh Donaldson,22.0,31.0,Blue Jays,BE,407.0
-14,Aaron Hicks,1.0,27.0,Yankees,DL,268.0
+1,Luke Voit,6.0,28.0,Yankees,1B,306.0
+1,DJ LeMahieu,10.0,30.0,Yankees,2B,534.0
+1,Matt Chapman,7.0,26.0,Athletics,3B,486.0
+1,Jean Segura,7.0,29.0,Phillies,SS,371.0
+1,Mookie Betts,45.0,26.0,Red Sox,OF,601.0
+1,Christian Yelich,11.0,27.0,Brewers,OF,619.0
+1,Austin Hays,6.0,23.0,Orioles,OF,68.0
+1,David Peralta,6.0,31.0,Diamondbacks,UTIL,256.0
+1,Frankie Montas,1.0,26.0,Athletics,SP,261.0
+1,J.A. Happ,9.0,36.0,Yankees,SP,255.0
+1,Rick Porcello,7.0,30.0,Red Sox,SP,220.0
+1,Sean Newcomb,8.0,26.0,Braves,SP,122.0
+1,Zach Eflin,6.0,25.0,Phillies,SP,244.0
+1,Kenley Jansen,7.0,31.0,Dodgers,RP,252.0
+1,Asdrubal Cabrera,6.0,33.0,- - -,BE,353.0
+1,Scott Kingery,6.0,25.0,Phillies,BE,273.0
+1,Trey Mancini,1.0,27.0,Orioles,BE,519.0
+1,Marcus Stroman,7.0,28.0,- - -,BE,313.0
+1,Nathan Eovaldi,1.0,29.0,Red Sox,BE,66.0
+1,Marcus Walden,1.0,30.0,Red Sox,BE,155.0
+1,Jake Odorizzi,1.0,29.0,Twins,BE,375.0
+1,Tony Gonsolin,1.0,25.0,Dodgers,,107.0
+1,Luis Severino,7.0,25.0,Yankees,DL,36.0
+2,Joey Votto,2.0,35.0,Reds,1B,332.0
+2,Hanser Alberto,1.0,26.0,Orioles,2B,320.0
+2,Eugenio Suarez,2.0,27.0,Reds,3B,503.0
+2,Didi Gregorius,2.0,29.0,Yankees,SS,249.0
+2,Kole Calhoun,1.0,31.0,Angels,OF,408.0
+2,Starling Marte,2.0,30.0,Pirates,OF,447.0
+2,Michael Brantley,2.0,32.0,Astros,OF,500.0
+2,Hunter Renfroe,2.0,27.0,Padres,UTIL,307.0
+2,Eduardo Rodriguez,2.0,26.0,Red Sox,SP,438.0
+2,Charlie Morton,2.0,35.0,Rays,SP,520.0
+2,Giovanny Gallegos,1.0,27.0,Cardinals,SP,199.0
+2,Hector Neris,1.0,30.0,Phillies,RP,245.0
+2,Jason Vargas,1.0,36.0,- - -,BE,200.0
+2,Wade Miley,1.0,32.0,Astros,BE,312.0
+2,Michael Pineda,1.0,30.0,Twins,BE,304.0
+2,John Means,3.0,26.0,Orioles,BE,288.0
+2,Buster Posey,14.0,32.0,Giants,BE,208.0
+2,Mike Yastrzemski,1.0,28.0,Giants,BE,277.0
+3,Rhys Hoskins,6.0,26.0,Phillies,1B,437.0
+3,Eric Sogard,1.0,33.0,- - -,2B,291.0
+3,Manny Machado,25.0,26.0,Padres,3B,443.0
+3,Trevor Story,6.0,26.0,Rockies,SS,491.0
+3,Nicholas Castellanos,6.0,27.0,- - -,OF,449.0
+3,Jesse Winker,11.0,25.0,Reds,OF,259.0
+3,Aaron Judge,6.0,27.0,Yankees,OF,316.0
+3,Yordan Alvarez,1.0,22.0,Astros,UTIL,357.0
+3,Julio Urias,6.0,22.0,Dodgers,SP,210.0
+3,Trevor Bauer,6.0,28.0,- - -,SP,394.0
+3,Jose Berrios,6.0,25.0,Twins,SP,419.0
+3,Lucas Giolito,1.0,24.0,White Sox,SP,497.0
+3,Justin Verlander,6.0,36.0,Astros,SP,755.0
+3,Mike Foltynewicz,6.0,27.0,Braves,BE,187.0
+3,Alex Verdugo,6.0,23.0,Dodgers,BE,255.0
+3,Carter Kieboom,1.0,21.0,Nationals,BE,10.0
+3,Gavin Lux,1.0,21.0,Dodgers,BE,40.0
+3,Charlie Blackmon,25.0,32.0,Rockies,BE,530.0
+3,Nick Solak,1.0,24.0,Rangers,BE,92.0
+3,Christian Vazquez,1.0,28.0,Red Sox,BE,351.0
+3,Brad Peacock,5.0,31.0,Astros,BE,181.0
+3,Nico Hoerner,1.0,22.0,Cubs,BE,63.0
+3,Chris Sale,1.0,30.0,Red Sox,DL,332.0
+3,Jameson Taillon,1.0,27.0,Pirates,DL,68.0
+3,Carlos Carrasco,6.0,32.0,Indians,DL,138.0
+4,Freddie Freeman,4.0,29.0,Braves,1B,612.0
+4,Ozzie Albies,3.0,22.0,Braves,2B,515.0
+4,Max Muncy,6.0,28.0,Dodgers,3B,465.0
+4,Javier Baez,4.0,26.0,Cubs,SS,393.0
+4,J.D. Martinez,4.0,31.0,Red Sox,OF,540.0
+4,Andrew Benintendi,3.0,24.0,Red Sox,OF,326.0
+4,Marcell Ozuna,6.0,28.0,Cardinals,OF,417.0
+4,Howie Kendrick,1.0,35.0,Nationals,UTIL,328.0
+4,Jack Flaherty,6.0,23.0,Cardinals,SP,525.0
+4,Kevin Gausman,3.0,28.0,- - -,SP,97.0
+4,Jacob deGrom,3.0,31.0,Mets,SP,588.0
+4,Aaron Nola,4.0,26.0,Phillies,SP,410.0
+4,Christian Walker,1.0,28.0,Diamondbacks,BE,394.0
+4,Caleb Smith,1.0,27.0,Marlins,BE,282.0
+4,Freddy Peralta,3.0,23.0,Brewers,BE,158.0
+4,Fernando Tatis Jr.,3.0,20.0,Padres,BE,286.0
+4,Pablo Lopez,3.0,23.0,Marlins,BE,142.0
+4,Franmil Reyes,5.0,23.0,- - -,BE,369.0
+4,Brock Holt,1.0,31.0,Red Sox,BE,152.0
+4,Giancarlo Stanton,31.0,29.0,Yankees,BE,44.0
+4,Clayton Kershaw,4.0,31.0,Dodgers,BE,467.0
+4,Tommy Edman,1.0,24.0,Cardinals,,249.0
+4,Collin McHugh,13.0,32.0,Astros,DL,127.0
+4,Alex Wood,3.0,28.0,Reds,DL,26.0
+5,Cody Bellinger,6.0,23.0,Dodgers,1B,699.0
+5,Mike Moustakas,4.0,30.0,Brewers,2B,470.0
+5,Nolan Arenado,33.0,28.0,Rockies,3B,626.0
+5,Francisco Lindor,1.0,25.0,Indians,SS,523.0
+5,Eloy Jimenez,6.0,22.0,White Sox,OF,346.0
+5,Ramon Laureano,2.0,24.0,Athletics,OF,335.0
+5,Joey Gallo,9.0,25.0,Rangers,OF,235.0
+5,Yoan Moncada,6.0,24.0,White Sox,UTIL,387.0
+5,Luis Castillo,2.0,26.0,Reds,SP,453.0
+5,Chris Paddack,20.0,23.0,Padres,SP,332.0
+5,A.J. Puk,6.0,24.0,Athletics,SP,23.0
+5,Jesus Luzardo,27.0,21.0,Athletics,SP,49.0
+5,Edwin Diaz,6.0,25.0,Mets,RP,155.0
+5,Josh Hader,6.0,25.0,Brewers,RP,361.0
+5,Jordan Hicks,6.0,22.0,Cardinals,BE,128.0
+5,Eric Lauer,1.0,24.0,Padres,BE,207.0
+5,Joe Musgrove,1.0,26.0,Pirates,BE,285.0
+5,Corey Seager,36.0,25.0,Dodgers,BE,393.0
+5,A.J. Pollock,12.0,31.0,Dodgers,BE,224.0
+5,Clint Frazier,1.0,24.0,Yankees,BE,149.0
+5,Sean Manaea,1.0,27.0,Athletics,DL,105.0
+6,Justin Smoak,6.0,32.0,Blue Jays,1B,303.0
+6,Dee Gordon,6.0,31.0,Mariners,2B,192.0
+6,Ryan Braun,6.0,35.0,Brewers,OF,361.0
+6,Yasiel Puig,7.0,28.0,- - -,OF,386.0
+6,Mitch Haniger,6.0,28.0,Mariners,OF,176.0
+6,Nelson Cruz,6.0,38.0,Twins,UTIL,493.0
+6,Zack Greinke,28.0,35.0,- - -,SP,578.0
+6,David Price,26.0,33.0,Red Sox,SP,218.0
+6,Jose Quintana,6.0,30.0,Cubs,SP,252.0
+6,Cole Hamels,6.0,35.0,Cubs,SP,242.0
+6,Logan Webb,2.0,22.0,Giants,SP,45.0
+6,Will Smith,14.0,29.0,Giants,RP,349.0
+6,Will Smith,14.0,24.0,Dodgers,RP,168.0
+6,Jeff Samardzija,1.0,34.0,Giants,BE,313.0
+6,Randal Grichuk,1.0,27.0,Blue Jays,BE,358.0
+6,C.J. Cron,1.0,29.0,Twins,BE,319.0
+6,Shin-Soo Choo,2.0,36.0,Rangers,BE,388.0
+6,Yuli Gurriel,7.0,35.0,Astros,BE,532.0
+6,Marcus Semien,9.0,28.0,Athletics,BE,613.0
+6,Raisel Iglesias,2.0,29.0,Reds,BE,212.0
+6,Jose Leclerc,1.0,25.0,Rangers,BE,163.0
+6,Ian Desmond,3.0,33.0,Rockies,BE,299.0
+6,Mitch Garver,1.0,28.0,Twins,BE,349.0
+6,David Fletcher,2.0,25.0,Angels,,371.0
+6,Mike Minor,3.0,31.0,Rangers,,433.0
+7,Anthony Rizzo,18.0,29.0,Cubs,1B,494.0
+7,Brandon Lowe,6.0,24.0,Rays,2B,196.0
+7,Anthony Rendon,6.0,29.0,Nationals,3B,643.0
+7,Amed Rosario,6.0,23.0,Mets,SS,361.0
+7,Joc Pederson,1.0,27.0,Dodgers,OF,412.0
+7,Jake Bauers,6.0,23.0,Indians,OF,181.0
+7,Jason Heyward,6.0,29.0,Cubs,OF,370.0
+7,George Springer,43.0,29.0,Astros,UTIL,512.0
+7,Lance Lynn,1.0,32.0,Rangers,SP,461.0
+7,Tanner Roark,1.0,32.0,- - -,SP,252.0
+7,Jon Lester,6.0,35.0,Cubs,SP,275.0
+7,Alex Young,1.0,25.0,Diamondbacks,SP,149.0
+7,Chris Bassitt,1.0,30.0,Athletics,SP,289.0
+7,Brad Hand,6.0,29.0,Indians,RP,273.0
+7,Ken Giles,6.0,28.0,Blue Jays,RP,268.0
+7,Homer Bailey,1.0,33.0,- - -,BE,280.0
+7,Hansel Robles,1.0,28.0,Angels,BE,278.0
+7,Rich Hill,15.0,39.0,Dodgers,BE,159.0
+7,Anthony Santander,1.0,24.0,Orioles,BE,258.0
+7,Tommy La Stella,1.0,30.0,Angels,BE,259.0
+7,Zach Plesac,1.0,24.0,Indians,BE,216.0
+7,Justin Upton,20.0,31.0,Angels,BE,143.0
+7,David Dahl,10.0,25.0,Rockies,BE,272.0
+7,Jonathan Schoop,1.0,27.0,Twins,BE,276.0
+7,Corey Kluber,1.0,33.0,Indians,,30.0
+7,Kevin Newman,1.0,25.0,Pirates,,345.0
+7,Daniel Murphy,6.0,34.0,Rockies,DL,317.0
+8,Jeff McNeil,1.0,27.0,Mets,2B,436.0
+8,Xander Bogaerts,6.0,26.0,Red Sox,SS,592.0
+8,Whit Merrifield,1.0,30.0,Royals,OF,460.0
+8,Austin Meadows,1.0,24.0,Rays,UTIL,468.0
+8,Tyler Glasnow,1.0,25.0,Rays,SP,203.0
+8,Matthew Boyd,1.0,28.0,Tigers,SP,371.0
+8,Robbie Ray,7.0,27.0,Diamondbacks,SP,355.0
+8,Kirby Yates,1.0,32.0,Padres,RP,356.0
+8,Archie Bradley,1.0,26.0,Diamondbacks,RP,193.0
+8,Shane Bieber,1.0,24.0,Indians,BE,590.0
+8,Nick Senzel,6.0,24.0,Reds,BE,219.0
+8,Yandy Diaz,1.0,27.0,Rays,BE,240.0
+8,Kyle Hendricks,3.0,29.0,Cubs,BE,345.0
+8,Zac Gallen,1.0,23.0,- - -,BE,167.0
+8,Kyle Tucker,5.0,22.0,Astros,BE,60.0
+8,Mitch Keller,6.0,23.0,Pirates,BE,21.0
+8,Mike Soroka,10.0,21.0,Braves,BE,395.0
+8,Cavan Biggio,1.0,24.0,Blue Jays,,260.0
+8,Bryan Reynolds,1.0,24.0,Pirates,DL,356.0
+9,Gleyber Torres,6.0,22.0,Yankees,2B,479.0
+9,Jose Ramirez,44.0,26.0,Indians,3B,429.0
+9,Carlos Correa,21.0,24.0,Astros,SS,263.0
+9,Mike Trout,39.0,27.0,Angels,OF,620.0
+9,Juan Soto,6.0,20.0,Nationals,OF,575.0
+9,Rafael Devers,6.0,22.0,Red Sox,UTIL,603.0
+9,Gerrit Cole,6.0,28.0,Astros,SP,733.0
+9,Walker Buehler,6.0,24.0,Dodgers,SP,490.0
+9,Max Scherzer,61.0,34.0,Nationals,SP,478.0
+9,Aaron Sanchez,4.0,26.0,- - -,SP,69.0
+9,Roberto Osuna,6.0,24.0,Astros,RP,306.0
+9,Yonny Chirinos,1.0,25.0,Rays,BE,287.0
+9,Johnny Cueto,1.0,33.0,Giants,BE,15.0
+9,Mark Canha,1.0,30.0,Athletics,BE,364.0
+9,Starlin Castro,1.0,29.0,Marlins,BE,394.0
+9,Kolten Wong,1.0,28.0,Cardinals,BE,333.0
+9,Emilio Pagan,1.0,28.0,Rays,BE,241.0
+10,Edwin Encarnacion,16.0,36.0,- - -,1B,412.0
+10,Adam Frazier,7.0,27.0,Pirates,2B,350.0
+10,Kris Bryant,1.0,27.0,Cubs,3B,464.0
+10,Jorge Polanco,5.0,25.0,Twins,SS,483.0
+10,Byron Buxton,3.0,25.0,Twins,OF,216.0
+10,Mark Trumbo,1.0,33.0,Orioles,OF,9.0
+10,Max Kepler,1.0,26.0,Twins,OF,489.0
+10,Kyle Schwarber,10.0,26.0,Cubs,UTIL,449.0
+10,Madison Bumgarner,1.0,29.0,Giants,SP,399.0
+10,Zack Wheeler,1.0,29.0,Mets,SP,392.0
+10,Chris Archer,27.0,30.0,Pirates,SP,153.0
+10,Yusei Kikuchi,14.0,28.0,Mariners,SP,146.0
+10,Domingo German,7.0,26.0,Yankees,SP,348.0
+10,Craig Kimbrel,1.0,31.0,Cubs,RP,41.0
+10,Blake Treinen,1.0,31.0,Athletics,RP,110.0
+10,Jason Kipnis,2.0,32.0,Indians,BE,298.0
+10,Dylan Bundy,15.0,26.0,Orioles,BE,216.0
+10,Jakob Junis,11.0,26.0,Royals,BE,200.0
+10,Kyle Gibson,1.0,31.0,Twins,BE,250.0
+10,Kendrys Morales,3.0,36.0,- - -,BE,75.0
+10,Kendrys Morales,3.0,36.0,Athletics,BE,-3.0
+10,Kevin Pillar,1.0,30.0,- - -,BE,419.0
+10,Josh Bell,3.0,26.0,Pirates,BE,552.0
+10,Michael Wacha,1.0,27.0,Cardinals,BE,139.0
+10,Luis Urias,1.0,22.0,Padres,BE,97.0
+11,Trea Turner,10.0,26.0,Nationals,SS,412.0
+11,Bryce Harper,4.0,26.0,Phillies,OF,518.0
+11,Tommy Pham,14.0,31.0,Rays,OF,425.0
+11,Khris Davis,10.0,31.0,Athletics,UTIL,270.0
+11,Yu Darvish,10.0,32.0,Cubs,SP,370.0
+11,Luke Weaver,1.0,25.0,Diamondbacks,SP,155.0
+11,James Paxton,9.0,30.0,Yankees,SP,359.0
+11,Dinelson Lamet,1.0,26.0,Padres,SP,144.0
+11,Alex Colome,1.0,30.0,White Sox,RP,251.0
+11,Michael Chavis,1.0,23.0,Red Sox,BE,201.0
+11,Sandy Alcantara,1.0,23.0,Marlins,BE,270.0
+11,Max Fried,1.0,25.0,Braves,BE,386.0
+11,Domingo Santana,3.0,26.0,Mariners,BE,265.0
+11,J.D. Davis,1.0,26.0,Mets,BE,328.0
+11,Willie Calhoun,1.0,24.0,Rangers,DL,273.0
+11,Brett Gardner,1.0,35.0,Yankees,DL,415.0
+12,Matt Olson,10.0,25.0,Athletics,1B,419.0
+12,Keston Hiura,1.0,22.0,Brewers,2B,242.0
+12,Jurickson Profar,6.0,26.0,Athletics,3B,343.0
+12,Bo Bichette,1.0,21.0,Blue Jays,SS,151.0
+12,Eddie Rosario,1.0,27.0,Twins,OF,485.0
+12,Michael Conforto,14.0,26.0,Mets,OF,464.0
+12,Nomar Mazara,6.0,24.0,Rangers,OF,299.0
+12,Nick Markakis,1.0,35.0,Braves,UTIL,306.0
+12,Stephen Strasburg,6.0,30.0,Nationals,SP,571.0
+12,Blake Snell,6.0,26.0,Rays,SP,224.0
+12,Aaron Civale,1.0,24.0,Indians,SP,121.0
+12,Dylan Cease,6.0,23.0,White Sox,SP,77.0
+12,Kyle Wright,6.0,23.0,Braves,BE,-18.0
+12,Alex Reyes,7.0,24.0,Cardinals,BE,-13.0
+12,Vladimir Guerrero Jr.,6.0,20.0,Blue Jays,BE,306.0
+12,Brendan Rodgers,6.0,22.0,Rockies,BE,11.0
+12,Miles Mikolas,6.0,30.0,Cardinals,BE,273.0
+12,Brendan McKay,1.0,23.0,Rays,BE,77.0
+12,Alex Bregman,6.0,25.0,Astros,BE,686.0
+12,Dustin May,1.0,21.0,Dodgers,BE,47.0
+13,Paul Goldschmidt,1.0,31.0,Cardinals,1B,462.0
+13,Jose Altuve,6.0,29.0,Astros,2B,460.0
+13,Matt Carpenter,6.0,33.0,Cardinals,3B,237.0
+13,Marwin Gonzalez,6.0,30.0,Twins,SS,249.0
+13,Lorenzo Cain,6.0,33.0,Brewers,OF,308.0
+13,Paul DeJong,5.0,25.0,Cardinals,OF,412.0
+13,Adam Eaton,1.0,30.0,Nationals,OF,395.0
+13,Austin Riley,1.0,22.0,Braves,UTIL,164.0
+13,Dallas Keuchel,6.0,31.0,Braves,SP,153.0
+13,Masahiro Tanaka,6.0,30.0,Yankees,SP,312.0
+13,Mike Clevinger,6.0,28.0,Indians,SP,380.0
+13,German Marquez,6.0,24.0,Rockies,SP,372.0
+13,Steven Matz,1.0,28.0,Mets,SP,294.0
+13,Aroldis Chapman,24.0,31.0,Yankees,RP,304.0
+13,Mark Melancon,2.0,34.0,- - -,RP,201.0
+13,Andrelton Simmons,6.0,29.0,Angels,BE,242.0
+13,Robinson Cano,12.0,36.0,Mets,BE,237.0
+13,Jonathan Villar,5.0,28.0,Orioles,BE,439.0
+13,Jose Urena,11.0,27.0,Marlins,BE,46.0
+13,Alex Gordon,2.0,35.0,Royals,BE,342.0
+13,Jon Gray,13.0,27.0,Rockies,BE,270.0
+13,Hunter Pence,1.0,36.0,Rangers,BE,268.0
+13,Tim Anderson,2.0,26.0,White Sox,BE,344.0
+13,Shohei Ohtani,6.0,24.0,Angels,BE,276.0
+13,Sonny Gray,1.0,29.0,Reds,BE,439.0
+13,Aristides Aquino,1.0,25.0,Reds,DL,199.0
+13,Mallex Smith,1.0,26.0,Mariners,DL,228.0
+14,Jose Abreu,6.0,32.0,White Sox,1B,481.0
+14,Niko Goodrum,3.0,27.0,Tigers,2B,226.0
+14,Justin Turner,1.0,34.0,Dodgers,3B,411.0
+14,Eduardo Escobar,1.0,30.0,Diamondbacks,SS,534.0
+14,Harrison Bader,1.0,25.0,Cardinals,OF,185.0
+14,Andrew McCutchen,1.0,32.0,Phillies,OF,183.0
+14,Chad Pinder,1.0,27.0,Athletics,OF,191.0
+14,Daniel Vogelbach,1.0,26.0,Mariners,UTIL,357.0
+14,Merrill Kelly,1.0,30.0,Diamondbacks,SP,266.0
+14,Mike Fiers,1.0,34.0,Athletics,SP,365.0
+14,Kenta Maeda,12.0,31.0,Dodgers,SP,358.0
+14,Mike Leake,2.0,31.0,- - -,SP,290.0
+14,Julio Teheran,8.0,28.0,Braves,SP,282.0
+14,Jose Alvarado,8.0,24.0,Rays,RP,34.0
+14,Brandon Woodruff,3.0,26.0,Brewers,RP,311.0
+14,Brett Anderson,1.0,31.0,Athletics,BE,257.0
+14,Brandon Nimmo,15.0,26.0,Mets,BE,140.0
+14,Jay Bruce,1.0,32.0,- - -,BE,254.0
+14,Jonathan Loaisiga,10.0,24.0,Yankees,BE,41.0
+14,Ryan Yarbrough,1.0,27.0,Rays,BE,292.0
+14,Kyle Seager,6.0,31.0,Mariners,BE,306.0
+14,Greg Holland,1.0,33.0,Diamondbacks,BE,94.0
+14,Ketel Marte,9.0,25.0,Diamondbacks,BE,567.0
+14,Josh Donaldson,22.0,33.0,Braves,BE,499.0
+14,Aaron Hicks,1.0,29.0,Yankees,DL,157.0
+14,Joey Lucchesi,6.0,26.0,Padres,DL,263.0
