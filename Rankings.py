@@ -175,7 +175,6 @@ def points(currentSeason):
     + ( BS * pdata['BS'] )
     + ( G * pdata['G'] )
     + ( GS * pdata['GS'] )
-    + ( BS * pdata['BS'] )
     + ( H * pdata['H'] )
     + ( RA * pdata['R'] )
     + ( HR * pdata['HR'] )
@@ -777,7 +776,7 @@ def PointCycle():
 # points(2019)
 
 # Combines batting and pitching files together
-combinePoints()
+# combinePoints()
 
 # Run Marcel Projections Table to later create projections
 # marcelCombinedFile()
@@ -787,7 +786,7 @@ combinePoints()
 
 
 # Run Marcel Projections
-# marcelCalculations()
+marcelCalculations()
 
 # Run Point Cycle
 # PointCycle()
