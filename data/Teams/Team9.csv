@@ -1,33 +1,33 @@
 team_id,Trade Block,Positions,Player,Player Salary,Keeping
-9,,C,Joey Bart,1,X
+9,x,C,Joey Bart,1,X
 9,,1B,,,X
 9,,2B,Gleyber Torres,6,X
 9,,3B,Jose Ramirez,44,X
-9,,SS,Carlos Correa,21,X
+9,x,SS,Carlos Correa,21,X
 9,,OF,Mike Trout,39,X
 9,,OF,Ronald Acuna,6,X
 9,,OF,Juan Soto,6,X
 9,,UTIL,Rafael Devers,6,X
-9,,SP,Gerrit Cole,6,X
-9,,SP,Noah Syndergaard ,39,X
+9,x,SP,Gerrit Cole,6,X
+9,x,SP,Noah Syndergaard ,39,X
 9,,SP,Walker Buehler,6,X
-9,,SP,Max Scherzer,61,X
-9,,SP,Aaron Sanchez,4,X
+9,x,SP,Max Scherzer,61,X
+9,x,SP,Aaron Sanchez,4,X
 9,,RP,Roberto Osuna,6,X
-9,,RP,Liam Hendricks,3,X
-9,,BE,Yonny Chirinos,1,X
+9,x,RP,Liam Hendricks,3,X
+9,x,BE,Yonny Chirinos,1,X
 9,,BE,Casey Mize,1,X
 9,,BE,Alex Kirilloff,1,X
-9,,BE,Jazz Chisholm,1,X
-9,,BE,Drew Waters,1,X
-9,,BE,Travis d' Arnaud,1,X
-9,,BE,Johnny Cueto,1,X
-9,,BE,Deivi Garcia,1,X
-9,,BE,Josiah Gray,1,X
-9,,BE,Mark Canha,1,
-9,,BE,Starlin Castro,1,X
-9,,BE,Kolten Wong,1,X
-9,,BE,Emilio Pagan,1,X
+9,x,BE,Jazz Chisholm,1,X
+9,x,BE,Drew Waters,1,X
+9,x,BE,Travis d' Arnaud,1,X
+9,x,BE,Johnny Cueto,1,X
+9,x,BE,Deivi Garcia,1,X
+9,x,BE,Josiah Gray,1,X
+9,x,BE,Mark Canha,1,
+9,x,BE,Starlin Castro,1,X
+9,x,BE,Kolten Wong,1,X
+9,x,BE,Emilio Pagan,1,X
 9,,DL,,,X
 9,,DL,,,X
 9,,DL,,,X

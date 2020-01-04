@@ -1,33 +1,33 @@
 team_id,Trade Block,Positions,Player,Player Salary,Keeping
 5,,C,Gary Sanchez,6,X
 5,,1B,Cody Bellinger,6,X
-5,,2B,Mike Moustakas,4,X
+5,X,2B,Mike Moustakas,4,X
 5,,3B,Nolan Arenado,33,X
 5,,SS,Francisco Lindor,1,X
 5,,OF,Eloy Jimenez,6,X
-5,,OF,Ramon Laureano,2,X
-5,,OF,Joey Gallo,9,X
-5,,UTIL,Yoan Moncada,6,X
+5,X,OF,Ramon Laureano,2,X
+5,X,OF,Joey Gallo,9,x
+5,X,UTIL,Yoan Moncada,6,X
 5,,SP,Luis Castillo,2,X
 5,,SP,Chris Paddack,20,X
 5,,SP,,,X
-5,,SP,A.J. Puk,6,X
-5,,SP,Jesus Luzardo,27,X
+5,X,SP,A.J. Puk,6,X
+5,X,SP,Jesus Luzardo,27,x
 5,,RP,Edwin Diaz,6,X
 5,,RP,Josh Hader,6,X
-5,,BE,Jordan Hicks,6,X
-5,,BE,Aldaberto Mondesi ,6,X
-5,,BE,Eric Lauer,1,X
-5,,BE,Joe Musgrove,1,X
-5,,BE,Corey Seager,36,X
-5,,BE,Nolan Gorman,1,X
-5,,BE,A.J. Pollock,12,X
+5,X,BE,Jordan Hicks,6,X
+5,,BE,Aldaberto Mondesi ,6,x
+5,X,BE,Eric Lauer,1,x
+5,X,BE,Joe Musgrove,1,X
+5,X,BE,Corey Seager,36,x
+5,X,BE,Nolan Gorman,1,X
+5,X,BE,A.J. Pollock,12,x
 5,,BE,Vidal Brujan,1,X
-5,,BE,Dylan Carlson,1,X
+5,X,BE,Dylan Carlson,1,X
 5,,BE,Kristian Robinson,1,X
-5,,BE,Clint Frazier,1,X
-5,,DL,Sean Manaea,1,X
-5,,DL,Michael Fulmer,6,X
+5,X,BE,Clint Frazier,1,x
+5,X,DL,Sean Manaea,1,x
+5,X,DL,Michael Fulmer,6,x
 5,,DL,Lance McCullers Jr.,6,X
 5,,DL,,,X
 5,,DL,,,X
